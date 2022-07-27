@@ -1,0 +1,55 @@
+% gl-grupos.tex
+%
+% Copyright (C) 2019 José A. Navarro Ramón <josea.navarro1@gmail.com>
+%
+
+\chapter{Grupos}
+
+\section{Definición de grupo}
+Un grupo $\{G,\cdot\,\}$ es una estructura algebraica formada por un
+conjunto $G$, asociado a una operación '$\cdot\,$', llamada
+genéricamente \emph{producto interno}, que asocia a cada par ordenado
+$(x,y)$ de elementos de $G$, un elemento $x\cdot y$ de $G$, con las
+tres siguientes propiedades:
+\begin{enumerate}
+\item \textbf{Propiedad asociativa}. Para tres elementos cualesquiera de $G$:
+  \begin{equation}\label{eq:gru-asociativa}
+    \forall x, y, z \in G, \quad (x \cdot y) \cdot z = x \cdot (y \cdot z)
+  \end{equation}
+\item \textbf{Elemento identidad}. Hay un único elemento, $e$, de $G$, llamado
+  elemento identidad o neutro que, combinado con cualquier elemento del grupo,
+  lo deja inalterado:
+  \begin{equation}\label{eq:gru-identidad}
+    \exists !\, e \in G \ \text{tal que}\ \forall x \in G, \quad e \cdot x
+    = x \cdot e = x
+  \end{equation}
+\item \textbf{Elemento inverso}. Todo elemento $x$ de $G$ tiene un
+  inverso\footnotemark, $x^{-1}$, de manera que la composición de ambos
+  produce el elemento neutro: \footnotetext{Se podría utilizar el término
+    ``opuesto'' ($-x$) si la operación se pudiera relacionar con algún tipo de
+    adición; en caso contrario se suele denominar ``inverso'': $x^{-1}$.}
+  \begin{equation}\label{eq:gru-inverso}
+    \forall x \in G, \exists\, !\, x^{-1} \
+    \text{tal que}\ x^{-1} \cdot x = x \cdot  x^{-1} = e
+  \end{equation}
+\end{enumerate}
+
+Si además, la operación tuviera la propiedad conmutativa, se diría que
+el grupo es \emph{conmutativo} o \emph{abeliano}:
+\begin{enumerate}
+\item[4.] \textbf{Propiedad conmutativa}. Para cualesquiera dos
+  elementos $x$ e $y$ de $G$ se cumple que no importa el orden en el
+  que se realice el producto:
+  \begin{equation}\label{eq:gru-conmutativa}
+    \forall x,y \in G, \quad x \cdot y = y \cdot x
+  \end{equation}
+\end{enumerate}
+
+
+
+ 
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie.tex"
+%%% End:

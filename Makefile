@@ -5,9 +5,9 @@ FILES =	gruposlie.pkg.sty\
 	gruposlie.defs.sty\
 	portada/portada.tex\
 	tablacontenidos/tablacontenidos.tex\
-	texto/grupos.tex
+	texto/grupos.tex\
+	texto/gruposlie.tex
 	#apendices/gl-momangcuantico-genfunciones.tex
-	#texto/gl-gruposlie.tex\
 	#texto/gl-lorentz.tex\
 	#texto/gl-so3.tex\
 	#texto/gl-algebralie.tex\

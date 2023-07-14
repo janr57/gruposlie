@@ -15,7 +15,7 @@ Caracterizaremos estas rotaciones a través de dos aproximaciones diferentes:
 \item Mediante consideraciones trigonométricas.
 \item Mediante una transformación que mantiene invariante la longitud.
 \end{enumerate}
-
+n
 \subsection{Caracterización trigonométrica}
 En la figura~\ref{fig:gli-x-axes} se representa un sistema de coordenadas cartesianas\footnotemark{} y un punto, P, cualquiera del espacio con coordenadas $(x_1,x_2)$, donde $\vvv{r}$ es el vector que indica su posición con respecto al origen.
 \footnotetext{Denotamos los ejes de $\symbb{R}^2$ mediante $x_1$ y $x_2$,   igual que las coordenadas del punto. El lector no debería confudirlos, su interpretación se desprende del contexto.}
@@ -49,7 +49,7 @@ Las coordenadas de P con respecto del sistema sin girar son
       every node/.style={black,font=\small},
       eje/.style={->},
       vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
-      auxiliar/.style={lightgray, line width=.8pt},
+      dimmed/.style={lightgray, line width=.8pt},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -75,10 +75,14 @@ Las coordenadas de P con respecto del sistema sin girar son
       \draw[eje] (yini) -- (yfin);
       \node[above, name=letraejey] at (yfin) {$x_2$};
       % Vector de posición del punto P
-      %\draw[black!70,-{Latex},shorten >=1.2pt] (O) -- (P);
+      % \draw[black!70,-{Latex},shorten >=1.2pt] (O) -- (P);
       \draw[vector] (O) -- (P);
-      \draw[auxiliar] (P) -- (P |- xfin);
-      \draw[auxiliar] (P) -- (P -| yfin);
+      \path (P |- xfin) coordinate (xm);
+      \path (P -| yfin) coordinate (ym);
+      \draw[dimmed] (P) -- (xm);
+      \draw[dimmed] (P) -- (ym);
+      \node[below] at (xm) {$x_1$};
+      \node[left] at (ym) {$x_2$};
       \node[above=5pt] at (OPmidway) {$\vvv{r}$};
       % Punto
       \fill[fill=red,draw=black] (P) circle [radius=1.4pt];
@@ -119,6 +123,7 @@ Las coordenadas de P con respecto del sistema sin girar son
       eje/.style={->},
       ejerotado/.style={->, green!50!black},
       vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
+      dimmed/.style={lightgray, line width=.8pt},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -139,12 +144,12 @@ Las coordenadas de P con respecto del sistema sin girar son
       \path (O) -- coordinate (OPmidway) (P);
       % Ángulo alfa
       \path (xfin) -- (O) -- (x'fin) pic
-      [draw=black,fill=green!20,"$\alpha$",angle radius=6.4mm,
+      [draw=black,fill=green!20,"$\alpha$",angle radius=7mm,
       angle eccentricity=1.3,-{Latex[length=1.4mm,scale=.9,bend]}]
       {angle = xfin--O--x'fin};
       % Ángulo beta
       \path (x'fin) -- (O) -- (P) pic
-      [draw=black!50!,fill=black!20,"$\beta$",angle radius=6.4mm, angle
+      [draw=black!50!,fill=black!20,"$\beta$",angle radius=7mm, angle
       eccentricity=1.3] {angle = x'fin--O--P};
       % Ejes originales
       \draw[eje] (xini) -- (xfin);
@@ -156,6 +161,13 @@ Las coordenadas de P con respecto del sistema sin girar son
       \path (O) -- node[pos=1.08,name=letraejexprima] {$x_1'$} (x'fin);
       \draw[ejerotado] (O) -- (y'fin);
       \path (O) -- node[pos=1.08,name=letraejeyprima] {$x_2'$} (y'fin);
+      \path ($(O)!(P)!(x'fin)$) coordinate (x'm);
+      \path ($(O)!(P)!(y'fin)$) coordinate (y'm);
+
+      \draw[dimmed] (x'm) -- (P);
+      \node[below, rotate=\ANGROT] at (x'm) {$x'_1$};
+      \draw[dimmed] (y'm) -- (P);
+      \node[left, rotate=\ANGROT] at (y'm) {$x'_2$};
       % Punto
       \draw[vector] (O) -- (P);
       \node[above=5pt] at (OPmidway) {$\vvv{r}$};

@@ -5,15 +5,10 @@
 
 \chapter{Grupos de Lie}
 Los grupos de Lie tienen mucha importancia en matemáticas y en física.
-Aquí estamos interesados principalmente en su aplicación a la mecánica
-cuántica, en particular para comprender el concepto de spin en física de
-partículas, que en algunos textos elementales se identifica incorrectamente
-con el giro de las partículas alrededor de su eje.
+Aquí estamos interesados principalmente en su aplicación a la mecánica cuántica; en particular, para comprender el concepto de spin en física de partículas, que en algunos textos elementales se identifica incorrectamente con el giro de las partículas alrededor de su eje.
 
 \section{Rotaciones en el plano}
-Para asimilar mejor el concepto de \emph{grupo de Lie}, vamos a
-estudiar las rotaciones en el plano, olvidándonos por un momento de
-los grupos.
+Para asimilar mejor el concepto de \emph{grupo de Lie}, empezamos analizando las rotaciones en el plano, olvidándonos por un momento de los grupos.
 
 Caracterizaremos estas rotaciones a través de dos aproximaciones diferentes:
 \begin{enumerate}
@@ -22,13 +17,8 @@ Caracterizaremos estas rotaciones a través de dos aproximaciones diferentes:
 \end{enumerate}
 
 \subsection{Caracterización trigonométrica}
-En la figura~\ref{fig:gli-x-axes} se representa un sistema de coordenadas
-cartesianas\footnotemark{} y un punto, P, cualquiera del espacio con
-coordenadas $(x_1,x_2)$, donde $r$ es la distancia del punto al origen de
-coordenadas.
-\footnotetext{Denotamos los ejes de $\symbb{R}^2$ mediante $x_1$ y $x_2$,
-  igual que las coordenadas del punto. El lector no debería confudirlos,
-  su interpretación se desprende del contexto.}
+En la figura~\ref{fig:gli-x-axes} se representa un sistema de coordenadas cartesianas\footnotemark{} y un punto, P, cualquiera del espacio con coordenadas $(x_1,x_2)$, donde $\vvv{r}$ es el vector que indica su posición con respecto al origen.
+\footnotetext{Denotamos los ejes de $\symbb{R}^2$ mediante $x_1$ y $x_2$,   igual que las coordenadas del punto. El lector no debería confudirlos, su interpretación se desprende del contexto.}
 Las coordenadas de P con respecto del sistema sin girar son
 \begin{subequations}
   \begin{align}\label{eq:gli-coordxuno}
@@ -59,6 +49,7 @@ Las coordenadas de P con respecto del sistema sin girar son
       every node/.style={black,font=\small},
       eje/.style={->},
       vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
+      auxiliar/.style={lightgray, line width=.8pt},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -75,7 +66,7 @@ Las coordenadas de P con respecto del sistema sin girar son
       \path (O) -- coordinate (OPmidway) (P);
       % Ángulo alfa + beta
       \path (xfin) -- (O) -- (P)
-      pic [draw=black,fill=black!20,"$\alpha + \beta$",angle radius=8mm,
+      pic [draw=black,fill=black!20,"\footnotesize $\alpha + \beta$",angle radius=6.4mm,
       angle eccentricity=1.6,-{Latex[length=1.4mm,scale=.9,bend]}]
       {angle = xfin--O--P};
       % Ejes
@@ -86,6 +77,8 @@ Las coordenadas de P con respecto del sistema sin girar son
       % Vector de posición del punto P
       %\draw[black!70,-{Latex},shorten >=1.2pt] (O) -- (P);
       \draw[vector] (O) -- (P);
+      \draw[auxiliar] (P) -- (P |- xfin);
+      \draw[auxiliar] (P) -- (P -| yfin);
       \node[above=5pt] at (OPmidway) {$\vvv{r}$};
       % Punto
       \fill[fill=red,draw=black] (P) circle [radius=1.4pt];
@@ -146,12 +139,12 @@ Las coordenadas de P con respecto del sistema sin girar son
       \path (O) -- coordinate (OPmidway) (P);
       % Ángulo alfa
       \path (xfin) -- (O) -- (x'fin) pic
-      [draw=black,fill=green!20,"$\alpha$",angle radius=8mm,
+      [draw=black,fill=green!20,"$\alpha$",angle radius=6.4mm,
       angle eccentricity=1.3,-{Latex[length=1.4mm,scale=.9,bend]}]
       {angle = xfin--O--x'fin};
       % Ángulo beta
       \path (x'fin) -- (O) -- (P) pic
-      [draw=black!50!,fill=black!20,"$\beta$",angle radius=8mm, angle
+      [draw=black!50!,fill=black!20,"$\beta$",angle radius=6.4mm, angle
       eccentricity=1.3] {angle = x'fin--O--P};
       % Ejes originales
       \draw[eje] (xini) -- (xfin);
@@ -176,18 +169,14 @@ Las coordenadas de P con respecto del sistema sin girar son
         fit= (letraejexprima) (letraejeyprima) (letraejex) (letraejey)] {};
       \end{scope}      
     \end{tikzpicture}
-    \caption{Ejes originales en negro y ejes rotados un ángulo
-      $\alpha$ en verde.}
+    \caption{Ejes originales en negro y ejes rotados un ángulo $\alpha$ en verde.}
     \label{fig:gli-rotated-axes}
   \end{minipage}
 \end{figure}
 
-En la figura~\ref{fig:gli-rotated-axes} llevamos a cabo una \emph{rotación
-  pasiva}\footnotemark{}; en ella se giran los ejes un ángulo $\alpha$
-en sentido positivo. Observe que no cambia la distancia, $r$, entre el punto
-y el origen.
-\footnotetext{En una rotación pasiva se gira el punto de vista,
-  --el sistema de referencia-- y no el punto.}
+En la figura~\ref{fig:gli-rotated-axes} llevamos a cabo una \emph{rotación pasiva} \footnotemark{}, girando los ejes un ángulo $\alpha$ en sentido positivo.
+Observe que no cambia la distancia, $r$, entre el punto y el origen.
+\footnotetext{En una rotación pasiva se gira el punto de vista --el sistema de referencia-- y no el punto.}
 Las coordenadas del punto P con respecto del sistema girado son
 \begin{subequations}
   \begin{align}\label{eq:gli-coordxprimauno}
@@ -197,69 +186,68 @@ Las coordenadas del punto P con respecto del sistema girado son
   \end{align}
 \end{subequations}
 
-%Desarrollamos~\eqref{eq:gli-coordxuno} y~\eqref{eq:gli-coordxdos}
-%utilizando~\eqref{eq:gli-coordxprimauno} y~\eqref{eq:gli-coordxprimados}
-%\begin{align*}
-%  x_1 &= r \cos\alpha \cos\beta - r \sin\alpha \sin\beta
-%  = \cos\alpha\cdot x_1' - \sin\alpha \cdot x_2'\\
-%  x_2 &= r \sin\alpha \cos\beta + r \cos\alpha \sin\beta
-%        = \sin\alpha \cdot x_1' + \cos\alpha \cdot  x_2'
-%\end{align*}
-%
-%Estas dos últimas expresiones se pueden representar en forma matricial
-%\[
-%  \begin{pmatrix}
-%    x_1 \\ x_2
-%  \end{pmatrix}
-%  =
-%  \begin{pmatrix}
-%    \cos\alpha & -\sin\alpha\\ \sin\alpha & \cos\alpha
-%  \end{pmatrix}
-%  \begin{pmatrix}
-%    x_1' \\ x_2'
-%  \end{pmatrix}
-%\]
-%
-%Llamando $\mmm{M}$ a la matriz de la transformación, $\vvv{x}$ y $\vvv{x'}$
-%a los vectores que representan las coordenadas del punto sin rotar y rotado,
-%respectivamente, la ecuación anterior queda
-%\begin{equation}\label{eq:gli-rotpasiva-inversa-vectores}
-%  \vvv{x} = \mmm{M} \vvv{x'}
-%\end{equation}
-%
-%Estamos interesados en la transformación inversa, esto es,
-%queremos hallar las nuevas coordenadas de P respecto al sistema
-%girado si conocemos las que tiene el punto en el sistema original,
-%$\vvv{x'} = \mmm{R} \vvv{x}$, donde $\mmm{R}$ será la matriz de rotación
-%pasiva.
-%Para resolver la ecuación anterior, hay que multiplicar por la
-%iquierda\footnotemark{} la inversa de la matriz $\mmm{M}$ en la
-%ecuación~\eqref{eq:gli-rotpasiva-inversa-vectores}
-%\footnotetext{Se multiplica por la izquierda porque las matrices cuadradas
-%  junto con el producto de matrices, forman un grupo no conmutativo.}
-%\[
-%  \mmm{M}^{-1}\vvv{x} = \mmm{M}^{-1}\mmm{M}\vvv{x'}
-%\]
-%\[
-%  \mmm{M}^{-1}\vvv{x} = \mmm{I}\vvv{x'}
-%\]
-%\[
-%  \vvv{x'} = \mmm{M}^{-1}\vvv{x}
-%\]
-%Y como
-%\[
-%  \vvv{x'} = \mmm{R}\vvv{x}
-%\]
-%Se deduce que
-%\[
-%  \mmm{R} = \mmm{M}^{-1}
-%\]
-%
-%Pero antes debemos comprobar que la matriz $\mmm{M}$ tiene inversa;
-%para ello su determinante no puede ser nulo\footnotemark{}.
-%\footnotetext{Una matriz con determinante cero se llama \emph{matriz singular}
-%  y no tiene inversa.}
-%
+Desarrollamos~\eqref{eq:gli-coordxuno} y~\eqref{eq:gli-coordxdos} utilizando~\eqref{eq:gli-coordxprimauno} y~\eqref{eq:gli-coordxprimados}
+\begin{align*}
+  x_1 &= r \cos\alpha \cos\beta - r \sin\alpha \sin\beta
+  = \cos\alpha\cdot x_1' - \sin\alpha \cdot x_2'\\
+  x_2 &= r \sin\alpha \cos\beta + r \cos\alpha \sin\beta
+        = \sin\alpha \cdot x_1' + \cos\alpha \cdot  x_2'
+\end{align*}
+
+Estas dos últimas expresiones se pueden representar en forma matricial
+\[
+  \begin{pmatrix}
+    x_1 \\ x_2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\alpha & -\sin\alpha\\ \sin\alpha & \cos\alpha
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1' \\ x_2'
+  \end{pmatrix}
+\]
+
+Llamando $\mmm{M}$ a la matriz de la transformación, $\vvv{x}$ y $\vvv{x'}$
+a los vectores que representan las coordenadas del punto sin rotar y rotado,
+respectivamente, la ecuación anterior queda
+\begin{equation}\label{eq:gli-rotpasiva-inversa-vectores}
+  \vvv{x} = \mmm{M} \vvv{x'}
+\end{equation}
+
+Estamos interesados en la transformación inversa, esto es,
+queremos hallar las nuevas coordenadas de P respecto al sistema
+girado si conocemos las que tiene el punto en el sistema original,
+$\vvv{x'} = \mmm{R} \vvv{x}$, donde $\mmm{R}$ será la matriz de rotación
+pasiva.
+Para resolver la ecuación anterior, hay que multiplicar por la
+iquierda\footnotemark{} la inversa de la matriz $\mmm{M}$ en la
+ecuación~\eqref{eq:gli-rotpasiva-inversa-vectores}
+\footnotetext{Se multiplica por la izquierda porque las matrices cuadradas
+  junto con el producto de matrices, forman un grupo no conmutativo.}
+\[
+  \mmm{M}^{-1}\vvv{x} = \mmm{M}^{-1}\mmm{M}\vvv{x'}
+\]
+\[
+  \mmm{M}^{-1}\vvv{x} = \mmm{I}\vvv{x'}
+\]
+\[
+  \vvv{x'} = \mmm{M}^{-1}\vvv{x}
+\]
+Y como
+\[
+  \vvv{x'} = \mmm{R}\vvv{x}
+\]
+Se deduce que
+\[
+  \mmm{R} = \mmm{M}^{-1}
+\]
+
+Pero antes debemos comprobar que la matriz $\mmm{M}$ tiene inversa;
+para ello su determinante no puede ser nulo\footnotemark{}.
+\footnotetext{Una matriz con determinante cero se llama \emph{matriz singular}
+  y no tiene inversa.}
+
 %Calculamos el determinante y comprobamos que no es nulo
 %\[
 %  \det \mmm{M}

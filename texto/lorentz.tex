@@ -1,0 +1,336 @@
+% lorentz.tex
+%
+% Copyright (C) 2019 José A. Navarro Ramón <josea.navarro1@gmail.com>
+%
+
+\chapter{El grupo de Lorentz}
+En este capítulo vamos a analizar una transformación que no es exactamente una rotación; al menos no una rotación ordinaria en el espacio euclídeo.
+
+Anteriormente, en la ecuación~(\ref{eq:gli-rotgeneral}) obtuvimos la
+expresión general para una matriz de rotación pasiva
+\[
+  \mmm{R} (\alpha) = e^{\alpha\mmm{G}}
+\]
+
+Recordemos que $\alpha$ es el ángulo girado y $\mmm{G}$ es el generador de la rotación --una matriz antisimétrica--; esto último venía impuesto porque se debía cumplir que la matriz de rotación tenía que ser ortogonal, $\mmm{R}^\trasp \mmm{R} = \mmm{I}$.
+Además, el determinante de la matriz de rotación tenía que valer 1, $\det(\mmm{R}) = 1$.
+
+Obtuvimos la matriz de rotación pasiva en dos dimensiones
+\[
+  \mmm{R} (\alpha)
+  = e^{\alpha\mmm{G}}
+  = e^{\alpha\,{\scriptscriptstyle
+      \begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}}}
+  =
+  \begin{pmatrix}
+    \cos\alpha & \sin\alpha\\
+    -\sin\alpha & \cos\alpha
+  \end{pmatrix}
+\]
+
+Se puede comprobar que el generador de esta rotación es una matriz antisimétrica
+\[
+  \mmm{G} = \begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}
+\]
+
+\section{Generador simétrico}
+Pero ahora nos podríamos preguntar qué pasaría si el generador fuera simétrico, por ejemplo
+\[
+  \mmm{G} = \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix}
+\]
+
+Está claro que este generador ya no puede ser el de una rotación. Nuestro objetivo será obtener la matriz de transformación en dos dimensiones de forma explícita, que por no ser una rotación la representaremos por $\mmmg{\Lambda} (\alpha)$
+\begin{equation}\label{eq:lor-lambdarotexp}
+  \mmmg{\Lambda} (\alpha)
+  = e^{\alpha\,{\scriptscriptstyle \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix}}}
+\end{equation}
+
+Desarrollamos la exponencial en serie de potencias
+\[
+  \mmmg{\Lambda} (\alpha)
+  =
+  \mmm{I} + \mmm{G}\kern1pt\alpha + \dfrac{\mmm{G}^2}{2!}\,\alpha^2
+  + \dfrac{\mmm{G}^3}{3!}\,\alpha^3 + \dfrac{\mmm{G}^4}{4!}\,\alpha^4
+  + \dfrac{\mmm{G}^5}{5!}\,\alpha^5 
+  + \cdots
+\]
+
+Presentamos las potencias de la matriz generadora, sin mostrar todos los detalles
+\begin{align*}
+  \mmm{G}^2 &=  \mmm{I}\\
+  \mmm{G}^3 &= \mmm{G}^2\,\mmm{G} = \mmm{I}\kern1pt\mmm{G} = \mmm{G}\\
+  \mmm{G}^4 &= \mmm{G}^2\,\mmm{G}^2 = \mmm{I}\kern1pt\mmm{I} = \mmm{I}\\
+  \cdots &
+\end{align*}
+
+Sustituimos estas potencias en el desarrollo de la matriz de transformación
+\begin{align*}
+  \mmmg{\Lambda} (\alpha)
+  &=
+    \mmm{I} + \mmm{G}\kern1pt\alpha + \dfrac{\mmm{I}}{2!}\,\alpha^2
+    + \dfrac{\mmm{G}}{3!}\,\alpha^3 + \dfrac{\mmm{I}}{4!}\,\alpha^4
+    + \dfrac{\mmm{G}}{5!}\,\alpha^5 + \dfrac{\mmm{I}}{6!}\,\alpha^6
+    + \cdots\\
+  &= \mmm{I} + \dfrac{\mmm{I}}{2!}\,\alpha^2 + \dfrac{\mmm{I}}{4!}\,\alpha^4
+    + \cdots
+    + \mmm{G}\kern1pt\alpha  + \dfrac{\mmm{G}}{3!}\,\alpha^3
+    + \dfrac{\mmm{G}}{5!}\,\alpha^5
+    + \cdots\\
+  &= \left(1 + \dfrac{1}{2!}\,\alpha^2 + \dfrac{1}{4!}\,\alpha^4
+    +\cdots\right) \mmm{I}
+    + \left(\alpha + \dfrac{1}{3!}\,\alpha^3 + \dfrac{1}{5!}\,\alpha^5
+    +\cdots\right) \mmm{B}\\
+  &= \cosh\alpha\,\mmm{I} + \sinh\alpha\,\mmm{G}\\
+  &= \cosh\alpha\,\begin{pmatrix}1 & 0 \\ 0 & 1 \end{pmatrix}
+    + \sinh\alpha\,\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\\
+    \end{align*}
+
+\section{Transformación de Lorentz}
+La matriz de transformación en dos dimensiones resulta
+\begin{equation}\label{eq:lor-lambdarotmatriz}
+  \mmmg{\Lambda} (\alpha)
+  =
+  \begin{pmatrix}
+    \cosh\alpha & \sinh\alpha \\ \sinh\alpha & \cosh\alpha
+  \end{pmatrix}
+\end{equation}
+
+Esta matriz es la que representa la transformación de Lorentz, que es fundamental en relatividad.
+Para seguir la costumbre en esta disciplina, las componentes de los vectores de Lorentz las representaremos con un superíndice; más tarde se verá el motivo.
+
+\subsection{Invariante de la transformación}
+Ahora estamos interesados en buscar si esta transformación tiene algún invariante
+\[
+  \vvv{x'} = \mmmg{\Lambda} \, \vvv{x}
+\]
+\[
+  \begin{pmatrix}
+    x'^0 \\ x'^1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cosh\alpha & \sinh\alpha \\ \sinh\alpha & \cosh\alpha
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x^0 \\ x^1
+  \end{pmatrix}
+\]
+
+\begin{align*}
+  x'^0 &= x^0 \cosh\alpha + x^1 \sinh\alpha\\
+  x'^1 &= x^0 \sinh\alpha + x^1 \cosh\alpha
+\end{align*}
+
+Elevamos al cuadrado cada ecuación
+\begin{align*}
+  (x'^0)^2 &= \left(x^0 \cosh\alpha + x^1 \sinh\alpha\right)^2\\
+  &= (x^0)^2\cosh^2\alpha + (x^1)^2\sinh^2\alpha + 2x^0x^1\sinh\alpha\,\cosh\alpha
+\end{align*}
+\begin{align*}
+  (x'^1)^2 &= \left(x^0\sinh\alpha + x^1\cosh\alpha\right)^2\\
+           &= (x^0)^2\sinh^2\alpha + (x^1)^2\cosh^2\alpha
+             + 2x^0x^1\sinh\alpha\,\cosh\alpha
+\end{align*}
+
+Si sumáramos las ecuaciones no encontraríamos ningún invariante; en lugar de ello las restamos y tenemos en cuenta que $\cosh^2\alpha - \sinh^2\alpha = 1$
+\begin{align*}
+  (x'^0)^2 - (x'^1)^2
+  &= (x^0)^2 (\cosh^2\alpha - \sinh^2\alpha)
+    + (x^1)^2 (\sinh^2\alpha - \cosh^2\alpha)
+  = (x^0)^2 - (x^1)^2
+\end{align*}
+
+Entonces el invariante resulta ser
+\begin{equation}\label{eq:lor-invariante}
+  (x'^0)^2 - (x'^1)^2 = (x^0)^2 - (x^1)^2 = \text{constante}
+\end{equation}
+
+\subsection{Métrica}
+Hemos representado el invariante a través de las componentes. Ahora tenemos que conseguirlo sin ellas.
+Para ello, analizamos el cuadrado de $\vvv{x}$ y comprobamos que no da el invariante de esta transformación
+\[
+  \vvv{x}^2 = \vvv{x}^\trasp\,\vvv{x}
+  = \begin{pmatrix}
+    x^0 & x^1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x^0 \\ x^1
+  \end{pmatrix}
+  = (x^0)^2 + (x^1)^2
+  \neq
+  (x^0)^2 - (x^1)^2
+\]
+
+Generalizaremos el concepto de producto escalar para que sirva para los vectores de rotación y los vectores de Lorentz.
+El producto escalar de dos vectores $x$ e $y$ en forma matricial se define
+\[
+  \vvv{x}\cdot \vvv{y} = \vvv{x}^\trasp\mmmg{\eta}\kern1pt\vvv{y}
+\]
+donde $\mmmg{\eta}$ es una matriz cuadrada que denominamos \emph{métrica}.
+
+Veamos un ejemplo con vectores normales de rotación; en este caso la
+métrica es la matriz identidad y el cuadrado, por ejemplo, funciona
+como se espera
+\[
+  \vvv{x}^2
+  = \vvv{x}\cdot \vvv{x}
+  = \vvv{x}^\trasp \mmmg{\eta}\kern1pt\vvv{x}
+  = \vvv{x}^\trasp \kern1pt\mmm{I}\,\vvv{x} = \vvv{x}^\trasp \vvv{x}
+\]
+\[
+  \vvv{x}^2 
+  = \begin{pmatrix}
+    x_1 & x_2
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    1 & 0 \\ 0 & 1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x_1 \\ x_2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x_1 & x_2
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x_1 \\ x_2
+  \end{pmatrix}
+  = x_1^2 + x_2^2
+\]
+
+El cuadrado de un vector de Lorentz será, con la métrica apropiada y en dos dimensiones
+\begin{align*}
+  \vvv{x}^2
+  &= \vvv{x}\cdot \vvv{x}
+    = \vvv{x}^\trasp \mmmg{\eta}\,\vvv{x}
+  =
+  \begin{pmatrix}
+    x^0 & x^1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    1 & 0 \\ 0 & -1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x^0 \\ x^1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x^0 & x^1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x^0 \\ -x^1
+  \end{pmatrix}\\
+  &= (x^0)^2 - (x^1)^2
+\end{align*}
+
+La teoría de la relatividad contempla cuatro dimensiones y los vectores se denominan cuadrivectores
+\[
+  \begin{pmatrix}
+    x^0 \\ x^1 \\ x^2 \\ x^3
+  \end{pmatrix}
+\]
+
+La primera, $x^0$, es una componente temporal, a menudo se escribe $ct$, y las demás, $x^1$, $x^2$ y $x^3$, son las tres componentes espaciales, que a veces representamos como $x$, $y$ y $z$.
+
+La métrica en cuatro dimensiones debe cambiar el signo de las componentes espaciales y dejar inalterada la componente temporal
+\[
+  \mmmg{\eta}\kern1pt\vvv{x} =
+  \begin{pmatrix}
+    1 & 0 & 0 & 0\\
+    0 & -1 & 0 & 0\\
+    0 & 0 & -1 & 0\\
+    0 & 0 & 0 & -1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x^0 \\ x^1 \\ x^2 \\ x^3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x^0 \\ -x^1 \\ -x^2 \\ -x^3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x_0 \\ x_1 \\ x_2 \\ x_3
+  \end{pmatrix}
+\]
+
+\subsection{Vector dual}
+El vector obtenido en la operación anterior se llama vector dual de $\vvv{x}$. Decimos que el vector dual de uno dado es el resultado de operar la métrica con el vector. Así, para hallar el vector dual del vector de Lorentz $\vvv{x}$ en dos dimensiones
+\[
+  \mmmg{\eta}\kern1pt\vvv{x} =
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \,
+  \begin{pmatrix}x^0 \\x^1 \end{pmatrix} =
+  \begin{pmatrix}x^0 \\ -x^1 \end{pmatrix} =
+  \begin{pmatrix}x_0 \\ x_1 \end{pmatrix}
+\]
+
+Como se puede observar en la igualdad anterior, en la práctica, en lugar de tomarnos la molestia de cambiar el signo o valor de algunas componentes al operar la métrica con un vector de Lorentz, lo que hacemos es cambiar de sitio el subíndice o superíndice de manera que, si está como superíndice lo convertimos en subíndice y viceversa.
+\[
+  \mmmg{\eta}
+  \begin{pmatrix}
+    x^0 \\ x^1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}x_0 \\ x_1 \end{pmatrix}
+\]
+
+Sólo hay que tener la precaución de que cuando se realice el cambio, habría que cambiar el signo de las componentes espaciales y mantener el de la componente temporal en el caso de métrica y vectores de Lorentz
+\[
+  x_0 = x^0 ;\hspace{1em} x_1 = -x^1
+\]
+
+El invariante de Lorentz se podrá escribir ahora como
+\begin{align*}
+  (\vvv{x'})^2 &= \vvv{x}^\trasp \mmmg{\eta}\kern1pt\vvv{x}
+  =
+  \begin{pmatrix}
+    x^0 & x^1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    1 & 0 \\ 0 & -1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x^0 \\ x^1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x^0 & x^1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x^0 \\ -x^1
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    x^0 & x^1
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x_0 \\ x_1
+  \end{pmatrix}
+  = x^0 x_0 + x^1 x_1
+  = x_0 x^0 + x_1 x^1
+  = x_\mu x^\mu
+\end{align*}
+  
+En la última expresión se ha utilizado el criterio de la suma de Einstein. Utilizamos letras griegas para el índice cuando implica componentes temporales y espaciales; si sólo estuvieran implicadas componentes espaciales, se usarían las típicas, $i$, $j$, $k$, etc.
+
+
+
+ 
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie.tex"
+%%% End:

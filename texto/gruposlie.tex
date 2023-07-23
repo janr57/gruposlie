@@ -158,19 +158,19 @@ Las coordenadas de P con respecto del sistema sin girar son
       \node[above, name=letraejey] at (yfin) {$x_2$};
       % Ejes rotados
       \draw[ejerotado] (O) -- (x'fin);
-      \path (O) -- node[pos=1.08,name=letraejexprima] {$x_1'$} (x'fin);
+      \path (O) -- node[pos=1.08,name=letraejexprima,green!50!black] {$x_1'$} (x'fin);
       \draw[ejerotado] (O) -- (y'fin);
-      \path (O) -- node[pos=1.08,name=letraejeyprima] {$x_2'$} (y'fin);
+      \path (O) -- node[pos=1.08,name=letraejeyprima,green!50!black] {$x_2'$} (y'fin);
       \path ($(O)!(P)!(x'fin)$) coordinate (x'm);
       \path ($(O)!(P)!(y'fin)$) coordinate (y'm);
 
       \draw[dimmed] (x'm) -- (P);
-      \node[below, rotate=\ANGROT] at (x'm) {$x'_1$};
+      \node[below, rotate=\ANGROT,green!50!black] at (x'm) {$x'_1$};
       \draw[dimmed] (y'm) -- (P);
-      \node[left, rotate=\ANGROT] at (y'm) {$x'_2$};
+      \node[left, rotate=\ANGROT,green!50!black] at (y'm) {$x'_2$};
       % Punto
       \draw[vector] (O) -- (P);
-      \node[above=5pt] at (OPmidway) {$\vvv{r}$};
+      \node[above=5pt] at (OPmidway) {$\vvv{r'}$};
       \fill[fill=red,draw=black] (P) circle [radius=1.4pt];
       \node[above right] at (P) {$P$};
       % Origen
@@ -298,7 +298,13 @@ Primero hallamos la traspuesta, que se obtiene al intercambiar filas por columna
   \end{pmatrix}
 \]
 
-Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando elemento por elemento --ya que no se hace muy pesado, por tener solo cuatro elementos--.
+Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando elemento por elemento --ya que no se hace muy pesado, por tener solo cuatro elementos--
+\[
+  \text{adj}(\mmm{M^\trasp)
+    = \begin{vmatrix}
+        A_{11} & A_{12} \\ A_{21} & A_{22}
+      \end{vmatrix}
+\]
 
 El cofactor, $A_{ij}$, de cada elemento $B_{ij}$ se obtiene multiplicando $(-1)^{i+j}$ por el menor complementario de $B_{ij}$.
 El menor complementario es el determinante que queda al eliminar la fila $i$ y la $j$ de la matriz.
@@ -450,7 +456,7 @@ Cuando se utiliza el criterio de la suma de Einstein, las expresiones son más
 fáciles de escribir; en nuestro caso, las~\eqref{eq:gli-criteriosumaeinstein}
 son totalmente equivalentes a las~(\ref{eq:gli-sumatorio}).
 
-\subsection[Mediante transformación que deja invariante las distancias] {Caracterización por medio de una transformación que deja invariante las distancias}\label{subsec:invariante_distancias}
+\subsection[Mediante transformación que deja invariante la longitud] {Caracterización por medio de una transformación que deja invariante la longitud}\label{invariante_longitud}
 Ahora nos olvidaremos de la trigonometría y deduciremos las características de la matriz de rotación $\mmm{R}$ de una manera más sofisticada.
 
 Cuando se produce una rotación las distancias se deben conservar.

@@ -18,7 +18,7 @@ Caracterizaremos estas rotaciones a través de dos aproximaciones diferentes:
 \end{enumerate}
 n
 \subsection{Caracterización trigonométrica}
-En la figura~\ref{fig:gli-x_axes} se representa un sistema de coordenadas cartesianas\footnotemark{} y un punto, P, cualquiera del espacio con coordenadas $(x_1,x_2)$, donde $\vvv{r}$ es el vector que indica su posición con respecto al origen.
+En la figura~\ref{fig:gli-x_axes} se representa un sistema de coordenadas cartesianas rectangulares\footnotemark{} y un punto P cualquiera del espacio, con coordenadas $(x_1,x_2)$, donde $\vvv{r}$ es el vector que indica su posición con respecto al origen.
 \footnotetext{Denotamos los ejes de $\symbb{R}^2$ mediante $x_1$ y $x_2$,   igual que las coordenadas del punto. El lector no debería confundirlos, su interpretación se desprende del contexto.}
 Las coordenadas de P con respecto del sistema sin girar son
 \begin{subequations}
@@ -41,7 +41,7 @@ Las coordenadas de P con respecto del sistema sin girar son
     \pgfmathsetmacro{\YPLONG}{3}
     % Vector P
     \pgfmathsetmacro{\PMOD}{2.5}
-    \pgfmathsetmacro{\PANG}{60}
+    \pgfmathsetmacro{\PANG}{50}
     %
     \centering
     \begin{tikzpicture}[%
@@ -67,14 +67,19 @@ Las coordenadas de P con respecto del sistema sin girar son
       \path (O) -- coordinate (OPmidway) (P);
       % Ángulo alfa + beta
       \path (xfin) -- (O) -- (P)
+%      pic [draw=black,fill=black!20,"\footnotesize $\alpha + \beta$",angle radius=6.3mm,
+%      angle eccentricity=1.6,-{Latex[length=1.4mm,scale=.9,bend]}]
+%      {angle = xfin--O--P};
       pic [draw=black,fill=black!20,"\footnotesize $\alpha + \beta$",angle radius=6.3mm,
-      angle eccentricity=1.6,-{Latex[length=1.4mm,scale=.9,bend]}]
+      angle eccentricity=1.6]
       {angle = xfin--O--P};
       % Ejes
       \draw[eje] (xini) -- (xfin);
       \node[right, name=letraejex] at (xfin) {$x_1$};
+      \coordinate (below) at ($(letraejex) - (0,1.0em)$);
       \draw[eje] (yini) -- (yfin);
       \node[above, name=letraejey] at (yfin) {$x_2$};
+      \coordinate (left) at ($(letraejey) - (1.3em,0)$);
       % Vector de posición del punto P
       % \draw[black!70,-{Latex},shorten >=1.2pt] (O) -- (P);
       \draw[vector] (O) -- (P);
@@ -94,7 +99,7 @@ Las coordenadas de P con respecto del sistema sin girar son
       \begin{scope}[on background layer]
 %        \node [line width=1pt, draw=\backgroundbordercolor,
 %        fill=\backgroundcolor, fit= (O) (letraejex) (letraejey)] {};
-        \node [background, fit= (O) (letraejex) (letraejey)] {};
+        \node [background, fit= (O) (left) (letraejex) (letraejey) (below)] {};
       \end{scope}
     \end{tikzpicture}
     \caption{Ejes originales sin girar y punto P del plano, de coordenadas $(x_1,x_2)$.}
@@ -112,7 +117,7 @@ Las coordenadas de P con respecto del sistema sin girar son
     \pgfmathsetmacro{\YPLONG}{3}
     % Vector P
     \pgfmathsetmacro{\PMOD}{2.5}
-    \pgfmathsetmacro{\PANG}{60}
+    \pgfmathsetmacro{\PANG}{55}
     % Ángulo rotado
     \pgfmathsetmacro{\ANGROT}{20}
     \pgfmathsetmacro{\ANGROTPLUSNINETY}{\ANGROT + 90}
@@ -121,8 +126,8 @@ Las coordenadas de P con respecto del sistema sin girar son
     \begin{tikzpicture}[%
       scale=\scl,
       every node/.style={black,font=\small},
-      eje/.style={->},
-      ejerotado/.style={->, green!50!black},
+      ejerotado/.style={->},
+      eje/.style={->, black!35},
       vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
       dimmed/.style={lightgray, line width=.8pt},
       background/.style={
@@ -145,7 +150,7 @@ Las coordenadas de P con respecto del sistema sin girar son
       \path (O) -- coordinate (OPmidway) (P);
       % Ángulo alfa
       \path (xfin) -- (O) -- (x'fin) pic
-      [draw=black,fill=green!20,"$\alpha$",angle radius=7mm,
+      [draw=black,fill=green!30,"$\alpha$",angle radius=7mm,
       angle eccentricity=1.3,-{Latex[length=1.4mm,scale=.9,bend]}]
       {angle = xfin--O--x'fin};
       % Ángulo beta
@@ -154,21 +159,22 @@ Las coordenadas de P con respecto del sistema sin girar son
       eccentricity=1.3] {angle = x'fin--O--P};
       % Ejes originales
       \draw[eje] (xini) -- (xfin);
-      \node[right, name=letraejex] at (xfin) {$x_1$};
+      \node[right, name=letraejex, black!35] at (xfin) {$x_1$};
+      \coordinate (below) at ($(letraejex) - (0,1.0em)$);
       \draw[eje] (yini) -- (yfin);
-      \node[above, name=letraejey] at (yfin) {$x_2$};
+      \node[above, name=letraejey, black!35] at (yfin) {$x_2$};
       % Ejes rotados
       \draw[ejerotado] (O) -- (x'fin);
-      \path (O) -- node[pos=1.08,name=letraejexprima,green!50!black] {$x_1'$} (x'fin);
+      \path (O) -- node[pos=1.08,name=letraejexprima] {$x_1'$} (x'fin);
       \draw[ejerotado] (O) -- (y'fin);
-      \path (O) -- node[pos=1.08,name=letraejeyprima,green!50!black] {$x_2'$} (y'fin);
+      \path (O) -- node[pos=1.08,name=letraejeyprima] {$x_2'$} (y'fin);
       \path ($(O)!(P)!(x'fin)$) coordinate (x'm);
       \path ($(O)!(P)!(y'fin)$) coordinate (y'm);
 
       \draw[dimmed] (x'm) -- (P);
-      \node[below, rotate=\ANGROT,green!50!black] at (x'm) {$x'_1$};
+      \node[below, rotate=\ANGROT] at (x'm) {$x'_1$};
       \draw[dimmed] (y'm) -- (P);
-      \node[left, rotate=\ANGROT,green!50!black] at (y'm) {$x'_2$};
+      \node[left, rotate=\ANGROT] at (y'm) {$x'_2$};
       % Punto
       \draw[vector] (O) -- (P);
       \node[above=5pt] at (OPmidway) {$\vvv{r'}$};
@@ -179,10 +185,10 @@ Las coordenadas de P con respecto del sistema sin girar son
       % Fondo
       \begin{scope}[on background layer]
         \node [background,
-        fit= (letraejexprima) (letraejeyprima) (letraejex) (letraejey)] {};
+        fit= (letraejexprima) (letraejeyprima) (below) (letraejex) (letraejey)] {};
       \end{scope}      
     \end{tikzpicture}
-    \caption{Ejes originales en negro y ejes rotados un ángulo $\alpha$ en verde. Las coordenadas con respecto a estos nuevos ejes son $(x'_1,x'_2)$.}
+    \caption{Ejes rotados un ángulo $\alpha$. Las coordenadas de P con respecto a estos nuevos ejes son $(x'_1,x'_2)$.}
     \label{fig:gli-rotated_axes}
   \end{minipage}
 \end{figure}
@@ -212,14 +218,14 @@ Desarrollamos~\eqref{eq:gli-coordxuno} y~\eqref{eq:gli-coordxdos} y  utilizamos~
 Estas dos últimas expresiones se pueden representar en forma matricial
 \[
   \begin{pmatrix}
-    x_1 \\ x_2
+    x_1 \\[0.3ex] x_2
   \end{pmatrix}
   =
   \begin{pmatrix}
-    \cos\alpha & -\sin\alpha\\ \sin\alpha & \cos\alpha
+    \cos\alpha & -\sin\alpha\\[0.3ex] \sin\alpha & \cos\alpha
   \end{pmatrix}
   \begin{pmatrix}
-    x_1' \\ x_2'
+    x_1' \\[0.3ex] x_2'
   \end{pmatrix}
 \]
 
@@ -301,7 +307,7 @@ Primero hallamos la traspuesta, que se obtiene al intercambiar filas por columna
 
 Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando elemento por elemento --ya que no se hace muy pesado, por tener solo cuatro elementos--
 \[
-  \text{adj}(\mmm{M^\trasp)
+  \text{adj}(\mmm{M^\trasp}
     = \begin{vmatrix}
         A_{11} & A_{12} \\ A_{21} & A_{22}
       \end{vmatrix}

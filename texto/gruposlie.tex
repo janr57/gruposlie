@@ -11,16 +11,16 @@ Aquí estamos interesados principalmente en su aplicación a la mecánica cuánt
 \section{Rotaciones en el plano}
 Para asimilar mejor el concepto de \emph{grupo de Lie}, empezamos analizando las rotaciones en el plano, olvidándonos por un momento de los grupos.
 
-Caracterizaremos estas rotaciones a través de dos aproximaciones diferentes:
+Caracterizaremos estas rotaciones de dos formas diferentes:
 \begin{enumerate}
 \item Mediante consideraciones trigonométricas.
 \item Mediante una transformación que mantiene invariante la longitud.
 \end{enumerate}
-n
+
 \subsection{Caracterización trigonométrica}
 En la figura~\ref{fig:gli-x_axes} se representa un sistema de coordenadas cartesianas rectangulares\footnotemark{} y un punto P cualquiera del espacio, con coordenadas $(x_1,x_2)$, donde $\vvv{r}$ es el vector que indica su posición con respecto al origen.
 \footnotetext{Denotamos los ejes de $\symbb{R}^2$ mediante $x_1$ y $x_2$,   igual que las coordenadas del punto. El lector no debería confundirlos, su interpretación se desprende del contexto.}
-Las coordenadas de P con respecto del sistema sin girar son
+Las coordenadas de P con respecto a este sistema son
 \begin{subequations}
   \begin{align}\label{eq:gli-coordxuno}
     x_1 &= r \cos(\alpha+\beta)\\
@@ -193,9 +193,9 @@ Las coordenadas de P con respecto del sistema sin girar son
   \end{minipage}
 \end{figure}
 
-En la figura~\ref{fig:gli-rotated_axes} llevamos a cabo una \emph{rotación pasiva} \footnotemark{}, girando los ejes un ángulo $\alpha$ en sentido positivo --antihorario--.
-Observe que no cambia la distancia, $r$, entre el punto y el origen.
-\footnotetext{En una rotación pasiva se gira el punto de vista --el sistema de referencia-- y no el punto.}
+En la figura~\ref{fig:gli-rotated_axes} llevamos a cabo una \emph{rotación pasiva}\footnotemark{}, girando los ejes un ángulo $\alpha$ en sentido positivo (antihorario).
+Observe que no cambia la distancia, $r$, entre el punto y el origen, esto es, r'=r.
+\footnotetext{En una rotación pasiva se gira el punto de vista (el sistema de referencia) y no el punto.}
 Las coordenadas del punto P con respecto del sistema girado son
 \begin{subequations}
   \begin{align}\label{eq:gli-coordxprimauno}
@@ -208,17 +208,17 @@ Las coordenadas del punto P con respecto del sistema girado son
 Desarrollamos~\eqref{eq:gli-coordxuno} y~\eqref{eq:gli-coordxdos} y  utilizamos~\eqref{eq:gli-coordxprimauno} y~\eqref{eq:gli-coordxprimados}
 \begin{align*}
   x_1 &= r \cos\alpha \cos\beta - r \sin\alpha \sin\beta
-        = (r\cos\beta)\cos\alpha - (r\sin\beta)\sin\beta\\
+        = \cos\alpha\,(r\cos\beta) - \sin\alpha\,(r\sin\beta)\\
         &= \cos\alpha\cdot x_1' - \sin\alpha \cdot x_2'\\
   x_2 &= r \sin\alpha \cos\beta + r \cos\alpha \sin\beta
-        = (r \cos\beta)\sin\alpha + (r \sin\beta)\cos\alpha\\
-        &= \sin\alpha \cdot x_1' + \cos\alpha \cdot  x_2'
+        = \sin\alpha\,(r \cos\beta) + \cos\alpha\,(r \sin\beta)\\
+        &= \sin\alpha \cdot x_1' + \cos\alpha \cdot x_2'
 \end{align*}
 
 Estas dos últimas expresiones se pueden representar en forma matricial
 \[
   \begin{pmatrix}
-    x_1 \\[0.3ex] x_2
+    x_1 \\[0.4ex] x_2
   \end{pmatrix}
   =
   \begin{pmatrix}
@@ -264,7 +264,8 @@ Se deduce que la matriz de rotación pasiva es la inversa de $\mmm{M}$
   \mmm{R} = \mmm{M}^{-1}
 \]
 
-Pero antes debemos comprobar que la matriz $\mmm{M}$ tiene inversa; para ello su determinante no puede ser nulo\footnotemark{}.
+Antes de nada, debemos comprobar que la matriz $\mmm{M}$ tiene inversa; para ello su determinante
+no puede ser nulo\footnotemark{}.
 \footnotetext{Una matriz con determinante cero se llama \emph{matriz singular}
   y no tiene inversa.}
 
@@ -280,7 +281,7 @@ Calculamos el determinante y comprobamos que no es nulo, por lo que tiene invers
 
 La inversa de una matriz es igual a la adjunta de la traspuesta dividida entre su determinante
 \[
-  \mmm{M}^{-1} = \dfrac{1}{\det(\mmm{M})}\,\text{adj} (\mmm{M}^\trasp)
+  \mmm{M}^{-1} = \dfrac{1}{\det(\mmm{M})}\,\text{adj} \left(\mmm{M}^\trasp\right)
 \]
 
  Nuestra matriz $\mmm{M}$ es
@@ -305,18 +306,22 @@ Primero hallamos la traspuesta, que se obtiene al intercambiar filas por columna
   \end{pmatrix}
 \]
 
-Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando elemento por elemento --ya que no se hace muy pesado, por tener solo cuatro elementos--
+Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando elemento por elemento
+--ya que no se hace muy pesado, por tener solo cuatro elementos--
 \[
-  \text{adj}(\mmm{M^\trasp}
+  \text{adj}\left(\mmm{M^\trasp}\right)
     = \begin{vmatrix}
         A_{11} & A_{12} \\ A_{21} & A_{22}
       \end{vmatrix}
 \]
 
-El cofactor, $A_{ij}$, de cada elemento $B_{ij}$ se obtiene multiplicando $(-1)^{i+j}$ por el menor complementario de $B_{ij}$.
+El cofactor, $A_{ij}$, de cada elemento $B_{ij}$ se obtiene multiplicando $(-1)^{\,i+j}$ por el
+menor complementario de $B_{ij}$.
 El menor complementario es el determinante que queda al eliminar la fila $i$ y la $j$ de la matriz.
 
-Calculamos el cofactor de cada uno de los elementos de la matriz traspuesta. El elemento lo indicamos en rojo y, en este caso, el menor complementario es un determinante formado por un único elemento, que está en negro
+Calculamos el cofactor de cada uno de los elementos de la matriz traspuesta. El elemento lo
+indicamos en rojo y, en este caso, el menor complementario es un determinante formado por un único
+elemento, que está en negro
 \begin{align*}
   A_{11} &= (-1)^{1+1}\,
   \begin{vmatrix}
@@ -411,7 +416,7 @@ las del sistema sin girar
 
 \[
   \begin{pmatrix}
-    x'_1\\ x'_2
+    x'_1\\[0.4ex]x'_2
   \end{pmatrix}
   =
   \begin{pmatrix}
@@ -429,7 +434,7 @@ Abandonamos por un instante nuestro guión para explicar la notación de Einstei
 Supongamos que queremos calcular las coordenadas $\vvv{x'}$ mediante el producto matricial
 \[
   \begin{pmatrix}
-    x'_1\\ x'_2
+    x'_1\\[0.4ex] x'_2
   \end{pmatrix}
   =
   \begin{pmatrix}
@@ -441,7 +446,6 @@ Supongamos que queremos calcular las coordenadas $\vvv{x'}$ mediante el producto
     x_1 \\ x_2
   \end{pmatrix}  
 \]
-
 \begin{align*}
   x'_1 &= R_{11} x_1 + R_{12} x_2\\
   x'_2 &= R_{21} x_1 + R_{22} x_2
@@ -470,13 +474,14 @@ son totalmente equivalentes a las~(\ref{eq:gli-sumatorio}).
 \subsection[Mediante transformación que deja invariante la longitud] {Caracterización por medio de una transformación que deja invariante la longitud}\label{invariante_longitud}
 Ahora nos olvidaremos de la trigonometría y deduciremos las características de la matriz de rotación $\mmm{R}$ de una manera más sofisticada.
 
-Cuando se produce una rotación las distancias se deben conservar.
+Cuando se realiza una rotación las distancias se deben conservar.
 En nuestro ejemplo de la figura~\ref{fig:gli-rotated_axes}, la distancia $r = |\vvv{r}|$ del origen al punto es la misma en cualquiera de los sistemas de coordenadas, el original y el girado.
 
-Abordaremos esta sección de dos formas; en la primera manera desarrollaremos los cálculos con todo detalle y, en la segunda, seguiremos un razonamiento aún más sofisticado y potente.
+Abordaremos este apartado de dos formas; en la primera manera desarrollaremos los cálculos con todo detalle y, en la segunda, seguiremos un razonamiento aún más sofisticado y potente.
 
 \subsubsection{Desarrollo con gran detalle}
-El objetivo de este desarrollo es el de coger confianza para utilizar al final el método más potente, que veremos después.
+El objetivo de este desarrollo es el de comprobar que se puede llegar al resultado de múltiples
+formas, y utilizar al final el método más potente.
 
 Llamemos $s$ a la distancia que se conserva, por ejemplo la distancia entre el punto P y el origen en la figura~\eqref{fig:gli-rotated_axes}
 \[
@@ -494,7 +499,7 @@ La invariancia de distancias se expresa más cómodamente sin raíces cuadradas
 Además sabemos que las nuevas coordenadas se obtendrán a partir de las antiguas a través de una matriz de rotación
 \[
   \begin{pmatrix}
-    x'_1 \\ x'_2
+    x'_1 \\[0.4ex] x'_2
   \end{pmatrix}
   =
   \begin{pmatrix}
@@ -637,7 +642,7 @@ Recalcamos que hemos llegado a esta conclusión sin presuponer la dimensión del
   = 1
 \]
 \[
- \det\left(\mmm{R}\right)^2 = 1
+ \left[\det(\mmm{R})\right]^2 = 1
 \]
 
 Así que

@@ -469,7 +469,7 @@ consideremos que hay que aplicarlo cuando aparezcan índices repetidos
 
 Cuando se utiliza el criterio de la suma de Einstein, las expresiones son más
 fáciles de escribir; en nuestro caso, las~\eqref{eq:gli-criteriosumaeinstein}
-son totalmente equivalentes a las~(\ref{eq:gli-sumatorio}).
+son totalmente equivalentes a las~\eqref{eq:gli-sumatorio}.
 
 \subsection[Mediante transformación que deja invariante la longitud] {Caracterización por medio de una transformación que deja invariante la longitud}\label{invariante_longitud}
 Ahora nos olvidaremos de la trigonometría y deduciremos las características de la matriz de rotación $\mmm{R}$ de una manera más sofisticada.
@@ -518,7 +518,7 @@ Desarrollando, obtenemos las nuevas $(x'_1,x'_2)$ a partir de las originales, $(
   x'_2 &= R_{21} x_1 + R_{22} x_2
 \end{align*}
 
-Obligamos a que se cumpla~(\ref{eq:gli-invariancia_dist})
+Obligamos a que se cumpla~\eqref{eq:gli-invariancia_dist}
 \begin{align*}
   s^2 &= x'^2_1 + x'^2_2\\
       &= (R_{11} x_1 + R_{12} x_2)^2 + (R_{21} x_1 + R_{22} x_2)^2\\
@@ -613,7 +613,7 @@ Su traspuesta será
   (\vvv{x'})^\trasp = (\mmm{R} \vvv{x})^\trasp = \vvv{x}^\trasp \mmm{R}^\trasp
 \]
 
-Sustituimos esta expresión en la ecuación~(\ref{eq:gli-s2xprime})
+Sustituimos esta expresión en la ecuación~\eqref{eq:gli-s2xprime}
 \[
   (\vvv{x'})^\trasp \vvv{x'}
   = \vvv{x}^\trasp \mmm{R}^\trasp \mmm{R} \vvv{x}
@@ -693,7 +693,7 @@ Vamos puntualizar algunos detalles acerca de la matriz de rotación:
   \item Existencia de elemento identidad: El elemento identidad en el producto de matrices
     es la matriz unitaria. Demostraremos que la matriz unitaria es un elemento del
     conjunto de matrices de rotación. Esto se demuestra haciendo $\alpha = 0$, por ejemplo
-    en la matriz de rotación en dos dimensiones de la ecuación~(\ref{eq:gli-rotacion2x2})
+    en la matriz de rotación en dos dimensiones de la ecuación~\eqref{eq:gli-rotacion2x2}
     \[
       \mmm{R}(0) =
       \begin{pmatrix}
@@ -710,85 +710,86 @@ Vamos puntualizar algunos detalles acerca de la matriz de rotación:
   \item Existencia de elemento inverso: Como el determinante de la matriz de rotación no
     es nulo, existe la matriz de rotación inversa.
   \end{enumerate}
+\end{itemize}
 
-  \subsubsection{Grupos de Lie}
-  El grupo de rotaciones es un conjunto infinito porque  $\mmm{R}(\alpha)$ tiene un
-  elemento por cada valor del ángulo $\alpha$
-  \[
-    0 \leq \alpha < 2\,\pi
-  \]
-  y hay infinitos números reales $\alpha$ entre $0$ y $2\pi$.
+\subsubsection{Grupos de Lie}
+El grupo de rotaciones es un conjunto infinito porque  $\mmm{R}(\alpha)$ tiene un
+elemento por cada valor del ángulo $\alpha$
+\[
+  0 \leq \alpha < 2\,\pi
+\]
+y hay infinitos números reales $\alpha$ entre $0$ y $2\pi$.
 
-  Además es un conjunto continuo, porque $\alpha$ varía continuamente, esto es, no hay
-  discontinuidades entre dos valores de $\alpha$, siempre podremos encontrar infinitos
-  números reales entre dos cualesquiera por cercanos que parezcan.
+Además es un conjunto continuo, porque $\alpha$ varía continuamente, esto es, no hay
+discontinuidades entre dos valores de $\alpha$, siempre podremos encontrar infinitos
+números reales entre dos cualesquiera por cercanos que parezcan.
 
-  Todo grupo infinito y continuo se llama \emph{grupo de Lie}. Una definición más completa
-  sería
-  \begin{quote}
-    \emph{Un grupo de matrices de Lie --abreviadamente grupo de Lie-- es un subgrupo
-      continuo de las matrices cuadradas $N\times N$ no singulares sobre un campo $K$
-      --que suele ser $\symbb{R}$ o $\symbb{C}$--.}
-  \end{quote}
+Todo grupo infinito y continuo se llama \emph{grupo de Lie}. Una definición más completa
+sería
+\begin{quote}
+  \emph{Un grupo de matrices de Lie --abreviadamente grupo de Lie-- es un subgrupo
+    continuo de las matrices cuadradas $N\times N$ no singulares sobre un campo $K$
+    --que suele ser $\symbb{R}$ o $\symbb{C}$--.}
+\end{quote}
 
-  \emph{Continuo} es una forma de expresar que un grupo de Lie es una \emph{variedad}
-  (\emph{manifold} en inglés).
-  Esta propiedad permite que se pueda hablar de una función $\mmm{R}$, que asocia a cada
-  número real $\alpha$ una matriz cuadrada no singular
-  $\mmm{R}(\alpha)$
-  \[
-    f: \symbb{R} \longrightarrow \mmm{R}
-  \]
+\emph{Continuo} es una forma de expresar que un grupo de Lie es una \emph{variedad}
+(\emph{manifold} en inglés).
+Esta propiedad permite que se pueda hablar de una función $\mmm{R}$, que asocia a cada
+número real $\alpha$ una matriz cuadrada no singular
+$\mmm{R}(\alpha)$
+\[
+  f: \symbb{R} \longrightarrow \mmm{R}
+\]
 
-  Un ejemplo de grupo de Lie es el que se representa como O(N), que es el grupo de las
-  matrices ortogonales $N\times N$; esto es, el grupo de matrices $\mmm{A}$ de componentes
-  reales que cumplen
-  \[
-    \mmm{A}^{\trasp} \mmm{A} = \mmm{I}
-  \]
+Un ejemplo de grupo de Lie es el que se representa como O(N), que es el grupo de las
+matrices ortogonales $N\times N$; esto es, el grupo de matrices $\mmm{A}$ de componentes
+reales que cumplen
+\[
+  \mmm{A}^{\trasp} \mmm{A} = \mmm{I}
+\]
 
-  La igualdad anterior implica que
-  \[
-    \det(\mmm{A}) = \pm 1
-  \]
-  y es válida para el grupo de rotaciones con $\det(\mmm{A}) = +1$ y para el de
-  reflexiones, con $\det(\mmm{A}) = -1$, en un espacio de dimensión $N$.
+La igualdad anterior implica que
+\[
+  \det(\mmm{A}) = \pm 1
+\]
+y es válida para el grupo de rotaciones con $\det(\mmm{A}) = +1$ y para el de
+reflexiones, con $\det(\mmm{A}) = -1$, en un espacio de dimensión $N$.
 
-  En estas transformaciones (rotaciones y reflexiones) se conserva el módulo de los
-  vectores del espacio
-  \[
-    (\vvv{x}')^{2}
-    = (\mmm{A}\vvv{x})^{2}
-    = (\mmm{A}\vvv{x})^{\trasp} (\mmm{A}\vvv{x})
-    = \vvv{x}^{\trasp} \mmm{A}^{\trasp} \mmm{A} \vvv{x}
-    = \vvv{x}^{\trasp} \mmm{I} \vvv{x}
-    = \vvv{x}^{\trasp} \vvv{x}
-    = \vvv{x}^{2}
-  \]
+En estas transformaciones (rotaciones y reflexiones) se conserva el módulo de los
+vectores del espacio
+\[
+  (\vvv{x}')^{2}
+  = (\mmm{A}\vvv{x})^{2}
+  = (\mmm{A}\vvv{x})^{\trasp} (\mmm{A}\vvv{x})
+  = \vvv{x}^{\trasp} \mmm{A}^{\trasp} \mmm{A} \vvv{x}
+  = \vvv{x}^{\trasp} \mmm{I} \vvv{x}
+  = \vvv{x}^{\trasp} \vvv{x}
+  = \vvv{x}^{2}
+\]
 
-  El grupo SO(N) es el subgrupo de matrices de O(N) con determinante unidad, esto es, el
-  grupo de rotaciones --sin incluir las reflexiones--.
+El grupo SO(N) es el subgrupo de matrices de O(N) con determinante unidad, esto es, el
+grupo de rotaciones --sin incluir las reflexiones--.
 
-  \subsubsection{SO(2)}
-  El grupo de rotaciones que hemos visto de dimensión 2 se suele representar como $SO(2)$.
-
-  La $S$ significa que las matrices son especiales
+\subsubsection{SO(2)}
+El grupo de rotaciones de dimensión 2 se suele representar como $SO(2)$:
+\begin{itemize}
+\item La $S$ significa que las matrices son especiales
   \[
     \det(\mmm{R}) = 1
   \]
-  la $O$, que las matrices son ortogonales
+\item La $O$, que las matrices son ortogonales
   \[
     \mmm{R}^\trasp \mmm{R} = \mmm{I}
   \]
-  y el $2$ hace referencia a que se trata de un grupo de matrices $2\times 2$.
-
-  Por ejemplo, el conjunto que forma el grupo de rotaciones de dimensión 2 se puede definir
-  \[
-    SO(2) = \{ \mmm{R}(\alpha)\ |\ \mmm{R}^\trasp
-    \mmm{R} = \mmm{I},\ \det(\mmm{R}) = 1\}
-  \]
-  y es el grupo de matrices ortogonales reales $2\times 2$ y es un grupo de Lie.
+\item El $2$ hace referencia a que se trata de un grupo de matrices $2\times 2$.
 \end{itemize}
+Por ejemplo, el conjunto que forma el grupo de rotaciones de dimensión 2 se puede definir
+\[
+  SO(2) = \{ \mmm{R}(\alpha)\ |\ \mmm{R}^\trasp
+  \mmm{R} = \mmm{I},\ \det(\mmm{R}) = 1\}
+\]
+que es el grupo de matrices ortogonales $2\times 2$, que describen la rotación en el plano real y
+forman un grupo de Lie.
 
 \subsection{Matriz de rotación general}\label{sec:matriz_rotacion_general}
 Tenemos las siguientes propiedades de la matriz de rotación, ecuaciones~\eqref{eq:gli-R_ortogonal} y~\eqref{eq:gli-detRuno}
@@ -796,7 +797,7 @@ Tenemos las siguientes propiedades de la matriz de rotación, ecuaciones~\eqref{
   \mmm{R}^\trasp \mmm{R} &= \mmm{I}\\
   \det(\mmm{R}) &= 1
 \end{align*}
-y solo hemos obtenido una expresión concreta cuando la dimensión es 2,
+y hemos obtenido una expresión concreta cuando la dimensión es 2,
 ver~\eqref{eq:gli-rotacion2x2}
 \[
   \mmm{R}(\alpha)
@@ -815,7 +816,8 @@ Sabemos que rotar un ángulo $\alpha$ equivale a rotar $N$ veces el ángulo $\al
 \]
 
 En particular, estamos interesados en valores de $N$ muy grandes, que tienden a infinito, es decir, valores para los que $\varepsilon=\alpha/N$ sea una cantidad infinitesimal.
-Normalmente, si un parámetro $\varepsilon$ es infinitesimal, se suele considerar en primera aproximación que su cuadrado es despreciable ($\text{si } \varepsilon \text{ es infinitesimal} \text{, entonces } \varepsilon^2 \approx 0$).
+Si un parámetro $\varepsilon$ es infinitesimal, en primera aproximación, se considera que su
+cuadrado es despreciable (si $\varepsilon$ es infinitesimal, entonces $\varepsilon^2\approx 0$).
 
 Una rotación infinitesimal cambia algo el objeto rotado, pero muy poco, de manera que casi lo deja igual.
 Esto se puede representar matemáticamente
@@ -855,7 +857,7 @@ Nos fijamos en que la matriz de rotación infinitesimal $\mmm{I} + \mmm{A}$, por
 \]
 
 Nótese que $\mmm{A}^\trasp \mmm{A}$ es despreciable porque $\mmm{A}$ es infinitesimal.
-La expresión~\ref{eq:gli-A_antisimetrica} que se obtiene, define a la matriz \mmm{A} como antisimétrica, $\mmm{A}^\trasp = -\mmm{A}$
+La expresión~\eqref{eq:gli-A_antisimetrica} que se obtiene, define a la matriz \mmm{A} como antisimétrica, $\mmm{A}^\trasp = -\mmm{A}$
 \begin{equation}\label{eq:gli-A_antisimetrica}
   \mmm{A} + \mmm{A}^\trasp = 0
 \end{equation}
@@ -863,7 +865,7 @@ La expresión~\ref{eq:gli-A_antisimetrica} que se obtiene, define a la matriz \m
 Los elementos de las matrices antisimétricas, como $\mmm{A}$, cumplen $A_{ij} = -A_{ji}$.
 Nótese que los elementos diagonales de las matrices antisimétricas deben ser cero para que se cumpla $A_{ii} = -A_{ii}$.
 
-Hay dos opciones para $\mmm{A}$, reflejadas en~(\ref{eq:gli-opcionesA}), cada una es la opuesta de la otra.
+Hay dos opciones para $\mmm{A}$, reflejadas en~\eqref{eq:gli-opcionesA}, cada una es la opuesta de la otra.
 En principio cualquiera sería válida.
 La clave reside en el significado que le demos al ángulo de rotación $\varepsilon$.
 Podría definirse como el ángulo que giran los ejes o el que giran los vectores; cada uno de los ángulos es opuesto del otro, de ahí que las dos matrices posibles sean inversas
@@ -891,7 +893,7 @@ Definimos $\varepsilon$ como \emph{el ángulo que giran los ejes de coordenadas}
 
 Para dilucidar cuál es la matriz que está de acuerdo con nuestra definición de $\varepsilon$, hacemos girar infinitesimalmente los ejes en sentido positivo, por lo tanto los vectores aparentarán girar en sentido negativo, tal y como se aprecia en la figura~\ref{fig:gli-girovector}.
 
-Ahora construimos las transformaciones que se obtienen y vemos que la coordenada $x$ aumenta ligeramente, de ahí la suma en la expresión~\eqref{eq:gli-giro_incx}; en cambio, la coordenada $y$ disminuye ligeramente, y la ecuación~(\ref{eq:gli-giro_incy}) representa
+Ahora construimos las transformaciones que se obtienen y vemos que la coordenada $x$ aumenta ligeramente, de ahí la suma en la expresión~\eqref{eq:gli-giro_incx}; en cambio, la coordenada $y$ disminuye ligeramente, y la ecuación~\eqref{eq:gli-giro_incy} representa
 esta transformación
 \begin{subequations}\label{eq:gli-giro_incxy}
   \begin{align}
@@ -1007,7 +1009,7 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
   \label{fig:gli-girovector}
 \end{figure}
 
-Como no sabemos cuál de las dos matrices~\ref{eq:gli-opcionesA} es la correcta para nuestra definición de ángulo girado, la representaremos por
+Como no sabemos cuál de las dos matrices~\eqref{eq:gli-opcionesA} es la correcta para nuestra definición de ángulo girado, la representaremos por
 \[
   \mmm{A}(\varepsilon)
   = \begin{pmatrix}
@@ -1067,7 +1069,7 @@ Así, la matriz que buscamos es
    \end{pmatrix}
  \]
 
-\subsection{Generador de la rotación pasiva}
+\subsection{Generador de una rotación pasiva}
 Extrayendo el ángulo $\varepsilon$ de la matriz, obtenemos
 \[
   \mmm{A}
@@ -1110,16 +1112,16 @@ La matriz genérica de rotación sería
   \mmm{R} (\alpha) = \left(\mmm{I} + \dfrac{\alpha}{N}\,\mmm{G}\right)^N
 \end{equation}
 
-Queremos obtener un desarrollo en serie de potencias de $\alpha$ de la expresión~(\ref{eq:gli-matriz_rotacion_N}), alrededor de $\alpha = \SI{0}{\radian}$, calculando los valores de la matriz de rotación y algunas de sus sucesivas derivadas para el ángulo de cero radianes, teniendo en cuenta que $N$ tiende a infinito.
+Queremos obtener un desarrollo en serie de potencias de $\alpha$ de la expresión~\eqref{eq:gli-matriz_rotacion_N}, alrededor de $\alpha = \SI{0}{\radian}$, calculando los valores de la matriz de rotación y algunas de sus sucesivas derivadas para el ángulo de cero radianes, teniendo en cuenta que $N$ tiende a infinito.
 
-La función sin derivar y su valor en $\varepsilon=0$ es
+La función sin derivar y su valor en $\varepsilon=\alpha/N = 0$ es
 \[
   \mmm{R} (\alpha) = \left(\mmm{I} + \dfrac{\alpha}{N}\,\mmm{G}\right)^N
   ;\hspace{1em}
   \mmm{R} (0) = \mmm{I}
 \]
 
-La primera derivada y su valor en $\varepsilon=0$
+La primera derivada con respecto de $\alpha$ y su valor en $\varepsilon=\alpha/N=0$
 \[
   \mmm{R}' (\alpha)
   = N\,\dfrac{\mmm{G}}{N}\,\left(\mmm{I} +
@@ -1181,7 +1183,7 @@ La forma general de una matriz de rotación queda
 donde $\alpha$ es el ángulo que giran los ejes de coordenadas y
 $\mmm{G}$ es una matriz antisimétrica.
 
-Si $\alpha$ fuera el ángulo que giran los vectores, entonces
+Si $\alpha$ representara el ángulo que giran los vectores, entonces
 el ángulo de rotación pasiva sería el opuesto, $-\alpha$
 {\large
 \begin{equation}\label{eq:gli-rotobjgeneral}
@@ -1193,8 +1195,8 @@ el ángulo de rotación pasiva sería el opuesto, $-\alpha$
   \mathinhead{\symbb{R}^2}{OdlamdreR2}}
 Para terminar esta sección, vamos a comprobar que la expresión anterior es
 correcta, volviendo a obtener la matriz de rotación en dos dimensiones,
-que ya dedujimos en la ecuación~(\ref{eq:gli-matriz_rotacion_2x2}),
-desarrollando la fórmula general en la ecuación~(\ref{eq:gli-rotgeneral}).
+que ya dedujimos en la ecuación~\eqref{eq:gli-matriz_rotacion_2x2},
+desarrollando la fórmula general en la ecuación~\eqref{eq:gli-rotgeneral}.
 
 Las únicas matrices antisimétricas $2\times 2$ son
 \begin{equation}\label{eq:gli-g_so2}
@@ -1216,7 +1218,7 @@ Calculamos algunas potencias de $\mmm{G}$ ahorrándonos los detalles
   &\cdots
 \end{align*}
 
-Entonces, el desarrollo en serie~(\ref{eq:gli-desarrolloserie}):
+Entonces, el desarrollo en serie~\eqref{eq:gli-desarrolloserie}:
 \begin{align*}
   \mmm{R} (\alpha) &= e^{\alpha\mmm{G}}
    = \mmm{I} + \mmm{G}\kern1pt\alpha+ \dfrac{1}{2!}\,\mmm{G}^2 \alpha^2
@@ -1247,7 +1249,7 @@ Entonces, el desarrollo en serie~(\ref{eq:gli-desarrolloserie}):
  \begin{pmatrix}\cos\alpha & \sin\alpha\\ -\sin\alpha & \cos\alpha\end{pmatrix}
 \end{align*}
 
-obteniéndose el resultado esperado.
+obteniéndose el resultado esperado \eqref{eq:gli-rotacion2x2}.
 
 
 %%% Local Variables:

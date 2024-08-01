@@ -1112,24 +1112,37 @@ La matriz genérica de rotación sería
   \mmm{R} (\alpha) = \left(\mmm{I} + \dfrac{\alpha}{N}\,\mmm{G}\right)^N
 \end{equation}
 
-Queremos obtener un desarrollo en serie de potencias de $\alpha$ de la expresión~\eqref{eq:gli-matriz_rotacion_N}, alrededor de $\alpha = \SI{0}{\radian}$, calculando los valores de la matriz de rotación y algunas de sus sucesivas derivadas para el ángulo de cero radianes, teniendo en cuenta que $N$ tiende a infinito.
+Queremos obtener un desarrollo en serie de potencias de $\alpha$ de la expresión~\eqref{eq:gli-matriz_rotacion_N}, alrededor de $\alpha = \SI{0}{\radian}$, calculando los valores de la matriz de rotación y algunas de sus sucesivas derivadas para el ángulo de cero radianes, teniendo en cuenta que $N$ tiende a infinito
+\begin{equation}\label{eq:gli-desarrolloserie_R}
+  \mmm{R} (\alpha)
+  = \mmm{R} (0)
+  + \mmm{R}'(0)\,\alpha
+  + \dfrac{1}{2!}\,\mmm{R}'' (0)\,\alpha^2
+  + \dfrac{1}{3!}\,\mmm{R}''' (0)\,\alpha^3
+  + \dfrac{1}{4!}\,\mmm{R}^{IV} (0)\,\alpha^4
+  + \cdots
+\end{equation}
 
-La función sin derivar y su valor en $\varepsilon=\alpha/N = 0$ es
+A continuación calculamos las derivadas de $\mmm{R(\alpha)$ en $alpha = 0$:
+
+\begin{itemize}
+\item La matriz sin derivar y su valor en $\varepsilon=\alpha/N = 0$ son,
+  respectivamente
 \[
   \mmm{R} (\alpha) = \left(\mmm{I} + \dfrac{\alpha}{N}\,\mmm{G}\right)^N
   ;\hspace{1em}
-  \mmm{R} (0) = \mmm{I}
+  \mmm{R} (0) = \mmm{I}^N = \mmm{I}
 \]
 
-La primera derivada con respecto de $\alpha$ y su valor en $\varepsilon=\alpha/N=0$
+\item La primera derivada con respecto de $\alpha$ y su valor en $\varepsilon=\alpha/N=0$
 \[
   \mmm{R}' (\alpha)
   = N\,\dfrac{\mmm{G}}{N}\,\left(\mmm{I} +
     \dfrac{\alpha}{N}\,\mmm{G}\right)^{N-1}
-  ;\hspace{1em} \mmm{R}' (0) = \mmm{G}
+  ;\hspace{1em} \mmm{R}' (0) = \mmm{G}\, \mmm{I}^{N-1} = \mmm{G}
 \]
 
-Lo mismo con la segunda derivada
+\item La segunda derivada
 \[
   \mmm{R}'' (\alpha) = N\,(N-1)\,\dfrac{\mmm{G}^2}{N^2}\,\left(\mmm{I} +
     \dfrac{\alpha}{N}\,\mmm{G}\right)^{N-2}
@@ -1138,7 +1151,7 @@ Lo mismo con la segunda derivada
 
 Nótese que $N\,(N-1)/N^2\to 1$ cuando $N\to \infty$, que es la condición que imponíamos a $N$.
 
-Realizamos una derivada más y su valor en $\varepsilon=0$
+\item Obtenemos una derivada más y su valor en $\varepsilon=0$
 {\small
 \[
   \mmm{R}''' (\alpha) = N\,(N-1)\,(N-2)\,\dfrac{\mmm{G}^3}{N^3}\,\left(\mmm{I} +
@@ -1149,22 +1162,15 @@ Realizamos una derivada más y su valor en $\varepsilon=0$
 }
 y así sucesivamente.
 
-La derivada n-ésima en $\alpha=0$ es
+\item Generalizando, la derivada n-ésima en $\alpha=0$ es
 \[
   \mmm{R}^{(n)}(0) = \mmm{G}^n
 \]
+\end{itemize}
 
 Desarrollamos la matriz de rotaciones en serie de potencias de $\alpha$
-\[
-  \mmm{R} (\alpha)
-  = \mmm{R} (0)
-  + \mmm{R}'(0)\,\alpha
-  + \dfrac{1}{2!}\,\mmm{R}'' (0)\,\alpha^2
-  + \dfrac{1}{3!}\,\mmm{R}''' (0)\,\alpha^3
-  + \dfrac{1}{4!}\,\mmm{R}^{IV} (0)\,\alpha^4
-  + \cdots
-\]
-\begin{equation}\label{eq:gli-desarrolloserie}
+\eqref{eq:gli-desarrolloserie_R}, teniendo en cuenta los cálculos previos
+\begin{equation}\label{eq:gli-desarrolloserie_G}
   \mmm{R} (\alpha)
   = \mmm{I}
   + \mmm{G}\,\alpha
@@ -1218,7 +1224,7 @@ Calculamos algunas potencias de $\mmm{G}$ ahorrándonos los detalles
   &\cdots
 \end{align*}
 
-Entonces, el desarrollo en serie~\eqref{eq:gli-desarrolloserie}:
+Entonces, el desarrollo en serie~\eqref{eq:gli-desarrolloserie_G}:
 \begin{align*}
   \mmm{R} (\alpha) &= e^{\alpha\mmm{G}}
    = \mmm{I} + \mmm{G}\kern1pt\alpha+ \dfrac{1}{2!}\,\mmm{G}^2 \alpha^2

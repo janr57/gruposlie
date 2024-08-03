@@ -23,7 +23,7 @@ Para saber cuántos generadores encontraremos en el grupo SO(3), nos debemos fij
       A_{32} & A_{33}
     \end{pmatrix}\right\}
 \]
- 
+
 Sabemos que la matriz $\mmm{A}$ debe ser antisimétrica:
 \begin{itemize}
 \item Los elementos diagonales deben ser cero, $A_{ii} = 0$
@@ -55,10 +55,10 @@ Este grupo tendrá tres generadores.
 Dejamos, como ejercicio, comprobar que una rotación en el plano --SO(2)-- tiene un único generador, mientras que una rotación en el espacio de cuatro dimensiones --SO(4)--, tiene seis.
 
 \subsection{Generador para la rotación alrededor del eje
-   \mathinhead{z}{z}, \mathinhead{\mmm{G}_z}{Gz}}
-Esta rotación pasiva hace girar los ejes $x$ e $y$ de forma similar a
-como hemos visto en la SO(2), así que la podemos relacionar con una
-rotación alrededor del eje $z$ en tres dimensiones
+  \mathinhead{z}{z}, \mathinhead{\mmm{G}_z}{Gz}}
+Esta rotación pasiva hace girar los ejes $x$ e $y$ de forma similar a como hemos visto
+en la SO(2), así que la podemos relacionar con una rotación alrededor del eje $z$ en
+tres dimensiones
 \[
   \mmm{R}_z (\theta) = \exp\left\{\theta\,\begin{pmatrix} 0 & 1 \\ -1
       & 0 \end{pmatrix}\right\}
@@ -90,7 +90,7 @@ y el generador para la rotación pasiva alrededor del eje $z$ sería
 \end{equation}
 
 Debido a la forma un poco arbitraria con que hemos obtenido este generador, tenemos que comprobar que describe efectivamente una rotación alrededor del eje $z$.
-Lo más sencillo es comprobarlo mediante una rotación infinitesimal, porque la matriz de rotación es más sencilla, dado que los términos que contienen $\varepsilon^n$ con $n>= 2$ son despreciables
+Lo más sencillo es comprobarlo mediante una rotación infinitesimal, porque la matriz de rotación es más sencilla, dado que los términos que contienen $\varepsilon^n$ con $n>=2$ son despreciables
 \begin{equation}
   \label{eq:so3-rotacion_infinitesimal_z}
   \mmm{R}_z (\varepsilon) \approx
@@ -108,7 +108,8 @@ Lo más sencillo es comprobarlo mediante una rotación infinitesimal, porque la 
 
 Aplicamos esta pequeña rotación pasiva alrededor del eje $z$ a un
 vector cualquiera del espacio de tres dimensiones
-{\small
+{
+  \small
   \begin{align*}
    \begin{pmatrix}
      x' \\ y' \\ z'
@@ -141,7 +142,7 @@ vector cualquiera del espacio de tres dimensiones
     y \\ -x \\ 0
   \end{pmatrix}
   =
-  \begin{pmatrix}
+     \begin{pmatrix}
     x+\varepsilon y \\ y-\varepsilon x \\ z
   \end{pmatrix}
   \end{align*}
@@ -1509,9 +1510,9 @@ Dejamos como ejercicio ésta, desarrollando el término $\vvv{x}\cdot\xhat{n}$ m
     =
     \begin{pmatrix}
       (1-\cos\alpha)n_x^2 + \cos\alpha & (1-\cos\alpha)n_yn_x
-      +n_z\sin\alpha & (1-\cos\alpha)n_zn_x-n_y\sin\alpha\\
+      +n_z\sin\alpha & (1-\cos\alpha)n_zn_x-n_y\sin\alpha\\[0.3ex]
       (1-\cos\alpha)n_xn_y-n_z\sin\alpha & (1-\cos\alpha)n_y^2
-      +\cos\alpha & (1-\cos\alpha)n_zn_y+n_x\sin\alpha\\
+      +\cos\alpha & (1-\cos\alpha)n_zn_y+n_x\sin\alpha\\[0.3ex]
       (1-\cos\alpha)n_xn_z+n_Y\sin\alpha &
       (1-\cos\alpha)n_yn_z-n_x\sin\alpha &
       (1-\cos\alpha)n_z^2+\cos\alpha

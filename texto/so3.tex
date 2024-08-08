@@ -451,7 +451,9 @@ coordenada $z'$ se mantiene constante.
     \end{tikzpicture}
   \end{minipage}
   \caption{Rotación infinitesimal de un ángulo $\varepsilon$,
-    alrededor de los ejes $z$, $x$ e $y$, respectivamente.}
+    alrededor de los ejes $z$, $x$ e $y$, respectivamente.
+    Tal y como se indica, el eje perpendicular en cada diagrama, ejes z, x e y,
+    respectivamente, sale hacia fuera del texto.}
   \label{fig:so3-giros_zxy}
 \end{figure}
 
@@ -759,7 +761,8 @@ La expresión~(\ref{eq:so3-expr_con_n}) quedaría
 \end{equation}
 
 %Teniendo en cuenta lo anterior,
-La matriz de rotación general infinitesimal en tres dimensiones~(\ref{eq:so3-rotacion_general_3d}) se puede abreviar sustituyendo, \emph{incorrectamente} $n_xG_x+n_yG_y+n_zG_z$ por $\xhat{n}\cdot\mmm{G}$, como si fuera un producto escalar\footnotemark{}.
+La matriz de rotación general infinitesimal en tres dimensiones~(\ref{eq:so3-rotacion_general_3d}) se puede abreviar sustituyendo, ---incorrectamente--- $n_xG_x+n_yG_y+n_zG_z$ por $\xhat{n}\cdot\mmm{G}$, como si fuera un
+producto escalar\footnotemark{}.
 \footnotetext{Téngase en cuenta que $\xhat{n}\cdot\mmm{G}$ no es un producto   escalar, aunque lo parezca. Los factores del producto escalar o producto   interno tienen que ser \emph{elementos del mismo espacio vectorial}, pero $\xhat{n}$ y $\mmm{G}$ no lo son, porque $\xhat{n}$ es un vector del espacio   ordinario $\symbb{R}^3$ y $\mmm{G}$ es un vector del espacio de   matrices cuadradas generadoras de las rotaciones en $\symbb{R}^3$.
 Obsérvese que un producto escalar produce un escalar y, en nuestro caso, $\xhat{n}\cdot\mmm{G}$ resulta ser una matriz.}
 \begin{equation}\label{eq:so3-ali_rot_infinitesimal_SO3}
@@ -797,14 +800,19 @@ Si $\alpha$ representara el giro de los vectores alrededor del eje de rotación,
   geométricos}
 En (\ref{eq:so3-giro_infinitesimal_x}) obtuvimos las nuevas coordenadas de un vector $\vvv{x}$, después de una rotación pasiva infinitesimal.
 Ahora estamos interesados en obtener una expresión para una rotación pasiva de un ángulo discreto $\alpha$ cualquiera, $0 \leq \alpha < 2\pi$.
-Se podría conseguir desarrollando la exponencial~(\ref{eq:so3-rotacion_general_3d}), pero sería muy laborioso; en su lugar seguiremos un razonaminento geométrico más breve.
+Se podría conseguir desarrollando la exponencial~(\ref{eq:so3-rotacion_general_3d}),
+pero sería muy laborioso; en su lugar seguiremos un razonaminento geométrico más breve.
 
-En la figura \ref{fig:so3-giro_pasivo} se representa un giro finito.
-En ella se observa un cambio aparente en las coordenadas $\vvv{x}$ de un punto a otras $\vvv{x'}$, debido a un giro de un ángulo $\alpha$ en sentido antihorario alrededor del eje de rotación.
-Es importante destacar que $\vvv{x}$ y $\vvv{x'}$ son el mismo vector, y solo ha cambiado aparentemente de posición\footnotemark{} porque el sistema de referencia ha girado en sentido contrario a las agujas del reloj.
+En la figura \ref{fig:so3-giro_pasivo} se representa un giro finito positivo (en sentido
+antihorario) alrededor de un eje de giro genérico.
+En ella se observa un cambio aparente en las coordenadas $\vvv{x}$ de un punto a otras
+$\vvv{x'}$, como si el punto hubiera girado en sentido horario el ángulo $\alpha$.
+Es importante recalcar que $\vvv{x}$ y $\vvv{x'}$ son el mismo vector, y solo ha
+cambiado aparentemente de posición\footnotemark{} debido a que el sistema de referencia
+ha girado en sentido contrario a las agujas del reloj.
 \footnotetext{En la figura el vector $\vvv{x}$ ha girado \emph{aparentemente} en sentido negativo (horario).}
 Además, se aprecia que el extremo de $\vvv{x}$ describe un arco de circunferencia de radio $R$.
-Obsérvese que el eje de giro, definido por el vector unitario $\xhat{n}$, pasa por el centro de la circunferencia.
+Obsérvese que el eje de giro definido por el vector unitario $\xhat{n}$, pasa por el centro de la circunferencia.
 
 \pagebreak
 Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos unas igualdades que se necesitarán posteriormente:
@@ -812,7 +820,7 @@ Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos
 \item Vemos que $\vvv{x}$ se puede descomponer en una suma de dos vectores;
   el primero, $\vvv{x}_{\scriptstyle\parallel}$ es paralelo al  eje de rotación
   y el segundo, $\vvv{x}_{\scriptstyle\perp}$ es perpendicular al anterior y se encuentra
-  en el plano de la circunferencia descrita por el giro del extremo de $\vvv{x}$
+  en el plano del arco descrito por el giro del extremo de $\vvv{x}$
   \[
     \vvv{x} = \vvv{x}_{\scriptstyle\,\parallel}
     + \vvv{x}_{\scriptstyle\perp}
@@ -824,7 +832,7 @@ Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos
     \vvv{x}_{\scriptstyle\perp} = \vvv{x} - \vvv{x}_{\scriptstyle\,\parallel}
   \end{equation}
 
-\item En la figura se aprecia que la proyección de $\vvv{x}$ sobre el eje
+\item Además, se aprecia que la proyección de $\vvv{x}$ sobre el eje
   de giro es el módulo del vector $\vvv{x}_{\scriptstyle\,\parallel}$
   (altura del cono), que se calcula mediante el producto escalar de
   $\vvv{x}$ por el versor $\xhat{n}$, que representa al eje de giro

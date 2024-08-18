@@ -8,15 +8,17 @@
 Cada grupo de Lie lleva asociado una cierta estructura algebraica conocida como su \emph{álgebra de Lie}.
 Un álgebra de Lie es un espacio vectorial que tiene una estructura adicional: una operación binaria llamada corchete de Lie.
 
-Los elementos del álgebra de Lie del grupo de rotaciones SO(3) se pueden asimilar a las velocidades angulares.
-El corchete de Lie para este grupo resulta ser el producto vectorial.
+Por ejemplo, los elementos del álgebra de Lie del grupo de rotaciones SO(3) se pueden
+asimilar a velocidades angulares.
+El corchete de Lie para este grupo resultaría ser el producto vectorial.
 
 \section{Conmutadores}
-El grupo de rotaciones no es conmutativo; en general no da el mismo resultado rotar primero con respecto a un eje y luego con respecto a otro que al revés, a menos que los dos ejes sean el mismo o algún ángulo de rotación sea cero. Esta observación nos conduce al
-concepto de \emph{conmutador}.
+El grupo de rotaciones no es conmutativo; en general no da el mismo resultado rotar
+primero con respecto a un eje y luego con respecto a otro que al revés, a menos que los
+dos ejes sean el mismo o algún ángulo de rotación sea cero. Esta observación nos conduce
+al concepto de \emph{conmutador}.
 
-Supongamos dos rotaciones, $\mmm{R}_1$ y $\mmm{R}_2$, con respecto a
-dos ejes diferentes
+Supongamos dos rotaciones, $\mmm{R}_1$ y $\mmm{R}_2$, con respecto a dos ejes diferentes
 \begin{align*}
   \mmm{R}_1 &= e^{\mmm{A}}\\
   \mmm{R}_2 &= e^{\mmm{B}}
@@ -27,16 +29,22 @@ En general no dará lo mismo si rotamos en distinto orden
   \mmm{R}_2 \mmm{R}_1 \neq \mmm{R}_1 \mmm{R}_2
 \]
 
-A la diferencia entre estas operaciones le llamamos \emph{conmutador} de
-$\mmm{R}_1$ y $\mmm{R}_2$, y lo escribimos así
+A la diferencia entre estas operaciones le llamamos \emph{conmutador} de $\mmm{R}_1$ y
+$\mmm{R}_2$, y lo escribimos así
 \[
   [\mmm{R}_1, \mmm{R}_2] = \mmm{R}_1\mmm{R}_2 - \mmm{R}_2\mmm{R}_1
 \]
 
-Si el conmutador de dos elementos de un grupo fuera cero, diríamos que esos dos elementos y las operaciones que representan, conmutan y daría igual el orden en el que se aplicaran (en caso contrario no conmutan).
-El conocimiento del valor del conmutador es lo que nos va a conducir al \emph{álgebra de Lie}.
+Si el conmutador de dos elementos de un grupo fuera cero, diríamos que esos dos
+elementos y las operaciones que representan, conmutan y daría igual el orden en el que
+se aplicaran (en caso contrario no conmutan).
+El conocimiento del valor del conmutador es lo que nos va a conducir al
+\emph{álgebra de Lie}.
 
-Como ya hicimos anteriormente, la forma más sencilla de estudiar estas operaciones es utilizando rotaciones infinitesimales porque la expresión matricial es más simple y aun así no perdemos generalidad; las conclusiones generales seguirían siendo válidas para rotaciones finitas
+Como ya hicimos anteriormente, la forma más sencilla de estudiar estas operaciones es
+utilizando rotaciones infinitesimales porque la expresión matricial es más simple y aun
+así no perdemos generalidad; las conclusiones generales seguirían siendo válidas para
+rotaciones finitas
 \begin{align*}
   \mmm{R}_1 &\approx \mmm{I} + \mmm{A}\\
   \mmm{R}_2 &\approx \mmm{I} + \mmm{B}
@@ -56,7 +64,8 @@ Invertimos el orden de las rotaciones
   = \mmm{I} + \mmm{B} + \mmm{A} + \mmm{B}\mmm{A}
 \]
 
-Calculamos el conmutador de ambas rotaciones, es decir, la diferencia entre las dos operaciones
+Calculamos el conmutador de ambas rotaciones, es decir, la diferencia entre las dos
+operaciones
 \begin{equation}\label{eq:alg-conmutador_matrices_infinitesimales}
   [\mmm{R}_1, \mmm{R}_2]
   = \mmm{R}_1 \mmm{R}_2 - \mmm{R}_2 \mmm{R}_1
@@ -72,19 +81,23 @@ De la expresión anterior y de la definición de conmutador deducimos que
   = - [\mmm{R}_2,\mmm{R}_1]
 \]
 
-Ahora supongamos que las matrices infinitesimales antisimétricas $\mmm{A}$ y $\mmm{B}$, que definen a dos operadores de rotación, conmutan
+Ahora supongamos que las matrices infinitesimales antisimétricas $\mmm{A}$ y $\mmm{B}$,
+que definen a dos operadores de rotación, conmutan
 \[
   [\mmm{A},\mmm{B}] = \mmm{A}\mmm{B}-\mmm{B}\mmm{A}=0
 \]
-entonces, según la ecuación~(\ref{eq:alg-conmutador_matrices_infinitesimales}), las dos matrices, $\mmm{R}_1$ y $\mmm{R}_2$ también conmutarían.
+entonces, según la ecuación~(\ref{eq:alg-conmutador_matrices_infinitesimales}), las dos
+matrices, $\mmm{R}_1$ y $\mmm{R}_2$ también conmutarían.
 
-Se nos podría ocurrir una objección a la afirmación anterior: sabemos que los operadores infinitesimales tenían términos de orden dos y superiores que se despreciaban
+Se nos podría ocurrir una objección a la afirmación anterior: sabemos que los operadores
+infinitesimales tenían términos de orden dos y superiores que se despreciaban
 \begin{align*}
   \mmm{R}_1 &= \mmm{I} + \mmm{A} + \mathcal{O}(A^2) + \cdots\\
   \mmm{R}_2 &= \mmm{I} + \mmm{B} + \mathcal{O}(B^2) + \cdots
 \end{align*}
 
-Si construimos el conmutador teniendo en cuenta estos términos, nos encontraremos, junto con lo visto en la ecuación~(\ref{eq:alg-conmutador_matrices_infinitesimales}), términos
+Si construimos el conmutador teniendo en cuenta estos términos, nos encontraremos, junto
+con lo visto en la ecuación~(\ref{eq:alg-conmutador_matrices_infinitesimales}), términos
 infinitesimales adicionales de orden tres y superiores
 \[
   [\mmm{R}_1,\mmm{R}_2]
@@ -98,20 +111,29 @@ Supongamos que las matrices antisimétricas que definen la rotación conmutan, e
   [\mmm{R}_1,\mmm{R}_2] = \mathcal{O}(A^2B) + \mathcal{O}(AB^2) + \cdots
 \]
 
-¿No podría ser que esta suma infinita de términos infinitesimales que hemos despreciado afectara al resultado, haciendo que el conmutador no fuera cero?
-La respuesta es que no. La identidad de Baker--Campbell--Hausdorff, es una expresión del valor de un conmutador como suma infinita de términos
+¿No podría ser que esta suma infinita de términos infinitesimales que hemos despreciado
+afectara al resultado, haciendo que el conmutador no fuera cero?
+La respuesta es que no. La identidad de Baker--Campbell--Hausdorff, es una expresión del
+valor de un conmutador como suma infinita de términos
 \[
   [\mmm{R}_1,\mmm{R}_2] = [\mmm{A},\mmm{B}] +
   \frac{1}{6}\,\left([\mmm{A},[\mmm{A},\mmm{B}]] + [\mmm{B},
     [\mmm{B},\mmm{A}]]\right) + \cdots
 \]
 
-Lo importante de esta expresión es que cada sumando contiene el factor $[\mmm{A},\mmm{B}]$ o su opuesto, de manera que si estas matrices conmutan, todos los sumandos valdrán cero y los dos operadores también conmutarán.
+Lo importante de esta expresión es que cada sumando contiene el factor
+$[\mmm{A},\mmm{B}]$ o su opuesto, de manera que si estas matrices conmutan, todos los
+sumandos valdrán cero y los dos operadores también conmutarán.
 
 \section{Conmutador de matrices antisimétricas}
-En esta sección veremos una forma de expresar el conmutador de dos matrices antisimétricas como las $\mmm{A}$ y $\mmm{B}$ del punto anterior en función de los generadores de la rotación $\mmm{G}_i$, lo que nos acercará al concepto de \emph{constantes de estructura de grupo}, que se define y desarrolla en la siguiente sección.
+En esta sección veremos una forma de expresar el conmutador de dos matrices
+antisimétricas como las $\mmm{A}$ y $\mmm{B}$ del punto anterior en función de los
+generadores de la rotación $\mmm{G}_i$, lo que nos acercará al concepto de
+\emph{constantes de estructura de grupo}, que se define y desarrolla en la siguiente
+sección.
 
-Por comodidad, y para poder generalizar a grupos de rotación de dimensionalidad más elevada, denotaremos a los ejes $x$, $y$ y $z$ como $1$, $2$ y $3$, respectivamente.
+Por comodidad, y para poder generalizar a grupos de rotación de dimensionalidad más
+elevada, denotaremos a los ejes $x$, $y$ y $z$ como $1$, $2$ y $3$, respectivamente.
 
 Supongamos dos operadores de rotación en función de los generadores de SO(3)
 \begin{align*}
@@ -137,7 +159,9 @@ El conmutador de las matrices antisimétricas, $\mmm{A}$ y $\mmm{B}$, es
     \left[\mmm{G}_i,\mmm{G}_j\right]
 \end{align*}
 
-Analizaremos qué propiedades tendrá el resultado de $[\mmm{G}_i,\mmm{G}_j]$, sabiendo que, $\mmm{G}_i$ y $\mmm{G}_j$ son matrices antisimétricas; esto significa que sus transpuestas son iguales a las respectivas inversas
+Analizaremos qué propiedades tendrá el resultado de $[\mmm{G}_i,\mmm{G}_j]$, sabiendo
+que, $\mmm{G}_i$ y $\mmm{G}_j$ son matrices antisimétricas; esto significa que sus
+transpuestas son iguales a las respectivas inversas
 \[
   \mmm{G}_i^{\trasp} = -\mmm{G}_i
   \hspace{1em}
@@ -175,28 +199,27 @@ Desarrollamos la expresión, teniendo en cuenta que son matrices antisimétricas
   &= -[\mmm{G}_i,\mmm{G}_j]
 \end{align*}
 
-Este resultado es muy importante, pues resulta que el conmutador
-de dos matrices antisimétricas, como $[\mmm{G}_i,\mmm{G}_j]$, da
-como resultado otra matriz antisimétrica.
+Este resultado es muy importante, pues resulta que el conmutador de dos matrices
+antisimétricas, como $[\mmm{G}_i,\mmm{G}_j]$, da como resultado otra matriz
+antisimétrica.
 
-Es importante porque las $\mmm{G}_i$ son matrices generadoras que
-forman una base de todas las matrices antisimétricas de la
-dimensión considerada. Esto significa que el resultado del
-conmutador de matrices generadoras se puede escribir como una
-combinación lineal de las matrices generadoras
+Es importante porque las $\mmm{G}_i$ son matrices generadoras que forman una base de
+todas las matrices antisimétricas de la dimensión considerada. Esto significa que el resultado del conmutador de matrices generadoras se puede escribir como una combinación
+lineal de las matrices generadoras
 \begin{equation}\label{eq:alg-conmutador_generadores_ij}
   [\mmm{G}_i,\mmm{G}_j] = \sum_{k=1}^{3}c_{ijk}\mmm{G}_k = c_{ijk}\mmm{G}_k
 \end{equation}
 en el último término se ha seguido el convenio de la suma de Einstein.
 
-%\section{Constantes de estructura de grupo}
-%Lie se dio cuenta de que averiguar la manera en que conmutan los
-%generadores determina completamente la estructura del grupo.
-%
-%Las constantes $c_{ijk}$ de la ecuación~(\ref{eq:alg-conmutador_generadores_ij})
-%determinan la forma en que conmutan los generadores y para que les llame
-%constantes de estructura del grupo les falta la unidad imaginaria
-%$i=\sqrt{-1}$, ---no confundir con el subíndice $i$---.
+
+\section{Constantes de estructura de grupo}
+Lie se dio cuenta de que la manera en que conmutan los generadores determina
+completamente la estructura del grupo.
+
+Las constantes $c_{ijk}$ de la ecuación~(\ref{eq:alg-conmutador_generadores_ij})
+determinan la forma en que conmutan los generadores y para que les llame
+constantes de estructura del grupo les falta la unidad imaginaria
+$i=\sqrt{-1}$, ---no confundir con el subíndice $i$---.
 %Esto se hace para poder considerar otros grupos en los que aparecen
 %números complejos, como los grupos unitarios especiales que son fundamentales
 %en mecánica cuántica. Al final de la sección se dará una explicación un

@@ -42,6 +42,12 @@ Las coordenadas de P con respecto a este sistema son
     % Vector P
     \pgfmathsetmacro{\PMOD}{2.5}
     \pgfmathsetmacro{\PANG}{50}
+    % Fondo
+    \pgfmathsetmacro{\HORZ}{0.55}
+    \pgfmathsetmacro{\VERT}{0.25}
+    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
+    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
     %
     \centering
     \begin{tikzpicture}[%
@@ -96,11 +102,17 @@ Las coordenadas de P con respecto a este sistema son
       % Origen
       \filldraw (O) circle [radius=.2pt];
       % Fondo amarillo
+      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
+      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
       \begin{scope}[on background layer]
+        \draw[background] (SW) rectangle (NE);
+      \end{scope}
+%      \begin{scope}[on background layer]
 %        \node [line width=1pt, draw=\backgroundbordercolor,
 %        fill=\backgroundcolor, fit= (O) (letraejex) (letraejey)] {};
-        \node [background, fit= (O) (left) (letraejex) (letraejey) (below)] {};
-      \end{scope}
+%        \node [background, fit= (O) (left) (letraejex) (letraejey) (below)] {};
+%      \end{scope}
     \end{tikzpicture}
     \caption{Ejes originales sin girar y punto P del plano, de coordenadas $(x_1,x_2)$.}
     \label{fig:gli-x_axes}
@@ -121,7 +133,13 @@ Las coordenadas de P con respecto a este sistema son
     % Ángulo rotado
     \pgfmathsetmacro{\ANGROT}{20}
     \pgfmathsetmacro{\ANGROTPLUSNINETY}{\ANGROT + 90}
-    %
+     % Fondo
+    \pgfmathsetmacro{\HORZ}{0.45}
+    \pgfmathsetmacro{\VERT}{0.40}
+    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
+    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
+    % 
     \centering
     \begin{tikzpicture}[%
       scale=\scl,
@@ -182,11 +200,18 @@ Las coordenadas de P con respecto a este sistema son
       \node[above right] at (P) {$P$};
       % Origen
       \filldraw (O) circle [radius=.2pt];
-      % Fondo
+      % Fondo amarillo
+      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
+      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
       \begin{scope}[on background layer]
-        \node [background,
-        fit= (letraejexprima) (letraejeyprima) (below) (letraejex) (letraejey)] {};
+        \draw[background] (SW) rectangle (NE);
       \end{scope}      
+%      % Fondo
+%      \begin{scope}[on background layer]
+%        \node [background,
+%        fit= (letraejexprima) (letraejeyprima) (below) (letraejex) (letraejey)] {};
+%      \end{scope}      
     \end{tikzpicture}
     \caption{Ejes rotados un ángulo $\alpha$. Las coordenadas de P con respecto a estos nuevos ejes son $(x'_1,x'_2)$.}
     \label{fig:gli-rotated_axes}

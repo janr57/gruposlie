@@ -9,9 +9,8 @@ Los grupos de Lie tienen mucha importancia en matemáticas y en física.
 Aquí estamos interesados principalmente en su aplicación a la mecánica cuántica; en particular, para comprender el concepto de spin en física de partículas, que en algunos textos elementales se identifica incorrectamente con el giro de las partículas alrededor de su eje.
 
 \section{Rotaciones en el plano}
-Para asimilar mejor el concepto de \emph{grupo de Lie}, empezamos analizando las rotaciones en el plano, olvidándonos por un momento de los grupos.
-
-Caracterizaremos estas rotaciones de dos formas diferentes:
+Para asimilar mejor el concepto de \emph{grupo de Lie}, empezamos analizando las rotaciones en $\symbb{R}^2$, olvidándonos por un momento de los grupos.
+Las caracterizaremos de dos formas diferentes:
 \begin{enumerate}
 \item Mediante consideraciones trigonométricas.
 \item Mediante una transformación que mantiene invariante la longitud.
@@ -32,7 +31,7 @@ Las coordenadas de P con respecto a este sistema son
   \centering
   \begin{minipage}{0.40\linewidth}
     % Escala
-    \def\scl{1}    
+    \def\scl{1}
     % Eje x
     \pgfmathsetmacro{\XMLONG}{0}
     \pgfmathsetmacro{\XPLONG}{3}
@@ -43,8 +42,8 @@ Las coordenadas de P con respecto a este sistema son
     \pgfmathsetmacro{\PMOD}{2.5}
     \pgfmathsetmacro{\PANG}{50}
     % Fondo
-    \pgfmathsetmacro{\HORZ}{0.55}
-    \pgfmathsetmacro{\VERT}{0.25}
+    \pgfmathsetmacro{\HORZ}{0.56}
+    \pgfmathsetmacro{\VERT}{0.24}
     \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
     \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
     \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
@@ -56,7 +55,7 @@ Las coordenadas de P con respecto a este sistema son
       every node/.style={black,font=\small},
       eje/.style={->},
       vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
-      dimmed/.style={lightgray, line width=.8pt},
+      dimmed/.style={lightgray, line width=.8pt, dotted},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -108,11 +107,6 @@ Las coordenadas de P con respecto a este sistema son
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}
-%      \begin{scope}[on background layer]
-%        \node [line width=1pt, draw=\backgroundbordercolor,
-%        fill=\backgroundcolor, fit= (O) (letraejex) (letraejey)] {};
-%        \node [background, fit= (O) (left) (letraejex) (letraejey) (below)] {};
-%      \end{scope}
     \end{tikzpicture}
     \caption{Ejes originales sin girar y punto P del plano, de coordenadas $(x_1,x_2)$.}
     \label{fig:gli-x_axes}
@@ -147,7 +141,7 @@ Las coordenadas de P con respecto a este sistema son
       ejerotado/.style={->},
       eje/.style={->, black!35},
       vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
-      dimmed/.style={lightgray, line width=.8pt},
+      dimmed/.style={lightgray, line width=.8pt, dotted},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -183,9 +177,10 @@ Las coordenadas de P con respecto a este sistema son
       \node[above, name=letraejey, black!35] at (yfin) {$x_2$};
       % Ejes rotados
       \draw[ejerotado] (O) -- (x'fin);
-      \path (O) -- node[pos=1.08,name=letraejexprima] {$x_1'$} (x'fin);
+      % \path (O) -- node[pos=1.08,name=letraejexprima] {$x_1'$} (x'fin);
+      \path (O) -- node[pos=1.08] {$x_1'$} (x'fin);
       \draw[ejerotado] (O) -- (y'fin);
-      \path (O) -- node[pos=1.08,name=letraejeyprima] {$x_2'$} (y'fin);
+      \path (O) -- node[pos=1.08] {$x_2'$} (y'fin);
       \path ($(O)!(P)!(x'fin)$) coordinate (x'm);
       \path ($(O)!(P)!(y'fin)$) coordinate (y'm);
 
@@ -207,11 +202,6 @@ Las coordenadas de P con respecto a este sistema son
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}      
-%      % Fondo
-%      \begin{scope}[on background layer]
-%        \node [background,
-%        fit= (letraejexprima) (letraejeyprima) (below) (letraejex) (letraejey)] {};
-%      \end{scope}      
     \end{tikzpicture}
     \caption{Ejes rotados un ángulo $\alpha$. Las coordenadas de P con respecto a estos nuevos ejes son $(x'_1,x'_2)$.}
     \label{fig:gli-rotated_axes}

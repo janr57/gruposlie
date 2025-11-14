@@ -203,7 +203,8 @@ Las coordenadas de P con respecto a este sistema son
         \draw[background] (SW) rectangle (NE);
       \end{scope}      
     \end{tikzpicture}
-    \caption{Ejes rotados un ángulo $\alpha$. Las coordenadas de P con respecto a estos nuevos ejes son $(x'_1,x'_2)$.}
+    \caption{Ejes rotados un ángulo $\alpha$.
+      Las coordenadas de P con respecto a estos nuevos ejes son $(x'_1,x'_2)$.}
     \label{fig:gli-rotated_axes}
   \end{minipage}
 \end{figure}
@@ -489,15 +490,12 @@ son totalmente equivalentes a las~\eqref{eq:gli-sumatorio}.
 \subsection[Mediante transformación que deja invariante la longitud] {Caracterización por medio de una transformación que deja invariante la longitud}\label{invariante_longitud}
 Ahora nos olvidaremos de la trigonometría y deduciremos las características de la matriz de rotación $\mmm{R}$ de una manera más sofisticada.
 
-Cuando se realiza una rotación las distancias se deben conservar.
+Cuando se realiza una rotación, las distancias se deben conservar.
 En nuestro ejemplo de la figura~\ref{fig:gli-rotated_axes}, la distancia $r = |\vvv{r}|$ del origen al punto es la misma en cualquiera de los sistemas de coordenadas, el original y el girado.
 
-Abordaremos este apartado de dos formas; en la primera manera desarrollaremos los cálculos con todo detalle y, en la segunda, seguiremos un razonamiento aún más sofisticado y potente.
+Abordaremos este apartado de dos formas; en la primera, desarrollaremos los cálculos con todo detalle y, en la segunda, seguiremos un razonamiento aún más sofisticado y potente.
 
 \subsubsection{Desarrollo con gran detalle}
-El objetivo de este desarrollo es el de comprobar que se puede llegar al resultado de múltiples
-formas, y utilizar al final el método más potente.
-
 Llamemos $s$ a la distancia que se conserva, por ejemplo la distancia entre el punto P y el origen en la figura~\eqref{fig:gli-rotated_axes}
 \[
   s = \sqrt{x'^2_1 + x'^2_2}

@@ -687,9 +687,9 @@ Vamos puntualizar algunos detalles acerca de la matriz de rotación:
 
 \item Las matrices que cumplen que su inversa es igual a la
   traspuesta~\eqref{eq:gli-R_ortogonal}, como ocurre con este tipo de matrices, se dice
-  que son \emph{ortogonales}. Además, para que se trate de rotaciones, tienen que tener un
-  determinante igual a $+1$, ver la ecuación~\eqref{eq:gli-detRuno}. Estas matrices suelen
-  presentarse en las transformaciones entre bases de espacios vectoriales.
+  que son \emph{ortogonales}. Además, para que se trate de rotaciones, tienen que tener
+  un determinante igual a $+1$, ver la ecuación~\eqref{eq:gli-detRuno}. Estas matrices
+  suelen presentarse en las transformaciones entre bases de espacios vectoriales.
 
 \item El conjunto de las matrices de rotación, junto con el producto ordinario de
   matrices, forma un grupo, $G$, infinito y continuo
@@ -703,10 +703,11 @@ Vamos puntualizar algunos detalles acerca de la matriz de rotación:
   \item Propiedad asociativa: Sabemos que el producto de matrices cuadradas cumple la
     propiedad asociativa, por lo que el producto de matrices de rotación, que forman un
     subconjunto de aquellas, también la cumple.
-  \item Existencia de elemento identidad: El elemento identidad en el producto de matrices
-    es la matriz unitaria. Demostraremos que la matriz unitaria es un elemento del
-    conjunto de matrices de rotación. Esto se demuestra haciendo $\alpha = 0$, por ejemplo
-    en la matriz de rotación en dos dimensiones de la ecuación~\eqref{eq:gli-rotacion2x2}
+  \item Existencia de elemento identidad: El elemento identidad en el producto de
+    matrices es la matriz unitaria. Demostraremos que la matriz unitaria es un elemento
+    del conjunto de matrices de rotación. Esto se demuestra haciendo $\alpha = 0$, por
+    ejemplo, en la matriz de rotación en dos dimensiones de la ecuación
+    \eqref{eq:gli-rotacion2x2}
     \[
       \mmm{R}(0) =
       \begin{pmatrix}
@@ -738,7 +739,7 @@ discontinuidades entre dos valores de $\alpha$, siempre podremos encontrar infin
 números reales entre dos cualesquiera por cercanos que parezcan.
 
 Todo grupo infinito y continuo se llama \emph{grupo de Lie}. Una definición más completa
-sería
+sería:
 \begin{quote}
   \emph{Un grupo de matrices de Lie --abreviadamente grupo de Lie-- es un subgrupo
     continuo de las matrices cuadradas $N\times N$ no singulares sobre un campo $K$
@@ -784,7 +785,7 @@ El grupo SO(N) es el subgrupo de matrices de O(N) con determinante unidad, esto 
 grupo de rotaciones --sin incluir las reflexiones--.
 
 \subsubsection{SO(2)}
-El grupo de rotaciones de dimensión 2 se suele representar como $SO(2)$:
+El grupo de rotaciones de dimensión 2 se suele representar como SO(2):
 \begin{itemize}
 \item La $S$ significa que las matrices son especiales
   \[
@@ -801,8 +802,7 @@ Por ejemplo, el conjunto que forma el grupo de rotaciones de dimensión 2 se pue
   SO(2) = \{ \mmm{R}(\alpha)\ |\ \mmm{R}^\trasp
   \mmm{R} = \mmm{I},\ \det(\mmm{R}) = 1\}
 \]
-que es el grupo de matrices ortogonales $2\times 2$, que describen la rotación en el plano real y
-forman un grupo de Lie.
+que es el grupo de matrices ortogonales $2\times 2$, que describen la rotación en el plano real y forman un grupo de Lie.
 
 \subsection{Matriz de rotación general}\label{sec:matriz_rotacion_general}
 Tenemos las siguientes propiedades de la matriz de rotación, ecuaciones~\eqref{eq:gli-R_ortogonal} y~\eqref{eq:gli-detRuno}
@@ -829,8 +829,7 @@ Sabemos que rotar un ángulo $\alpha$ equivale a rotar $N$ veces el ángulo $\al
 \]
 
 En particular, estamos interesados en valores de $N$ muy grandes, que tienden a infinito, es decir, valores para los que $\varepsilon=\alpha/N$ sea una cantidad infinitesimal.
-Si un parámetro $\varepsilon$ es infinitesimal, en primera aproximación, se considera que su
-cuadrado es despreciable (si $\varepsilon$ es infinitesimal, entonces $\varepsilon^2\approx 0$).
+Si un parámetro $\varepsilon$ es infinitesimal, en primera aproximación, se considera que su cuadrado es despreciable (si $\varepsilon$ es infinitesimal, entonces $\varepsilon^2\approx 0$).
 
 Una rotación infinitesimal cambia algo el objeto rotado, pero muy poco, de manera que casi lo deja igual.
 Esto se puede representar matemáticamente
@@ -844,8 +843,8 @@ La rotación finita sería
   \mmm{R} (\alpha) = \mmm{R}(\varepsilon)^N = (\mmm{I} + \mmm{A})^N
 \]
 
-Analicemos cómo debería ser esta matriz infinitesimal, $\mmm{A}$.
-Nos fijamos en que la matriz de rotación infinitesimal $\mmm{I} + \mmm{A}$, por ser matriz de rotación, debe ser ortogonal
+Analicemos cómo debería ser la matriz infinitesimal $\mmm{A}$.
+La matriz de rotación infinitesimal $\mmm{I} + \mmm{A}$, por ser matriz de rotación, debe ser ortogonal
 \[
   \mmm{R}^\trasp \mmm{R} = \mmm{I}
 \]
@@ -945,6 +944,12 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
   % Vector P'
   \pgfmathsetmacro{\PPRIMAMOD}{\PMOD}
   \pgfmathsetmacro{\PPRIMAANG}{\PANG - \ANGROT}
+  % Fondo
+  \pgfmathsetmacro{\HORZ}{0.46}
+  \pgfmathsetmacro{\VERT}{0.34}
+  \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+  \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
+  \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
   % 
   \centering
   \begin{tikzpicture}[%
@@ -1012,9 +1017,16 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
     {\scriptsize $\Delta y < 0$} (P' -| left_origin);
     % Origen
     \filldraw (O) circle [radius=.2pt];
-    \begin{scope}[on background layer]
-      \node [background, fit= (incx) (incy) (letraejex) (letraejey)] {};
-    \end{scope}
+      % Fondo amarillo
+      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
+      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
+      \begin{scope}[on background layer]
+        \draw[background] (SW) rectangle (NE);
+      \end{scope}    
+%    \begin{scope}[on background layer]
+%      \node [background, fit= (incx) (incy) (letraejex) (letraejey)] {};
+%    \end{scope}
   \end{tikzpicture}
   \caption{Giro infinitesimal antihorario $\varepsilon$, de los ejes
     $x$ e $y$, que desde el punto de vista de estos, el vector aparenta

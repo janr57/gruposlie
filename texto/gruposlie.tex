@@ -6,7 +6,10 @@
 
 \chapter{Grupos de Lie}
 Los grupos de Lie tienen mucha importancia en matemáticas y en física.
-Aquí estamos interesados principalmente en su aplicación a la mecánica cuántica; en particular, para comprender el concepto de spin en física de partículas, que en algunos textos elementales se identifica incorrectamente con el giro de las partículas alrededor de su eje.
+Aquí estamos interesados principalmente en su aplicación a la mecánica cuántica; en
+particular, para comprender el concepto de spin en física de partículas, que en algunos
+textos elementales se identifica incorrectamente con el giro de las partículas alrededor
+de su eje.
 
 \section{Rotaciones en el plano}
 Para asimilar mejor el concepto de \emph{grupo de Lie}, empezamos analizando las rotaciones en $\symbb{R}^2$, olvidándonos por un momento de los grupos.
@@ -17,8 +20,12 @@ Las caracterizaremos de dos formas diferentes:
 \end{enumerate}
 
 \subsection{Caracterización trigonométrica}
-En la figura~\ref{fig:gli-x_axes} se representa un sistema de coordenadas cartesianas rectangulares\footnotemark{} y un punto P cualquiera del espacio, con coordenadas $(x_1,x_2)$, donde $\vvv{r}$ es el vector que indica su posición con respecto al origen.
-\footnotetext{Denotamos los ejes de $\symbb{R}^2$ mediante $x_1$ y $x_2$,   igual que las coordenadas del punto. El lector no debería confundirlos, su interpretación se desprende del contexto.}
+En la figura~\ref{fig:gli-x_axes} se representa un sistema de coordenadas cartesianas
+rectangulares\footnotemark{} y un punto P cualquiera del espacio, con coordenadas
+$(x_1,x_2)$, donde $\vvv{r}$ es el vector que indica su posición con respecto al origen.
+\footnotetext{Denotamos los ejes de $\symbb{R}^2$ mediante $x_1$ y $x_2$,   igual que
+  las coordenadas del punto. El lector no debería confundirlos, su interpretación se
+  desprende del contexto.}
 Las coordenadas de P con respecto a este sistema son
 \begin{subequations}
   \begin{align}\label{eq:gli-coordxuno}
@@ -209,9 +216,12 @@ Las coordenadas de P con respecto a este sistema son
   \end{minipage}
 \end{figure}
 
-En la figura~\ref{fig:gli-rotated_axes} llevamos a cabo una \emph{rotación pasiva}\footnotemark{}, girando los ejes un ángulo $\alpha$ en sentido positivo (antihorario).
+En la figura~\ref{fig:gli-rotated_axes} llevamos a cabo una
+\emph{rotación pasiva}\footnotemark{}, girando los ejes un ángulo $\alpha$ en sentido
+positivo (antihorario).
 Observe que no cambia la distancia, $r$, entre el punto y el origen, esto es, r'=r.
-\footnotetext{En una rotación pasiva se gira el punto de vista (el sistema de referencia) y no el punto.}
+\footnotetext{En una rotación pasiva se gira el punto de vista (el sistema de
+  referencia) y no el punto.}
 Las coordenadas del punto P con respecto del sistema girado son
 \begin{subequations}
   \begin{align}\label{eq:gli-coordxprimauno}
@@ -221,7 +231,8 @@ Las coordenadas del punto P con respecto del sistema girado son
   \end{align}
 \end{subequations}
 
-Desarrollamos~\eqref{eq:gli-coordxuno} y~\eqref{eq:gli-coordxdos} y  utilizamos~\eqref{eq:gli-coordxprimauno} y~\eqref{eq:gli-coordxprimados}
+Desarrollamos~\eqref{eq:gli-coordxuno} y~\eqref{eq:gli-coordxdos} y
+utilizamos~\eqref{eq:gli-coordxprimauno} y~\eqref{eq:gli-coordxprimados}
 \begin{align*}
   x_1 &= r \cos\alpha \cos\beta - r \sin\alpha \sin\beta
         = \cos\alpha\,(r\cos\beta) - \sin\alpha\,(r\sin\beta)\\
@@ -280,8 +291,8 @@ Se deduce que la matriz de rotación pasiva es la inversa de $\mmm{M}$
   \mmm{R} = \mmm{M}^{-1}
 \]
 
-Antes de nada, debemos comprobar que la matriz $\mmm{M}$ tiene inversa; para ello su determinante
-no puede ser nulo\footnotemark{}.
+Antes de nada, debemos comprobar que la matriz $\mmm{M}$ tiene inversa; para ello su
+determinante no puede ser nulo\footnotemark{}.
 \footnotetext{Una matriz con determinante cero se llama \emph{matriz singular}
   y no tiene inversa.}
 
@@ -295,7 +306,8 @@ Calculamos el determinante y comprobamos que no es nulo, por lo que tiene invers
   = \cos^2\alpha + \sin^2\alpha = 1
 \end{equation}
 
-La inversa de una matriz es igual a la adjunta de la traspuesta dividida entre su determinante
+La inversa de una matriz es igual a la adjunta de la traspuesta dividida entre su
+determinante
 \[
   \mmm{M}^{-1} = \dfrac{1}{\det(\mmm{M})}\,\text{adj} \left(\mmm{M}^\trasp\right)
 \]
@@ -322,8 +334,8 @@ Primero hallamos la traspuesta, que se obtiene al intercambiar filas por columna
   \end{pmatrix}
 \]
 
-Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando elemento por elemento
---ya que no se hace muy pesado, por tener solo cuatro elementos--
+Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando elemento
+por elemento --ya que no se hace muy pesado, por tener solo cuatro elementos--
 \[
   \text{adj}\left(\mmm{M^\trasp}\right)
     = \begin{vmatrix}
@@ -331,9 +343,10 @@ Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando ele
       \end{vmatrix}
 \]
 
-El cofactor, $A_{ij}$, de cada elemento $B_{ij}$ se obtiene multiplicando $(-1)^{\,i+j}$ por el
-menor complementario de $B_{ij}$.
-El menor complementario es el determinante que queda al eliminar la fila $i$ y la $j$ de la matriz.
+El cofactor, $A_{ij}$, de cada elemento $B_{ij}$ se obtiene multiplicando $(-1)^{\,i+j}$
+por el menor complementario de $B_{ij}$.
+El menor complementario es el determinante que queda al eliminar la fila $i$ y la $j$ de
+la matriz.
 
 Calculamos el cofactor de cada uno de los elementos de la matriz traspuesta. El elemento
 lo indicamos en rojo y, en este caso, el menor complementario es un determinante formado
@@ -389,7 +402,8 @@ La matriz de cofactores de la traspuesta resulta
   \end{pmatrix}
 \]
 
-Y teniendo en cuenta que el determinante de la matriz valía la unidad, ver \eqref{eq:gli-determinante_M}, la matriz inversa es
+Y teniendo en cuenta que el determinante de la matriz valía la unidad, ver
+\eqref{eq:gli-determinante_M}, la matriz inversa es
 \[
   \mmm{M}^{-1}
   =
@@ -411,7 +425,8 @@ Y teniendo en cuenta que el determinante de la matriz valía la unidad, ver \eqr
   \end{pmatrix}
 \]
 
-Es instructivo señalar que, en este caso, la inversa es igual a la traspuesta y resulta ser la matriz de rotación pasiva $\mmm{R}$ que buscamos
+Es instructivo señalar que, en este caso, la inversa es igual a la traspuesta y resulta
+ser la matriz de rotación pasiva $\mmm{R}$ que buscamos
 \begin{equation}
   \label{eq:gli-matriz_rotacion_2x2}
   \mmm{R}
@@ -426,8 +441,8 @@ Es instructivo señalar que, en este caso, la inversa es igual a la traspuesta y
   \end{pmatrix}
 \end{equation}
 
-Las nuevas coordenadas se obtienen aplicando la matriz de rotación a
-las del sistema sin girar
+Las nuevas coordenadas se obtienen aplicando la matriz de rotación a las del sistema sin
+girar
 \[
   \vvv{x'} = \mmm{R} \vvv{x}
 \]
@@ -449,7 +464,8 @@ las del sistema sin girar
 
 \subsubsection{Criterio de la suma de Einstein}
 Abandonamos por un instante nuestro guión para explicar la notación de Einstein.
-Supongamos que queremos calcular las coordenadas $\vvv{x'}$ mediante el producto matricial
+Supongamos que queremos calcular las coordenadas $\vvv{x'}$ mediante el producto
+matricial
 \[
   \begin{pmatrix}
     x'_1\\[0.4ex] x'_2
@@ -489,16 +505,23 @@ Cuando se utiliza el criterio de la suma de Einstein, las expresiones son más
 fáciles de escribir; en nuestro caso, las~\eqref{eq:gli-criteriosumaeinstein}
 son totalmente equivalentes a las~\eqref{eq:gli-sumatorio}.
 
-\subsection[Mediante transformación que deja invariante la longitud] {Caracterización por medio de una transformación que deja invariante la longitud}\label{invariante_longitud}
-Ahora nos olvidaremos de la trigonometría y deduciremos las características de la matriz de rotación $\mmm{R}$ de una manera más sofisticada.
+\subsection[Mediante transformación que deja invariante la longitud]
+{Caracterización por medio de una transformación que deja invariante la
+  longitud}\label{invariante_longitud}
+Ahora nos olvidaremos de la trigonometría y deduciremos las características de la matriz
+de rotación $\mmm{R}$ de una manera más sofisticada.
 
 Cuando se realiza una rotación, las distancias se deben conservar.
-En nuestro ejemplo de la figura~\ref{fig:gli-rotated_axes}, la distancia $r = |\vvv{r}|$ del origen al punto es la misma en cualquiera de los sistemas de coordenadas, el original y el girado.
+En nuestro ejemplo de la figura~\ref{fig:gli-rotated_axes}, la distancia $r = |\vvv{r}|$
+del origen al punto es la misma en cualquiera de los sistemas de coordenadas, el
+original y el girado.
 
-Abordaremos este apartado de dos formas; en la primera, desarrollaremos los cálculos con todo detalle y, en la segunda, seguiremos un razonamiento aún más sofisticado y potente.
+Abordaremos este apartado de dos formas; en la primera, desarrollaremos los cálculos con
+todo detalle y, en la segunda, seguiremos un razonamiento aún más sofisticado y potente.
 
 \subsubsection{Desarrollo con gran detalle}
-Llamemos $s$ a la distancia que se conserva, por ejemplo la distancia entre el punto P y el origen en la figura~\eqref{fig:gli-rotated_axes}
+Llamemos $s$ a la distancia que se conserva, por ejemplo la distancia entre el punto P y
+el origen en la figura~\eqref{fig:gli-rotated_axes}
 \[
   s = \sqrt{x'^2_1 + x'^2_2}
   = \sqrt{x^2_1 + x^2_2}
@@ -511,7 +534,8 @@ La invariancia de distancias se expresa más cómodamente sin raíces cuadradas
   = x^2_1 + x^2_2
 \end{equation}
 
-Además sabemos que las nuevas coordenadas se obtendrán a partir de las antiguas a través de una matriz de rotación
+Además sabemos que las nuevas coordenadas se obtendrán a partir de las antiguas a través
+de una matriz de rotación
 \[
   \begin{pmatrix}
     x'_1 \\[0.4ex] x'_2
@@ -551,9 +575,11 @@ Identificando coeficientes, los elementos de la matriz de rotación deben cumpli
   & R_{11} R_{12} + R_{21} R_{22} = 0
 \end{align*}
 
-No hemos obtenido el valor de la matriz de rotación en dos dimensiones como en la sección anterior, pero hemos llegado a unas igualdades que deben cumplir sus elementos.
+No hemos obtenido el valor de la matriz de rotación en dos dimensiones como en la
+sección anterior, pero hemos llegado a unas igualdades que deben cumplir sus elementos.
 
-Multiplicamos la traspuesta de la matriz por la matriz e imponemos las relaciones que deben cumplir los elementos de la matriz de rotación
+Multiplicamos la traspuesta de la matriz por la matriz e imponemos las relaciones que
+deben cumplir los elementos de la matriz de rotación
 \begin{align*}
   \mmm{R}^\trasp \mmm{R}
   &=
@@ -578,17 +604,24 @@ Multiplicamos la traspuesta de la matriz por la matriz e imponemos las relacione
   \end{pmatrix}
 \end{align*}
 
-Hemos demostrado que al imponer la condición de que para que se conserven las distancias en una rotación, la matriz inversa de la rotación debe ser igual a la traspuesta,
+Hemos demostrado que al imponer la condición de que para que se conserven las distancias
+en una rotación, la matriz inversa de la rotación debe ser igual a la traspuesta,
 $\mmm{R}^{-1} = \mmm{R}^\trasp$
 \[
   \mathbf{R}^\trasp \mathbf{R} = \mathbf{I}
 \]
 
 \subsubsection{Desarrollo más sofisticado}
-Vamos a llegar a la misma conclusión pero de una forma más sofisticada y, de hecho, no especificaremos la dimensión del espacio donde se produce la rotación; recordemos que en los desarrollos anteriores siempre hemos supuesto que la rotación se producía en el plano $\symbb{R}^2$, de dimensión 2.
+Vamos a llegar a la misma conclusión pero de una forma más sofisticada y, de hecho, no
+especificaremos la dimensión del espacio donde se produce la rotación; recordemos que en
+los desarrollos anteriores siempre hemos supuesto que la rotación se producía en el
+plano $\symbb{R}^2$, de dimensión 2.
 
-Primero hay que introducir una expresión matricial para el producto escalar de un vector por sí mismo y para ello nos viene bien suponer, momentáneamente, el espacio de dimensión dos.
-El producto escalar del vector columna $\vvv{x}$ por sí mismo es un escalar no negativo que llamaremos $s^2$ y se calcula multiplicando la traspuesta del vector por él mismo
+Primero hay que introducir una expresión matricial para el producto escalar de un vector
+por sí mismo y para ello nos viene bien suponer, momentáneamente, el espacio de
+dimensión dos.
+El producto escalar del vector columna $\vvv{x}$ por sí mismo es un escalar no negativo
+que llamaremos $s^2$ y se calcula multiplicando la traspuesta del vector por él mismo
 \[
   |\vvv{x}|^2 = \vvv{x}\cdot\vvv{x}
   = \vvv{x}^\trasp \vvv{x}
@@ -611,14 +644,17 @@ El producto escalar del vector columna $\vvv{x}$ por sí mismo es un escalar no 
   = x^2_1 + x^2_2 = s^2
 \]
 
-Demostraremos, sin tener en cuenta la dimensión del espacio, que la inversa de la matriz de rotación es la traspuesta.
+Demostraremos, sin tener en cuenta la dimensión del espacio, que la inversa de la matriz
+de rotación es la traspuesta.
 
-Sabemos que la cantidad invariante es $s²$, que se puede expresar en función de las coordenadas rotadas y de las originales
+Sabemos que la cantidad invariante es $s²$, que se puede expresar en función de las
+coordenadas rotadas y de las originales
 \begin{equation}\label{eq:gli-s2xprime}
   (\vvv{x'})^\trasp \vvv{x'} = \vvv{x}^\trasp \vvv{x} = s^2
 \end{equation}
 
-Además, sabemos que estas coordenadas $\vvv{x'}$ se obtienen aplicando la matriz de rotación a las coordenadas sin rotar
+Además, sabemos que estas coordenadas $\vvv{x'}$ se obtienen aplicando la matriz de
+rotación a las coordenadas sin rotar
 \[
   \vvv{x'} = \mmm{R} \vvv{x}
 \]
@@ -640,7 +676,8 @@ Se desprende de la ecuación anterior que
   \mmm{R}^\trasp \mmm{R} = \mmm{I}
 \end{equation}
 
-Recalcamos que hemos llegado a esta conclusión sin presuponer la dimensión del espacio, por lo que hemos demostrado que se debe cumplir sea cual sea esta.
+Recalcamos que hemos llegado a esta conclusión sin presuponer la dimensión del espacio,
+por lo que hemos demostrado que se debe cumplir sea cual sea esta.
 
 ¿Qué podemos decir del determinante de $\mmm{R}$?
 \[
@@ -665,7 +702,8 @@ Así que
   \det(\mmm{R}) = \pm 1
 \]
 
-El valor $-1$ corresponde a una reflexión y no a una rotación, por lo que hemos de descartar este valor, quedando
+El valor $-1$ corresponde a una reflexión y no a una rotación, por lo que hemos de
+descartar este valor, quedando
 \begin{equation}\label{eq:gli-detRuno}
   \det(\mmm{R}) = 1
 \end{equation}
@@ -804,10 +842,12 @@ Por ejemplo, el conjunto que forma el grupo de rotaciones de dimensión 2 se pue
   SO(2) = \{ \mmm{R}(\alpha)\ |\ \mmm{R}^\trasp
   \mmm{R} = \mmm{I},\ \det(\mmm{R}) = 1\}
 \]
-que es el grupo de matrices ortogonales $2\times 2$, que describen la rotación en el plano real y forman un grupo de Lie.
+que es el grupo de matrices ortogonales $2\times 2$, que describen la rotación en el
+plano real y forman un grupo de Lie.
 
 \subsection{Matriz de rotación general}\label{sec:matriz_rotacion_general}
-Tenemos las siguientes propiedades de la matriz de rotación, ecuaciones~\eqref{eq:gli-R_ortogonal} y~\eqref{eq:gli-detRuno}
+Tenemos las siguientes propiedades de la matriz de rotación,
+ecuaciones~\eqref{eq:gli-R_ortogonal} y~\eqref{eq:gli-detRuno}
 \begin{align*}
   \mmm{R}^\trasp \mmm{R} &= \mmm{I}\\
   \det(\mmm{R}) &= 1
@@ -822,7 +862,9 @@ ver~\eqref{eq:gli-rotacion2x2}
     \end{pmatrix}
 \]
 
-Nos proponemos hallar la expresión general para la matriz de rotación, independientemente de la dimensión del espacio en el que se realiza la transformación (simplificando bastante la notación).
+Nos proponemos hallar la expresión general para la matriz de rotación,
+independientemente de la dimensión del espacio en el que se realiza la transformación
+(simplificando bastante la notación).
 
 Supongamos que queremos rotar un sistema un ángulo finito $0 \leq \alpha < 2\pi$.
 Sabemos que rotar un ángulo $\alpha$ equivale a rotar $N$ veces el ángulo $\alpha / N$
@@ -830,10 +872,15 @@ Sabemos que rotar un ángulo $\alpha$ equivale a rotar $N$ veces el ángulo $\al
   \alpha = N\,\dfrac{\alpha}{N} = N \varepsilon
 \]
 
-En particular, estamos interesados en valores de $N$ muy grandes, que tienden a infinito, es decir, valores para los que $\varepsilon=\alpha/N$ sea una cantidad infinitesimal.
-Si un parámetro $\varepsilon$ es infinitesimal, en primera aproximación, se considera que su cuadrado es despreciable (si $\varepsilon$ es infinitesimal, entonces $\varepsilon^2\approx 0$).
+En particular, estamos interesados en valores de $N$ muy grandes, que tienden a
+infinito, es decir, valores para los que $\varepsilon=\alpha/N$ sea una cantidad
+infinitesimal.
+Si un parámetro $\varepsilon$ es infinitesimal, en primera aproximación, se considera
+que su cuadrado es despreciable (si $\varepsilon$ es infinitesimal, entonces
+$\varepsilon^2\approx 0$).
 
-Una rotación infinitesimal cambia algo el objeto rotado, pero muy poco, de manera que casi lo deja igual.
+Una rotación infinitesimal cambia algo el objeto rotado, pero muy poco, de manera que
+casi lo deja igual.
 Esto se puede representar matemáticamente
 \[
   \mmm{R}(\varepsilon) = \mmm{R}\left(\dfrac{\alpha}{N}\right) = \mmm{I} + \mmm{A}
@@ -846,7 +893,8 @@ La rotación finita sería
 \]
 
 Analicemos cómo debería ser la matriz infinitesimal $\mmm{A}$.
-La matriz de rotación infinitesimal $\mmm{I} + \mmm{A}$, por ser matriz de rotación, debe ser ortogonal
+La matriz de rotación infinitesimal $\mmm{I} + \mmm{A}$, por ser matriz de rotación,
+debe ser ortogonal
 \[
   \mmm{R}^\trasp \mmm{R} = \mmm{I}
 \]
@@ -871,18 +919,22 @@ La matriz de rotación infinitesimal $\mmm{I} + \mmm{A}$, por ser matriz de rota
 \]
 
 Nótese que $\mmm{A}^\trasp \mmm{A}$ es despreciable porque $\mmm{A}$ es infinitesimal.
-La expresión~\eqref{eq:gli-A_antisimetrica} que se obtiene, define a la matriz \mmm{A} como antisimétrica, $\mmm{A}^\trasp = -\mmm{A}$
+La expresión~\eqref{eq:gli-A_antisimetrica} que se obtiene, define a la matriz \mmm{A}
+como antisimétrica, $\mmm{A}^\trasp = -\mmm{A}$
 \begin{equation}\label{eq:gli-A_antisimetrica}
   \mmm{A} + \mmm{A}^\trasp = 0
 \end{equation}
 
 Los elementos de las matrices antisimétricas, como $\mmm{A}$, cumplen $A_{ij} = -A_{ji}$.
-Nótese que los elementos diagonales de las matrices antisimétricas deben ser cero para que se cumpla $A_{ii} = -A_{ii}$.
+Nótese que los elementos diagonales de las matrices antisimétricas deben ser cero para
+que se cumpla $A_{ii} = -A_{ii}$.
 
-Hay dos opciones para $\mmm{A}$, reflejadas en~\eqref{eq:gli-opcionesA}, cada una es la opuesta de la otra.
+Hay dos opciones para $\mmm{A}$, reflejadas en~\eqref{eq:gli-opcionesA}, cada una es la
+opuesta de la otra.
 En principio cualquiera sería válida.
 La clave reside en el significado que le demos al ángulo de rotación $\varepsilon$.
-Podría definirse como el ángulo que giran los ejes o el que giran los vectores; cada uno de los ángulos es opuesto del otro, de ahí que las dos matrices posibles sean inversas
+Podría definirse como el ángulo que giran los ejes o el que giran los vectores; cada uno
+de los ángulos es opuesto del otro, de ahí que las dos matrices posibles sean inversas
 \begin{equation}\label{eq:gli-opcionesA}
   \mmm{A}
   =
@@ -902,13 +954,20 @@ Podría definirse como el ángulo que giran los ejes o el que giran los vectores
 \end{equation}
 
 Sólo tenemos un grado de libertad, $\varepsilon$.
-Definimos $\varepsilon$ como \emph{el ángulo que giran los ejes de coordenadas}, teniendo en cuenta que el sentido positivo es el antihorario.
-¿Cómo podemos saber cuál de las dos matrices anteriores es la que se corresponde con esta definición?
+Definimos $\varepsilon$ como \emph{el ángulo que giran los ejes de coordenadas},
+teniendo en cuenta que el sentido positivo es el antihorario.
+¿Cómo podemos saber cuál de las dos matrices anteriores es la que se corresponde con
+esta definición?
 
-Para dilucidar cuál es la matriz que está de acuerdo con nuestra definición de $\varepsilon$, hacemos girar infinitesimalmente los ejes en sentido positivo, por lo tanto los vectores aparentarán girar en sentido negativo, tal y como se aprecia en la figura~\ref{fig:gli-girovector}.
+Para dilucidar cuál es la matriz que está de acuerdo con nuestra definición de
+$\varepsilon$, hacemos girar infinitesimalmente los ejes en sentido positivo, por lo
+tanto los vectores aparentarán girar en sentido negativo, tal y como se aprecia en la
+figura~\ref{fig:gli-girovector}.
 
-Ahora construimos las transformaciones que se obtienen y vemos que la coordenada $x$ aumenta ligeramente, de ahí la suma en la expresión~\eqref{eq:gli-giro_incx}; en cambio, la coordenada $y$ disminuye ligeramente, y la ecuación~\eqref{eq:gli-giro_incy} representa
-esta transformación
+Ahora construimos las transformaciones que se obtienen y vemos que la coordenada $x$
+aumenta ligeramente, de ahí la suma en la expresión~\eqref{eq:gli-giro_incx}; en cambio,
+la coordenada $y$ disminuye ligeramente, y la ecuación~\eqref{eq:gli-giro_incy}
+representa esta transformación
 \begin{subequations}\label{eq:gli-giro_incxy}
   \begin{align}
     \label{eq:gli-giro_incx}
@@ -1036,7 +1095,8 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
   \label{fig:gli-girovector}
 \end{figure}
 
-Como no sabemos cuál de las dos matrices~\eqref{eq:gli-opcionesA} es la correcta para nuestra definición de ángulo girado, la representaremos por
+Como no sabemos cuál de las dos matrices~\eqref{eq:gli-opcionesA} es la correcta para
+nuestra definición de ángulo girado, la representaremos por
 \[
   \mmm{A}(\varepsilon)
   = \begin{pmatrix}
@@ -1044,7 +1104,8 @@ Como no sabemos cuál de las dos matrices~\eqref{eq:gli-opcionesA} es la correct
     a_{21} & 0
     \end{pmatrix}
 \]
-Por otro lado, el vector girado $\vvv{x}'$ se puede obtener aplicando la matriz de rotación infinitesimal desconocida al vector original $\vvv{x}$
+Por otro lado, el vector girado $\vvv{x}'$ se puede obtener aplicando la matriz de
+rotación infinitesimal desconocida al vector original $\vvv{x}$
 \[
   \vvv{x}'
   =
@@ -1080,7 +1141,8 @@ Por otro lado, el vector girado $\vvv{x}'$ se puede obtener aplicando la matriz 
   \end{pmatrix}
 \]
 
-Si comparamos este resultado con la igualdad~\eqref{eq:gli-giro_incxy_matricial}, llegamos a la conclusión de que
+Si comparamos este resultado con la igualdad~\eqref{eq:gli-giro_incxy_matricial},
+llegamos a la conclusión de que
 \begin{align*}
   a_{12} &= \varepsilon\\
   a_{21} &= -\varepsilon
@@ -1139,7 +1201,10 @@ La matriz genérica de rotación sería
   \mmm{R} (\alpha) = \left(\mmm{I} + \dfrac{\alpha}{N}\,\mmm{G}\right)^N
 \end{equation}
 
-Queremos obtener un desarrollo en serie de potencias de $\alpha$ de la expresión~\eqref{eq:gli-matriz_rotacion_N}, alrededor de $\alpha = \SI{0}{\radian}$, calculando los valores de la matriz de rotación y algunas de sus sucesivas derivadas para el ángulo de cero radianes, teniendo en cuenta que $N$ tiende a infinito
+Queremos obtener un desarrollo en serie de potencias de $\alpha$ de la
+expresión~\eqref{eq:gli-matriz_rotacion_N}, alrededor de $\alpha = \SI{0}{\radian}$,
+calculando los valores de la matriz de rotación y algunas de sus sucesivas derivadas
+para el ángulo de cero radianes, teniendo en cuenta que $N$ tiende a infinito
 \begin{equation}\label{eq:gli-desarrolloserie_R}
   \mmm{R} (\alpha)
   = \mmm{R} (0)

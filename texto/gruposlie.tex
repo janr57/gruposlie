@@ -796,9 +796,20 @@ sería:
 Esta propiedad permite que se pueda hablar de una función $\mmm{R}$, que asocia a cada
 número real $\alpha$ una matriz cuadrada no singular
 $\mmm{R}(\alpha)$
-\[
-  f: \symbb{R} \longrightarrow \mmm{R}
-\]
+\begin{center}
+  \begin{tikzpicture}[%
+      baseline,
+      fila2/.style={black!70,font=\small},
+    ]
+    \matrix (mymatrix)[row sep=-3pt, column sep=-2pt]
+    {
+      \node{$f$\,:}; & \node{$\symbb{R}$}; & \node{$\longrightarrow$}; &
+      [-3pt]\node{\mmm{R}};\\
+      & \node[fila2]{$\alpha$}; & \node[black!70]{$\mapsto$}; &
+      \node[fila2]{$\mmm{R}(\alpha)$};\\
+  };
+\end{tikzpicture}
+\end{center}
 
 Un ejemplo de grupo de Lie es el que se representa como O(N), que es el grupo de las
 matrices ortogonales $N\times N$; esto es, el grupo de matrices $\mmm{A}$ de componentes

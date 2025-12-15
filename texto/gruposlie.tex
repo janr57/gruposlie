@@ -709,7 +709,7 @@ descartar este valor, quedando
 \end{equation}
 
 
-\section{El grupo de rotaciones. Grupos de Lie}
+\section{El grupo de rotaciones}
 Vamos puntualizar algunos detalles acerca de la matriz de rotación:
 \begin{itemize}
 \item La matriz de rotación depende de la dimensión del espacio; cuando vale 2, es
@@ -721,7 +721,12 @@ Vamos puntualizar algunos detalles acerca de la matriz de rotación:
       -\sin\alpha & \cos\alpha
     \end{pmatrix}
   \end{equation}
-
+  
+  Aunque esta matriz la dedujimos anteriormente a partir de consideraciones
+  trigonométricas, la volveremos a obtener a partir del concepto
+  \emph{generador de una rotación}, que se introducirá en la sección siguiente
+  \ref{sec:gruposlie}.
+  
 \item Las matrices de rotación dependen de un parámetro (el ángulo), que es una variable
   continua, $\mmm{R} (\alpha)$.
 
@@ -766,7 +771,7 @@ Vamos puntualizar algunos detalles acerca de la matriz de rotación:
   \end{enumerate}
 \end{itemize}
 
-\subsubsection{Grupos de Lie}
+\section{Grupos de Lie}\label{sec:gruposlie}
 El grupo de rotaciones es un conjunto infinito porque  $\mmm{R}(\alpha)$ tiene un
 elemento por cada valor del ángulo $\alpha$
 \[

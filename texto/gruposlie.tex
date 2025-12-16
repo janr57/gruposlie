@@ -891,21 +891,19 @@ independientemente de la dimensión del espacio en el que se realiza la transfor
 (simplificando bastante la notación).
 
 Supongamos que queremos rotar un sistema un ángulo finito $0 \leq \alpha < 2\pi$.
-Sabemos que rotar un ángulo $\alpha$ equivale a rotar $N$ veces el ángulo $\alpha / N$
+Sabemos que rotar un ángulo $\alpha$ equivale a rotar $N$ veces el ángulo $\alpha / N$.
+En particular, estamos interesados en valores de $N$ muy grandes, que tienden a
+infinito, es decir, valores para los que $\varepsilon=\alpha/N$ sea una cantidad
+infinitesimal
 \[
   \alpha = N\,\dfrac{\alpha}{N} = N \varepsilon
 \]
 
-En particular, estamos interesados en valores de $N$ muy grandes, que tienden a
-infinito, es decir, valores para los que $\varepsilon=\alpha/N$ sea una cantidad
-infinitesimal.
 Si un parámetro $\varepsilon$ es infinitesimal, en primera aproximación, se considera
-que su cuadrado es despreciable (si $\varepsilon$ es infinitesimal, entonces
-$\varepsilon^2\approx 0$).
+que su cuadrado es despreciable ($\varepsilon^2\approx 0$).
 
 Una rotación infinitesimal cambia algo el objeto rotado, pero muy poco, de manera que
-casi lo deja igual.
-Esto se puede representar matemáticamente
+casi lo deja igual. Esto se puede representar matemáticamente
 \[
   \mmm{R}(\varepsilon) = \mmm{R}\left(\dfrac{\alpha}{N}\right) = \mmm{I} + \mmm{A}
 \]

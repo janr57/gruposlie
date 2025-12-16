@@ -909,9 +909,15 @@ casi lo deja igual. Esto se puede representar matemáticamente
 \]
 donde $\mmm{A}$ es una matriz infinitesimal.
 
-La rotación finita sería
+La rotación finita sería el resultado de aplicar sucesivamente un número $N$ (que tiende
+a infinito) de rotaciones, de manera que hay que multiplicar $\mmm{R}(\varepsilon)$ por
+sí misma, $N$ veces
 \[
-  \mmm{R} (\alpha) = \mmm{R}(\varepsilon)^N = (\mmm{I} + \mmm{A})^N
+  \mmm{R} (\alpha)
+  = \underbrace{%
+    \mmm{R}(\varepsilon) \mmm{R}(\varepsilon) \cdots \mmm{R}(\varepsilon)
+    }_{N\text{ veces}}
+  = \mmm{R}(\varepsilon)^N = (\mmm{I} + \mmm{A})^N
 \]
 
 Analicemos cómo debería ser la matriz infinitesimal $\mmm{A}$.

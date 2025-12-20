@@ -6,7 +6,8 @@
 
 \chapter{El grupo de rotaciones SO(3)}
 En este capítulo estudiaremos el grupo de rotaciones en el espacio tridimensional.
-Partimos de la expresión exponencial de la matriz de  rotación de los ejes $x$ e $y$ en dos dimensiones en sentido antihorario
+Partimos de la expresión exponencial de la matriz de  rotación de los ejes $x$ e $y$ en
+dos dimensiones en sentido antihorario
  \[
    \mmm{R} (\theta)
    = e^{\theta\mmm{G}}
@@ -15,7 +16,8 @@ Partimos de la expresión exponencial de la matriz de  rotación de los ejes $x$
  siendo $\mmm{G}$ el único generador de rotación en el grupo SO(2).
  
 \subsection{Número de generadores del grupo SO(3)}\label{subsec:num_gen_so3}
-Para saber cuántos generadores encontraremos en el grupo SO(3), nos debemos fijar en la expresión exponencial de una rotación en el espacio tridimensional
+Para saber cuántos generadores encontraremos en el grupo SO(3), nos debemos fijar en la
+expresión exponencial de una rotación en el espacio tridimensional
 \[
   \mmm{R} = e^{\mmm{A}} = \exp\left\{
     \begin{pmatrix}
@@ -52,7 +54,9 @@ Vemos que sólo tenemos tres grados de libertad: $A_{12}$, $A_{13}$ y
 $A_{23}$, los demás elementos quedan completamente especificados.
 Este grupo tendrá tres generadores.
 
-Dejamos, como ejercicio, comprobar que una rotación en el plano --SO(2)-- tiene un único generador, mientras que una rotación en el espacio de cuatro dimensiones --SO(4)--, tiene seis.
+Dejamos, como ejercicio, comprobar que una rotación en el plano --SO(2)-- tiene un único
+generador, mientras que una rotación en el espacio de cuatro dimensiones --SO(4)--, tiene
+seis.
 
 \subsection{Generador para la rotación alrededor del eje
   \mathinhead{z}{z}, \mathinhead{\mmm{G}_z}{Gz}}
@@ -89,8 +93,11 @@ y el generador para la rotación pasiva alrededor del eje $z$ sería
   \end{pmatrix}
 \end{equation}
 
-Debido a la forma un poco arbitraria con que hemos obtenido este generador, tenemos que comprobar que describe efectivamente una rotación alrededor del eje $z$.
-Lo más sencillo es comprobarlo mediante una rotación infinitesimal, porque la matriz de rotación es más sencilla, dado que los términos que contienen $\varepsilon^n$ con $n>=2$ son despreciables
+Debido a la forma un poco arbitraria con que hemos obtenido este generador, tenemos que
+comprobar que describe efectivamente una rotación alrededor del eje $z$.
+Lo más sencillo es comprobarlo mediante una rotación infinitesimal, porque la matriz de
+rotación es más sencilla, dado que los términos que contienen $\varepsilon^n$ con $n>=2$
+son despreciables
 \begin{equation}
   \label{eq:so3-rotacion_infinitesimal_z}
   \mmm{R}_z (\varepsilon) \approx
@@ -148,8 +155,7 @@ vector cualquiera del espacio de tres dimensiones
   \end{align*}
 }
 
-Calculamos las componentes después del giro de los ejes alrededor del
-eje $z$
+Calculamos las componentes después del giro de los ejes alrededor del eje $z$
 \begin{subequations}\label{eq:so3-giro_z_incxyz}
 \begin{align}
   \label{eq:so3-giro_z_incx}
@@ -161,20 +167,18 @@ eje $z$
 \end{align}
 \end{subequations}
 
-¿Cómo podemos saber que estas transformaciones de las coordenadas son
-compatibles con un giro pasivo infinitesimal alrededor del eje $z$?
-Aunque no es una demostración definitiva, podemos comprobarlo
-fijándonos en que un giro antihorario de los ejes $x$ e $y$ alrededor
-del ejx $z$, es equivalente a un giro horario del espacio (en este
-caso el punto $P$), dejando los ejes inalterados, como se puede
+¿Cómo podemos saber que estas transformaciones de las coordenadas son compatibles con un
+giro pasivo infinitesimal alrededor del eje $z$?
+Aunque no es una demostración definitiva, podemos comprobarlo fijándonos en que un giro
+antihorario de los ejes $x$ e $y$ alrededor del ejx $z$, es equivalente a un giro horario
+del espacio (en este caso el punto $P$), dejando los ejes inalterados, como se puede
 observar a la izquierda de la figura \ref{fig:so3-giros_zxy}.
 
 Tal y como se aprecia en las ecuaciones \eqref{eq:so3-giro_z_incx},
 \eqref{eq:so3-giro_z_incy} y \eqref{eq:so3-giro_z_incz},
 a la izquierda de la figura \ref{fig:so3-giros_zxy},
-la coordenada $x'$ del punto girado debe aumentar ligeramente,
-la coordenada $y'$ disminuir, también ligeramente, mientras que la
-coordenada $z'$ se mantiene constante.
+la coordenada $x'$ del punto girado debe aumentar ligeramente, la coordenada $y'$
+disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene constante.
 \begin{figure}[ht]
   % Escala
   \def\scl{.78}
@@ -460,13 +464,18 @@ coordenada $z'$ se mantiene constante.
 \subsection{Generador para la rotación alrededor del eje
    \mathinhead{x}{x}, \mathinhead{\mmm{G}_x}{Gx}} 
  A continuación, deseamos obtener el generador del giro en el eje $x$.
- Podemos hacernos una idea de cómo construirlo mediante una representación gráfica como la anterior, pero adaptada al giro alrededor del eje $x$.
+ Podemos hacernos una idea de cómo construirlo mediante una representación gráfica como
+ la anterior, pero adaptada al giro alrededor del eje $x$.
 
- Fijémonos en el centro de la figura \ref{fig:so3-giros_zxy} y construyamos las transformaciones que se obtienen.
- La coordenada $x$ no cambia, porque el giro en este eje no la modifica; esto se refleja en la ecuación (\ref{eq:so3-giro_x_incx}).
- La coordenada $y$ aumenta ligeramente, de ahí la suma en la expresión~(\ref{eq:so3-giro_x_incy}).
- Por último, la coordenada $z$ disminuye ligeramente, y la ecuación (\ref{eq:so3-giro_x_incz}) representa
-esta transformación.
+ Fijémonos en el centro de la figura \ref{fig:so3-giros_zxy} y construyamos las
+ transformaciones que se obtienen.
+ La coordenada $x$ no cambia, porque el giro en este eje no la modifica; esto se refleja
+ en la ecuación (\ref{eq:so3-giro_x_incx}).
+ La coordenada $y$ aumenta ligeramente, de ahí la suma en la
+ expresión~(\ref{eq:so3-giro_x_incy}).
+ Por último, la coordenada $z$ disminuye ligeramente, y la ecuación
+ (\ref{eq:so3-giro_x_incz}) representa
+ esta transformación.
 \begin{subequations}\label{eq:so3-giro_x_incxyz}
 \begin{align}
   \label{eq:so3-giro_x_incx}
@@ -528,7 +537,8 @@ El generador para la rotación pasiva alrededor del eje $x$ resulta
 
 \subsection{Generador para la rotación alrededor del eje
    \mathinhead{y}{y}, \mathinhead{\mmm{G}_y}{Gy}}
-Razonando de forma similar podemos obtener el generador para el giro alrededor del eje $y$, omitimos el razonamiento (ver parte derecha de la figura \ref{fig:so3-giros_zxy})
+ Razonando de forma similar podemos obtener el generador para el giro alrededor del eje
+ $y$, omitimos el razonamiento (ver parte derecha de la figura \ref{fig:so3-giros_zxy})
 \begin{subequations}\label{eq:so3-giro_y_incxyz}
 \begin{align}
   \label{eq:so3-giro_y_incx}
@@ -591,7 +601,8 @@ El generador para la rotación pasiva alrededor del eje $y$ resulta
 \end{equation}
 
 \subsection{Rotación genérica en tres dimensiones}
-Hemos obtenido las tres matrices generadoras del grupo SO(3) que nos permiten obtener rotaciones alrededor de cada uno de los ejex $x$, $y$ y $z$.
+Hemos obtenido las tres matrices generadoras del grupo SO(3) que nos permiten obtener
+rotaciones alrededor de cada uno de los ejex $x$, $y$ y $z$.
 \begin{equation}
   \label{eq:so3-gx_gy_gz}
   \mmm{G}_x = 
@@ -620,18 +631,26 @@ Con este generador la matriz de rotación genérica tiene la forma
 \[
   \mmm{R}(\alpha) = e^{\alpha\mmm{G}}
 \]
-donde $\alpha$ es el ángulo girado alrededor de un eje y $\mmm{G}$ es una matriz antisimétrica.
-Si sustituimos estas matrices generadoras en $\mmm{G}$, tendríamos las matrices de rotación para cada uno de los ejes, $x$, $y$ y $z$.
+donde $\alpha$ es el ángulo girado alrededor de un eje y $\mmm{G}$ es una matriz
+antisimétrica.
+Si sustituimos estas matrices generadoras en $\mmm{G}$, tendríamos las matrices de
+rotación para cada uno de los ejes, $x$, $y$ y $z$.
 
-¿Cómo se representaría una matriz de rotación en tres dimensiones alrededor de cualquier eje, aunque no coincidiera con ningún eje de coordenadas?
+¿Cómo se representaría una matriz de rotación en tres dimensiones alrededor de cualquier
+eje, aunque no coincidiera con ningún eje de coordenadas?
 
-Incluso antes de conocer la respuesta tenemos la seguridad de que la matriz $\mmm{G}$ seguirá siendo antisimétrica.
-Pero cualquier matriz antisimétrica $3\times 3$, se construye como una combinación lineal de las $G_x$, $G_y$ y $G_z$; esto es, las matrices generadoras~(\ref{eq:so3-gx_gy_gz}) forman una base, y cualquier otra matriz que genere una rotación dentro del grupo SO(3) debe ser una combinación lineal de las anteriores.
+Incluso antes de conocer la respuesta tenemos la seguridad de que la matriz $\mmm{G}$
+seguirá siendo antisimétrica.
+Pero cualquier matriz antisimétrica $3\times 3$, se construye como una combinación lineal
+de las $G_x$, $G_y$ y $G_z$; esto es, las matrices generadoras~(\ref{eq:so3-gx_gy_gz})
+forman una base, y cualquier otra matriz que genere una rotación dentro del grupo SO(3)
+debe ser una combinación lineal de las anteriores.
 \begin{equation}
   \label{eq:so3-combinacion_lineal}
   \mmm{G} = n_x\mmm{G}_x + n_y\mmm{G}_y + n_z\mmm{G}_z
 \end{equation}
-más adelante descubriremos el significado de los coeficientes, $n_x$, $n_y$ y $n_z$ de la combinación lineal.
+más adelante descubriremos el significado de los coeficientes, $n_x$, $n_y$ y $n_z$ de la
+combinación lineal.
 
 Así, la rotación genérica queda
 \begin{equation}
@@ -640,7 +659,9 @@ Así, la rotación genérica queda
 \end{equation}
 
 \subsubsection{Rotación infinitesimal}
-Una de las ventajas de los grupos de Lie se basa en que como son continuos, podemos analizar su comportamiento utilizando cualquier rotación y la más sencilla es la infinitesimal, representada por el ángulo $\varepsilon$
+Una de las ventajas de los grupos de Lie se basa en que como son continuos, podemos
+analizar su comportamiento utilizando cualquier rotación y la más sencilla es la
+infinitesimal, representada por el ángulo $\varepsilon$
 \begin{equation}
   \label{eq:so3-rotacion_infinitesimal_n}
   \mmm{R}_n(\varepsilon)
@@ -711,7 +732,8 @@ Aplicamos este giro genérico infinitesimal a un punto
   \end{pmatrix}
 \end{align*}
 
-Los elementos del vector columna que multiplica a $\varepsilon$ son las componentes del producto vectorial
+Los elementos del vector columna que multiplica a $\varepsilon$ son las componentes del
+producto vectorial
 \[
   \vvv{x} \prodvec \vvv{n} =
   \begin{vmatrix}
@@ -722,7 +744,8 @@ Los elementos del vector columna que multiplica a $\varepsilon$ son las componen
   = (n_zy-n_yz)\,\hat\imath + (n_xz-n_zx)\,\hat\jmath + (n_yx-n_xy)\,\hat k
 \]
 
-El resultado de operar la matriz de rotación infinitesimal con un vector cualquiera quedaría
+El resultado de operar la matriz de rotación infinitesimal con un vector cualquiera
+quedaría
 \begin{equation}
   \label{eq:so3-expr_con_n}
   \vvv{x'}
@@ -731,27 +754,34 @@ El resultado de operar la matriz de rotación infinitesimal con un vector cualqu
 \end{equation}
 
 \subsubsection{Significado físico del vector \vvv{n}}
-Los coeficientes $n_x$, $n_y$ y $n_z$ de la combinación lineal (\ref{eq:so3-combinacion_lineal}) deben estar normalizados, esto es, su módulo debe ser la unidad
+Los coeficientes $n_x$, $n_y$ y $n_z$ de la combinación lineal
+(\ref{eq:so3-combinacion_lineal}) deben estar normalizados, esto es, su módulo debe ser
+la unidad
 \[
   n_x^2 + n_y^2 + n_z^2 = 1
 \]
  
-Aunque no es una demostración, se puede comprobar fácilmente cuando el eje es uno de los de coordenadas.
-Por ejemplo, rotemos infinitesimalmente alrededor del eje $z$ un punto $\vvv{x}$ utilizando la expresión (\ref{eq:so3-rotacion_infinitesimal_z})
+Aunque no es una demostración, se puede comprobar fácilmente cuando el eje es uno de los
+de coordenadas.
+Por ejemplo, rotemos infinitesimalmente alrededor del eje $z$ un punto $\vvv{x}$
+utilizando la expresión (\ref{eq:so3-rotacion_infinitesimal_z})
 
 \[
   \vvv{x'} = \mmm{R}_z(\varepsilon) \kern1pt\vvv{x} \approx (\mmm{I} +
   \varepsilon\mmm{G}_z)\kern1pt \vvv{x}
 \]
 
-Realizamos el mismo cálculo utilizando la expresión general~(\ref{eq:so3-rotacion_infinitesimal_n}), considerando una rotación alrededor del eje $z$; en este caso, $n_x = n_y = 0$
+Realizamos el mismo cálculo utilizando la expresión
+general~(\ref{eq:so3-rotacion_infinitesimal_n}), considerando una rotación alrededor del
+eje $z$; en este caso, $n_x = n_y = 0$
 \[
   \mmm{R}_z(\varepsilon)\kern1pt \vvv{x} \approx (\mmm{I} +
   \varepsilon n_z \kern1pt\mmm{G}_z)\kern1pt \vvv{x}
 \]
 Comparando las dos últimas expresiones deducimos que $n_z$ debe valer uno.
 
-Lo observado es compatible con que el vector formado por las componentes $n_x$, $n_y$ y $n_z$ sea unitario (módulo unidad), que se suele escribir $\xhat{n}$.
+Lo observado es compatible con que el vector formado por las componentes $n_x$, $n_y$ y
+$n_z$ sea unitario (módulo unidad), que se suele escribir $\xhat{n}$.
 La expresión~(\ref{eq:so3-expr_con_n}) quedaría
 \begin{equation}
   \label{eq:so3-giro_infinitesimal_x}
@@ -761,10 +791,18 @@ La expresión~(\ref{eq:so3-expr_con_n}) quedaría
 \end{equation}
 
 %Teniendo en cuenta lo anterior,
-La matriz de rotación general infinitesimal en tres dimensiones~(\ref{eq:so3-rotacion_general_3d}) se puede abreviar sustituyendo, ---incorrectamente--- $n_xG_x+n_yG_y+n_zG_z$ por $\xhat{n}\cdot\mmm{G}$, como si fuera un
+La matriz de rotación general infinitesimal en tres
+dimensiones~(\ref{eq:so3-rotacion_general_3d}) se puede abreviar sustituyendo,
+---incorrectamente--- $n_xG_x+n_yG_y+n_zG_z$ por $\xhat{n}\cdot\mmm{G}$, como si fuera un
 producto escalar\footnotemark{}.
-\footnotetext{Téngase en cuenta que $\xhat{n}\cdot\mmm{G}$ no es un producto   escalar, aunque lo parezca. Los factores del producto escalar o producto   interno tienen que ser \emph{elementos del mismo espacio vectorial}, pero $\xhat{n}$ y $\mmm{G}$ no lo son, porque $\xhat{n}$ es un vector del espacio   ordinario $\symbb{R}^3$ y $\mmm{G}$ es un vector del espacio de   matrices cuadradas generadoras de las rotaciones en $\symbb{R}^3$.
-Obsérvese que un producto escalar produce un escalar y, en nuestro caso, $\xhat{n}\cdot\mmm{G}$ resulta ser una matriz.}
+\footnotetext{Téngase en cuenta que $\xhat{n}\cdot\mmm{G}$ no es un producto escalar,
+  aunque lo parezca. Los factores del producto escalar o producto   interno tienen que
+  ser \emph{elementos del mismo espacio vectorial}, pero $\xhat{n}$ y $\mmm{G}$ no lo
+  son, porque $\xhat{n}$ es un vector del espacio   ordinario $\symbb{R}^3$ y $\mmm{G}$
+  es un vector del espacio de   matrices cuadradas generadoras de las rotaciones en
+  $\symbb{R}^3$.
+  Obsérvese que un producto escalar produce un escalar y, en nuestro caso,
+  $\xhat{n}\cdot\mmm{G}$ resulta ser una matriz.}
 \begin{equation}\label{eq:so3-ali_rot_infinitesimal_SO3}
   \mmm{R}(\xhat{n},\varepsilon)
   =
@@ -774,9 +812,9 @@ Obsérvese que un producto escalar produce un escalar y, en nuestro caso, $\xhat
   +
   \varepsilon\xhat{n}\cdot\mmm{G}
   = \mmm{I} + \varepsilon
-        \begin{pmatrix}
-          0 & n_z & -n_y\\ -n_z & 0 & n_x\\ n_y & -n_x & 0
-        \end{pmatrix}
+  \begin{pmatrix}
+    0 & n_z & -n_y\\ -n_z & 0 & n_x\\ n_y & -n_x & 0
+  \end{pmatrix}
 \end{equation}
 
 La matriz general de una transformacion finita se podrá escribir como
@@ -786,9 +824,12 @@ La matriz general de una transformacion finita se podrá escribir como
     n_z\mmm{G}_z)}
   = \exp(\alpha\, \xhat{n} \cdot \mmm{G})
 \end{equation}
-siendo $\xhat{n}$ el versor que indica el eje de rotación, $\alpha$ el ángulo que gira el sistema de coordenadas alrededor del eje de rotación (rotación pasiva) y $\mmm{G}$ el vector formado por los generadores de la rotación en tres dimensiones.
+siendo $\xhat{n}$ el versor que indica el eje de rotación, $\alpha$ el ángulo que gira el
+sistema de coordenadas alrededor del eje de rotación (rotación pasiva) y $\mmm{G}$ el
+vector formado por los generadores de la rotación en tres dimensiones.
 
-Si $\alpha$ representara el giro de los vectores alrededor del eje de rotación, entonces la matriz de rotación sería la inversa
+Si $\alpha$ representara el giro de los vectores alrededor del eje de rotación, entonces
+la matriz de rotación sería la inversa
 \begin{equation}\label{eq:so3-ali_rotobj_SO3}
   \mmm{R}(\xhat{n}, \alpha)
   = e^{-\alpha (n_x\mmm{G}_x + n_y\mmm{G}_y +
@@ -798,8 +839,10 @@ Si $\alpha$ representara el giro de los vectores alrededor del eje de rotación,
 
 \subsubsection{Rotación general de un ángulo finito por medios
   geométricos}
-En (\ref{eq:so3-giro_infinitesimal_x}) obtuvimos las nuevas coordenadas de un vector $\vvv{x}$, después de una rotación pasiva infinitesimal.
-Ahora estamos interesados en obtener una expresión para una rotación pasiva de un ángulo discreto $\alpha$ cualquiera, $0 \leq \alpha < 2\pi$.
+En (\ref{eq:so3-giro_infinitesimal_x}) obtuvimos las nuevas coordenadas de un vector
+$\vvv{x}$, después de una rotación pasiva infinitesimal.
+Ahora estamos interesados en obtener una expresión para una rotación pasiva de un ángulo
+discreto $\alpha$ cualquiera, $0 \leq \alpha < 2\pi$.
 Se podría conseguir desarrollando la exponencial~(\ref{eq:so3-rotacion_general_3d}),
 pero sería muy laborioso; en su lugar seguiremos un razonaminento geométrico más breve.
 
@@ -810,12 +853,16 @@ $\vvv{x'}$, como si el punto hubiera girado en sentido horario el ángulo $\alph
 Es importante recalcar que $\vvv{x}$ y $\vvv{x'}$ son el mismo vector, y solo ha
 cambiado aparentemente de posición\footnotemark{} debido a que el sistema de referencia
 ha girado en sentido contrario a las agujas del reloj.
-\footnotetext{En la figura el vector $\vvv{x}$ ha girado \emph{aparentemente} en sentido negativo (horario).}
-Además, se aprecia que el extremo de $\vvv{x}$ describe un arco de circunferencia de radio $R$.
-Obsérvese que el eje de giro definido por el vector unitario $\xhat{n}$, pasa por el centro de la circunferencia.
+\footnotetext{En la figura el vector $\vvv{x}$ ha girado \emph{aparentemente} en sentido
+  negativo (horario).}
+Además, se aprecia que el extremo de $\vvv{x}$ describe un arco de circunferencia de
+radio $R$.
+Obsérvese que el eje de giro definido por el vector unitario $\xhat{n}$, pasa por el
+centro de la circunferencia.
 
 \pagebreak
-Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos unas igualdades que se necesitarán posteriormente:
+Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos unas
+igualdades que se necesitarán posteriormente:
 \begin{itemize}
 \item Vemos que $\vvv{x}$ se puede descomponer en una suma de dos vectores;
   el primero, $\vvv{x}_{\scriptstyle\parallel}$ es paralelo al  eje de rotación
@@ -832,10 +879,10 @@ Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos
     \vvv{x}_{\scriptstyle\perp} = \vvv{x} - \vvv{x}_{\scriptstyle\,\parallel}
   \end{equation}
 
-\item Además, se aprecia que la proyección de $\vvv{x}$ sobre el eje
-  de giro es el módulo del vector $\vvv{x}_{\scriptstyle\,\parallel}$
-  (altura del cono), que se calcula mediante el producto escalar de
-  $\vvv{x}$ por el versor $\xhat{n}$, que representa al eje de giro
+\item Además, se aprecia que la proyección de $\vvv{x}$ sobre el eje de giro es el módulo
+  del vector $\vvv{x}_{\scriptstyle\,\parallel}$
+  (altura del cono), que se calcula mediante el producto escalar de $\vvv{x}$ por el
+  versor $\xhat{n}$, que representa al eje de giro
   \[
     |\vvv{x}_{\scriptstyle\,\parallel}| = \vvv{x}\cdot \xhat{n} 
   \]
@@ -996,7 +1043,8 @@ Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos
         \node at (-\margenIzdo,0) {}; \node at (\margenDcho,0) {};
        
       \end{tikzpicture}
-      \caption{Efecto de rotación pasiva un ángulo $\alpha$ sobre un vector $\vvv{x}$ alrededor de un eje de giro genérico.}
+      \caption{Efecto de rotación pasiva un ángulo $\alpha$ sobre un vector $\vvv{x}$
+        alrededor de un eje de giro genérico.}
       \label{fig:so3-giro_pasivo}
     \end{minipage}
    \hspace{2em}
@@ -1390,7 +1438,9 @@ Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos
   \end{minipage}
 \end{figure}
 
-Nuestro objetivo es el vector $\vvv{x'}$ (figura \ref{fig:so3-vector_x_transformado}) , que es también una suma de dos vectores, uno paralelo al versor que define al eje de giro y otro perpendicular
+Nuestro objetivo es el vector $\vvv{x'}$ (figura \ref{fig:so3-vector_x_transformado}),
+que es también una suma de dos vectores, uno paralelo al versor que define al eje de giro
+y otro perpendicular
 \begin{equation}
   \label{eq:so3-xprima_perpendicular}
   \vvv{x'} = \vvv{x'}_{\scriptstyle\,\parallel} +
@@ -1398,7 +1448,9 @@ Nuestro objetivo es el vector $\vvv{x'}$ (figura \ref{fig:so3-vector_x_transform
   \vvv{x'}_{\scriptstyle\perp}
 \end{equation}
 
-Ayudándonos de la figura \ref{fig:so3-descomposicion_xprod}, descompondremos $\vvv{x}'_{\scriptstyle\perp}$ en función de los vectores, perpendiculares entre sí, $\vvv{x}_{\scriptstyle\perp}$ y $\vvv{x}_{\scriptstyle\prodvec} = \vvv{x}\times\xhat{n}$
+Ayudándonos de la figura \ref{fig:so3-descomposicion_xprod}, descompondremos
+$\vvv{x}'_{\scriptstyle\perp}$ en función de los vectores, perpendiculares entre sí,
+$\vvv{x}_{\scriptstyle\perp}$ y $\vvv{x}_{\scriptstyle\prodvec} = \vvv{x}\times\xhat{n}$
 \footnotetext{Obsérvese que
   $\vvv{x}_{\scriptstyle\prodvec} = \vvv{x}_{\scriptstyle\perp}\times\xhat{n}
   = \vvv{x}\times\xhat{n}$, pero nos interesa la igualdad que contiene expresamente
@@ -1443,7 +1495,9 @@ Ahora utilizamos la ecuación~(\ref{eq:so3-x_perpendicular}) y desarrollamos la 
     +\sin\alpha\,(\vvv{x}\prodvec\xhat{n})
 \end{align*}
 
-Por último, sustituimos la ecuación~(\ref{eq:so3-x_paralela}) y obtenemos la ecuación que nos da las nuevas coordenadas del vector $\vvv{x}$ al girar los ejes de coordenadas un ángulo $\alpha$, alrededor de un eje definido por el versor $\xhat{n}$
+Por último, sustituimos la ecuación~(\ref{eq:so3-x_paralela}) y obtenemos la ecuación que
+nos da las nuevas coordenadas del vector $\vvv{x}$ al girar los ejes de coordenadas un
+ángulo $\alpha$, alrededor de un eje definido por el versor $\xhat{n}$
 \begin{equation}
   \label{eq:so3-giro3dgeom}
   \vvv{x}'
@@ -1454,9 +1508,9 @@ Por último, sustituimos la ecuación~(\ref{eq:so3-x_paralela}) y obtenemos la e
 \end{equation}
 
 
-\subsubsection{Expresión matricial de una rotación general alrededor
-  de un eje}
-Vamos a los vectores $\xhat{x}'$, $\xhat{n}$, $\vvv{x}$ y $\vvv{x}\times\xhat{n}$ en función de sus componentes cartesianas
+\subsubsection{Expresión matricial de una rotación general alrededor de un eje}
+Vamos a los vectores $\xhat{x}'$, $\xhat{n}$, $\vvv{x}$ y $\vvv{x}\times\xhat{n}$ en
+función de sus componentes cartesianas
 \begin{align}
   &\vvv{x}' = x'\xhat{i} + y'\xhat{j} + z'\xhat{k}\\
   &\xhat{n} = n_x\xhat{i} + n_y\xhat{j} + n_z\xhat{k}\\
@@ -1514,8 +1568,12 @@ anterior~(\ref{eq:so3-giro3dgeom})
    \end{equation}
 }
 
-A partir de \ref{eq:so3-giro3dmatricial} deducimos la matriz de rotación general, ecuación (\ref{eq:so3-matrizrotaciongeneral}).
-Dejamos como ejercicio esta, desarrollando el término $\vvv{x}\cdot\xhat{n}$ mediante las componentes cartesianas $xn_x + yn_y + zn_z$, sacando factor común los términos en $x$, en $y$ y en $z$, comparándose con los términos del producto $\mmm{R}(\xhat{n},\alpha) \vvv{x}$.
+A partir de \ref{eq:so3-giro3dmatricial} deducimos la matriz de rotación general,
+ecuación (\ref{eq:so3-matrizrotaciongeneral}).
+Dejamos como ejercicio esta, desarrollando el término $\vvv{x}\cdot\xhat{n}$ mediante las
+componentes cartesianas $xn_x + yn_y + zn_z$, sacando factor común los términos en $x$,
+en $y$ y en $z$, comparándose con los términos del producto $\mmm{R}(\xhat{n},\alpha)
+\vvv{x}$.
 {\small
   \begin{equation}\label{eq:so3-matrizrotaciongeneral}
     \mmm{R}(\xhat{n}, \alpha)
@@ -1532,7 +1590,8 @@ Dejamos como ejercicio esta, desarrollando el término $\vvv{x}\cdot\xhat{n}$ me
   \end{equation}
 }
 
-Si conociéramos el versor de giro en coordenadas esféricas, sus coordenadas cartesianas rectangulares serían
+Si conociéramos el versor de giro en coordenadas esféricas, sus coordenadas cartesianas
+rectangulares serían
 \begin{align*}
   n_x &= \sin\theta \cos\phi\\
   n_y &= \sin\theta \sin\phi\\
@@ -1547,11 +1606,17 @@ Es el conjunto de matrices $3\times 3$, ortogonales y singulares
 \]
 
 El número $3$ viene de las tres direcciones del espacio.
-Este grupo tiene tres parámetros independientes o grados de libertad (o bien tres generadores independientes, como vimos anteriormente).
-Por un lado, tenemos los cuatro parámetros, $\alpha$, $n_x$, $n_y$ y $n_z$, pero estos últimos tienen que estar normalizados, por lo que hay una ecuación que los relaciona, $n_x^2+n_y^2+n_z^2=1$; así quedan, $4-1=3$, tres parámetros independientes.
-Los tres parámetros independientes podrían ser también, el ángulo girado, $\alpha$, y los dos ángulos del vector de giro en coordenadas esféricas, $\theta$ y $\phi$. 
+Este grupo tiene tres parámetros independientes o grados de libertad (o bien tres
+generadores independientes, como vimos anteriormente).
+Por un lado, tenemos los cuatro parámetros, $\alpha$, $n_x$, $n_y$ y $n_z$, pero estos
+últimos tienen que estar normalizados, por lo que hay una ecuación que los relaciona,
+$n_x^2+n_y^2+n_z^2=1$; así quedan, $4-1=3$, tres parámetros independientes.
+Los tres parámetros independientes podrían ser también, el ángulo girado, $\alpha$, y los
+dos ángulos del vector de giro en coordenadas esféricas, $\theta$ y $\phi$. 
 
-El grupo SO(4) sería el grupo de rotaciones en un espacio euclídeo de cuatro dimensiones, pero tendría seis parámetros, que se pueden razonar hallando el número de generadores del grupo, tal como hicimos anteriormente para SO(3), en la sección \ref{subsec:num_gen_so3}.
+El grupo SO(4) sería el grupo de rotaciones en un espacio euclídeo de cuatro dimensiones,
+pero tendría seis parámetros, que se pueden razonar hallando el número de generadores del
+grupo, tal como hicimos anteriormente para SO(3), en la sección \ref{subsec:num_gen_so3}.
 
 
 

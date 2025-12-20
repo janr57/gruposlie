@@ -156,10 +156,10 @@ Entonces el invariante resulta ser
 \end{equation}
 
 \subsection{Métrica}
-Hemos representado el invariante a través de las componentes. Ahora tenemos que
-conseguirlo sin ellas.
+Hemos representado el invariante de la transformación de Lorentz a través de las
+componentes. Ahora tenemos que conseguirlo sin ellas.
 Para ello, analizamos el cuadrado de $\vvv{x}$ y comprobamos que no da el invariante de
-esta transformación
+la transformación de Lorentz
 \[
   \vvv{x}^2 = \vvv{x}^\trasp\,\vvv{x}
   = \begin{pmatrix}
@@ -174,9 +174,13 @@ esta transformación
   (x^0)^2 - (x^1)^2
 \]
 
-Generalizaremos el concepto de producto escalar para que sirva para los vectores de
-rotación y los vectores de Lorentz.
-El producto escalar de dos vectores $x$ e $y$ en forma matricial se define
+Pero, nos interesa generalizar el concepto de producto escalar para que sirva,
+tanto para los vectores de rotación como para los vectores de Lorentz.
+Lo haremos añadiendo el concepto de \emph{métrica}, que nos sirve para definir cómo
+podemos medir longitudes --y en su caso, intervalos temporales-- en el espacio que
+nos interese.
+
+El producto escalar de dos vectores $x$ e $y$ en forma matricial se define como
 \[
   \vvv{x}\cdot \vvv{y} = \vvv{x}^\trasp\mmmg{\eta}\kern1pt\vvv{y}
 \]
@@ -242,7 +246,8 @@ El cuadrado de un vector de Lorentz será, con la métrica apropiada y en dos di
   &= (x^0)^2 - (x^1)^2
 \end{align*}
 
-La teoría de la relatividad contempla cuatro dimensiones y los vectores se denominan cuadrivectores
+Ahora bien, la teoría de la relatividad contempla cuatro dimensiones y los vectores se
+denominan cuadrivectores
 \[
   \begin{pmatrix}
     x^0 \\ x^1 \\ x^2 \\ x^3
@@ -276,11 +281,19 @@ dejar inalterada la componente temporal
     x_0 \\ x_1 \\ x_2 \\ x_3
   \end{pmatrix}
 \]
+En la subsección que sigue se dará una idea somera de qué significa el cambio de
+superíndices por subíndices en el vector resultante de operar la métrica con un
+vector de Lorentz.
+
+Esta métrica, en relatividad especial, se denomina \emph{métrica de Minkowski}
+($\eta_{\mu\nu}$), y define la geometría plana del espacio-tiempo de cuatro dimensiones
+y la invariancia de la distancia propia (intervalo espacio-temporal).
 
 \subsection{Vector dual}
-El vector obtenido en la operación anterior se llama vector dual de $\vvv{x}$. Decimos
-que el vector dual de uno dado es el resultado de operar la métrica con el vector. Así,
-para hallar el vector dual del vector de Lorentz $\vvv{x}$ en dos dimensiones
+El vector obtenido en la operación anterior se llama \emph{vector dual de }$\vvv{x}$.
+Decimos que el vector dual de uno dado es el resultado de operar la métrica con el
+vector. Así, para hallar el vector dual del vector de Lorentz $\vvv{x}$ en dos
+dimensiones
 \[
   \mmmg{\eta}\kern1pt\vvv{x} =
   \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \,

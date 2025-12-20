@@ -5,19 +5,20 @@
 % (CC-BY-SA)
 
 \chapter{El grupo de Lorentz}
-En este capítulo vamos a analizar una transformación que no es exactamente una rotación ---al menos no una rotación ordinaria en el espacio euclídeo---.
+En este capítulo vamos a analizar una transformación, que no es exactamente una rotación
+---al menos no una rotación ordinaria en el espacio euclídeo---.
 
-Anteriormente, en la ecuación~(\ref{eq:gli-rotgeneral}) obtuvimos la
-expresión general para una matriz de rotación pasiva
+En el capítulo anterior obtuvimos la expresión general ~(\ref{eq:gli-rotgeneral}) para
+una matriz de rotación pasiva
 \[
   \mmm{R} (\alpha) = e^{\alpha\mmm{G}}
 \]
 
-Recordemos que $\alpha$ es el ángulo girado y $\mmm{G}$ es el generador de la rotación ---una matriz antisimétrica---. Esto último venía impuesto porque se debía cumplir que
+Recordemos que $\alpha$ es el ángulo girado y $\mmm{G}$ es el generador de la rotación
+---una matriz antisimétrica---. Esto último venía impuesto porque se debía cumplir que
 la matriz de rotación tenía que ser ortogonal, $\mmm{R}^\trasp \mmm{R} = \mmm{I}$.
 Además, el determinante de la matriz de rotación tenía que valer 1, $\det(\mmm{R}) = 1$.
-
-Obtuvimos la matriz de rotación pasiva en dos dimensiones
+Vimos la matriz de rotación pasiva en dos dimensiones
 \[
   \mmm{R} (\alpha)
   = e^{\alpha\mmm{G}}
@@ -30,18 +31,22 @@ Obtuvimos la matriz de rotación pasiva en dos dimensiones
   \end{pmatrix}
 \]
 
-Se puede comprobar que el generador de esta rotación es una matriz antisimétrica
+Se puede comprobar que el generador de esta rotación en dos dimensiones es una matriz
+antisimétrica
 \[
   \mmm{G} = \begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}
 \]
 
 \section{Generador simétrico}
-Ahora nos podríamos preguntar qué pasaría si el generador fuera simétrico, por ejemplo
+Ahora nos podríamos preguntar qué pasaría si el generador fuera una matriz simétrica,
+por ejemplo
 \[
   \mmm{G} = \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix}
 \]
 
-Está claro que este generador ya no puede ser el de una rotación. Nuestro objetivo será obtener la matriz de transformación en dos dimensiones de forma explícita, que por no ser una rotación la representaremos por $\mmmg{\Lambda} (\alpha)$
+Está claro que el generador ya no puede ser el de una rotación. Nuestro objetivo será
+obtener la matriz de transformación en dos dimensiones de forma explícita, que por no
+ser una rotación la representaremos por $\mmmg{\Lambda} (\alpha)$
 \begin{equation}\label{eq:lor-lambdarotexp}
   \mmmg{\Lambda} (\alpha)
   = e^{\alpha\,{\scriptscriptstyle \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix}}}
@@ -88,7 +93,7 @@ Sustituimos estas potencias en el desarrollo de la matriz de transformación
     \end{align*}
 
 \section{Transformación de Lorentz}
-La matriz de transformación en dos dimensiones resulta
+La matriz de transformación en dos dimensiones anterior la podemos compactar
 \begin{equation}\label{eq:lor-lambdarotmatriz}
   \mmmg{\Lambda} (\alpha)
   =
@@ -97,8 +102,10 @@ La matriz de transformación en dos dimensiones resulta
   \end{pmatrix}
 \end{equation}
 
-Esta matriz es la que representa la transformación de Lorentz, que es fundamental en relatividad.
-Para seguir la costumbre en esta disciplina, las componentes de los vectores de Lorentz las representaremos con un superíndice. Más tarde se verá el motivo.
+Esta matriz es la que representa la transformación de Lorentz, que es fundamental en
+relatividad.
+Para seguir la costumbre en relatividad, las componentes de los vectores de Lorentz
+las representaremos con un superíndice. Más tarde se verá el motivo.
 
 \subsection{Invariante de la transformación}
 Ahora estamos interesados en buscar si esta transformación tiene algún invariante
@@ -149,8 +156,10 @@ Entonces el invariante resulta ser
 \end{equation}
 
 \subsection{Métrica}
-Hemos representado el invariante a través de las componentes. Ahora tenemos que conseguirlo sin ellas.
-Para ello, analizamos el cuadrado de $\vvv{x}$ y comprobamos que no da el invariante de esta transformación
+Hemos representado el invariante a través de las componentes. Ahora tenemos que
+conseguirlo sin ellas.
+Para ello, analizamos el cuadrado de $\vvv{x}$ y comprobamos que no da el invariante de
+esta transformación
 \[
   \vvv{x}^2 = \vvv{x}^\trasp\,\vvv{x}
   = \begin{pmatrix}
@@ -165,16 +174,16 @@ Para ello, analizamos el cuadrado de $\vvv{x}$ y comprobamos que no da el invari
   (x^0)^2 - (x^1)^2
 \]
 
-Generalizaremos el concepto de producto escalar para que sirva para los vectores de rotación y los vectores de Lorentz.
+Generalizaremos el concepto de producto escalar para que sirva para los vectores de
+rotación y los vectores de Lorentz.
 El producto escalar de dos vectores $x$ e $y$ en forma matricial se define
 \[
   \vvv{x}\cdot \vvv{y} = \vvv{x}^\trasp\mmmg{\eta}\kern1pt\vvv{y}
 \]
 donde $\mmmg{\eta}$ es una matriz cuadrada que denominamos \emph{métrica}.
 
-Veamos un ejemplo con vectores normales de rotación; en este caso la
-métrica es la matriz identidad y el cuadrado, por ejemplo, funciona
-como se espera
+Veamos un ejemplo con vectores de rotación; en este caso la métrica es la matriz
+identidad, y por ejemplo, el cuadrado de un vector funciona como se espera
 \[
   \vvv{x}^2
   = \vvv{x}\cdot \vvv{x}
@@ -240,9 +249,12 @@ La teoría de la relatividad contempla cuatro dimensiones y los vectores se deno
   \end{pmatrix}
 \]
 
-La primera, $x^0$, es una componente temporal, a menudo se escribe $ct$, y las demás, $x^1$, $x^2$ y $x^3$, son las tres componentes espaciales, que a veces representamos como $x$, $y$ y $z$.
+La primera, $x^0$, es una componente temporal, a menudo se escribe $ct$, y las demás,
+$x^1$, $x^2$ y $x^3$, son las tres componentes espaciales, que a veces representamos
+como $x$, $y$ y $z$.
 
-La métrica en cuatro dimensiones debe cambiar el signo de las componentes espaciales y dejar inalterada la componente temporal
+La métrica en cuatro dimensiones debe cambiar el signo de las componentes espaciales y
+dejar inalterada la componente temporal
 \[
   \mmmg{\eta}\kern1pt\vvv{x} =
   \begin{pmatrix}
@@ -266,7 +278,9 @@ La métrica en cuatro dimensiones debe cambiar el signo de las componentes espac
 \]
 
 \subsection{Vector dual}
-El vector obtenido en la operación anterior se llama vector dual de $\vvv{x}$. Decimos que el vector dual de uno dado es el resultado de operar la métrica con el vector. Así, para hallar el vector dual del vector de Lorentz $\vvv{x}$ en dos dimensiones
+El vector obtenido en la operación anterior se llama vector dual de $\vvv{x}$. Decimos
+que el vector dual de uno dado es el resultado de operar la métrica con el vector. Así,
+para hallar el vector dual del vector de Lorentz $\vvv{x}$ en dos dimensiones
 \[
   \mmmg{\eta}\kern1pt\vvv{x} =
   \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \,
@@ -275,7 +289,10 @@ El vector obtenido en la operación anterior se llama vector dual de $\vvv{x}$. 
   \begin{pmatrix}x_0 \\ x_1 \end{pmatrix}
 \]
 
-Como se puede observar en la igualdad anterior, en la práctica, en lugar de tomarnos la molestia de cambiar el signo o valor de algunas componentes al operar la métrica con un vector de Lorentz, lo que hacemos es cambiar de sitio el subíndice o superíndice de manera que, si está como superíndice lo convertimos en subíndice y viceversa.
+Como se puede observar en la igualdad anterior, en la práctica, en lugar de tomarnos la
+molestia de cambiar el signo o valor de algunas componentes al operar la métrica con un
+vector de Lorentz, lo que hacemos es cambiar de sitio el subíndice o superíndice de
+manera que, si está como superíndice lo convertimos en subíndice y viceversa.
 \[
   \mmmg{\eta}
   \begin{pmatrix}
@@ -285,7 +302,9 @@ Como se puede observar en la igualdad anterior, en la práctica, en lugar de tom
   \begin{pmatrix}x_0 \\ x_1 \end{pmatrix}
 \]
 
-Sólo hay que tener la precaución de que cuando se realice el cambio, habría que cambiar el signo de las componentes espaciales y mantener el de la componente temporal en el caso de métrica y vectores de Lorentz
+Sólo hay que tener la precaución de que cuando se realice el cambio, habría que cambiar
+el signo de las componentes espaciales y mantener el de la componente temporal en el
+caso de métrica y vectores de Lorentz
 \[
   x_0 = x^0 ;\hspace{1em} x_1 = -x^1
 \]
@@ -326,7 +345,10 @@ El invariante de Lorentz se podrá escribir ahora como
   = x_\mu x^\mu
 \end{align*}
   
-En la última expresión se ha utilizado el criterio de la suma de Einstein. Utilizamos letras griegas para el índice cuando implica componentes temporales y espaciales; si sólo estuvieran implicadas componentes espaciales, se usarían las típicas, $i$, $j$, $k$, etc.
+En la última expresión se ha utilizado el criterio de la suma de Einstein. Utilizamos
+letras griegas para el índice cuando implica componentes temporales y espaciales; si
+sólo estuvieran implicadas componentes espaciales, se usarían las típicas, $i$, $j$,
+$k$, etc.
 
 
 

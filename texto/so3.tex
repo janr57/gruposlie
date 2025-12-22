@@ -1469,9 +1469,9 @@ igualdades que se necesitarán posteriormente:
     \pgfmathsetmacro{\MARGENIZDO}{1.0}
     \pgfmathsetmacro{\MARGENDCHO}{1.0}
     % Fondo
-    \pgfmathsetmacro{\HORZ}{0.40}
-    \pgfmathsetmacro{\VERT}{0.62}
-    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\HORZ}{0.30}
+    \pgfmathsetmacro{\VERT}{0.46}
+    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
     \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
     \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}             
     \begin{tikzpicture}[scale=1.0,

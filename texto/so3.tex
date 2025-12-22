@@ -198,6 +198,12 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
     % Vector P'
     \pgfmathsetmacro{\PPRIMAMOD}{\PMOD}
     \pgfmathsetmacro{\PPRIMAANG}{\PANG - \ANGROT}
+    % Fondo
+    \pgfmathsetmacro{\HORZ}{0.38}
+    \pgfmathsetmacro{\VERT}{0.24}
+    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
+    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}    
     % 
     \centering
     \begin{tikzpicture}[%
@@ -234,9 +240,9 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       radius=6mm, angle eccentricity=1.5] {angle = P'--O--P};
       % Ejes
       \draw[eje] (xini) -- (xfin);
-      \node[right, name=letraejex] at (xfin) {$x$};
+      \node[right] at (xfin) {$x$};
       \draw[eje] (yini) -- (yfin);
-      \node[above, name=letraejey] at (yfin) {$y$};
+      \node[above] at (yfin) {$y$};
       % Punto P
       \draw[vector] (O) -- (P);
       \node[above=5pt] at (OPmidway) {$\vvv{r}$};
@@ -255,20 +261,24 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \draw[fill=green!80!black,draw=black] (P' |- O)
       circle[radius=1.5pt];
       \draw[-{Latex}] (P |- under_origin) --
-      node[below,name=incx] {\scriptsize $\Delta x > 0$} (P' |- under_origin);
+      node[below] {\scriptsize $\Delta x > 0$} (P' |- under_origin);
       % Incremento y
       \draw[fill=red,draw=black] (P -| O) circle[radius=1.5pt];
       \draw[fill=green!80!black,draw=black] (P' -| O)
       circle[radius=1.5pt];
       \draw[-{Latex}] (P -| left_origin) --
-      node[above=-1pt,sloped,rotate=180,name=incy]
+      node[above=-1pt,sloped,rotate=180]
       {\scriptsize $\Delta y < 0$} (P' -| left_origin);
       % Eje z
       \node[below left=1.8ex and -0.5em] at (O) {\scriptsize $\Delta z = 0$};
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$z$}; \fill[fill=black] (O) circle[radius=.7pt];
+      % Fondo amarillo
+      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
+      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
       \begin{scope}[on background layer]
-        \node [background, fit= (incx) (incy) (letraejex) (letraejey)] {};
+        \draw[background] (SW) rectangle (NE);
       \end{scope}
     \end{tikzpicture}
   \end{minipage}
@@ -289,6 +299,12 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
     % Vector P'
     \pgfmathsetmacro{\PPRIMAMOD}{\PMOD}
     \pgfmathsetmacro{\PPRIMAANG}{\PANG - \ANGROT}
+    % Fondo
+    \pgfmathsetmacro{\HORZ}{0.38}
+    \pgfmathsetmacro{\VERT}{0.24}
+    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
+    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}        
     % 
     \centering
     \begin{tikzpicture}[%
@@ -325,9 +341,9 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       radius=6mm, angle eccentricity=1.5] {angle = P'--O--P};
       % Ejes
       \draw[eje] (yini) -- (yfin);
-      \node[right, name=letraejey] at (yfin) {$y$};
+      \node[right] at (yfin) {$y$};
       \draw[eje] (zini) -- (zfin);
-      \node[above, name=letraejez] at (zfin) {$z$};
+      \node[above] at (zfin) {$z$};
       % Punto P
       \draw[vector] (O) -- (P);
       \node[above=5pt] at (OPmidway) {$\vvv{r}$};
@@ -346,20 +362,24 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \draw[fill=green!80!black,draw=black] (P' |- O)
       circle[radius=1.5pt];
       \draw[-{Latex}] (P |- under_origin) --
-      node[below,name=incy] {\scriptsize $\Delta y > 0$} (P' |- under_origin);
+      node[below] {\scriptsize $\Delta y > 0$} (P' |- under_origin);
       % Incremento z
       \draw[fill=red,draw=black] (P -| O) circle[radius=1.5pt];
       \draw[fill=green!80!black,draw=black] (P' -| O)
       circle[radius=1.5pt];
       \draw[-{Latex}] (P -| left_origin) --
-      node[above=-1pt,sloped,rotate=180,name=incz]
+      node[above=-1pt,sloped,rotate=180]
       {\scriptsize $\Delta z < 0$} (P' -| left_origin);
       % Eje x
       \node[below left=1.8ex and -0.5em] at (O) {\scriptsize $\Delta x = 0$};
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$x$}; \fill[fill=black] (O) circle[radius=.7pt];
+      % Fondo amarillo
+      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
+      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
       \begin{scope}[on background layer]
-        \node [background, fit= (incy) (incz) (letraejey) (letraejez)] {};
+        \draw[background] (SW) rectangle (NE);
       \end{scope}
     \end{tikzpicture}
   \end{minipage}
@@ -380,6 +400,12 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
     % Vector P'
     \pgfmathsetmacro{\PPRIMAMOD}{\PMOD}
     \pgfmathsetmacro{\PPRIMAANG}{\PANG - \ANGROT}
+    % Fondo
+    \pgfmathsetmacro{\HORZ}{0.38}
+    \pgfmathsetmacro{\VERT}{0.24}
+    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
+    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}            
     % 
     \centering
     \begin{tikzpicture}[%
@@ -416,9 +442,9 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       radius=6mm, angle eccentricity=1.5] {angle = P'--O--P};
       % Ejes
       \draw[eje] (zini) -- (zfin);
-      \node[right, name=letraejez] at (zfin) {$z$};
+      \node[right] at (zfin) {$z$};
       \draw[eje] (xini) -- (xfin);
-      \node[above, name=letraejex] at (xfin) {$x$};
+      \node[above] at (xfin) {$x$};
       % Punto P
       \draw[vector] (O) -- (P);
       \node[above=5pt] at (OPmidway) {$\vvv{r}$};
@@ -437,21 +463,25 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \draw[fill=green!80!black,draw=black] (P' |- O)
       circle[radius=1.5pt];
       \draw[-{Latex}] (P |- under_origin) --
-      node[below,name=incz] {\scriptsize $\Delta z > 0$} (P' |- under_origin);
+      node[below] {\scriptsize $\Delta z > 0$} (P' |- under_origin);
       % Incremento x
       \draw[fill=red,draw=black] (P -| O) circle[radius=1.5pt];
       \draw[fill=green!80!black,draw=black] (P' -| O)
       circle[radius=1.5pt];
       \draw[-{Latex}] (P -| left_origin) --
-      node[above=-1pt,sloped,rotate=180,name=incz]
+      node[above=-1pt,sloped,rotate=180]
       {\scriptsize $\Delta x < 0$} (P' -| left_origin);
       % Eje y
       \node[below left=1.8ex and -0.5em] at (O) {\scriptsize $\Delta y = 0$};
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$y$}; \fill[fill=black] (O) circle[radius=.7pt];
+      % Fondo amarillo
+      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
+      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
       \begin{scope}[on background layer]
-        \node [background, fit= (incz) (incx) (letraejez) (letraejex)] {};
-      \end{scope}    
+        \draw[background] (SW) rectangle (NE);
+      \end{scope}
     \end{tikzpicture}
   \end{minipage}
   \caption{Rotación infinitesimal de un ángulo $\varepsilon$,
@@ -627,12 +657,12 @@ rotaciones alrededor de cada uno de los ejex $x$, $y$ y $z$.
   \end{pmatrix}
 \end{equation}
 
-Con este generador la matriz de rotación genérica tiene la forma
+La matriz de rotación genérica alrededor de cualquier eje, tiene la forma
 \[
   \mmm{R}(\alpha) = e^{\alpha\mmm{G}}
 \]
 donde $\alpha$ es el ángulo girado alrededor de un eje y $\mmm{G}$ es una matriz
-antisimétrica.
+antisimétrica como en toda rotación en el espacio euclídeo.
 Si sustituimos estas matrices generadoras en $\mmm{G}$, tendríamos las matrices de
 rotación para cada uno de los ejes, $x$, $y$ y $z$.
 

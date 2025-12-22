@@ -49,9 +49,9 @@ Las coordenadas de P con respecto a este sistema son
     \pgfmathsetmacro{\PMOD}{2.5}
     \pgfmathsetmacro{\PANG}{50}
     % Fondo
-    \pgfmathsetmacro{\HORZ}{0.56}
+    \pgfmathsetmacro{\HORZ}{0.40}
     \pgfmathsetmacro{\VERT}{0.24}
-    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
     \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
     \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
     %
@@ -135,9 +135,9 @@ Las coordenadas de P con respecto a este sistema son
     \pgfmathsetmacro{\ANGROT}{20}
     \pgfmathsetmacro{\ANGROTPLUSNINETY}{\ANGROT + 90}
      % Fondo
-    \pgfmathsetmacro{\HORZ}{0.45}
-    \pgfmathsetmacro{\VERT}{0.40}
-    \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+    \pgfmathsetmacro{\HORZ}{0.25}
+    \pgfmathsetmacro{\VERT}{0.35}
+    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
     \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
     \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
     % 
@@ -1033,9 +1033,9 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
   \pgfmathsetmacro{\PPRIMAMOD}{\PMOD}
   \pgfmathsetmacro{\PPRIMAANG}{\PANG - \ANGROT}
   % Fondo
-  \pgfmathsetmacro{\HORZ}{0.46}
-  \pgfmathsetmacro{\VERT}{0.34}
-  \pgfmathsetmacro{\MOD}{\HORZ^2 + \VERT^2}
+  \pgfmathsetmacro{\HORZ}{0.23}
+  \pgfmathsetmacro{\VERT}{0.25}
+  \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
   \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
   \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
   % 

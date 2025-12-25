@@ -1284,7 +1284,7 @@ igualdades que se necesitarán posteriormente:
     \pgfmathsetmacro{\MARGENIZDO}{0.0}
     \pgfmathsetmacro{\MARGENDCHO}{0.0}
     % Fondo
-    \pgfmathsetmacro{\HORZ}{0.50}
+    \pgfmathsetmacro{\HORZ}{0.60}
     \pgfmathsetmacro{\VERT}{0.30}
     \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
     \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
@@ -1370,21 +1370,20 @@ igualdades que se necesitarán posteriormente:
         % Versor n del eje de giro
         \path[save path=\versorn] (vertice) -- (extremoversorn);
         % Ángulo de giro
-        % Área del ángulo
+        % -Área del ángulo
         \coordinate (anguloini) at ($(centrobase) + (0:\ANCHOARCO)$);
         \path[save path=\anguloarea] (anguloini)
         arc (0:-58:\ANCHOARCO cm and \ALTOARCO cm) -- (centrobase) -- cycle;
-        % Arco del ángulo
+        % -Arco del ángulo
         \path[save path=\anguloarco] ($(centrobase) + (0:\ANCHOARCO)$)
         arc (0:-58:\ANCHOARCO cm and \ALTOARCO cm);
+        \coordinate (textoangulo) at ($(centrobase) + (-13:0.8)$);
       \end{scope}
 
       %%% DIBUJO
       % ZONA OCULTA POR EL CONO
       % Parte de la generatriz semioculta por el cono
       \draw[ejegirooculto] [use path=\generatrizoculta];
-      % Versor n del eje de giro (no lo utilizamos aquí porque se atenúa mucho)
-      %\draw[vectorcomponente, black] [use path=\versorn];
 
       % Como el cono será translúcido, hay que situar los elementos que queramos
       % que se aprecien semiocultos, antes de esta línea.
@@ -1405,108 +1404,39 @@ igualdades que se necesitarán posteriormente:
       \fill[anguloarea] [use path=\anguloarea];
       % Arco del ángulo
       \draw[anguloarco] [use path=\anguloarco];
+      \node at (textoangulo) {$\scriptstyle\alpha$};
       % Eje de giro
       \draw[ejegiro] (ptogeneratriz) -- (extremoejegiro);
+      \draw (extremoejegiro) node[right,black]{\small Eje de giro};
       
       % Vectores componentes en la base del cono
       \draw[vectorcomponente] [use path=\xperp];
       \draw[vectorcomponentegirado] [use path=\xprimaperp];
       % \draw[vectorcomponente] [use path=\xprod];
 
-      % Vector original y girado
+      % Vector x original
       \draw[vector] [use path=\x];
+      \path (vertice) -- node[pos=0.5,right=4pt,green!50!black]
+      {\small $\vvv{x}$} (endxperp);
+      
+      % Vector x girado
       \draw[vectorgirado] [use path=\xprima];
+      \path (vertice) -- node[pos=0.6,above=2pt,red!80!black]
+      {\small $\vvv{x'}$} (endxprimaperp);
 
       % Versor n del eje de giro (está oculto, pero le damos algo más de visibilidad)
       \draw[vectorcomponente, black!50, line width=1pt] [use path=\versorn];
+      \node[black!60,above left=-2pt and -1pt of extremoversorn] {\small $\xhat{n}$};
 
       % Centro de la base
       \fill (centrobase) circle[radius=1pt];
-      
-      %\draw[rotate=-30] (centrobase) ellipse (\ANCHOELIPSE cm and \ALTOELIPSE cm);
-      %\draw[red,-latex, rotate=-30]
-      %($(centrobase) + (0:\ANCHOARCO)$) arc (0:-58:\ANCHOARCO cm and \ALTOARCO cm);
 
-       % Segmentos en la base del cono
-       %\draw[->] [use path=\xperp];
-       
-       %\coordinate (arcini) at ($(centrobase)!0.50!(endxperp)$);
-       %\coordinate (arcfin) at ($(centrobase)!0.50!(endxprimaperp)$);
-       %\filldraw[draw=black, fill=red] (centrobase) circle[radius=1.5pt];
-       %\filldraw[draw=black, fill=red] (endxperp) circle[radius=1.5pt];
-       %\filldraw[draw=black, fill=green] (arcini) circle[radius=1.5pt];
-       %\filldraw[draw=black, fill=green] (arcfin) circle[radius=1.5pt];
-       %\draw[red, -latex, rotate=-26] ($(centrobase) + (-30:\ANCHOARCO cm and \ALTOARCO cm)$(arcini) arc (-30:-90:\ANCHOARCO cm and \ALTOARCO cm);
-      
-%      %%%%% ÁREA DIBUJO
-%      
-%      %%% Eje de giro inferior
-%      \draw[black] (vertice) -- (alturaseg);
-%      
-%      %%% Situad antes de esta parte los elementos que queramos que
-%      %%% se aprecian bajo el cono translúcido.
-%      
-%      %%% Cono
-%      \shade[draw=black!25, left color=black!10, middle
-%      color=black!20,right color=black!40, opacity=0.85,line
-%      width=0.1pt,shading angle=60] (end-x) -- (vertice) -- (endx) --
-%      cycle;
-%
-%      %%% Elipse
-%      \shade[elipse] (centrobase) ellipse (\ANCHOELIPSE cm and \ALTOELIPSE cm);
-%      
-%      %%% Ángulo girado
-%      \path (endx) -- (centrobase) -- (endxp)
-%      pic[draw=black!80,{Latex[length=4.5pt,width=3pt]}-,shorten
-%      <=-1pt, fill=orange!50,"$\scriptstyle\alpha$",angle
-%      radius=6mm,angle eccentricity=1.3,scale=1,bend left=70]
-%      {angle=endxp--centrobase--endx};
-%      % segmentos de ángulo
-%      \draw[black!35,line width=0.1pt] (endx) --
-%      node[pos=0.35,above,black!90] {\small $R$} (centrobase) --
-%      (endxp);
-%      
-%      %%% Vector x original
-%      \draw[green!50!black,-{Latex},line width=1.2pt] (vertice) --
-%      (endx);
-%      % Text x
-%      \path (vertice) -- node[pos=0.5,right=4pt,green!50!black]
-%      {\small $\vvv{x}$} (endx);
-%      
-%      %%% Vector x prima girado
-%      \draw[red!80!black,-{Latex},line width=1.2pt] (vertice) --
-%      (endxp);
-%      % Text x prima
-%      \path (vertice) -- node[pos=0.6,above=2pt,red!80!black] {\small
-%        $\vvv{x'}$} (endxp);
-%      
-%      %%% Eje de giro intermedio
-%      \draw[blue!60] (alturaseg) -- (centrobase);
-%      %%% Eje de giro superior
-%      \draw[black,-{Latex}] (centrobase) -- (extremoejegiro);
-%      % Texto
-%      \draw (extremoejegiro) node[right,black]{\small Eje de giro};
-%      
-%      %%% Centrobase de giro
-%      \fill[black] (centrobase) circle [radius=1pt];
-%      
-%      %%% Versor n del eje de giro
-%      \draw[black!60,-{Latex[width'=0pt 0.6]},line width=0.9pt]
-%      (vertice) -- (versorn);
-%      % Texto
-%      \node[black!60,above left=-2pt and -1pt of versorn] {\small $\xhat{n}$};
-%      
-%      %%% El objetivo de este nodo es el de aumentar el espacio por
-%      %%% la izquierda
-%      \node at (-\MARGENIZDO,0) {}; \node at (\MARGENDCHO,0) {};
-%      
-%      % Fondo amarillo
-%      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-%      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-%      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
-%      \begin{scope}[on background layer]
-%        \draw[background] (SW) rectangle (NE);
-%      \end{scope}      
+      % Fondo amarillo
+      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
+      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      \begin{scope}[on background layer]
+        \draw[background] (SW) rectangle (NE);
+      \end{scope}            
     \end{tikzpicture}
     \caption{Efecto de rotación pasiva un ángulo $\alpha$ sobre un vector $\vvv{x}$
       alrededor de un eje de giro genérico.}

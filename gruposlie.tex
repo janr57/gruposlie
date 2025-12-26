@@ -17,34 +17,30 @@
 % -----------------------------------------------------------------------------
 % Portada
 \thispagestyle{empty}
-\include{./portada/portada}
+\input{./portada/portada}
 % -----------------------------------------------------------------------------
 % Tabla de contenidos
 \thispagestyle{empty}
-\include{./tablacontenidos/tablacontenidos}
+\input{./tablacontenidos/tablacontenidos}
 % -----------------------------------------------------------------------------
 \frontmatter
-\include{./prologo/prologo}
+\input{./prologo/prologo}
 % -----------------------------------------------------------------------------
 % Teoría
 \mainmatter
 %\part{Teoría}
-\include{./texto/grupos}
-\include{./texto/gruposlie}
-\include{./texto/lorentz}
-\include{./texto/so3}
-\include{./texto/algebralie}
+\input{./texto/grupos}
+\input{./texto/gruposlie}
+\input{./texto/lorentz}
+\input{./texto/so3}
+\input{./texto/algebralie}
 % -----------------------------------------------------------------------------
 % Apéndices
-\backmatter
-%\part{Apéndices}
-%\appendix
-\renewcommand{\thechapter}{A}
-\clearpage
-\addappheadtotoc
+\appendix
 \appendixpage
-\include{./apendices/matrizrotaciongeneral.tex}
+\input{./apendices/matrizrotaciongeneral}
 % -----------------------------------------------------------------------------
+%\backmatter
 
 \end{document}
 

@@ -10,8 +10,8 @@ FILES =	gruposlie.pkg.sty\
 	texto/lorentz.tex\
 	texto/so3.tex\
 	texto/algebralie.tex\
-	apendices/matrizrotaciongeneral.tex
-	#texto/gl-algebralie.tex\
+	apendices/ap_matrizrotaciongeneral.tex\
+	apendices/ap_algebralie.tex
 	#texto/gl-sux.tex\
 	#texto/gl-momangclasico.tex\
 	#texto/gl-momangcuantico.tex\

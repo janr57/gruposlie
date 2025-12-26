@@ -1,0 +1,87 @@
+% ap_algebralie.tex
+% 
+% Copyright (C) 2022--2025 José A. Navarro Ramón <janr.devel@gmail.com>
+% Licencia Creative Commons Recognition Share-alike.
+% (CC-BY-SA)
+
+\chapter{Álgebra de Lie}
+\label{ap:algebralie}
+
+De la \href{https://es.wikipedia.org/wiki/Álgebra_de_Lie}{Wikipedia}:
+
+Un álgebra de Lie $\mathfrak{a}$ es un espacio vectorial sobre un cierto cuerpo
+  $\mathbb{F}$ junto con una operación binaria 
+  $[\cdot, \cdot]\!: \mathfrak{a}\times\mathfrak{a} \to \mathfrak{a}$, llamada
+  \textbf{corchete de Lie}, que satisface las propiedades siguientes:
+\begin{enumerate}
+\item es bilineal, es decir, para todo $a,b\in\mathbb{F}$ y $x,y,z\in\mathfrak{a}$.
+  \begin{itemize}
+  \item $[ax+by,z] = a[x,z] + b[y,z]$
+  \item$ [z,ax+by] = a[z,x] + b[z,y]$
+  \end{itemize}
+\item satisface la identidad de Jacobi, es decir, para todo
+  $x,y,z\in\mathfrak{a}$:
+  \begin{itemize}
+  \item $[[x,y],z] + [[z,x],y] + [[y,z], x] = 0$
+  \end{itemize}
+\item Para todo $x\in\mathfrak{a}$:
+  \begin{itemize}
+  \item $[x,x] = 0$
+  \end{itemize}
+\end{enumerate}
+
+Adviértase que la primera y tercera propiedad juntas, implican el carácter
+anticonmutativo ($[x,y] = -[y,x]$), para todo $x,y\in\mathfrak{a}$, si el cuerpo
+$\mathbb{F}$ es de característica diferente de dos. Téngase en cuenta también que la
+multiplicación representada por el corchete de Lie no es, en general, asociativa,
+es decir $[[x,y],z]$ no es necesariamente igual a $[x,[y,z]]$.
+
+Ejemplos:
+\begin{itemize}
+\item Cada espacio vectorial se convierte en un álgebra de Lie abeliana trivial si
+  definimos el corchete de Lie como idénticamente cero.
+\item El espacio euclídeo $\mathbb{R}^3$ se convierte en un álgebra de Lie, si se
+  considera el corchete de Lie que usa el producto vectorial.
+\item Si se da un álgebra asociativa $\mathfrak{A}$ con la multiplicación $*$, se
+  puede dar un álgebra de Lie definiendo $[x,y] = x*y - y*x$, esta expresión se llama
+  conmutador de $x$ e $y$.
+\item Inversamente, puede ser demostrado que cada álgebra de Lie se puede sumergir en
+  otra que surja de un álgebra asociativa de esa manera.
+\item Otro ejemplo importante viene de la topología diferencial: los campos vectoriales
+  en una variedad diferenciable forman un álgebra de Lie de dimensión infinita. Estos
+  campos vectoriales actúan como operadores diferenciales sobre las funciones sobre
+  la variedad. Dados dos campos vectoriales $X$ e $Y$, el corchete de Lie
+  $[X,Y]$ se define como $[X,Y]f = (XY - YX)f$ y puede comprobarse que este operador
+  corresponde a un campo vectorial. Las generalizaciones adecuadas de la teoría de
+  variedades al caso de dimensión infinita muestra que esta álgebra de Lie es la
+  asociada (ver siguiente punto) al grupo de Lie de los difeomorfismos de la
+  variedad.
+\item En el caso de una variedad que sea un grupo de Lie $G$ a su vez, un subespacio
+  de los campos vectoriales queda inalterado por las transformaciones dadas por el
+  propio grupo, en el sentido de que en cada punto $g$ del mismo, el campo no es más
+  que $X(g) = dl_g\left(X(e)\right)$. Este subespacio es de dimensión finita (e igual
+  a la del grupo), dado que se corresponde con el espacio tangente en la identidad.
+  Además hereda la estructura de álgebra de Lie definida en el punto anterior, y se le
+  denomina el \textbf{álgebra de Lie asociada al grupo} $G$.
+\item Como ejemplo concreto, consideremos el grupo de Lie $\mathbf{SL}(n,\mathbb{R})$
+  de todas las matrices $n\times n$ con valores reales y determinante 1. El espacio
+  tangente en la matriz identidad se puede identificar con el espacio de todas las
+  matrices reales $n\times n$ con traza $0$ y la estructura de álgebra de Lie que
+  viene del grupo de Lie coincide con el que surge del conmutador de la multiplicación
+  de matrices.
+\end{itemize}
+%}
+
+
+
+
+
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie.tex"
+%%% End:
+

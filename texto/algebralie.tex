@@ -224,947 +224,946 @@ Las constantes $c_{ijk}$ de la ecuación~(\ref{eq:alg-conmutador_generadores_ij}
 determinan la forma en que conmutan los generadores, aunque para que se les llame
 constantes de estructura del grupo les falta la unidad imaginaria
 $i^2=-1$, ---no confundir con el subíndice $i$---.
-%Esto se hace para poder considerar otros grupos en los que aparecen
-%números complejos, como los grupos unitarios especiales que son fundamentales
-%en mecánica cuántica. Al final de la sección se dará una explicación un
-%poco más completa.
-%
-%Para encontrar los coeficientes $c_{ijk}$, proporcionales a las constantes
-%de estructura se deben calcular todos los conmutadores posibles.
-%Vamos a utilizar como ejemplo el grupo SO(3).
-%
-%Los conmutadores que contienen el mismo generador dan cero, pues
-%toda matriz conmuta consigo misma
-%\[
-%  [\mmm{G}_1,\mmm{G}_1]
-%  =
-%  [\mmm{G}_2,\mmm{G}_2]
-%  =
-%  [\mmm{G}_3,\mmm{G}_3]
-%  = 0
-%\]
-%
-%Realizamos los demás cálculos
-%\begin{align*}
-%  [\mmm{G}_1,\mmm{G}_2]
-%  &=
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & 1\\
-%      0 & -1 & 0
-%    \end{pmatrix}
-%    \begin{pmatrix}
-%      0 & 0 & -1\\
-%      0 & 0 & 0\\
-%      1 & 0 & 0
-%    \end{pmatrix}
-%    -
-%    \begin{pmatrix}
-%      0 & 0 & -1\\
-%      0 & 0 & 0\\
-%      1 & 0 & 0
-%    \end{pmatrix}
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & 1\\
-%      0 & -1 & 0
-%    \end{pmatrix}\\
-%  &=
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      1 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    -
-%    \begin{pmatrix}
-%      0 & 1 & 0\\
-%      0 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    =
-%    \begin{pmatrix}
-%      0 & -1 & 0\\
-%      1 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    = -\mmm{G}_3
-%\end{align*}
-%\begin{align*}
-%  [\mmm{G}_3,\mmm{G}_1]
-%  &=
-%    \begin{pmatrix}
-%      0 & 1 & 0\\
-%      -1 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & 1\\
-%      0 & -1 & 0
-%    \end{pmatrix}
-%    -
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & 1\\
-%      0 & -1 & 0
-%    \end{pmatrix}
-%    \begin{pmatrix}
-%      0 & 1 & 0\\
-%      -1 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}\\
-%  &=
-%    \begin{pmatrix}
-%      0 & 0 & 1\\
-%      0 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    -
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & 0\\
-%      1 & 0 & 0
-%    \end{pmatrix}
-%    =
-%    \begin{pmatrix}
-%      0 & 0 & 1\\
-%      0 & 0 & 0\\
-%      -1 & 0 & 0
-%    \end{pmatrix}
-%    = -\mmm{G}_2
-%\end{align*}
-%\begin{align*}
-%  [\mmm{G}_2,\mmm{G}_3]
-%  &=
-%    \begin{pmatrix}
-%      0 & 0 & -1\\
-%      0 & 0 & 0\\
-%      1 & 0 & 0
-%    \end{pmatrix}
-%    \begin{pmatrix}
-%      0 & 1 & 0\\
-%      -1 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    -
-%    \begin{pmatrix}
-%      0 & 1 & 0\\
-%      -1 & 0 & 0\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    \begin{pmatrix}
-%      0 & 0 & -1\\
-%      0 & 0 & 0\\
-%      1 & 0 & 0
-%    \end{pmatrix}\\
-%  &=
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & 0\\
-%      0 & 1 & 0
-%    \end{pmatrix}
-%    -
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & 1\\
-%      0 & 0 & 0
-%    \end{pmatrix}
-%    =
-%    \begin{pmatrix}
-%      0 & 0 & 0\\
-%      0 & 0 & -1\\
-%      0 & 1 & 0
-%    \end{pmatrix}
-%    = -\mmm{G}_1
-%\end{align*}
-%
-%Escribimos el valor de los conmutadores
-%\vspace*{-6ex}
-%\begin{multicols}{2}
-%  \begin{align*}
-%    [\mmm{G}_1,\mmm{G}_2] &= -\mmm{G}_3\\
-%    [\mmm{G}_3,\mmm{G}_1] &= -\mmm{G}_2\\
-%    [\mmm{G}_2,\mmm{G}_3] &= -\mmm{G}_1
-%  \end{align*}
-%  
-%  \columnbreak
-%  
-%  \begin{align*}
-%    [\mmm{G}_2,\mmm{G}_1] &= \mmm{G}_3\\
-%    [\mmm{G}_1,\mmm{G}_3] &= \mmm{G}_2\\
-%    [\mmm{G}_3,\mmm{G}_2] &= \mmm{G}_1
-%  \end{align*}
-%\end{multicols}
-%   
-%Para que aparezca el número imaginario $i$ en las expresiones y poder obtener
-%los coeficientes de estructura, llamamos a $\mmm{G}_k = i\kern1pt\mmm{J}_k$
-%\begin{table}[ht]
-%  \centering
-%  \begin{tabular}{lclcl}
-%    $[\mmm{G}_1,\mmm{G}_2] = -\mmm{G}_3$
-%    &$\longrightarrow$&
-%    $[i\kern1pt\mmm{J}_1,i\kern1pt\mmm{J}_2] = -i\kern1pt\mmm{J}_3$
-%    &$\longrightarrow$&
-%       $[\mmm{J}_1,\mmm{J}_2] = \phantom{+}i\kern1pt\mmm{J}_3$\\
-%       $[\mmm{G}_3,\mmm{G}_1] = -\mmm{G}_2$
-%       &$\longrightarrow$&
-%       $[i\kern1pt\mmm{J}_3,i\kern1pt\mmm{J}_1] = -i\kern1pt\mmm{J}_2$
-%       &$\longrightarrow$&
-%       $[\mmm{J}_3,\mmm{J}_1] = \phantom{+}i\kern1pt\mmm{J}_2$\\
-%       $[\mmm{G}_2,\mmm{G}_3] = -\mmm{G}_1$
-%       &$\longrightarrow$&
-%       $[i\kern1pt\mmm{J}_2,i\kern1pt\kern1pt\mmm{J}_3] = -i\kern1pt\mmm{J}_1$
-%       &$\longrightarrow$&
-%       $[\mmm{J}_2,\mmm{J}_3] = \phantom{+}i\kern1pt\mmm{J}_1$\\[1ex]
-%       $[\mmm{G}_2,\mmm{G}_1] = \phantom{+}\mmm{G}_3$
-%       &$\longrightarrow$&
-%       $[i\kern1pt\mmm{J}_2,i\kern1pt\mmm{J}_1] = \phantom{+}i\kern1pt\mmm{J}_3$
-%       &$\longrightarrow$&
-%       $[\mmm{J}_2,\mmm{J}_1] = -i\kern1pt\mmm{J}_3$\\
-%       $[\mmm{G}_1,\mmm{G}_3] = \phantom{+}\mmm{G}_2$
-%       &$\longrightarrow$&
-%       $[i\kern1pt\mmm{J}_1,i\kern1pt\mmm{J}_3] = \phantom{+}i\kern1pt\mmm{J}_2$
-%       &$\longrightarrow$&
-%       $[\mmm{J}_1,\mmm{J}_3] = -i\kern1pt\mmm{J}_2$\\
-%       $[\mmm{G}_3,\mmm{G}_2] = \phantom{+}\mmm{G}_1$
-%       &$\longrightarrow$&
-%       $[i\kern1pt\mmm{J}_3,i\kern1pt\mmm{J}_2] = \phantom{+}i\kern1pt\mmm{J}_1$
-%       &$\longrightarrow$&
-%       $[\mmm{J}_3,\mmm{J}_2] = -i\kern1pt\mmm{J}_1$
-%  \end{tabular}
-%\end{table}
-%
-%Podemos resumir los resultados anteriores mediante la siguiente fórmula,
-%utilizando los \emph{coeficientes de estructura}, $c_{ijk}$
-%\begin{equation}\label{eq:alg-j1-j2-coef-estructura}
-%  [\mmm{J}_i,\mmm{J}_j] = i c_{ijk}\kern1pt\mmm{J}_k
-%\end{equation}
-%
-%En SO(3) los $c_{ijk}$ pueden valer $+1$, $0$ o $-1$.
-%Resulta que $c_{ijk} = \epsilon_{ijk}$ es el símbolo de Levi-Civita
-%\begin{equation}\label{eq:alg-j1-j2-Levi-Civita}
-%  [\mmm{J}_i,\mmm{J}_j] = i \epsilon_{ijk}\kern1pt\mmm{J}_k
-%\end{equation}
-%Es muy fácil recordarlo si consideramos la estructura cíclica
-%$123123\cdots$. Si en la fórmula anterior, los índices $ijk$ siguen la
-%estructura cíclica, el coeficiente será el número $+1$; en caso contrario
-%su valor será el opuesto, $-1$. Si se repiten dos índices su valor es cero.
-%
-%Ahora las rotaciones pasivas las podemos escribir en función de $\mmm{J}$
-%\begin{equation}\label{eq:alg-rot-pasiva}
-%  \mmm{R}(\xhat{n},\theta)
-%  = \exp\left\{\theta\,\xhat{n}\cdot \mmm{G}\right\}
-%  = \exp\left\{i\theta\,\/\xhat{n}\cdot \mmm{J}\right\}
-%\end{equation}
-%
-%Cuando lo que rotan son los objetos (vectores, puntos, funciones, ...), la
-%matriz es la inversa de la anterior (el signo negativo se debe a que los
-%ejes giran en sentido negativo)
-%\begin{equation}\label{eq:alg-rot-activa}
-%  \mmm{R}(\xhat{n},\theta)
-%  = \exp\left\{-\theta\,\xhat{n}\cdot \mmm{G}\right\}
-%  = \exp\left\{-i\theta\,\/\xhat{n}\cdot \mmm{J}\right\}
-%\end{equation}
-%
-%¿Cómo podemos distinguir entre ellas? Si el signo del exponente de la
-%matriz de rotación es positivo, son los ejes los que rotan en torno a
-%$\xhat{n}$. Si fuera negativo, son los objetos (vectores, puntos,
-%funciones, ...) los que giran.
-%
-%Las tres matrices generadoras describen rotaciones alrededor de cada uno
-%de los ejex $x$, $y$ y $z$, que llamamos $1$, $2$ y $3$. Teniendo en
-%cuenta que
-%\[
-%  \mmm{G}_k = i\kern1pt\mmm{J}_k
-%  ;\hspace{1em}
-%  \mmm{J}_k = \dfrac{\mmm{G}_k}{i} = -i\/\kern1pt\mmm{G}_k
-%\]
-%se pueden calcular los generadores $\mmm{J}_i$
-%{\small
-%  \begin{equation}
-%    \label{eq:alg-j1_j2_j3}
-%    \mmm{J}_1 = \mmm{J}_x =
-%    \begin{pmatrix} 0 & 0 & 0
-%      \\ 0 & 0 & -i\\ 0 & i & 0
-%    \end{pmatrix}
-%    ;\hspace*{1em}
-%    \mmm{J}_2 = \mmm{J}_y = 
-%    \begin{pmatrix} 0 & 0 & i
-%      \\ 0 & 0 & 0\\ -i & 0 & 0
-%    \end{pmatrix}
-%    ;\hspace*{1em}
-%    \mmm{J}_3 = \mmm{J}_z = 
-%    \begin{pmatrix} 0 & -i & 0
-%      \\ i & 0 & 0\\ 0 & 0 & 0
-%    \end{pmatrix}
-%  \end{equation}
-%}
-%
-%En mecánica cuántica hay dos tipos de matrices u operadores importantes.
-%Por un lado tenemos las matrices hermíticas o autoadjuntas (operadores
-%hermíticos o autoadjuntos), que son las que se corresponden con observables
-%de la naturaleza.  Por otro lado, tenemos las matrices unitarias (operadores
-%unitarios) que nos dan la evolución temporal, o la dinámica del sistema, y
-%también las simetrías.
-%
-%Una matriz, $\mmm{A}$, es hermítica si
-%$\mmm{A}^\dagger = \left(\mmm{A}^\trasp\right)^* = \mmm{A}$.
-%Una matriz unitaria es aquella que cumple
-%$\mmm{U}^\dagger \mmm{U} = \mmm{I}$.
-%   
-%Las matrices $\mmm{G}_1$, $\mmm{G}_2$ y $\mmm{G}_3$ no son hermíticas,
-%pero las $\mmm{J}_1$, $\mmm{J}_2$ y $\mmm{J}_3$, sí lo son; lo
-%que es crucial para la mecánica cuántica.  Además, el operador
-%$\mmm{R}(\xhat{n},\theta)$, escrito con $\vvv{J}$, es unitario.
-%
-%Como resumen, hemos definido los nuevos generadores, $\mmm{J}$, para que
-%sean hermíticos y las rotaciones pasivas
-%$\mmm{R}(\xhat{n},\theta)=\exp\{i\theta\kern2pt\xhat{n}\cdot\mmm{J}\}$,
-%o sus inversas, que representan rotaciones de objetos
-%$\mmm{R}(\xhat{n},\theta)=\exp\{-i\theta\kern2pt\xhat{n}\cdot\mmm{J}\}$,
-%sean unitarias. En mecánica clásica no serían necesarias las $\mmm{J}$.
-%
-%
-%\section{Generalización SO(2), SO(3), SO(4),
-%  \mathinhead{\cdots}{cdots}, SO(N)}
-%Ahora completaremos alguna información sobre los grupos, SO(2) y SO(3).
-%Después trataremos con SO(4) y por último intentaremos generalizar a SO(N).
-%
-%\subsubsection{Grupo SO(2)}
-%Recordemos en que en el espacio euclídeo de dos dimensiones sólo había un
-%posible giro pasivo antihorario. Así, este grupo contiene un único generador,
-%que llamábamos $\mmm{G}$, ecuación~(\ref{eq:alg-g-so2})
-%\begin{equation}\label{eq:alg-g-so2}
-%  \mmm{G}
-%  =
-%  \begin{pmatrix}
-%    0 & 1\\
-%    -1 & 0
-%  \end{pmatrix}
-%\end{equation}
-%
-%Recordemos también que cuando se generalizaba a tres dimensiones, al
-%considerar que el plano era el $xy$ o $12$, llamábamos $z$ a ese eje de
-%giro o poníamos el subíndice $3$.
-%
-%Pero el tercer eje no existe en dos dimensiones; es más sensato
-%etiquetar a este generador como el del único giro independiente en el
-%plano $xy$, o bien el formado por los ejes $12$. Para ello, vamos a
-%fijarnos dónde está el elemento $1$ en la matriz del generador: se
-%encuentra en la primera fila, segunda columna. De manera que etiquetamos
-%el generador como $\mmm{G}_{12}$
-%\begin{equation}\label{eq:alg-g12-so2}
-%  \mmm{G} = \mmm{G}_{12}
-%  =
-%  \begin{pmatrix}
-%    0 & 1\\
-%    -1 & 0
-%  \end{pmatrix}
-%\end{equation}
-%
-%La razón de este cambio de nomenclatura, es que nos facilitará la
-%generalización a dimensiones más elevadas, de SO(4) en
-%adelante\footnotemark{}.
-%\footnotetext{En dos y en tres dimensiones se puede seguir utilizando
-%la nomenclatura anterior sin problemas.}
-%
-%El operador de rotación pasiva es
-%\[
-%  \mmm{R}(\theta) = \exp\left\{\theta\/\mmm{G}\right\}
-%\]
-%
-%El de rotación de objetos
-%\[
-%  \mmm{R}(\theta) = \exp\left\{-\theta\/\mmm{G}\right\}
-%\]
-%
-%En el caso de que nos interesaran matrices $2\times 2$ en mecánica
-%cuántica, la matriz hermítica generadora del grupo SU(2) sería
-%\begin{equation}\label{eq:alg-j12-su2}
-%  \mmm{J} = \mmm{J}_{12}
-%  = -i\/\mmm{G}_{12}
-%  =
-%  \begin{pmatrix}
-%    0 & -i\\
-%    i & 0
-%  \end{pmatrix}
-%\end{equation}
-%
-%Obsérvese que para etiquetar la matriz $\mmm{J}$, hay que fijarse en la
-%fila y columna del elemento $-i$
-%
-%El operador unitario de una rotación pasiva es
-%\[
-%  \mmm{R}(\theta) = \exp\left\{i\theta\/\mmm{J}\right\}
-%\]
-%
-%\subsubsection{Grupo SO(3)}
-%El espacio euclídeo es de tres dimensiones y está formado por tres generadores
-%independientes, $\mmm{G}_1$, $\mmm{G}_2$ y $\mmm{G}_3$.
-%Al coincidir el número de generadores y el de dimensiones se tiende a asignar
-%un eje a cada generador, $\mmm{G}_x$, $\mmm{G}_y$ y $\mmm{G}_z$, entendiéndose
-%por ejemplo, que el generador $\mmm{G}_3 = \mmm{G}_z$ es el que genera una
-%rotación alrdedor del eje $3$ o $z$
-%\[
-%  \mmm{G}_1 = \mmm{G}_x = 
-%    \begin{pmatrix} 0 & 0 & 0
-%      \\ 0 & 0 & 1\\ 0 & -1 & 0
-%    \end{pmatrix}
-%    \hspace*{1em}
-%  \mmm{G}_2 = \mmm{G}_y = 
-%    \begin{pmatrix} 0 & 0 & -1
-%      \\ 0 & 0 & 0\\ 1 & 0 & 0
-%    \end{pmatrix}
-%    \hspace*{1em}
-%  \mmm{G}_3 = \mmm{G}_z =
-%    \begin{pmatrix} 0 & 1 & 0
-%      \\ -1 & 0 & 0\\ 0 & 0 & 0
-%    \end{pmatrix}
-%\]
-%
-%El operador de rotación pasiva es
-%\[
-%  \mmm{R}(\xhat{n}, \alpha)
-%  = e^{\alpha (n_x\mmm{G}_x + n_y\mmm{G}_y + n_z\mmm{G}_z)}
-%  = \exp\left\{\alpha\sum_{i=1}^{3} n_i\/\mmm{G}_i\right\}
-%  = \exp\{\alpha\/\xhat{n} \cdot \mmm{G}\}
-%\]
-%
-%El de rotación de objetos
-%\[ 
-%  \mmm{R}(\xhat{n}, \alpha)
-%  = e^{-\alpha (n_x\mmm{G}_x + n_y\mmm{G}_y + n_z\mmm{G}_z)}
-%  = \exp\left\{-\alpha\sum_{i=1}^{3} n_i\/\mmm{G}_i\right\}
-%  = \exp\{-\alpha\/\xhat{n} \cdot \mmm{G}\}
-%\]
-%
-%Cuando cambiemos a otras dimensiones no existirá esa relación entre ejes
-%y generadores. En esas situaciones debemos cambiar la nomenclatura, pasando
-%a describir, no los ejes de giro, sino los planos que giran. En SO(3), el
-%generador $\mmm{G}_x$ tiene el elemento $1$ en la segunda fila y tercera
-%columna, luego se etiquetará como $\mmm{G}_{23}$, porque el giro se produce
-%en el plano $yz$.
-%$\mmm{G}_y$ tiene el elemento $1$ en la tercera fila y primera columna, y
-%pasará a ser $\mmm{G}_{31}$, pues el giro tiene lugar en el plano $zx$.
-%Por último, el $\mmm{G}_z$ se etiquetará como $\mmm{G}_{12}$ con giro en
-%el plano $xy$.
-%
-%A continuación presentamos un conjunto de matrices linealmente independientes
-%entre sí
-%\begin{align*}
-%  &\mmm{G}_{12}
-%  =
-%  \begin{pmatrix}
-%    0 & 1 & 0 \\
-%    -1& 0 & 0 \\
-%    0 & 0 & 0 
-%  \end{pmatrix}
-%  \hspace*{2em}
-%  \hfil
-%  \mmm{G}_{31}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & -1\\
-%    0 & 0 & 0\\
-%    1& 0 & 0\\
-%  \end{pmatrix}
-%  \hspace*{2em}
-%  \mmm{G}_{23}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0\\
-%    0 & 0 & 1\\
-%    0 & -1& 0\\
-%  \end{pmatrix}
-%\end{align*}
-%
-%Y obtenemos las matrices generadoras $\mmm{J}$, haciendo
-%$\mmm{J} = -i\kern1pt\mmm{G}$, siendo las $\mmm{G}$ los generadores de
-%SO(3). Para etiquetar las matrices $\mmm{J}$, hemos de fijarnos en la
-%fila y columna del $-i$
-%\begin{equation}
-%  \label{eq:alg-j12-j13-j23-su3}
-%  \mmm{J}_{12} = 
-%  \begin{pmatrix}
-%    0 & -i & 0 \\
-%    i & 0 & 0 \\
-%    0 & 0 & 0
-%  \end{pmatrix}
-%  \hspace*{2em}
-%  \mmm{J}_{31} =
-%  \begin{pmatrix}
-%    0 & 0 & i \\
-%    0 & 0 & 0 \\
-%    -i & 0 & 0
-%  \end{pmatrix}
-%  \hspace*{2em}
-%  \mmm{J}_{23} =
-%  \begin{pmatrix}
-%    0 & 0 & 0 \\
-%    0 & 0 & -i \\
-%    0 & i & 0
-%  \end{pmatrix}
-%\end{equation}
-%
-%El operador de rotación pasiva es
-%\[ 
-%  \mmm{R}(\xhat{n}, \alpha)
-%  = e^{\alpha (n_{12}\mmm{J}_{12} + n_{31}\mmm{J}_{31} + n_{23}\mmm{J}_{23})}
-%  = \exp\{i\kern1pt\alpha\, \xhat{n} \cdot \mmm{J}\}
-%\]
-%
-%Y el de objetos
-%\[ 
-%  \mmm{R}(\xhat{n}, \alpha)
-%  = e^{-\alpha (n_{12}\mmm{J}_{12} + n_{31}\mmm{J}_{31} + n_{23}\mmm{J}_{23})}
-%  = \exp\{-i\kern1pt\alpha\, \xhat{n} \cdot \mmm{J}\}
-%\]
-%
-%\subsubsection{Grupos SO(4), $\cdots$, SO(N)}
-%Nos preguntamos cuántos son los generadores de este grupo. Sabemos que
-%forman una base para cualquier matriz antisimétrica $4\times 4$. Cualquier
-%matriz antisimétrica tiene elementos diagonales nulos; además, los elementos
-%no diagonales correspondientes deben ser opuestos
-%\[
-%  \begin{pmatrix}
-%    0 & a & b & c\\
-%    -a& 0 & d & e\\
-%    -b& -d& 0 & f\\
-%    -c& -e& -f& 0
-%  \end{pmatrix}
-%\]
-%Como vemos, hay seis parámetros independientes para formar una matriz
-%antisimétrica de esta dimensión: $a$, $b$, $c$, $d$, $e$ y $f$, lo que
-%se traduce en que hay seis matrices generadoras en este grupo.
-%Estas son
-%\begin{align*}
-%  &\mmm{G}_{12}
-%  =
-%  \begin{pmatrix}
-%    0 & 1 & 0 & 0\\
-%    -1& 0 & 0 & 0\\
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{13}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 1 & 0\\
-%    0 & 0 & 0 & 0\\
-%    -1& 0 & 0 & 0\\
-%    0 & 0 & 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{14}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & 1\\
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & 0\\
-%    -1& 0 & 0 &0
-%  \end{pmatrix}\\
-%  &\mmm{G}_{23}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 1 & 0\\
-%    0 & -1& 0 & 0\\
-%    0 & 0 & 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{24}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & 1\\
-%    0 & 0 & 0 & 0\\
-%    0 & -1& 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{34}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & 1\\
-%    0 & 0 & -1& 0
-%  \end{pmatrix}
-%\end{align*}
-%
-%y sus opuestas
-%\begin{align*}
-%  &\mmm{G}_{21}
-%  =
-%  \begin{pmatrix}
-%    0 & -1& 0 & 0\\
-%    1 & 0 & 0 & 0\\
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{31}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & -1& 0\\
-%    0 & 0 & 0 & 0\\
-%    1 & 0 & 0 & 0\\
-%    0 & 0 & 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{41}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & -1\\
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & 0\\
-%    1 & 0 & 0 &0
-%  \end{pmatrix}\\
-%  &\mmm{G}_{32}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & -1& 0\\
-%    0 & 1 & 0 & 0\\
-%    0 & 0 & 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{42}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & -1\\
-%    0 & 0 & 0 & 0\\
-%    0 & 1 & 0 &0
-%  \end{pmatrix}
-%  \hspace{2.5em}
-%  \mmm{G}_{43}
-%  =
-%  \begin{pmatrix}
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & 0\\
-%    0 & 0 & 0 & -1\\
-%    0 & 0 & 1 & 0
-%  \end{pmatrix}
-%\end{align*}
-%
-%Vamos a estudiar las relaciones de conmutación. En estos conmutadores
-%aparecen cuatro índices, $\text{a}$, $\text{b}$, $\text{c}$ y $\text{d}$
-%\[
-%  [\mmm{G}_{ab},\mmm{G}_{cd}]
-%\]
-%
-%Primero nos fijaremos en que cuando sólo se repite el primer índice de
-%cada generador en el conmutador, el resultado es otro generador que no
-%contiene el índice repetido y los demás índices están en orden inverso
-%al que aparecen en el conmutador. Ejemplos
-%\[
-%  [\mmm{G}_{\textcolor{red!80!black}{1}2},\mmm{G}_{\textcolor{red!80!black}{1}3}]
-%  = \mmm{G}_{32}
-%  ;\hspace{0.5em}
-%  [\mmm{G}_{\textcolor{red!80!black}{1}2},\mmm{G}_{\textcolor{red!80!black}{1}4}]
-%  = \mmm{G}_{42}
-%  ;\hspace{0.5em}\cdots;\hspace{.5em}
-%  [\mmm{G}_{\textcolor{red!80!black}{3}2},\mmm{G}_{\textcolor{red!80!black}{3}4}]
-%  = \mmm{G}_{42}
-%  ;\hspace{0.5em}\cdots
-%\]
-%Por tanto, podemos crear una regla para tener en cuenta este
-%comportamiento
-%\[
-%  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{db}\kern1pt\delta_{ac}
-%\]
-%
-%Otro tanto ocurre cuando se repiten sólo los segundos índices
-%\[
-%  [\mmm{G}_{1\textcolor{red!80!black}{2}},\mmm{G}_{3\textcolor{red!80!black}{2}}]
-%  = \mmm{G}_{31} ;\hspace{0.5em}
-%  [\mmm{G}_{3\textcolor{red!80!black}{2}},\mmm{G}_{1\textcolor{red!80!black}{2}}]
-%  = \mmm{G}_{13} ;\hspace{0.5em}
-%  [\mmm{G}_{3\textcolor{red!80!black}{4}},\mmm{G}_{2\textcolor{red!80!black}{4}}]
-%  = \mmm{G}_{23} ;\hspace{0.5em}\cdots
-%\]
-%
-%En este caso la regla es
-%\[
-%  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{ca}\delta_{bd}
-%\]
-%
-%Cuando se repiten los índices externos, el resultado contiene los
-%otros dos índices en el mismo orden en el que se encuentran en el
-%conmutador
-%\[
-%  [\mmm{G}_{\textcolor{red!80!black}{2}4},\mmm{G}_{3\textcolor{red!80!black}{2}}]
-%  = \mmm{G}_{43} ;\hspace{0.5em}
-%  [\mmm{G}_{\textcolor{red!80!black}{1}2},\mmm{G}_{4\textcolor{red!80!black}{1}}]
-%  = \mmm{G}_{24} ;\hspace{0.5em}
-%  [\mmm{G}_{\textcolor{red!80!black}{2}4},\mmm{G}_{1\textcolor{red!80!black}{4}}]
-%  = \mmm{G}_{21} ;\hspace{0.5em}\cdots
-%\]
-%La regla es
-%\[
-%  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{bc}\delta_{ad}
-%\]
-%
-%Cuando son los índices internos los que se repiten, de nuevo el
-%resultado queda con los otros dos índices en el orden en el que
-%aparecen en el conmutador
-%\[
-%  [\mmm{G}_{3\textcolor{red!80!black}{1}},\mmm{G}_{\textcolor{red!80!black}{1}2}]
-%  = \mmm{G}_{32} ;\hspace{0.5em}
-%  [\mmm{G}_{3\textcolor{red!80!black}{4}},\mmm{G}_{\textcolor{red!80!black}{4}1}]
-%  = \mmm{G}_{31} ;\hspace{0.5em}
-%  [\mmm{G}_{4\textcolor{red!80!black}{1}},\mmm{G}_{\textcolor{red!80!black}{1}2}]
-%  = \mmm{G}_{42} ;\hspace{0.5em}\cdots
-%\]
-%Y la regla correspondiente es
-%\[
-%  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{ad}\delta_{bc}
-%\]
-%
-%Cuando se repiten los dos índices, sin importar el orden, o cuando no
-%se repite ningún índice, el conmutador es cero.
-%
-%Lo anterior se puede resumir en una fórmula
-%\[
-%  [\mmm{G}_{ab},\mmm{G}_{cd}]
-%  =
-%  \mmm{G}_{db}\kern1pt\delta_{ac}
-%  + \mmm{G}_{\text{ca}}\kern1pt\delta_{\text{bd}}
-%  + \mmm{G}_{bc}\kern1pt\delta_{ad}
-%  + \mmm{G}_{ad}\kern1pt\delta_{bc}
-%\]
-%
-%Ahora nos interesa que los subíndices en las $\mmm{G}_{ij}$
-%sigan el mismo orden --por ejemplo, el orden con que aparecen en el
-%conmutador $a,b,c,d$--.
-%A tal fin utilizaremos la igualdad $\mmm{G}_{ij} = -\mmm{G}_{ji}$ allá
-%donde interese. La delta de Kronecker no cambia de signo
-%$\delta_{ij} = \delta_{ji}$
-%\begin{align*}
-%  [\mmm{G}_{ab},\mmm{G}_{cd}]
-%  =
-%  -\mmm{G}_{bd}\kern1pt\delta_{ac}
-%  -\mmm{G}_{ac}\kern1pt\delta_{bd}
-%  + \mmm{G}_{bc}\kern1pt\delta_{ad}
-%  + \mmm{G}_{ad}\kern1pt\delta_{bc}
-%\end{align*}
-%
-%Todas estas observaciones se pueden resumir en una expresión
-%\begin{equation}
-%  \label{eq:alg-reglas_conmutacion-g}
-%  [\mmm{G}_{ab},\mmm{G}_{cd}]
-%  =
-%  \mmm{G}_{bc}\kern1pt\delta_{ad}
-%  + \mmm{G}_{ad}\kern1pt\delta_{bc}
-%  - \mmm{G}_{bd}\kern1pt\delta_{ac}
-%  - \mmm{G}_{ac}\kern1pt\delta_{bd}
-%\end{equation}
-%
-%Lo importante de la expresión anterior es que sirve, no sólo para
-%SO(4), sino también para cualquier grupo de rotación SO(N)
-%
-%Si tratamos con grupos unitarios, obtenemos las $\mmm{J}$, haciendo
-%$\mmm{G}_{jk} = i\kern1pt\mmm{J}_{jk}$
-%\[
-%  [i\mmm{J}_{ab},i\mmm{J}_{cd}]
-%  =
-%  i\mmm{J}_{bc}\kern1pt\delta_{ad}
-%  + i\mmm{J}_{ad}\kern1pt\delta_{bc}
-%  - i\mmm{J}_{bd}\kern1pt\delta_{ac}
-%  - i\mmm{J}_{ac}\kern1pt\delta_{bd}\\
-%\]
-%\[
-%  i^{2} [\mmm{J}_{ab},\mmm{J}_{cd}]
-%  =
-%  i\left(\mmm{J}_{bc}\kern1pt\delta_{ad}
-%    + \mmm{J}_{ad}\kern1pt\delta_{bc}
-%    - \mmm{J}_{bd}\kern1pt\delta_{ac}
-%    - \mmm{J}_{ac}\kern1pt\delta_{bd}\right)
-%\]
-%\[
-%  -[\mmm{J}_{ab},\mmm{J}_{cd}]
-%  =
-%  i\left(\mmm{J}_{bc}\kern1pt\delta_{ad}
-%    + \mmm{J}_{ad}\kern1pt\delta_{bc}
-%    - \mmm{J}_{bd}\kern1pt\delta_{ac}
-%    - \mmm{J}_{ac}\kern1pt\delta_{bd}\right)
-%\]
-%
-%Resultando
-%\begin{equation}
-%  \label{eq:ali-reglas_conmutacion-j}
-%  [\mmm{J}_{ab},\kern1pt\mmm{J}_{cd}]
-%  =
-%  i\left(\mmm{J}_{bd}\kern1pt\delta_{ac}
-%    + \kern1pt\mmm{J}_{ac}\kern1pt\delta_{bd}
-%    - \kern1pt\mmm{J}_{bc}\kern1pt\delta_{ad}
-%    - \kern1pt\mmm{J}_{ad}\kern1pt\delta_{bc}\right)
-%\end{equation}
-%Tenemos las reglas de conmutación de los generadores SO(N), lo que
-%aparece entre paréntesis nos permite calcular las constantes de
-%estructura, $c_{abcd}$.
-%
-%\subsubsection{Ejercicios en SO(4)}
-%Realicemos algunos cálculos con SO(4) utilizando la fórmula anterior.
-%
-%\begin{itemize}
-%\item Primer ejercicio
-%  \begin{align*}
-%    [\mmm{J}_{12},\mmm{J}_{23}]
-%    &=
-%      [\mmm{J}_{ab},\mmm{J}_{cd}]
-%      =
-%      i\kern1pt(\mmm{J}_{bd}\kern1pt\delta_{ac}
-%      + \mmm{J}_{ac}\kern1pt\delta_{bd}
-%      - \mmm{J}_{bc}\kern1pt\delta_{ad}
-%      - \mmm{J}_{ad}\kern1pt\delta_{bc})\\
-%    &= 
-%      i\kern1pt(\mmm{J}_{23}\kern1pt\delta_{12}
-%      + \mmm{J}_{12}\kern1pt\delta_{23}
-%      - \mmm{J}_{22}\kern1pt\delta_{13}
-%      - \mmm{J}_{13}\kern1pt\delta_{22})
-%      = i\kern1pt(0 + 0 - 0 - \mmm{J}_{13}\cdot 1)\\
-%    &= i (-1)\kern1pt\mmm{J}_{13}
-%      = i c_{122313}\kern1pt\mmm{J}_{13}
-%  \end{align*}
-%  
-%  y como el conmutador es una combinación lineal de los seis generadores de SO(4)
-%  {\small
-%    \[
-%      [\mmm{J}_{12},\mmm{J}_{23}]
-%      =
-%      i(c_{122312}\kern1pt\mmm{J}_{12}
-%      + c_{122313}\kern1pt\mmm{J}_{13}
-%      + c_{122314}\kern1pt\mmm{J}_{14}
-%      + c_{122323}\kern1pt\mmm{J}_{23}
-%      + c_{122324}\kern1pt\mmm{J}_{24}
-%      + c_{122334}\kern1pt\mmm{J}_{34})
-%    \]
-%  }
-%  
-%  El coeficiente de estructura $c_{122313}$ vale $-1$
-%  \[
-%    c_{122313} = -1
-%  \]
-%  y los cinco restantes, cero
-%  \[
-%    c_{122312} = c_{122314} = c_{122323} = c_{122324} = c_{122334} = 0
-%  \]
-%  
-%  El resultado es
-%  \[
-%    [\mmm{J}_{12},\mmm{J}_{23}] = -i \mmm{J}_{13}
-%  \]
-%  
-%\item Segundo ejercicio
-%  \begin{align*}
-%    [\mmm{J}_{12},\mmm{J}_{43}]
-%    &=
-%      [\mmm{J}_{ab},\mmm{J}_{cd}]
-%      =
-%      i\kern1pt(\mmm{J}_{bd}\kern1pt\delta_{ac}
-%      + \mmm{J}_{ac}\kern1pt\delta_{bd}
-%      - \mmm{J}_{bc}\kern1pt\delta_{ad}
-%      - \mmm{J}_{ad}\kern1pt\delta_{bc})\\
-%    &= 
-%      i\kern1pt(\mmm{J}_{23}\kern1pt\delta_{14}
-%      + \mmm{J}_{14}\kern1pt\delta_{23}
-%      - \mmm{J}_{24}\kern1pt\delta_{13}
-%      - \mmm{J}_{13}\kern1pt\delta_{24})\\
-%    &= i\kern1pt
-%      (0\kern1pt\mmm{J}_{23} + 0\kern1pt\mmm{J}_{14} - 0\kern1pt\mmm{J}_{24}
-%      - 0\kern1pt\mmm{J}_{13})\\
-%    &= 0
-%  \end{align*}
-%  
-%  y como el conmutador es una combinación lineal de los seis generadores de SO(3)
-%  {\small
-%    \[
-%      [\mmm{J}_{12},\mmm{J}_{43}]
-%      =
-%      i(c_{124312}\kern1pt\mmm{J}_{12}
-%      + c_{124313}\kern1pt\mmm{J}_{13}
-%      + c_{124314}\kern1pt\mmm{J}_{14}
-%      + c_{124323}\kern1pt\mmm{J}_{23}
-%      + c_{124324}\kern1pt\mmm{J}_{24}
-%      + c_{124334}\kern1pt\mmm{J}_{34})
-%    \]
-%  }
-%  resulta que los seis coeficientes de estructura relacionados con este conmutador valen cero
-%  \[
-%    c_{124312} = c_{124313} = c_{124314} = c_{124323} = c_{124324} = c_{124334} = 0
-%  \]
-%  
-%\item Último ejercicio
-%  \begin{align*}
-%    [\mmm{J}_{12},\mmm{J}_{21}]
-%    &=
-%      [\mmm{J}_{ab},\mmm{J}_{cd}]
-%      =
-%      i\kern1pt(\mmm{J}_{bd}\kern1pt\delta_{ac}
-%      + \mmm{J}_{ac}\kern1pt\delta_{bd}
-%      - \mmm{J}_{bc}\kern1pt\delta_{ad}
-%      - \mmm{J}_{ad}\kern1pt\delta_{bc})\\
-%    &= 
-%      i\kern1pt(\mmm{J}_{21}\kern1pt\delta_{12}
-%      + \mmm{J}_{12}\kern1pt\delta_{21}
-%      - \mmm{J}_{22}\kern1pt\delta_{11}
-%      - \mmm{J}_{11}\kern1pt\delta_{22})\\
-%    &= i\kern1pt
-%      (\mmm{J}_{21}\cdot 0 + \mmm{J}_{12}\cdot 0 - 0 \cdot 1 - 0 \cdot 1)\\
-%    = 0
-%  \end{align*}
-%  Los términos, $\mmm{J}_{11}$ y $\mmm{J}_{22}$ se anulan porque son los
-%  elementos diagonales de una matriz antisimétrica.
-%  
-%  Como el conmutador es una combinación lineal de los seis generadores de SO(3)
-%  {\small
-%    \[
-%      [\mmm{J}_{12},\mmm{J}_{21}]
-%      =
-%      i(c_{122112}\kern1pt\mmm{J}_{12}
-%      + c_{122113}\kern1pt\mmm{J}_{13}
-%      + c_{122114}\kern1pt\mmm{J}_{14}
-%      + c_{122123}\kern1pt\mmm{J}_{23}
-%      + c_{122124}\kern1pt\mmm{J}_{24}
-%      + c_{122134}\kern1pt\mmm{J}_{34})
-%    \]
-%  }
-%  
-%  Los seis coeficientes de estructura valen cero
-%  \[
-%    c_{122112} = c_{122113} = c_{122114} = c_{122123} = c_{122124} = c_{122134} = 0
-%  \]
-%\end{itemize}
-%
-%\section{Dimensión del álgebra de Lie}
-%
-%Los generadores de SO(N) son matrices antisimétricas, por tanto sus
-%elementos diagonales valen cero y los no diagonales son opuestos.
-%
-%El número de generadores es igual al de elementos independientes de
-%una matriz antisimétrica, que son la mitad de los elementos no
-%diagonales.
-%
-%El número total de elementos de una matriz $N\times N$ es $N^2$,
-%mientras que el de elementos diagonales es $N$, de manera que el
-%número de elementos no diagonales independientes es la mitad de los no
-%diagonales.
-%Los elementos diagonales son todos, $N^2$, menos los
-%diagonales, $N$.
-%\[
-%  \text{Número de generadores } = \dfrac{N^2-N}{2} = \dfrac{N(N-1)}{2}
-%  =
-%  \begin{pmatrix}
-%    N \\ 2
-%    \end{pmatrix}
-%\]
-%
-%El número de generadores es el número de combinaciones de $N$
-%elementos tomados de dos en dos.  El número de generadores se conoce
-%también como la \emph{dimensión del álgebra de Lie}.
-% 
+Esto se hace para poder considerar otros grupos en los que aparecen números complejos,
+como los grupos unitarios especiales que son fundamentales en mecánica cuántica.
+Al final de la sección se dará una explicación un poco más completa.
+
+Para encontrar los coeficientes $c_{ijk}$, proporcionales a las constantes
+de estructura se deben calcular todos los conmutadores posibles.
+Vamos a utilizar como ejemplo el grupo SO(3).
+
+Los conmutadores que contienen el mismo generador dan cero, pues
+toda matriz conmuta consigo misma
+\[
+  [\mmm{G}_1,\mmm{G}_1]
+  =
+  [\mmm{G}_2,\mmm{G}_2]
+  =
+  [\mmm{G}_3,\mmm{G}_3]
+  = 0
+\]
+
+Realizamos los demás cálculos
+\begin{align*}
+  [\mmm{G}_1,\mmm{G}_2]
+  &=
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 1\\
+      0 & -1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0 & -1\\
+      0 & 0 & 0\\
+      1 & 0 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+      0 & 0 & -1\\
+      0 & 0 & 0\\
+      1 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 1\\
+      0 & -1 & 0
+    \end{pmatrix}\\
+  &=
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+      0 & 1 & 0\\
+      0 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 & -1 & 0\\
+      1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    = -\mmm{G}_3
+\end{align*}
+\begin{align*}
+  [\mmm{G}_3,\mmm{G}_1]
+  &=
+    \begin{pmatrix}
+      0 & 1 & 0\\
+      -1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 1\\
+      0 & -1 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 1\\
+      0 & -1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 1 & 0\\
+      -1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}\\
+  &=
+    \begin{pmatrix}
+      0 & 0 & 1\\
+      0 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 0\\
+      1 & 0 & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 & 0 & 1\\
+      0 & 0 & 0\\
+      -1 & 0 & 0
+    \end{pmatrix}
+    = -\mmm{G}_2
+\end{align*}
+\begin{align*}
+  [\mmm{G}_2,\mmm{G}_3]
+  &=
+    \begin{pmatrix}
+      0 & 0 & -1\\
+      0 & 0 & 0\\
+      1 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 1 & 0\\
+      -1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+      0 & 1 & 0\\
+      -1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0 & -1\\
+      0 & 0 & 0\\
+      1 & 0 & 0
+    \end{pmatrix}\\
+  &=
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 0\\
+      0 & 1 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 1\\
+      0 & 0 & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & -1\\
+      0 & 1 & 0
+    \end{pmatrix}
+    = -\mmm{G}_1
+\end{align*}
+
+Escribimos el valor de los conmutadores
+\vspace*{-6ex}
+\begin{multicols}{2}
+  \begin{align*}
+    [\mmm{G}_1,\mmm{G}_2] &= -\mmm{G}_3\\
+    [\mmm{G}_3,\mmm{G}_1] &= -\mmm{G}_2\\
+    [\mmm{G}_2,\mmm{G}_3] &= -\mmm{G}_1
+  \end{align*}
+  
+  \columnbreak
+  
+  \begin{align*}
+    [\mmm{G}_2,\mmm{G}_1] &= \mmm{G}_3\\
+    [\mmm{G}_1,\mmm{G}_3] &= \mmm{G}_2\\
+    [\mmm{G}_3,\mmm{G}_2] &= \mmm{G}_1
+  \end{align*}
+\end{multicols}
+ 
+Para que aparezca el número imaginario $i$ en las expresiones y poder obtener
+los coeficientes de estructura, llamamos a $\mmm{G}_k = i\kern1pt\mmm{J}_k$
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lclcl}
+    $[\mmm{G}_1,\mmm{G}_2] = -\mmm{G}_3$
+    &$\longrightarrow$&
+    $[i\kern1pt\mmm{J}_1,i\kern1pt\mmm{J}_2] = -i\kern1pt\mmm{J}_3$
+    &$\longrightarrow$&
+       $[\mmm{J}_1,\mmm{J}_2] = \phantom{+}i\kern1pt\mmm{J}_3$\\
+       $[\mmm{G}_3,\mmm{G}_1] = -\mmm{G}_2$
+       &$\longrightarrow$&
+       $[i\kern1pt\mmm{J}_3,i\kern1pt\mmm{J}_1] = -i\kern1pt\mmm{J}_2$
+       &$\longrightarrow$&
+       $[\mmm{J}_3,\mmm{J}_1] = \phantom{+}i\kern1pt\mmm{J}_2$\\
+       $[\mmm{G}_2,\mmm{G}_3] = -\mmm{G}_1$
+       &$\longrightarrow$&
+       $[i\kern1pt\mmm{J}_2,i\kern1pt\kern1pt\mmm{J}_3] = -i\kern1pt\mmm{J}_1$
+       &$\longrightarrow$&
+       $[\mmm{J}_2,\mmm{J}_3] = \phantom{+}i\kern1pt\mmm{J}_1$\\[1ex]
+       $[\mmm{G}_2,\mmm{G}_1] = \phantom{+}\mmm{G}_3$
+       &$\longrightarrow$&
+       $[i\kern1pt\mmm{J}_2,i\kern1pt\mmm{J}_1] = \phantom{+}i\kern1pt\mmm{J}_3$
+       &$\longrightarrow$&
+       $[\mmm{J}_2,\mmm{J}_1] = -i\kern1pt\mmm{J}_3$\\
+       $[\mmm{G}_1,\mmm{G}_3] = \phantom{+}\mmm{G}_2$
+       &$\longrightarrow$&
+       $[i\kern1pt\mmm{J}_1,i\kern1pt\mmm{J}_3] = \phantom{+}i\kern1pt\mmm{J}_2$
+       &$\longrightarrow$&
+       $[\mmm{J}_1,\mmm{J}_3] = -i\kern1pt\mmm{J}_2$\\
+       $[\mmm{G}_3,\mmm{G}_2] = \phantom{+}\mmm{G}_1$
+       &$\longrightarrow$&
+       $[i\kern1pt\mmm{J}_3,i\kern1pt\mmm{J}_2] = \phantom{+}i\kern1pt\mmm{J}_1$
+       &$\longrightarrow$&
+       $[\mmm{J}_3,\mmm{J}_2] = -i\kern1pt\mmm{J}_1$
+  \end{tabular}
+\end{table}
+
+Podemos resumir los resultados anteriores mediante la siguiente fórmula,
+utilizando los \emph{coeficientes de estructura}, $c_{ijk}$
+\begin{equation}\label{eq:alg-j1-j2-coef-estructura}
+  [\mmm{J}_i,\mmm{J}_j] = i c_{ijk}\kern1pt\mmm{J}_k
+\end{equation}
+
+En SO(3) los $c_{ijk}$ pueden valer $-1$, $0$, $1$.
+Resulta que $c_{ijk}$ es el símbolo de Levi-Civita, $c_{ijk} = \epsilon_{ijk}$
+\begin{equation}\label{eq:alg-j1-j2-Levi-Civita}
+  [\mmm{J}_i,\mmm{J}_j] = i \epsilon_{ijk}\kern1pt\mmm{J}_k
+\end{equation}
+Es muy fácil recordarlo si consideramos la estructura cíclica
+$123123\cdots$. Si en la fórmula anterior, los índices $ijk$ siguen la
+estructura cíclica, el coeficiente será el número $+1$; en caso contrario
+su valor será el opuesto, $-1$. Si se repiten dos índices su valor es cero.
+
+Ahora las rotaciones pasivas las podemos escribir en función de $\mmm{J}$
+\begin{equation}\label{eq:alg-rot-pasiva}
+  \mmm{R}(\xhat{n},\theta)
+  = \exp\left\{\theta\,\xhat{n}\cdot \mmm{G}\right\}
+  = \exp\left\{i\theta\,\/\xhat{n}\cdot \mmm{J}\right\}
+\end{equation}
+
+Cuando lo que rotan son los objetos (vectores, puntos, funciones, ...), la
+matriz es la inversa de la anterior (el signo negativo se debe a que los
+ejes giran en sentido negativo)
+\begin{equation}\label{eq:alg-rot-activa}
+  \mmm{R}(\xhat{n},\theta)
+  = \exp\left\{-\theta\,\xhat{n}\cdot \mmm{G}\right\}
+  = \exp\left\{-i\theta\,\/\xhat{n}\cdot \mmm{J}\right\}
+\end{equation}
+
+¿Cómo podemos distinguir entre ellas? Si el signo del exponente de la
+matriz de rotación es positivo, son los ejes los que rotan en torno a
+$\xhat{n}$. Si fuera negativo, son los objetos (vectores, puntos,
+funciones, ...) los que giran.
+
+Las tres matrices generadoras describen rotaciones alrededor de cada uno
+de los ejex $x$, $y$ y $z$, que llamamos $1$, $2$ y $3$. Teniendo en
+cuenta que
+\[
+  \mmm{G}_k = i\kern1pt\mmm{J}_k
+  ;\hspace{1em}
+  \mmm{J}_k = \dfrac{\mmm{G}_k}{i} = -i\/\kern1pt\mmm{G}_k
+\]
+se pueden calcular los generadores $\mmm{J}_i$
+{\small
+  \begin{equation}
+    \label{eq:alg-j1_j2_j3}
+    \mmm{J}_1 = \mmm{J}_x =
+    \begin{pmatrix} 0 & 0 & 0
+      \\ 0 & 0 & -i\\ 0 & i & 0
+    \end{pmatrix}
+    ;\hspace*{1em}
+    \mmm{J}_2 = \mmm{J}_y = 
+    \begin{pmatrix} 0 & 0 & i
+      \\ 0 & 0 & 0\\ -i & 0 & 0
+    \end{pmatrix}
+    ;\hspace*{1em}
+    \mmm{J}_3 = \mmm{J}_z = 
+    \begin{pmatrix} 0 & -i & 0
+      \\ i & 0 & 0\\ 0 & 0 & 0
+    \end{pmatrix}
+  \end{equation}
+}
+
+En mecánica cuántica hay dos tipos de matrices u operadores importantes.
+Por un lado tenemos las matrices hermíticas o autoadjuntas (operadores
+hermíticos o autoadjuntos), que son las que se corresponden con observables
+de la naturaleza.  Por otro lado, tenemos las matrices unitarias (operadores
+unitarios) que nos dan la evolución temporal, o la dinámica del sistema, y
+también las simetrías.
+
+Una matriz, $\mmm{A}$, es hermítica si
+$\mmm{A}^\dagger = \left(\mmm{A}^\trasp\right)^* = \mmm{A}$.
+Una matriz unitaria es aquella que cumple
+$\mmm{U}^\dagger \mmm{U} = \mmm{I}$.
+   
+Las matrices $\mmm{G}_1$, $\mmm{G}_2$ y $\mmm{G}_3$ no son hermíticas,
+pero las $\mmm{J}_1$, $\mmm{J}_2$ y $\mmm{J}_3$, sí lo son; lo
+que es crucial para la mecánica cuántica.  Además, el operador
+$\mmm{R}(\xhat{n},\theta)$, escrito con $\vvv{J}$, es unitario.
+
+Como resumen, hemos definido los nuevos generadores, $\mmm{J}$, para que
+sean hermíticos y las rotaciones pasivas
+$\mmm{R}(\xhat{n},\theta)=\exp\{i\theta\kern2pt\xhat{n}\cdot\mmm{J}\}$,
+o sus inversas, que representan rotaciones de objetos
+$\mmm{R}(\xhat{n},\theta)=\exp\{-i\theta\kern2pt\xhat{n}\cdot\mmm{J}\}$,
+sean unitarias. En mecánica clásica no serían necesarias las $\mmm{J}$.
+
+
+\section{Generalización a SO(2), SO(3), SO(4),
+  \mathinhead{\cdots}{cdots}, SO(N)}
+Ahora completaremos alguna información sobre los grupos, SO(2) y SO(3).
+Después trataremos con SO(4) y por último intentaremos generalizar a SO(N).
+
+\subsubsection{Grupo SO(2)}
+Recordemos en que en el espacio euclídeo de dos dimensiones sólo había un
+posible giro pasivo antihorario. Así, este grupo contiene un único generador,
+que llamábamos $\mmm{G}$, ecuación~(\ref{eq:alg-g-so2})
+\begin{equation}\label{eq:alg-g-so2}
+  \mmm{G}
+  =
+  \begin{pmatrix}
+    0 & 1\\
+    -1 & 0
+  \end{pmatrix}
+\end{equation}
+
+Recordemos también que cuando se generalizaba a tres dimensiones, al
+considerar que el plano era el $xy$ o $12$, llamábamos $z$ a ese eje de
+giro o poníamos el subíndice $3$.
+
+Pero el tercer eje no existe en dos dimensiones; es más sensato
+etiquetar a este generador como el del único giro independiente en el
+plano $xy$, o bien el formado por los ejes $12$. Para ello, vamos a
+fijarnos dónde está el elemento $1$ en la matriz del generador: se
+encuentra en la primera fila, segunda columna. De manera que etiquetamos
+el generador como $\mmm{G}_{12}$
+\begin{equation}\label{eq:alg-g12-so2}
+  \mmm{G} = \mmm{G}_{12}
+  =
+  \begin{pmatrix}
+    0 & 1\\
+    -1 & 0
+  \end{pmatrix}
+\end{equation}
+
+La razón de este cambio de nomenclatura, es que nos facilitará la
+generalización a dimensiones más elevadas, de SO(4) en
+adelante\footnotemark{}.
+\footnotetext{En dos y en tres dimensiones se puede seguir utilizando
+la nomenclatura anterior sin problemas.}
+
+El operador de rotación pasiva es
+\[
+  \mmm{R}(\theta) = \exp\left\{\theta\/\mmm{G}\right\}
+\]
+
+El de rotación de objetos
+\[
+  \mmm{R}(\theta) = \exp\left\{-\theta\/\mmm{G}\right\}
+\]
+
+En el caso de que nos interesaran matrices $2\times 2$ en mecánica
+cuántica, la matriz hermítica generadora del grupo SU(2) sería
+\begin{equation}\label{eq:alg-j12-su2}
+  \mmm{J} = \mmm{J}_{12}
+  = -i\/\mmm{G}_{12}
+  =
+  \begin{pmatrix}
+    0 & -i\\
+    i & 0
+  \end{pmatrix}
+\end{equation}
+
+Obsérvese que para etiquetar la matriz $\mmm{J}$, hay que fijarse en la
+fila y columna del elemento $-i$
+
+El operador unitario de una rotación pasiva es
+\[
+  \mmm{R}(\theta) = \exp\left\{i\theta\/\mmm{J}\right\}
+\]
+
+\subsubsection{Grupo SO(3)}
+El espacio euclídeo es de tres dimensiones y está formado por tres generadores
+independientes, $\mmm{G}_1$, $\mmm{G}_2$ y $\mmm{G}_3$.
+Al coincidir el número de generadores y el de dimensiones se tiende a asignar
+un eje a cada generador, $\mmm{G}_x$, $\mmm{G}_y$ y $\mmm{G}_z$, entendiéndose
+por ejemplo, que el generador $\mmm{G}_3 = \mmm{G}_z$ es el que genera una
+rotación alrdedor del eje $3$ o $z$
+\[
+  \mmm{G}_1 = \mmm{G}_x = 
+    \begin{pmatrix} 0 & 0 & 0
+      \\ 0 & 0 & 1\\ 0 & -1 & 0
+    \end{pmatrix}
+    \hspace*{1em}
+  \mmm{G}_2 = \mmm{G}_y = 
+    \begin{pmatrix} 0 & 0 & -1
+      \\ 0 & 0 & 0\\ 1 & 0 & 0
+    \end{pmatrix}
+    \hspace*{1em}
+  \mmm{G}_3 = \mmm{G}_z =
+    \begin{pmatrix} 0 & 1 & 0
+      \\ -1 & 0 & 0\\ 0 & 0 & 0
+    \end{pmatrix}
+\]
+
+El operador de rotación pasiva es
+\[
+  \mmm{R}(\xhat{n}, \alpha)
+  = e^{\alpha (n_x\mmm{G}_x + n_y\mmm{G}_y + n_z\mmm{G}_z)}
+  = \exp\left\{\alpha\sum_{i=1}^{3} n_i\/\mmm{G}_i\right\}
+  = \exp\{\alpha\/\xhat{n} \cdot \mmm{G}\}
+\]
+
+El de rotación de objetos
+\[ 
+  \mmm{R}(\xhat{n}, \alpha)
+  = e^{-\alpha (n_x\mmm{G}_x + n_y\mmm{G}_y + n_z\mmm{G}_z)}
+  = \exp\left\{-\alpha\sum_{i=1}^{3} n_i\/\mmm{G}_i\right\}
+  = \exp\{-\alpha\/\xhat{n} \cdot \mmm{G}\}
+\]
+
+Cuando cambiemos a otras dimensiones no existirá esa relación entre ejes
+y generadores. En esas situaciones debemos cambiar la nomenclatura, pasando
+a describir, no los ejes de giro, sino los planos que giran. En SO(3), el
+generador $\mmm{G}_x$ tiene el elemento $1$ en la segunda fila y tercera
+columna, luego se etiquetará como $\mmm{G}_{23}$, porque el giro se produce
+en el plano $yz$.
+$\mmm{G}_y$ tiene el elemento $1$ en la tercera fila y primera columna, y
+pasará a ser $\mmm{G}_{31}$, pues el giro tiene lugar en el plano $zx$.
+Por último, el $\mmm{G}_z$ se etiquetará como $\mmm{G}_{12}$ con giro en
+el plano $xy$.
+
+A continuación presentamos este conjunto de matrices linealmente independientes
+entre sí, con la nueva nomenclatura
+\begin{align*}
+  &\mmm{G}_{12}
+  =
+  \begin{pmatrix}
+    0 & 1 & 0 \\
+    -1& 0 & 0 \\
+    0 & 0 & 0 
+  \end{pmatrix}
+  \hspace*{2em}
+  \hfil
+  \mmm{G}_{31}
+  =
+  \begin{pmatrix}
+    0 & 0 & -1\\
+    0 & 0 & 0\\
+    1& 0 & 0\\
+  \end{pmatrix}
+  \hspace*{2em}
+  \mmm{G}_{23}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0\\
+    0 & 0 & 1\\
+    0 & -1& 0\\
+  \end{pmatrix}
+\end{align*}
+
+Y obtenemos las matrices generadoras $\mmm{J}$, haciendo
+$\mmm{J} = -i\kern1pt\mmm{G}$, siendo las $\mmm{G}$ los generadores de
+SO(3). Para etiquetar las matrices $\mmm{J}$, hemos de fijarnos en la
+fila y columna del $-i$
+\begin{equation}
+  \label{eq:alg-j12-j13-j23-su3}
+  \mmm{J}_{12} = 
+  \begin{pmatrix}
+    0 & -i & 0 \\
+    i & 0 & 0 \\
+    0 & 0 & 0
+  \end{pmatrix}
+  \hspace*{2em}
+  \mmm{J}_{31} =
+  \begin{pmatrix}
+    0 & 0 & i \\
+    0 & 0 & 0 \\
+    -i & 0 & 0
+  \end{pmatrix}
+  \hspace*{2em}
+  \mmm{J}_{23} =
+  \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & -i \\
+    0 & i & 0
+  \end{pmatrix}
+\end{equation}
+
+El operador de rotación pasiva es
+\[ 
+  \mmm{R}(\xhat{n}, \alpha)
+  = e^{\alpha (n_{12}\mmm{J}_{12} + n_{31}\mmm{J}_{31} + n_{23}\mmm{J}_{23})}
+  = \exp\{i\kern1pt\alpha\, \xhat{n} \cdot \mmm{J}\}
+\]
+
+Y el de objetos
+\[ 
+  \mmm{R}(\xhat{n}, \alpha)
+  = e^{-\alpha (n_{12}\mmm{J}_{12} + n_{31}\mmm{J}_{31} + n_{23}\mmm{J}_{23})}
+  = \exp\{-i\kern1pt\alpha\, \xhat{n} \cdot \mmm{J}\}
+\]
+
+\subsubsection{Grupos SO(4), $\cdots$, SO(N)}
+Nos preguntamos cuántos son los generadores de este grupo. Sabemos que
+forman una base para cualquier matriz antisimétrica $4\times 4$. Cualquier
+matriz antisimétrica tiene elementos diagonales nulos; además, los elementos
+no diagonales correspondientes deben ser opuestos
+\[
+  \begin{pmatrix}
+    0 & a & b & c\\
+    -a& 0 & d & e\\
+    -b& -d& 0 & f\\
+    -c& -e& -f& 0
+  \end{pmatrix}
+\]
+Como vemos, hay seis parámetros independientes para formar una matriz
+antisimétrica de esta dimensión: $a$, $b$, $c$, $d$, $e$ y $f$, lo que
+se traduce en que hay seis matrices generadoras en este grupo.
+Estas son
+\begin{align*}
+  &\mmm{G}_{12}
+  =
+  \begin{pmatrix}
+    0 & 1 & 0 & 0\\
+    -1& 0 & 0 & 0\\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{13}
+  =
+  \begin{pmatrix}
+    0 & 0 & 1 & 0\\
+    0 & 0 & 0 & 0\\
+    -1& 0 & 0 & 0\\
+    0 & 0 & 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{14}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0\\
+    -1& 0 & 0 &0
+  \end{pmatrix}\\
+  &\mmm{G}_{23}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 1 & 0\\
+    0 & -1& 0 & 0\\
+    0 & 0 & 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{24}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0\\
+    0 & -1& 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{34}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 1\\
+    0 & 0 & -1& 0
+  \end{pmatrix}
+\end{align*}
+
+y sus opuestas
+\begin{align*}
+  &\mmm{G}_{21}
+  =
+  \begin{pmatrix}
+    0 & -1& 0 & 0\\
+    1 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{31}
+  =
+  \begin{pmatrix}
+    0 & 0 & -1& 0\\
+    0 & 0 & 0 & 0\\
+    1 & 0 & 0 & 0\\
+    0 & 0 & 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{41}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & -1\\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0\\
+    1 & 0 & 0 &0
+  \end{pmatrix}\\
+  &\mmm{G}_{32}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & -1& 0\\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{42}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & -1\\
+    0 & 0 & 0 & 0\\
+    0 & 1 & 0 &0
+  \end{pmatrix}
+  \hspace{2.5em}
+  \mmm{G}_{43}
+  =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & -1\\
+    0 & 0 & 1 & 0
+  \end{pmatrix}
+\end{align*}
+
+Vamos a estudiar las relaciones de conmutación. En estos conmutadores
+aparecen cuatro índices, $\text{a}$, $\text{b}$, $\text{c}$ y $\text{d}$
+\[
+  [\mmm{G}_{ab},\mmm{G}_{cd}]
+\]
+
+Si calculáramos todos los conmutadores, nos daríamos cuenta de que cuando sólo se repite
+el primer índice de cada generador en el conmutador, el resultado es otro generador que
+no contiene el índice repetido y los demás índices están en orden inverso al que aparecen
+en el conmutador. Ejemplos
+\[
+  [\mmm{G}_{\mathbf{\textcolor{red!80!black}{1}}2},\mmm{G}_{\textcolor{red!80!black}{\mathbf{1}}3}]
+  = \mmm{G}_{32}
+  ;\hspace{0.5em}
+  [\mmm{G}_{\textcolor{red!80!black}{\mathbf{1}}2},\mmm{G}_{\textcolor{red!80!black}{\mathbf{1}}4}]
+  = \mmm{G}_{42}
+  ;\hspace{0.5em}\cdots;\hspace{.5em}
+  [\mmm{G}_{\textcolor{red!80!black}{\mathbf{3}}2},\mmm{G}_{\textcolor{red!80!black}{\mathbf{3}}4}]
+  = \mmm{G}_{42}
+  ;\hspace{0.5em}\cdots
+\]
+Por tanto, podemos crear una regla para tener en cuenta este
+comportamiento
+\[
+  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{db}\kern1pt\delta_{ac}
+\]
+
+Otro tanto ocurre cuando se repiten sólo los segundos índices
+\[
+  [\mmm{G}_{1\textcolor{red!80!black}{\mathbf{2}}},\mmm{G}_{3\textcolor{red!80!black}{\mathbf{2}}}]
+  = \mmm{G}_{31} ;\hspace{0.5em}
+  [\mmm{G}_{3\textcolor{red!80!black}{\mathbf{2}}},\mmm{G}_{1\textcolor{red!80!black}{\mathbf{2}}}]
+  = \mmm{G}_{13} ;\hspace{0.5em}
+  [\mmm{G}_{3\textcolor{red!80!black}{\mathbf{4}}},\mmm{G}_{2\textcolor{red!80!black}{\mathbf{4}}}]
+  = \mmm{G}_{23} ;\hspace{0.5em}\cdots
+\]
+
+En este caso la regla es
+\[
+  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{ca}\delta_{bd}
+\]
+
+Cuando se repiten los índices externos, el resultado contiene los
+otros dos índices en el mismo orden en el que se encuentran en el
+conmutador
+\[
+  [\mmm{G}_{\textcolor{red!80!black}{\mathbf{2}}4},\mmm{G}_{3\textcolor{red!80!black}{\mathbf{2}}}]
+  = \mmm{G}_{43} ;\hspace{0.5em}
+  [\mmm{G}_{\textcolor{red!80!black}{\mathbf{1}}2},\mmm{G}_{4\textcolor{red!80!black}{\mathbf{1}}}]
+  = \mmm{G}_{24} ;\hspace{0.5em}
+  [\mmm{G}_{\textcolor{red!80!black}{\mathbf{2}}4},\mmm{G}_{1\textcolor{red!80!black}{\mathbf{2}}}]
+  = \mmm{G}_{41} ;\hspace{0.5em}\cdots
+\]
+La regla es
+\[
+  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{bc}\delta_{ad}
+\]
+
+Cuando son los índices internos los que se repiten, de nuevo el
+resultado queda con los otros dos índices en el orden en el que
+aparecen en el conmutador
+\[
+  [\mmm{G}_{3\textcolor{red!80!black}{\mathbf{1}}},\mmm{G}_{\textcolor{red!80!black}{\mathbf{1}}2}]
+  = \mmm{G}_{32} ;\hspace{0.5em}
+  [\mmm{G}_{3\textcolor{red!80!black}{\mathbf{4}}},\mmm{G}_{\textcolor{red!80!black}{\mathbf{4}}1}]
+  = \mmm{G}_{31} ;\hspace{0.5em}
+  [\mmm{G}_{4\textcolor{red!80!black}{\mathbf{1}}},\mmm{G}_{\textcolor{red!80!black}{\mathbf{1}}2}]
+  = \mmm{G}_{42} ;\hspace{0.5em}\cdots
+\]
+Y la regla correspondiente es
+\[
+  [\mmm{G}_{ab},\mmm{G}_{cd}] = \mmm{G}_{ad}\delta_{bc}
+\]
+
+Cuando se repiten los dos índices, sin importar el orden, o cuando no
+se repite ningún índice, el conmutador es cero.
+
+Lo anterior se puede resumir en una fórmula
+\[
+  [\mmm{G}_{ab},\mmm{G}_{cd}]
+  =
+  \mmm{G}_{db}\kern1pt\delta_{ac}
+  + \mmm{G}_{\text{ca}}\kern1pt\delta_{\text{bd}}
+  + \mmm{G}_{bc}\kern1pt\delta_{ad}
+  + \mmm{G}_{ad}\kern1pt\delta_{bc}
+\]
+
+Ahora nos interesa que los subíndices en las $\mmm{G}_{ij}$
+sigan el mismo orden --por ejemplo, el orden con que aparecen en el
+conmutador $a,b,c,d$--.
+A tal fin utilizaremos la igualdad $\mmm{G}_{ij} = -\mmm{G}_{ji}$ allá
+donde interese. La delta de Kronecker no cambia de signo
+$\delta_{ij} = \delta_{ji}$
+\begin{align*}
+  [\mmm{G}_{ab},\mmm{G}_{cd}]
+  =
+  -\mmm{G}_{bd}\kern1pt\delta_{ac}
+  -\mmm{G}_{ac}\kern1pt\delta_{bd}
+  + \mmm{G}_{bc}\kern1pt\delta_{ad}
+  + \mmm{G}_{ad}\kern1pt\delta_{bc}
+\end{align*}
+
+Todas estas observaciones se pueden resumir en una expresión
+\begin{equation}
+  \label{eq:alg-reglas_conmutacion-g}
+  [\mmm{G}_{ab},\mmm{G}_{cd}]
+  =
+  \mmm{G}_{bc}\kern1pt\delta_{ad}
+  + \mmm{G}_{ad}\kern1pt\delta_{bc}
+  - \mmm{G}_{bd}\kern1pt\delta_{ac}
+  - \mmm{G}_{ac}\kern1pt\delta_{bd}
+\end{equation}
+
+Lo importante de la expresión anterior es que sirve, no sólo para
+SO(4), sino también para cualquier grupo de rotación SO(N)
+
+Si tratamos con grupos unitarios, obtenemos las $\mmm{J}$, haciendo
+$\mmm{G}_{jk} = i\kern1pt\mmm{J}_{jk}$
+\[
+  [i\mmm{J}_{ab},i\mmm{J}_{cd}]
+  =
+  i\mmm{J}_{bc}\kern1pt\delta_{ad}
+  + i\mmm{J}_{ad}\kern1pt\delta_{bc}
+  - i\mmm{J}_{bd}\kern1pt\delta_{ac}
+  - i\mmm{J}_{ac}\kern1pt\delta_{bd}\\
+\]
+\[
+  i^{2} [\mmm{J}_{ab},\mmm{J}_{cd}]
+  =
+  i\left(\mmm{J}_{bc}\kern1pt\delta_{ad}
+    + \mmm{J}_{ad}\kern1pt\delta_{bc}
+    - \mmm{J}_{bd}\kern1pt\delta_{ac}
+    - \mmm{J}_{ac}\kern1pt\delta_{bd}\right)
+\]
+\[
+  -[\mmm{J}_{ab},\mmm{J}_{cd}]
+  =
+  i\left(\mmm{J}_{bc}\kern1pt\delta_{ad}
+    + \mmm{J}_{ad}\kern1pt\delta_{bc}
+    - \mmm{J}_{bd}\kern1pt\delta_{ac}
+    - \mmm{J}_{ac}\kern1pt\delta_{bd}\right)
+\]
+
+Resultando
+\begin{equation}
+  \label{eq:ali-reglas_conmutacion-j}
+  [\mmm{J}_{ab},\kern1pt\mmm{J}_{cd}]
+  =
+  i\left(\mmm{J}_{bd}\kern1pt\delta_{ac}
+    + \kern1pt\mmm{J}_{ac}\kern1pt\delta_{bd}
+    - \kern1pt\mmm{J}_{bc}\kern1pt\delta_{ad}
+    - \kern1pt\mmm{J}_{ad}\kern1pt\delta_{bc}\right)
+\end{equation}
+Tenemos las reglas de conmutación de los generadores SO(N), lo que
+aparece entre paréntesis nos permite calcular las constantes de
+estructura, $c_{abcd}$.
+
+\subsubsection{Ejercicios en SO(4)}
+Realicemos algunos cálculos con SO(4) utilizando la fórmula anterior.
+
+\begin{itemize}
+\item Primer ejercicio
+  \begin{align*}
+    [\mmm{J}_{12},\mmm{J}_{23}]
+    &=
+      [\mmm{J}_{ab},\mmm{J}_{cd}]
+      =
+      i\kern1pt(\mmm{J}_{bd}\kern1pt\delta_{ac}
+      + \mmm{J}_{ac}\kern1pt\delta_{bd}
+      - \mmm{J}_{bc}\kern1pt\delta_{ad}
+      - \mmm{J}_{ad}\kern1pt\delta_{bc})\\
+    &= 
+      i\kern1pt(\mmm{J}_{23}\kern1pt\delta_{12}
+      + \mmm{J}_{12}\kern1pt\delta_{23}
+      - \mmm{J}_{22}\kern1pt\delta_{13}
+      - \mmm{J}_{13}\kern1pt\delta_{22})
+      = i\kern1pt(0 + 0 - 0 - \mmm{J}_{13}\cdot 1)\\
+    &= i (-1)\kern1pt\mmm{J}_{13}
+      = i c_{122313}\kern1pt\mmm{J}_{13}
+  \end{align*}
+  
+  y como el conmutador es una combinación lineal de los seis generadores de SO(4)
+  {\small
+    \[
+      [\mmm{J}_{12},\mmm{J}_{23}]
+      =
+      i(c_{122312}\kern1pt\mmm{J}_{12}
+      + c_{122313}\kern1pt\mmm{J}_{13}
+      + c_{122314}\kern1pt\mmm{J}_{14}
+      + c_{122323}\kern1pt\mmm{J}_{23}
+      + c_{122324}\kern1pt\mmm{J}_{24}
+      + c_{122334}\kern1pt\mmm{J}_{34})
+    \]
+  }
+  
+  El coeficiente de estructura $c_{122313}$ vale $-1$
+  \[
+    c_{122313} = -1
+  \]
+  y los cinco restantes, cero
+  \[
+    c_{122312} = c_{122314} = c_{122323} = c_{122324} = c_{122334} = 0
+  \]
+  
+  El resultado es
+  \[
+    [\mmm{J}_{12},\mmm{J}_{23}] = -i \mmm{J}_{13}
+  \]
+  
+\item Segundo ejercicio
+  \begin{align*}
+    [\mmm{J}_{12},\mmm{J}_{43}]
+    &=
+      [\mmm{J}_{ab},\mmm{J}_{cd}]
+      =
+      i\kern1pt(\mmm{J}_{bd}\kern1pt\delta_{ac}
+      + \mmm{J}_{ac}\kern1pt\delta_{bd}
+      - \mmm{J}_{bc}\kern1pt\delta_{ad}
+      - \mmm{J}_{ad}\kern1pt\delta_{bc})\\
+    &= 
+      i\kern1pt(\mmm{J}_{23}\kern1pt\delta_{14}
+      + \mmm{J}_{14}\kern1pt\delta_{23}
+      - \mmm{J}_{24}\kern1pt\delta_{13}
+      - \mmm{J}_{13}\kern1pt\delta_{24})\\
+    &= i\kern1pt
+      (0\kern1pt\mmm{J}_{23} + 0\kern1pt\mmm{J}_{14} - 0\kern1pt\mmm{J}_{24}
+      - 0\kern1pt\mmm{J}_{13})\\
+    &= 0
+  \end{align*}
+  
+  y como el conmutador es una combinación lineal de los seis generadores de SO(3)
+  {\small
+    \[
+      [\mmm{J}_{12},\mmm{J}_{43}]
+      =
+      i(c_{124312}\kern1pt\mmm{J}_{12}
+      + c_{124313}\kern1pt\mmm{J}_{13}
+      + c_{124314}\kern1pt\mmm{J}_{14}
+      + c_{124323}\kern1pt\mmm{J}_{23}
+      + c_{124324}\kern1pt\mmm{J}_{24}
+      + c_{124334}\kern1pt\mmm{J}_{34})
+    \]
+  }
+  resulta que los seis coeficientes de estructura relacionados con este conmutador valen cero
+  \[
+    c_{124312} = c_{124313} = c_{124314} = c_{124323} = c_{124324} = c_{124334} = 0
+  \]
+  
+\item Último ejercicio
+  \begin{align*}
+    [\mmm{J}_{12},\mmm{J}_{21}]
+    &=
+      [\mmm{J}_{ab},\mmm{J}_{cd}]
+      =
+      i\kern1pt(\mmm{J}_{bd}\kern1pt\delta_{ac}
+      + \mmm{J}_{ac}\kern1pt\delta_{bd}
+      - \mmm{J}_{bc}\kern1pt\delta_{ad}
+      - \mmm{J}_{ad}\kern1pt\delta_{bc})\\
+    &= 
+      i\kern1pt(\mmm{J}_{21}\kern1pt\delta_{12}
+      + \mmm{J}_{12}\kern1pt\delta_{21}
+      - \mmm{J}_{22}\kern1pt\delta_{11}
+      - \mmm{J}_{11}\kern1pt\delta_{22})\\
+    &= i\kern1pt
+      (\mmm{J}_{21}\cdot 0 + \mmm{J}_{12}\cdot 0 - 0 \cdot 1 - 0 \cdot 1)\\
+    = 0
+  \end{align*}
+  Los términos, $\mmm{J}_{11}$ y $\mmm{J}_{22}$ se anulan porque son los
+  elementos diagonales de una matriz antisimétrica.
+  
+  Como el conmutador es una combinación lineal de los seis generadores de SO(3)
+  {\small
+    \[
+      [\mmm{J}_{12},\mmm{J}_{21}]
+      =
+      i(c_{122112}\kern1pt\mmm{J}_{12}
+      + c_{122113}\kern1pt\mmm{J}_{13}
+      + c_{122114}\kern1pt\mmm{J}_{14}
+      + c_{122123}\kern1pt\mmm{J}_{23}
+      + c_{122124}\kern1pt\mmm{J}_{24}
+      + c_{122134}\kern1pt\mmm{J}_{34})
+    \]
+  }
+  
+  Los seis coeficientes de estructura valen cero
+  \[
+    c_{122112} = c_{122113} = c_{122114} = c_{122123} = c_{122124} = c_{122134} = 0
+  \]
+\end{itemize}
+
+\section{Dimensión del álgebra de Lie}
+
+Los generadores de SO(N) son matrices antisimétricas, por tanto sus
+elementos diagonales valen cero y los no diagonales son opuestos.
+
+El número de generadores es igual al de elementos independientes de
+una matriz antisimétrica, que son la mitad de los elementos no
+diagonales.
+
+El número total de elementos de una matriz $N\times N$ es $N^2$,
+mientras que el de elementos diagonales es $N$, de manera que el
+número de elementos no diagonales independientes es la mitad de los no
+diagonales.
+Los elementos diagonales son todos, $N^2$, menos los
+diagonales, $N$.
+\[
+  \text{Número de generadores } = \dfrac{N^2-N}{2} = \dfrac{N(N-1)}{2}
+  =
+  \begin{pmatrix}
+    N \\ 2
+  \end{pmatrix}
+\]
+
+El número de generadores es el número de combinaciones de $N$
+elementos tomados de dos en dos.  El número de generadores se conoce
+también como la \emph{dimensión del álgebra de Lie}.
+ 
 
 
 

@@ -6,10 +6,11 @@ FILES =	gruposlie.pkg.sty\
 	portada/portada.tex\
 	tablacontenidos/tablacontenidos.tex\
 	texto/grupos.tex\
-	texto/gruposlie.tex
-	#apendices/gl-momangcuantico-genfunciones.tex
-	#texto/gl-lorentz.tex\
-	#texto/gl-so3.tex\
+	texto/gruposlie.tex\
+	texto/lorentz.tex\
+	texto/so3.tex\
+	texto/algebralie.tex\
+	apendices/matrizrotaciongeneral.tex
 	#texto/gl-algebralie.tex\
 	#texto/gl-sux.tex\
 	#texto/gl-momangclasico.tex\

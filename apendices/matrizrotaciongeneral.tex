@@ -1,0 +1,134 @@
+\chapter{Matriz de rotación general del grupo SO(3)}
+\label{apend:matrizrotaciongeneral}
+
+Partimos de la expresión \eqref{eq:so3-giro3dmatricial}
+{\small
+   \[
+     \begin{pmatrix}
+       x' \\ y' \\ z'
+     \end{pmatrix}
+     =
+     \mmm{R}(\xhat{n}, \alpha)
+     \begin{pmatrix}
+       x \\ y \\ z
+     \end{pmatrix}
+     =
+     \begin{pmatrix}
+       (1-\cos\alpha)(\vvv{x}\cdot\xhat{n})\,n_x
+       + \cos\alpha \,x + \sin\alpha \,n_zy - \sin\alpha \,n_yz\\
+       (1-\cos\alpha)(\vvv{x}\cdot\xhat{n})\,n_y + \cos\alpha \,y
+       + \sin\alpha \,n_xz - \sin\alpha \,n_zx\\
+       (1-\cos\alpha)(\vvv{x}\cdot\xhat{n})\,n_z + \cos\alpha \,z +
+       \sin\alpha \,n_yx - \sin\alpha \,n_xy
+     \end{pmatrix}
+   \]
+}
+
+Desarrollamos el producto escalar $\mmm{x}\cdot\xhat{n} = n_xx+n_yy+n_zz$ y sustituimos
+en la expresión anterior
+
+{\small
+   \begin{align*}
+     \begin{pmatrix}
+       x' \\ y' \\ z'
+     \end{pmatrix}
+     &=
+     \mmm{R}(\xhat{n}, \alpha)
+     \begin{pmatrix}
+       x \\ y \\ z
+     \end{pmatrix}
+     =
+     \begin{pmatrix}
+       (1-\cos\alpha)\,(n_xx+n_yy+n_zz)\,n_x
+       + \cos\alpha \,x + \sin\alpha \,n_zy - \sin\alpha \,n_yz\\
+       (1-\cos\alpha)(n_xx+n_yy+n_zz)\,n_y + \cos\alpha \,y
+       + \sin\alpha \,n_xz - \sin\alpha \,n_zx\\
+       (1-\cos\alpha)\,(n_xx+n_yy+n_zz)\,n_z + \cos\alpha \,z +
+       \sin\alpha \,n_yx - \sin\alpha \,n_xy
+     \end{pmatrix}\\
+     &=
+     \begin{pmatrix}
+       (1-\cos\alpha)\,n_x^2\,x
+       + (1-\cos\alpha)\,n_y\,n_x\,y
+       + (1-\cos\alpha)\,n_z\,n_x\,z
+       + \cos\alpha\, x + \sin\alpha\, n_z\,y - \sin\alpha\, n_y\, z\\
+       (1-\cos\alpha)\,n_x\,n_y\,x
+       + (1-\cos\alpha)\,n_y^2\,y + (1-\cos\alpha)\,n_y\,n_z\,z
+       + \cos\alpha\, y + \sin\alpha\, n_x\,z - \sin\alpha\, n_z\,x\\
+       (1-\cos\alpha)\,n_x\,n_z\,x
+       + (1-\cos\alpha)\,n_y\,n_z\,y
+       + (1-\cos\alpha)\,n_z^2\,z
+       + \cos\alpha\, z + \sin\alpha\, n_x\,z - \sin\alpha\, n_x\,y
+     \end{pmatrix}\\
+     &=
+       \begin{pmatrix}
+         \left[(1-\cos\alpha)\,n_x^2 + \cos\alpha\right] x
+         + \left[(1-\cos\alpha)\,n_y\,n_x + \sin\alpha\, n_z\right] y
+         + \left[(1-\cos\alpha)\,n_z\,n_x - \sin\alpha\, n_y\right] z\\[3pt]
+         \left[(1-\cos\alpha)\,n_x\,n_y - \sin\alpha\,n_z\right] x
+         + \left[(1-\cos\alpha)\,n_y^2 + \cos\alpha\right] y
+         + \left[(1-\cos\alpha)\,n_z\,n_y + \sin\alpha\, n_x\right] z\\[3pt]
+         \left[(1-\cos\alpha)\,n_x\,n_z + \sin\alpha\,n_y\right] x
+         + \left[(1-\cos\alpha)\,n_y\,n_z - \sin\alpha\,n_x\right] y
+         + \left[(1-\cos\alpha)\,n_z^2 + \cos\alpha\right] z
+       \end{pmatrix}
+   \end{align*}
+ }
+
+ De donde
+ {\small
+ \[
+   \mmm{R}(\xhat{n}, \alpha)
+   \begin{pmatrix}
+     x \\ y \\ z
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+     (1-\cos\alpha)\,n_x^2 + \cos\alpha
+     & (1-\cos\alpha)\,n_y\,n_x + n_z\sin\alpha
+     & (1-\cos\alpha)\,n_z\,n_x - n_y\sin\alpha\\
+     (1-\cos\alpha)\,n_x,n_y - n_z\sin\alpha
+     & (1-\cos\alpha)\,n_y^2 + \cos\alpha
+     & (1-\cos\alpha)\,n_z\,n_y + n_x\sin\alpha\\
+     (1-\cos\alpha)\,n_x\,n_z + n_y\sin\alpha
+     & (1-\cos\alpha)\,n_y\,n_z - n_x\sin\alpha
+     & (1-\cos\alpha)\,n_z^2 + \cos\alpha\\          
+   \end{pmatrix}
+   \,
+   \begin{pmatrix}
+     x \\ y \\z
+   \end{pmatrix}
+\]
+}
+
+Comparando términos, obtenemos la expresión general de la matriz de rotación en
+el espacio euclídeo de tres dimensiones
+\[
+   \mmm{R}(\xhat{n}, \alpha)
+   =
+   \begin{pmatrix}
+     (1-\cos\alpha)\,n_x^2 + \cos\alpha
+     & (1-\cos\alpha)\,n_y\,n_x + n_z\sin\alpha
+     & (1-\cos\alpha)\,n_z\,n_x - n_y\sin\alpha\\
+     (1-\cos\alpha)\,n_x\,n_y - n_z\sin\alpha
+     & (1-\cos\alpha)\,n_y^2 + \cos\alpha
+     & (1-\cos\alpha)\,n_z\,n_y + n_x\sin\alpha\\
+     (1-\cos\alpha)\,n_x\,n_z + n_y\sin\alpha
+     & (1-\cos\alpha)\,n_y\,n_z - n_x\sin\alpha
+     & (1-\cos\alpha)\,n_z^2 + \cos\alpha\\          
+   \end{pmatrix}
+\]
+
+
+
+
+
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie.tex"
+%%% End:
+

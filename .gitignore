@@ -35,7 +35,6 @@ soft
 ./texto/*~
 ./texto/auto/*
 
-apendices
 ./apendices/*.aux
 ./apendices/*~
 ./apendices/auto/*

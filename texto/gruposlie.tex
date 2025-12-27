@@ -343,9 +343,9 @@ Vamos a obtener la adjunta (o de los cofactores) de la traspuesta, razonando ele
 por elemento --ya que no se hace muy pesado, por tener solo cuatro elementos--
 \[
   \text{adj}\left(\mmm{M^\trasp}\right)
-    = \begin{vmatrix}
+    = \begin{pmatrix}
         A_{11} & A_{12} \\ A_{21} & A_{22}
-      \end{vmatrix}
+      \end{pmatrix}
 \]
 
 El cofactor, $A_{ij}$, de cada elemento $B_{ij}$ se obtiene multiplicando $(-1)^{\,i+j}$
@@ -354,39 +354,57 @@ El menor complementario es el determinante que queda al eliminar la fila $i$ y l
 la matriz.
 
 Calculamos el cofactor de cada uno de los elementos de la matriz traspuesta. El elemento
-lo indicamos en rojo y, en este caso, el menor complementario es un determinante formado
-por un único elemento, que está en negro\footnotemark{}
-\footnotetext{Las barras verticales en estas expresiones representan determinantes,
-  no valor absoluto.}
+lo indicamos en rojo. En este caso, debido a que la matriz es $2\times 2$, el menor
+complementario es un determinante formado por un único elemento, representado en negrita
 \begin{align*}
-  A_{11} &= (-1)^{1+1}\,
-  \begin{vmatrix}
-    \textcolor{red!60}{\cos\alpha} & \textcolor{black!40}{\sin\alpha}\\
-    \textcolor{black!40}{-\sin\alpha} & \cos\alpha
-  \end{vmatrix}
-  = |\cos\alpha|
-  = \cos\alpha\\
-  A_{12} &= (-1)^{1+2}\,
-  \begin{vmatrix}
-    \textcolor{black!40}{\cos\alpha} & \textcolor{red!60}{\sin\alpha}\\
-    \textcolor{black}{-\sin\alpha} & \textcolor{black!40}{\cos\alpha}
-  \end{vmatrix}
-  = (-1)^{1+2} |-\sin\alpha|
-  = -(-\sin\alpha) = \sin\alpha\\
-  A_{21} &= (-1)^{2+1}\,
-  \begin{vmatrix}
-    \textcolor{black!40}{\cos\alpha} & \textcolor{black}{\sin\alpha}\\
-    \textcolor{red!60}{-\sin\alpha} & \textcolor{black!40}{\cos\alpha}
-  \end{vmatrix}
-  = (-1)^{2+1} |\sin\alpha|
-  = -(\sin\alpha) = -\sin\alpha\\
-  A_{22} &= (-1)^{2+2}\,
-  \begin{vmatrix}
-    \textcolor{black}{\cos\alpha} & \textcolor{black!40}{\sin\alpha}\\
-    \textcolor{black!40}{-\sin\alpha} & \textcolor{red!60}{\cos\alpha}
-  \end{vmatrix}
-  = (-1)^{2+2} |\cos\alpha|
-  = \cos\alpha
+  A_{11}
+  &= \text{cof}\,(B_{11})
+    = (-1)^{1+1}\,\text{det}
+    \begin{pNiceArray}{rr}
+      \textcolor{red!60}{\cos\alpha} & \textcolor{black!40}{\sin\alpha}\\
+      \textcolor{black!40}{-\sin\alpha} & \cos\alpha
+      \CodeAfter
+      \tikz \draw[red] (1.5-|1) -- (1.5-|last);
+      \tikz \draw[red] (1.5|-1) -- (1.5|-last);
+    \end{pNiceArray}
+    = \text{det}\,(\cos\alpha)
+    = \cos\alpha\\
+  A_{12}
+  &= \text{cof}\,(B_{12})
+    = (-1)^{1+2}\,\text{det}
+    \begin{pNiceArray}{rr}
+      \textcolor{black!40}{\cos\alpha} & \textcolor{red!60}{\sin\alpha}\\
+      \textcolor{black}{-\sin\alpha} & \textcolor{black!40}{\cos\alpha}
+      \CodeAfter
+      \tikz \draw[red] (1.5-|1) -- (1.5-|last);
+      \tikz \draw[red] (2.5|-1) -- (2.5|-last);
+    \end{pNiceArray}
+    = - \text{det}\,(-\sin\alpha)
+    = \sin\alpha\\
+  A_{21}
+  &= \text{cof}\,(B_{21})
+    = (-1)^{2+1}\,\text{det}
+    \begin{pNiceMatrix}
+      \textcolor{black!40}{\cos\alpha} & \textcolor{black}{\sin\alpha}\\
+      \textcolor{red!60}{-\sin\alpha} & \textcolor{black!40}{\cos\alpha}
+      \CodeAfter
+      \tikz \draw[red] (2.5-|1) -- (2.5-|last);
+      \tikz \draw[red] (1.5|-1) -- (1.5|-last);
+    \end{pNiceMatrix}
+    = -\text{det}\,(\sin\alpha)
+    = -\sin\alpha\\
+  A_{22}
+  &= \text{cof}\,(B_{22})
+    = (-1)^{2+2}\,\text{det}
+    \begin{pNiceMatrix}
+      \textcolor{black}{\cos\alpha} & \textcolor{black!40}{\sin\alpha}\\
+      \textcolor{black!40}{-\sin\alpha} & \textcolor{red!60}{\cos\alpha}
+      \CodeAfter
+      \tikz \draw[red] (2.5-|1) -- (2.5-|last);
+      \tikz \draw[red] (2.5|-1) -- (2.5|-last);
+    \end{pNiceMatrix}
+    = \det\,(\cos\alpha)
+    = \cos\alpha
 \end{align*}
 
 La matriz de cofactores de la traspuesta resulta
@@ -398,16 +416,11 @@ La matriz de cofactores de la traspuesta resulta
   \end{pmatrix}
   =
   \begin{pmatrix}
-    |B_{22}| & -|B_{21}|\\ -|B_{12}| & |B_{11}|
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
     \cos\alpha & \sin\alpha\\
     -\sin\alpha & \cos\alpha
   \end{pmatrix}
 \]
-
-Y teniendo en cuenta que el determinante de la matriz valía la unidad, ver
+Teniendo en cuenta que el determinante de la matriz valía la unidad, ver
 \eqref{eq:gli-determinante_M}, la matriz inversa es
 \[
   \mmm{M}^{-1}
@@ -446,8 +459,8 @@ ser la matriz de rotación pasiva $\mmm{R}$ que buscamos
   \end{pmatrix}
 \end{equation}
 
-Las nuevas coordenadas se obtienen aplicando la matriz de rotación a las del sistema sin
-girar
+Las nuevas coordenadas, $\vvv{x'}$, se obtienen aplicando la matriz de rotación a las
+del sistema sin girar, $\vvv{x}$
 \[
   \vvv{x'} = \mmm{R} \vvv{x}
 \]

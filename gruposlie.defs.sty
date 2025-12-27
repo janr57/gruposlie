@@ -52,18 +52,15 @@
     (tocancel.south west) -- (tocancel.north east); } }
 
 % ----------------------------------------------------------------------------
-
-% ----------------------------------------------------------------------------
 % MARCAS DE AGUA
 \SetWatermarkText{\textsf{BORRADOR}}
-\SetWatermarkScale{1}
+\SetWatermarkScale{0.60}
 \SetWatermarkColor{\marcaagua}
 \SetWatermarkAngle{55}
+% stamp/nostamp: activa/desactiva borrador
+\DraftwatermarkOptions{nostamp}
 
 % ----------------------------------------------------------------------------
-
-
-%% ---------------------------------------------------------------------------
 % Longitudes
 % Para desplazamiento de subíndice en elementos de matrices en relatividad
 \newcommand{\ksub}{\kern4pt}

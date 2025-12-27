@@ -361,11 +361,11 @@ complementario es un determinante formado por un único elemento, representado e
   &= \text{cof}\,(B_{11})
     = (-1)^{1+1}\,\text{det}
     \begin{pNiceArray}{rr}
-      \textcolor{red!60}{\cos\alpha} & \textcolor{black!40}{\sin\alpha}\\
-      \textcolor{black!40}{-\sin\alpha} & \cos\alpha
+      \textcolor{red!80!black}{\cos\alpha} & \textcolor{black!70}{\sin\alpha}\\
+      \textcolor{black!70}{-\sin\alpha} & \cos\alpha
       \CodeAfter
-      \tikz \draw[red] (1.5-|1) -- (1.5-|last);
-      \tikz \draw[red] (1.5|-1) -- (1.5|-last);
+      \tikz \draw[red,line width=10pt,opacity=0.15] (1.5-|1) -- (1.5-|last);
+      \tikz \draw[red,line width=30pt,opacity=0.15] (1.5|-1) -- (1.5|-last);
     \end{pNiceArray}
     = \text{det}\,(\cos\alpha)
     = \cos\alpha\\
@@ -373,11 +373,11 @@ complementario es un determinante formado por un único elemento, representado e
   &= \text{cof}\,(B_{12})
     = (-1)^{1+2}\,\text{det}
     \begin{pNiceArray}{rr}
-      \textcolor{black!40}{\cos\alpha} & \textcolor{red!60}{\sin\alpha}\\
-      \textcolor{black}{-\sin\alpha} & \textcolor{black!40}{\cos\alpha}
+      \textcolor{black!70}{\cos\alpha} & \textcolor{red!80!black}{\sin\alpha}\\
+      \textcolor{black}{-\sin\alpha} & \textcolor{black!70}{\cos\alpha}
       \CodeAfter
-      \tikz \draw[red] (1.5-|1) -- (1.5-|last);
-      \tikz \draw[red] (2.5|-1) -- (2.5|-last);
+      \tikz \draw[red,line width=10pt,opacity=0.15] (1.5-|1) -- (1.5-|last);
+      \tikz \draw[red,line width=30pt,opacity=0.15] (2.5|-1) -- (2.5|-last);
     \end{pNiceArray}
     = - \text{det}\,(-\sin\alpha)
     = \sin\alpha\\
@@ -385,11 +385,11 @@ complementario es un determinante formado por un único elemento, representado e
   &= \text{cof}\,(B_{21})
     = (-1)^{2+1}\,\text{det}
     \begin{pNiceMatrix}
-      \textcolor{black!40}{\cos\alpha} & \textcolor{black}{\sin\alpha}\\
-      \textcolor{red!60}{-\sin\alpha} & \textcolor{black!40}{\cos\alpha}
+      \textcolor{black!70}{\cos\alpha} & \textcolor{black}{\sin\alpha}\\
+      \textcolor{red!80!black}{-\sin\alpha} & \textcolor{black!70}{\cos\alpha}
       \CodeAfter
-      \tikz \draw[red] (2.5-|1) -- (2.5-|last);
-      \tikz \draw[red] (1.5|-1) -- (1.5|-last);
+      \tikz \draw[red,line width=10pt,opacity=0.15] (2.5-|1) -- (2.5-|last);
+      \tikz \draw[red,line width=30pt,opacity=0.15] (1.5|-1) -- (1.5|-last);
     \end{pNiceMatrix}
     = -\text{det}\,(\sin\alpha)
     = -\sin\alpha\\
@@ -397,11 +397,11 @@ complementario es un determinante formado por un único elemento, representado e
   &= \text{cof}\,(B_{22})
     = (-1)^{2+2}\,\text{det}
     \begin{pNiceMatrix}
-      \textcolor{black}{\cos\alpha} & \textcolor{black!40}{\sin\alpha}\\
-      \textcolor{black!40}{-\sin\alpha} & \textcolor{red!60}{\cos\alpha}
+      \textcolor{black}{\cos\alpha} & \textcolor{black!70}{\sin\alpha}\\
+      \textcolor{black!70}{-\sin\alpha} & \textcolor{red!80!black}{\cos\alpha}
       \CodeAfter
-      \tikz \draw[red] (2.5-|1) -- (2.5-|last);
-      \tikz \draw[red] (2.5|-1) -- (2.5|-last);
+      \tikz \draw[red,line width=10pt,opacity=0.15] (2.5-|1) -- (2.5-|last);
+      \tikz \draw[red,line width=30pt,opacity=0.15] (2.5|-1) -- (2.5|-last);
     \end{pNiceMatrix}
     = \det\,(\cos\alpha)
     = \cos\alpha

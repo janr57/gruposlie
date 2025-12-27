@@ -39,5 +39,5 @@ soft
 ./apendices/*~
 ./apendices/auto/*
 
-./img/*.pdf
+./img/*.svg
 

@@ -47,15 +47,15 @@ por ejemplo
 
 Está claro que el generador ya no puede ser el de una rotación. Nuestro objetivo será
 obtener la matriz de transformación en dos dimensiones de forma explícita, que por no
-ser una rotación la representaremos por $\mmmg{\Lambda} (\alpha)$
+ser una rotación la representaremos por $\mmm{\Lambda} (\alpha)$
 \begin{equation}\label{eq:lor-lambdarotexp}
-  \mmmg{\Lambda} (\alpha)
+  \mmm{\Lambda} (\alpha)
   = e^{\alpha\,{\scriptscriptstyle \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix}}}
 \end{equation}
 
 Desarrollamos la exponencial en serie de potencias
 \[
-  \mmmg{\Lambda} (\alpha)
+  \mmm{\Lambda} (\alpha)
   =
   \mmm{I} + \mmm{G}\kern1pt\alpha + \dfrac{\mmm{G}^2}{2!}\,\alpha^2
   + \dfrac{\mmm{G}^3}{3!}\,\alpha^3 + \dfrac{\mmm{G}^4}{4!}\,\alpha^4
@@ -73,7 +73,7 @@ Presentamos las potencias de la matriz generadora, sin mostrar todos los detalle
 
 Sustituimos estas potencias en el desarrollo de la matriz de transformación
 \begin{align*}
-  \mmmg{\Lambda} (\alpha)
+  \mmm{\Lambda} (\alpha)
   &=
     \mmm{I} + \mmm{G}\kern1pt\alpha + \dfrac{\mmm{I}}{2!}\,\alpha^2
     + \dfrac{\mmm{G}}{3!}\,\alpha^3 + \dfrac{\mmm{I}}{4!}\,\alpha^4
@@ -96,7 +96,7 @@ Sustituimos estas potencias en el desarrollo de la matriz de transformación
 \section{Transformación de Lorentz}
 La matriz de transformación en dos dimensiones anterior la podemos compactar
 \begin{equation}\label{eq:lor-lambdarotmatriz}
-  \mmmg{\Lambda} (\alpha)
+  \mmm{\Lambda} (\alpha)
   =
   \begin{pmatrix}
     \cosh\alpha & \sinh\alpha \\ \sinh\alpha & \cosh\alpha
@@ -108,10 +108,30 @@ relatividad.
 Para seguir la costumbre en relatividad, las componentes de los vectores de Lorentz
 las representaremos con un superíndice. Más tarde se verá el motivo.
 
+\subsection{Determinante e inversa de la transformación de Lorentz}
+Tal y como ocurría con la rotación en el espacio euclídeo, el determinante de la matriz
+de transformación de Lorentz también vale 1
+\[
+  \det(\mmm{\Lambda})
+  = \begin{vmatrix}
+    \cosh\alpha \sinh\alpha\\
+    \sinh\alpha \cosh\alpha
+  \end{vmatrix}
+  = \cosh^2\alpha - \sinh^2\alpha
+  = 1
+\]
+
+Pero, al contrario que ocurría con la rotación en el espacio euclídeo, esta matriz
+inversa no es la transpuesta de la matriz de transformación
+$\mmm{\Lambda}^{-1} \neq \mmm{\Lambda}^{\trasp}$, y por tanto ahora
+\[
+  \mmm{\Lambda}^{\trasp} \mmm{\Lambda} \neq \mmm{I}
+\]
+
 \subsection{Invariante de la transformación}
 Ahora estamos interesados en buscar si esta transformación tiene algún invariante
 \[
-  \vvv{x'} = \mmmg{\Lambda} \, \vvv{x}
+  \vvv{x'} = \mmm{\Lambda} \, \vvv{x}
 \]
 \[
   \begin{pmatrix}

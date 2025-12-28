@@ -138,7 +138,15 @@ de transformación de Lorentz también vale 1
   = 1
 \]
 
-Pero, al contrario que ocurría con la rotación en el espacio euclídeo, esta matriz
+Se puede demostrar que la matriz inversa de la transformación de Lorentz es
+\[
+  \mmm{\Lambda}^{-1}
+  = \begin{pmatrix}
+    \cosh\alpha & -\sinh\alpha\\
+    -\sinh\alpha & \cosh\alpha
+    \end{pmatrix}
+\]
+Pero, al contrario de lo que ocurría con la rotación en el espacio euclídeo, esta matriz
 inversa no es la transpuesta de la matriz de transformación
 $\mmm{\Lambda}^{-1} \neq \mmm{\Lambda}^{\trasp}$, y por tanto, la matriz de transformación
 de Lorentz no es ortogonal
@@ -159,6 +167,7 @@ Elevamos al cuadrado cada ecuación
   (x'^0)^2 &= \left(x^0 \cosh\alpha + x^1 \sinh\alpha\right)^2\\
   &= (x^0)^2\cosh^2\alpha + (x^1)^2\sinh^2\alpha + 2x^0x^1\sinh\alpha\,\cosh\alpha
 \end{align*}
+\vspace{-6ex}
 \begin{align*}
   (x'^1)^2 &= \left(x^0\sinh\alpha + x^1\cosh\alpha\right)^2\\
            &= (x^0)^2\sinh^2\alpha + (x^1)^2\cosh^2\alpha
@@ -197,24 +206,24 @@ la transformación de Lorentz
   (x^0)^2 - (x^1)^2
 \]
 
-Pero, nos interesa generalizar el concepto de producto escalar para que sirva,
+Para ello, debemos generalizar el concepto de producto escalar para que sirva,
 tanto para los vectores de rotación como para los vectores de Lorentz.
 Lo haremos añadiendo el concepto de \emph{métrica}, que nos sirve para definir cómo
 podemos medir longitudes --y en su caso, intervalos temporales-- en el espacio que
 nos interese.
 
-El producto escalar de dos vectores $x$ e $y$ en forma matricial se define como
+Definimos el producto escalar de dos vectores $x$ e $y$ en forma matricial como
 \[
-  \vvv{x}\cdot \vvv{y} = \vvv{x}^\trasp\mmmg{\eta}\kern1pt\vvv{y}
+  \vvv{x}\cdot \vvv{y} = \vvv{x}^\trasp\mmm{\eta}\kern1pt\vvv{y}
 \]
-donde $\mmmg{\eta}$ es una matriz cuadrada que denominamos \emph{métrica}.
+donde $\mmm{\eta}$ es una matriz cuadrada que denominamos \emph{métrica}.
 
 Veamos un ejemplo con vectores de rotación; en este caso la métrica es la matriz
 identidad, y por ejemplo, el cuadrado de un vector funciona como se espera
 \[
   \vvv{x}^2
   = \vvv{x}\cdot \vvv{x}
-  = \vvv{x}^\trasp \mmmg{\eta}\kern1pt\vvv{x}
+  = \vvv{x}^\trasp \mmm{\eta}\kern1pt\vvv{x}
   = \vvv{x}^\trasp \kern1pt\mmm{I}\,\vvv{x} = \vvv{x}^\trasp \vvv{x}
 \]
 \[
@@ -245,7 +254,7 @@ El cuadrado de un vector de Lorentz será, con la métrica apropiada y en dos di
 \begin{align*}
   \vvv{x}^2
   &= \vvv{x}\cdot \vvv{x}
-    = \vvv{x}^\trasp \mmmg{\eta}\,\vvv{x}
+    = \vvv{x}^\trasp \mmm{\eta}\,\vvv{x}
   =
   \begin{pmatrix}
     x^0 & x^1
@@ -284,7 +293,7 @@ como $x$, $y$ y $z$.
 La métrica en cuatro dimensiones debe cambiar el signo de las componentes espaciales y
 dejar inalterada la componente temporal
 \[
-  \mmmg{\eta}\kern1pt\vvv{x} =
+  \mmm{\eta}\kern1pt\vvv{x} =
   \begin{pmatrix}
     1 & 0 & 0 & 0\\
     0 & -1 & 0 & 0\\
@@ -318,7 +327,7 @@ Decimos que el vector dual de uno dado es el resultado de operar la métrica con
 vector. Así, para hallar el vector dual del vector de Lorentz $\vvv{x}$ en dos
 dimensiones
 \[
-  \mmmg{\eta}\kern1pt\vvv{x} =
+  \mmm{\eta}\kern1pt\vvv{x} =
   \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \,
   \begin{pmatrix}x^0 \\x^1 \end{pmatrix} =
   \begin{pmatrix}x^0 \\ -x^1 \end{pmatrix} =
@@ -330,7 +339,7 @@ molestia de cambiar el signo o valor de algunas componentes al operar la métric
 vector de Lorentz, lo que hacemos es cambiar de sitio el subíndice o superíndice de
 manera que, si está como superíndice lo convertimos en subíndice y viceversa.
 \[
-  \mmmg{\eta}
+  \mmm{\eta}
   \begin{pmatrix}
     x^0 \\ x^1
   \end{pmatrix}
@@ -347,7 +356,7 @@ caso de métrica y vectores de Lorentz
 
 El invariante de Lorentz se podrá escribir ahora como
 \begin{align*}
-  (\vvv{x'})^2 &= \vvv{x}^\trasp \mmmg{\eta}\kern1pt\vvv{x}
+  (\vvv{x'})^2 &= \vvv{x}^\trasp \mmm{\eta}\kern1pt\vvv{x}
   =
   \begin{pmatrix}
     x^0 & x^1

@@ -354,15 +354,16 @@ El menor complementario es el determinante que queda al eliminar la fila $i$ y l
 la matriz.
 
 Calculamos el cofactor de cada uno de los elementos de la matriz traspuesta. El elemento
-lo indicamos en rojo. En este caso, debido a que la matriz es $2\times 2$, el menor
-complementario es un determinante formado por un único elemento, representado en negrita
+lo indicamos con letras en rojo. En este caso, debido a que la matriz es $2\times 2$, el
+menor complementario es un determinante formado por un único elemento, que no se marca
+con fondo rojo
 \begin{align*}
   A_{11}
   &= \text{cof}\,(B_{11})
     = (-1)^{1+1}\,\text{det}
     \begin{pNiceArray}{rr}
       \textcolor{red!80!black}{\cos\alpha} & \textcolor{black!70}{\sin\alpha}\\
-      \textcolor{black!70}{-\sin\alpha} & \cos\alpha
+      \textcolor{black!70}{-\sin\alpha} & \cos\,\alpha
       \CodeAfter
       \tikz \draw[red,line width=10pt,opacity=0.15] (1.5-|1) -- (1.5-|last);
       \tikz \draw[red,line width=30pt,opacity=0.15] (1.5|-1) -- (1.5|-last);

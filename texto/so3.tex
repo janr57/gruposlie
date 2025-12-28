@@ -16,7 +16,7 @@ dos dimensiones en sentido antihorario
  \]
  siendo $\mmm{G}$ el único generador de rotación en el grupo SO(2).
  
-\subsection{Número de generadores del grupo SO(3)}\label{subsec:num_gen_so3}
+\section{Número de generadores del grupo SO(3)}\label{subsec:num_gen_so3}
 Para saber cuántos generadores encontraremos en el grupo SO(3), nos debemos fijar en la
 expresión exponencial de una rotación en el espacio tridimensional
 \[
@@ -631,7 +631,7 @@ El generador para la rotación pasiva alrededor del eje $y$ resulta
   \end{pmatrix}
 \end{equation}
 
-\subsection{Rotación genérica en tres dimensiones}
+\section{Rotación genérica alrededor de un eje en tres dimensiones}
 Hemos obtenido las tres matrices generadoras del grupo SO(3) que nos permiten obtener
 rotaciones alrededor de cada uno de los ejex $x$, $y$ y $z$.
 \begin{equation}
@@ -689,7 +689,7 @@ Así, la rotación genérica queda
   \mmm{R}_n(\alpha) = e^{\alpha\,(n_x\mmm{G}_x + n_y\mmm{G}_y + n_z\mmm{G}_z)}
 \end{equation}
 
-\subsubsection{Rotación infinitesimal}
+\subsection{Rotación infinitesimal}
 Una de las ventajas de los grupos de Lie se basa en que como son continuos, podemos
 analizar su comportamiento utilizando cualquier rotación y la más sencilla es la
 infinitesimal, representada por el ángulo $\varepsilon$
@@ -868,8 +868,7 @@ la matriz de rotación sería la inversa
   = \exp(-\alpha\, \xhat{n} \cdot \mmm{G})
 \end{equation}
 
-\subsubsection{Rotación general de un ángulo finito por medios
-  geométricos}
+\subsection{Rotación general de un ángulo finito por medios geométricos}
 En (\ref{eq:so3-giro_infinitesimal_x}) obtuvimos las nuevas coordenadas de un vector
 $\vvv{x}$, después de una rotación pasiva infinitesimal.
 Ahora estamos interesados en obtener una expresión para una rotación pasiva de un ángulo
@@ -877,6 +876,7 @@ discreto $\alpha$ cualquiera, $0 \leq \alpha < 2\pi$.
 Se podría conseguir desarrollando la exponencial~(\ref{eq:so3-rotacion_general_3d}),
 pero sería muy laborioso; en su lugar seguiremos un razonaminento geométrico más breve.
 
+\subsubsection{Expresión analítica}
 En la figura \ref{fig:so3-giro_pasivo} se representa un giro finito positivo (en sentido
 antihorario) alrededor de un eje de giro genérico.
 En ella se observa un cambio aparente en las coordenadas $\vvv{x}$ de un punto a otras
@@ -891,7 +891,7 @@ radio $R$.
 Obsérvese que el eje de giro definido por el vector unitario $\xhat{n}$, pasa por el
 centro de la circunferencia.
 
-\pagebreak
+%\pagebreak
 Con ayuda de la figura \ref{fig:so3-giro_pasivo_vectores_referencia} obtendremos unas
 igualdades que se necesitarán posteriormente:
 \begin{itemize}
@@ -1720,7 +1720,7 @@ rectangulares serían
   n_z &= \cos\theta
 \end{align*}
 
-\subsubsection{¿Qué es el grupo SO(3)?}
+\section{¿Qué es el grupo SO(3)?}
 Es el conjunto de matrices $3\times 3$, ortogonales y singulares
 \[
   SO(3) = \left\{\mmm{R}_{3\times 3} \,/\, \mmm{R}^\trasp \mmm{R} =

@@ -72,13 +72,13 @@ Rotamos mediante la segunda y después con respecto a la primera
 \[
   \mmm{R}_1 \mmm{R}_2
   \approx (\mmm{I} + \mmm{A})\, (\mmm{I} + \mmm{B})
-  \approx \mmm{I} + \mmm{A} + \mmm{B} + \mmm{A}\mmm{B}
+  = \mmm{I} + \mmm{A} + \mmm{B} + \mmm{A}\mmm{B}
 \]
 
 Invertimos el orden de las rotaciones
 \[
   \mmm{R}_2 \mmm{R}_1
-  = (\mmm{I} + \mmm{B})\, (\mmm{I} + \mmm{A})
+  \approx (\mmm{I} + \mmm{B})\, (\mmm{I} + \mmm{A})
   = \mmm{I} + \mmm{B} + \mmm{A} + \mmm{B}\mmm{A}
 \]
 
@@ -87,7 +87,7 @@ operaciones
 \begin{equation}\label{eq:alg-conmutador_matrices_infinitesimales}
   [\mmm{R}_1, \mmm{R}_2]
   = \mmm{R}_1 \mmm{R}_2 - \mmm{R}_2 \mmm{R}_1
-  = \cancelout{\mmm{I}} + \cancelout{\mmm{A}} + \cancelout{\mmm{B}}
+  \approx \cancelout{\mmm{I}} + \cancelout{\mmm{A}} + \cancelout{\mmm{B}}
   + \mmm{A}\mmm{B} - \cancelout{\mmm{I}} - \cancelout{\mmm{B}}
   - \cancelout{\mmm{A}} - \mmm{BA}
   = \mmm{A}\mmm{B} - \mmm{B}\mmm{A}
@@ -143,6 +143,12 @@ Lo importante de esta expresión es que cada sumando contiene el factor
 $[\mmm{A},\mmm{B}]$ de las matrices infinitesimales o su opuesto, de manera que si estas
 matrices conmutan, todos los sumandos valdrán cero y los dos operadores también
 conmutarán.
+
+Así
+\begin{equation}
+  [\mmm{R}_1,\mmm{R}_2] = [\mmm{A},\mmm{B}]
+\end{equation}
+
 
 \section{Conmutador de matrices antisimétricas}
 En esta sección veremos una forma de expresar el conmutador de dos matrices

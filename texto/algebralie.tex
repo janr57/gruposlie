@@ -28,6 +28,8 @@ Supongamos dos rotaciones, $\mmm{R}_1$ y $\mmm{R}_2$, con respecto a dos ejes di
   \mmm{R}_1 &= e^{\mmm{A}}\\
   \mmm{R}_2 &= e^{\mmm{B}}
 \end{align*}
+donde $\mmm{A}$ y $\mmm{B}$ son matrices de rotación alrededor de un eje y ángulo
+arbitrarios.
 
 En general no dará lo mismo si rotamos en distinto orden
 \[
@@ -49,7 +51,18 @@ El conocimiento del valor del conmutador es lo que nos va a conducir al
 Como ya hicimos anteriormente, la forma más sencilla de estudiar estas operaciones es
 utilizando rotaciones infinitesimales porque la expresión matricial es más simple y aun
 así no perdemos generalidad; las conclusiones generales seguirían siendo válidas para
-rotaciones finitas
+rotaciones finitas. Así, ahora consideraremos que $\mmm{A}$ y $\mmm{B}$ son matrices
+de rotación infinitesimales. Por tanto
+\begin{align*}
+  \mmm{R}_1 &= \mmm{I} + \mmm{A}
+              + \mathcal{O}\left(\mmm{A}^2\right)
+              + \mathcal{O}\left(\mmm{A}^3\right) + \cdots\\
+  \mmm{R}_2 &= \mmm{I} + \mmm{B}
+              + \mathcal{O}\left(\mmm{B}^2\right)
+              + \mathcal{O}\left(\mmm{B}^3\right) + \cdots\\
+\end{align*}
+Como los giros los consideramos infinitesimales, despreciamos los términos de orden
+superior
 \begin{align*}
   \mmm{R}_1 &\approx \mmm{I} + \mmm{A}\\
   \mmm{R}_2 &\approx \mmm{I} + \mmm{B}
@@ -58,14 +71,14 @@ rotaciones finitas
 Rotamos mediante la segunda y después con respecto a la primera
 \[
   \mmm{R}_1 \mmm{R}_2
-  = (\mmm{I} + \mmm{A}) (\mmm{I} + \mmm{B})
-  = \mmm{I} + \mmm{A} + \mmm{B} + \mmm{A}\mmm{B}
+  \approx (\mmm{I} + \mmm{A})\, (\mmm{I} + \mmm{B})
+  \approx \mmm{I} + \mmm{A} + \mmm{B} + \mmm{A}\mmm{B}
 \]
 
 Invertimos el orden de las rotaciones
 \[
   \mmm{R}_2 \mmm{R}_1
-  = (\mmm{I} + \mmm{B}) (\mmm{I} + \mmm{A})
+  = (\mmm{I} + \mmm{B})\, (\mmm{I} + \mmm{A})
   = \mmm{I} + \mmm{B} + \mmm{A} + \mmm{B}\mmm{A}
 \]
 
@@ -127,8 +140,9 @@ valor de un conmutador como suma infinita de términos
 \]
 
 Lo importante de esta expresión es que cada sumando contiene el factor
-$[\mmm{A},\mmm{B}]$ o su opuesto, de manera que si estas matrices conmutan, todos los
-sumandos valdrán cero y los dos operadores también conmutarán.
+$[\mmm{A},\mmm{B}]$ de las matrices infinitesimales o su opuesto, de manera que si estas
+matrices conmutan, todos los sumandos valdrán cero y los dos operadores también
+conmutarán.
 
 \section{Conmutador de matrices antisimétricas}
 En esta sección veremos una forma de expresar el conmutador de dos matrices
@@ -527,7 +541,7 @@ sean unitarias. En mecánica clásica no serían necesarias las $\mmm{J}$.
 Ahora completaremos alguna información sobre los grupos, SO(2) y SO(3).
 Después trataremos con SO(4) y por último intentaremos generalizar a SO(N).
 
-\subsubsection{Grupo SO(2)}
+\subsection{Grupo SO(2)}
 Recordemos en que en el espacio euclídeo de dos dimensiones sólo había un posible giro
 pasivo antihorario. Así, este grupo contiene un único generador, que llamábamos
 $\mmm{G}$, ecuación~(\ref{eq:alg-g-so2})
@@ -540,10 +554,15 @@ $\mmm{G}$, ecuación~(\ref{eq:alg-g-so2})
   \end{pmatrix}
 \end{equation}
 
+Pero ese giro no era alrededor de ningún eje ---el eje perpendicular a $x$ e $y$ no
+existe en dos dimensiones--. El único sentido que le podemos dar a este giro es el
+de giro en el plano xy.
+
+
 Recordemos también que cuando se generalizaba a tres dimensiones, al considerar que el
 plano era el $xy$ o $12$, llamábamos $z$ a ese eje de giro o poníamos el subíndice $3$.
 
-Pero el tercer eje no existe en dos dimensiones; es más sensato etiquetar a este
+Así, como el tercer eje no existe en dos dimensiones, es más sensato etiquetar a este
 generador como el del único giro independiente en el plano $xy$, o bien el formado por
 los ejes $12$. Para ello, vamos a fijarnos dónde está el elemento $1$ en la matriz del
 generador: se encuentra en la primera fila, segunda columna. De manera que etiquetamos
@@ -586,17 +605,18 @@ hermítica generadora del grupo SU(2) sería
 Obsérvese que para etiquetar la matriz $\mmm{J}$, hay que fijarse en la fila y columna
 del elemento $-i$.
 
-El operador unitario de una rotación pasiva es
+El operador unitario de una rotación pasiva del grupo $SU(2)$ sería
 \[
   \mmm{R}(\theta) = \exp\left\{i\theta\/\mmm{J}\right\}
 \]
 
-\subsubsection{Grupo SO(3)}
+\subsection{Grupo SO(3)}
 El espacio euclídeo es de tres dimensiones y está formado por tres generadores
 independientes, $\mmm{G}_1$, $\mmm{G}_2$ y $\mmm{G}_3$.
-Al coincidir el número de generadores y el de dimensiones se tiende a asignar un eje a
+Al coincidir el número de generadores y el de dimensiones, se tiende a asignar un eje a
 cada generador, $\mmm{G}_x$, $\mmm{G}_y$ y $\mmm{G}_z$, entendiéndose por ejemplo, que el
-generador $\mmm{G}_3 = \mmm{G}_z$ es el que genera una rotación alrdedor del eje $3$ o $z$
+generador $\mmm{G}_3 = \mmm{G}_z$ es el que genera una rotación alrdedor del eje $3$ o $z$. Pero esta coincidencia no se va a dar en ningún grupo de rotaciones de más ejes
+$SO(4), \cdots, SO(N)$
 \[
   \mmm{G}_1 = \mmm{G}_x = 
     \begin{pmatrix} 0 & 0 & 0
@@ -630,7 +650,7 @@ El de rotación de objetos
   = \exp\{-\alpha\/\xhat{n} \cdot \mmm{G}\}
 \]
 
-Cuando cambiemos a otras dimensiones no existirá esa relación entre ejesy generadores.
+Cuando cambiemos a otras dimensiones no existirá esa relación entre ejes y generadores.
 En esas situaciones debemos cambiar la nomenclatura, pasando a describir, no los ejes de
 giro, sino los planos que giran.
 En SO(3), el generador $\mmm{G}_x$ tiene el elemento $1$ en la segunda fila y tercera
@@ -709,7 +729,7 @@ Y el de objetos
   = \exp\{-i\kern1pt\alpha\, \xhat{n} \cdot \mmm{J}\}
 \]
 
-\subsubsection{Generalización a grupos SO(4), $\cdots$, SO(N)}
+\subsection{Generalización a grupos SO(4), $\cdots$, SO(N)}
 Nos preguntamos cuántos y cuales serán los generadores de este grupo. Sabemos que forman
 una base para cualquier matriz antisimétrica $4\times 4$. Cualquier matriz antisimétrica
 tiene elementos diagonales nulos; además, los elementos no diagonales correspondientes
@@ -834,6 +854,10 @@ y sus opuestas
     0 & 0 & 1 & 0
   \end{pmatrix}
 \end{align*}
+
+Obsérvese que, al contrario de lo que ocurría en SO(3), ahora el número de generadores
+6, no coincide con el de ejes 4. Por esta razón, ya no podemos aplicar la "expresión"
+$\xhat{n}\cdot G = n_xG_x+n_yG_y+n_zG_z$, tal y como hacíamos en SO(3).
 
 Vamos a estudiar las relaciones de conmutación. En estos conmutadores aparecen cuatro
 índices, $\text{a}$, $\text{b}$, $\text{c}$ y $\text{d}$

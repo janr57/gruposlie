@@ -4,20 +4,18 @@
 %
 
 \chapter{Los grupos SU(2) y SU(3)}
-Estos grupos tienen mucha importancia en mecánica cuántica. SU(2) es
-relevante en el estudio del \emph{spin} y SU(3) lo es para explicar la
-propiedad llamada \emph{color} en cromodinámica cuántica.
-Pero antes estudiaremos unos conceptos básicos.
+Estos grupos tienen mucha importancia en mecánica cuántica. SU(2) es relevante en el
+estudio del \emph{spin} y SU(3) lo es para explicar la propiedad llamada \emph{color} en
+cromodinámica cuántica. Pero antes estudiaremos unos conceptos básicos.
 
 \section{Introducción}
-Explicaremos cómo se define el producto escalar en un espacio vectorial
-complejo $\symbb{C}^N$ y, por otro lado, analizaremos qué son las matrices
-unitarias, su función en mecánica cuántica y qué propiedades tienen.
+Explicaremos cómo se define el producto escalar en un espacio vectorial complejo
+$\symbb{C}^N$ y, por otro lado, analizaremos qué son las matrices unitarias, su función
+en mecánica cuántica y qué propiedades tienen.
 
 \subsection{Producto escalar en \mathinhead{\symbb{C}^N}{cc}}
-El espacio vectorial $\Set{\symbb{C}^N, +}$ sobre el cuerpo de los
-números complejos es una estructura algebraica formada por
-los vectores
+El espacio vectorial $\Set{\symbb{C}^N, +}$ sobre el cuerpo de los números complejos es
+una estructura algebraica formada por los vectores
 \[
   \symbb{C}^N
   =
@@ -26,29 +24,28 @@ los vectores
     \,\big/\, z_1, z_2, \cdots, z_N \in \symbb{C}
   \right\}
 \]
-entre los que se define la operación interna \emph{suma de vectores}, $+$,
-y el cuerpo $\symbb{C}$ de los números complejos como escalares donde
-se define el producto de un complejo por un vector.
+entre los que se define la operación interna \emph{suma de vectores}, $+$, y el cuerpo
+$\symbb{C}$ de los números complejos como escalares donde se define el producto de un
+complejo por un vector.
 
-En este espacio vectorial se define el producto escalar de elementos
-$\vvv{x}$ e $\vvv{y}$ como
+En este espacio vectorial se define el producto escalar de elementos $\vvv{x}$ e
+$\vvv{y}$ como
 \[
   \vvv{x}\cdot\vvv{y} = \vvv{x}^\dagger\vvv{y}
   ,\hspace{1em}
   \forall \vvv{x},\vvv{y}\in\symbb{C}^N
 \]
-donde \emph{equis daga}, $\vvv{x}^{\dagger}$, es el traspuesto complejo conjugado
-de $\vvv{x}$
+donde \emph{equis daga}, $\vvv{x}^{\dagger}$, es el traspuesto complejo conjugado de
+$\vvv{x}$
 \[
   \vvv{x}^\dagger
   =
   \left(\vvv{x}^\trasp\right)^*
 \]
 
-Con esta definición nos aseguramos de que el cuadrado de un vector
-en $\symbb{C}^N$ es un número real no negativo ---para que tenga sentido
-el módulo o longitud de un vector en ese espacio---; por ejemplo en
-$\symbb{C}^2$, siendo $z_1$ y $z_{2}$ dos complejos
+Con esta definición nos aseguramos de que el cuadrado de un vector en $\symbb{C}^N$ es un
+número real no negativo ---para que tenga sentido el módulo o longitud de un vector en
+ese espacio---; por ejemplo en $\symbb{C}^2$, siendo $z_1$ y $z_{2}$ dos complejos
 \[
   |\vvv{z}|^2
   =
@@ -79,19 +76,18 @@ $\symbb{C}^2$, siendo $z_1$ y $z_{2}$ dos complejos
 \]
 que demuestra que $|\vvv{z}|^2\in\symbb{R}$ y $|\vvv{z}|^2\ge 0$ .
 
-Este espacio vectorial complejo, junto con el producto escalar permite
-la medida de longitudes y distancias y constituye un \emph{espacio de Hilbert}.
+Este espacio vectorial complejo, junto con el producto escalar permite la medida de
+longitudes y distancias y constituye un \emph{espacio de Hilbert}.
 
 \subsection{Matrices unitarias}
 \subsubsection{Concepto}
-Una matriz unitaria $\mmm{U}$ es aquella matriz cuadrada que deja invariante
-el módulo del vector sobre el que actúa
+Una matriz unitaria $\mmm{U}$ es aquella matriz cuadrada que deja invariante el módulo
+del vector sobre el que actúa
 \[
   |\mmm{U}\vvv{z}| = |\vvv{z}|
 \]
-Por tanto al aplicarla sobre un vector $\vvv{z}\in\symbb{C}^N$ y
-multiplicarlo escalarmente por sí mismo deberá lo mismo que al aplicar
-$\vvv{z}$ sobre sí mismo
+Por tanto al aplicarla sobre un vector $\vvv{z}\in\symbb{C}^N$ y multiplicarlo
+escalarmente por sí mismo deberá lo mismo que al aplicar $\vvv{z}$ sobre sí mismo
 \begin{equation}\label{eq:sux-unitariedad-1}
   \left|\mmm{U}\vvv{z}\right|^2
   = (\mmm{U}\vvv{z})^2
@@ -102,26 +98,24 @@ $\vvv{z}$ sobre sí mismo
 \end{equation}
 
 \subsubsection{Interés de las matrices unitarias}
-¿Por qué nos interesa esta propiedad? Bueno estamos entrando en el
-terreno de lo abstracto, pero se parece bastante a la condición de la
-invariancia de la longitud de un vector en las rotaciones, estudiada en la
-sección~\ref{subsec:invariante_distancias}, sólo que ahora no se trata
-de rotaciones ni de distancias en el espacio euclídeo.
+¿Por qué nos interesa esta propiedad? Bueno estamos entrando en el terreno de lo
+abstracto, pero se parece bastante a la condición de la invariancia de la longitud de un
+vector en las rotaciones, sólo que ahora no se trata de rotaciones ni de distancias en el
+espacio euclídeo
 
-Aunque es una propiedad abstracta, se puede dar un explicación en el marco de
-la mecánica cuántica:
+Aunque es una propiedad abstracta, se puede dar un explicación en el marco de la mecánica
+cuántica:
 \begin{quote}
-``Si $\vvv{z}$ representa el estado cuántico de un
-sistema y se transforma en otro, $\mmm{U}\vvv{z}$, por medio del operador
-unitario $\mmm{U}$, el \emph{cuadrado} del vector de estado debe
-ser el mismo que el original; esto debe cumplirse para que se conserve la
-probabilidad en mecánica cuántica.''
+  ``Si $\vvv{z}$ representa el estado cuántico de un sistema y se transforma en otro,
+  $\mmm{U}\vvv{z}$, por medio del operador unitario $\mmm{U}$, el \emph{cuadrado} del
+  vector de estado debe ser el mismo que el original; esto debe cumplirse para que se
+  conserve la probabilidad en mecánica cuántica.''
 \end{quote}
 
 \subsubsection{Inversa de una matriz unitaria}
 ¿Qué propiedad debe tener una matriz cuadrada $\mmm{U}$ para que se cumpla la
-ecuación~(\ref{eq:sux-unitariedad-1})?  Calcularemos el cuadrado de
-$\mmm{U}\vvv{z}$ y obligaremos a que el resultado sea el cuadrado de $\vvv{z}$
+ecuación~(\ref{eq:sux-unitariedad-1})?  Calcularemos el cuadrado de $\mmm{U}\vvv{z}$ y
+obligaremos a que el resultado sea el cuadrado de $\vvv{z}$
 \begin{align*}
   \mmm{U}\vvv{z}\cdot \mmm{U}\vvv{z}
   &=
@@ -137,16 +131,15 @@ Por tanto, la matriz $\mmm{U}$ debe ser unitaria
   \mmm{U}^\dagger \mmm{U} = \mmm{I}
 \end{equation}
 
-De esto se deduce que la inversa de una matriz unitaria es su traspuesta
-compleja conjugada o adjunta
+De esto se deduce que la inversa de una matriz unitaria es su traspuesta compleja
+conjugada o adjunta
 \[
   \mmm{U}^{-1} = \left(\mmm{U}^\trasp\right)^* = \mmm{U}^\dagger
 \]
 
 \subsubsection{Matriz generadora}
-Supongamos que la matriz depende de un parámetro real $\theta$,
-que podemos interpretarlo como un ángulo, aunque no se trate de una rotación
-en el espacio euclídeo
+Supongamos que la matriz depende de un parámetro real $\theta$, que podemos interpretarlo
+como un ángulo, aunque no se trate de una rotación en el espacio euclídeo
 \[
   \mmm{U}(\theta) = e^{\theta\mmm{A}}
 \]
@@ -184,29 +177,26 @@ Entonces la matriz generadora de la transformación unitaria debe cumplir
   \mmm{A}^\dagger = -\mmm{A}
 \end{equation}
 
-Pero en mecánica cuántica las matrices generadoras deben corresponder a un
-observable y por tanto tienen que ser hermíticas o autoadjuntas, es decir,
-se debe cumplir
+Pero en mecánica cuántica las matrices generadoras deben corresponder a un observable y
+por tanto tienen que ser hermíticas o autoadjuntas, es decir, se debe cumplir
 \[
   \mmm{M}^\dagger = \mmm{M}
 \]
 
-Esto se debe a un teorema que afirma que si una matriz es hermítica,
-entonces es diagonalizable y sus valores propios son reales,
-$\lambda_1, \lambda_2, \cdots \in \symbb{R}$, y además la base de
-vectores propios es ortogonal, esto es el producto escalar de dos de ellos
-vale cero. El hecho de que sus valores propios sean reales asegura que la
-medida de los observables físicos produzca un valor real.
+Esto se debe a un teorema que afirma que si una matriz es hermítica, entonces es
+diagonalizable y sus valores propios son reales, $\lambda_1, \lambda_2, \cdots \in
+\symbb{R}$, y además la base de vectores propios es ortogonal, esto es el producto
+escalar de dos de ellos vale cero. El hecho de que sus valores propios sean reales
+asegura que la medida de los observables físicos produzca un valor real.
 
-La matriz $\mmm{A}$ no es hermítica, aunque se puede descomponer en el
-producto de una constante $a$ por otra matriz $\mmm{B}$ que sí lo es
+La matriz $\mmm{A}$ no es hermítica, aunque se puede descomponer en el producto de una
+constante $a$ por otra matriz $\mmm{B}$ que sí lo es
 \[
   \mmm{A} = a\mmm{B}
 \]
 
 Teniendo en cuenta la propiedad que debe cumplir $\mmm{A}$,
-ecuación~(\ref{eq:sux-propiedad-matriz-A}), averiguamos cómo debe ser
-la constante
+ecuación~(\ref{eq:sux-propiedad-matriz-A}), averiguamos cómo debe ser la constante
 \[
   (a\mmm{B})^\dagger = -a\mmm{B}
 \]
@@ -221,16 +211,16 @@ Ahora imponemos que $\mmm{B}$ sea hermítica, $\mmm{B}^\dagger = \mmm{B}$
 \[
   a^* = -a
 \]
-Se deduce que $a$ puede ser cualquier número imaginario; el más
-sencillo es la unidad imaginaria $a=i=\sqrt{-1}$. Por tanto, hacemos
+Se deduce que $a$ puede ser cualquier número imaginario; el más sencillo es la unidad
+imaginaria $a=i=\sqrt{-1}$. Por tanto, hacemos
 \[
   \mmm{A} = i\mmm{B}
 \]
 y con este cambio nos aseguramos de que $\mmm{A}$ es hermítica.
 
 \subsubsection{Forma exponencial}
-La matriz unitaria infinitesimal, en función de la matriz hermítica $\mmm{B}$,
-se escribe como
+La matriz unitaria infinitesimal, en función de la matriz hermítica $\mmm{B}$, se escribe
+como
 \begin{equation}\label{eq:sux-U-infinitesimal}
   \mmm{U}(\varepsilon)
   = e^{i\varepsilon\/\mmm{B}}
@@ -238,13 +228,12 @@ se escribe como
 \end{equation}
 
 Si el ángulo es finito, teniendo en cuenta las conclusiones de la
-sección~\ref{sec:matriz_rotacion_general}, estamos seguros de que la
-matriz tiene la forma
+sección~\ref{sec:matriz_rotacion_general}, estamos seguros de que la matriz tiene la forma
 \begin{equation}\label{eq:sux-U-general}
   \mmm{U}(\theta) = e^{i\theta\mmm{B}}
 \end{equation}
-y es unitaria, extremo que se puede comprobar fácilmente, pues se debe
-cumplir la condición~(\ref{eq:sux-condicion-matriz-unitaria})
+y es unitaria, extremo que se puede comprobar fácilmente, pues se debe cumplir la
+condición~(\ref{eq:sux-condicion-matriz-unitaria})
 \[
   \mmm{U}^\dagger(\theta)\,\mmm{U}(\theta)
   =
@@ -258,8 +247,8 @@ cumplir la condición~(\ref{eq:sux-condicion-matriz-unitaria})
   = \mmm{I}\,\mmm{I}
   = \mmm{I}
 \]
-Para el cálculo del producto de las matrices unitarias en forma exponencial
-hemos utilizado su definición
+Para el cálculo del producto de las matrices unitarias en forma exponencial hemos
+utilizado su definición
 \[
   e^{\mmm{F}}\,e^{\mmm{G}}
   =
@@ -269,8 +258,8 @@ hemos utilizado su definición
   =
   e^{\mmm{F}\kern1pt + \mmm{G}}
 \]
-donde $[\mmm{F},\mmm{G}]=0$, ya que en nuestro caso $\mmm{F}=-i\theta\mmm{B}$
-y $\mmm{G}=i\theta\mmm{B}$ son matrices que conmutan
+donde $[\mmm{F},\mmm{G}]=0$, ya que en nuestro caso $\mmm{F}=-i\theta\mmm{B}$ y
+$\mmm{G}=i\theta\mmm{B}$ son matrices que conmutan
 \[
   [\mmm{F},\mmm{G}]
   = [-i\theta\mmm{B}, i\theta\mmm{B}]
@@ -281,10 +270,9 @@ si no conmutaran no se cumpliría la propiedad.
 
 
 \section{El grupo SU(2)}
-El grupo unitario especial de grado dos, SU(2), es el grupo de matrices
-unitarias $2\times 2$ con determinante igual a 1. Los elementos de estas
-matrices son números complejos. La operación del grupo es la multiplicación
-de matrices.
+El grupo unitario especial de grado dos, SU(2), es el grupo de matrices unitarias
+$2\times 2$ con determinante igual a 1. Los elementos de estas matrices son números
+complejos. La operación del grupo es la multiplicación de matrices.
 
 Estas matrices se aplican sobre los vectores del espacio vectorial complejo
 $\symbb{C}^2$
@@ -296,14 +284,14 @@ $\symbb{C}^2$
     \,/\, z_1, z_2 \in \symbb{C}
   \right\}
 \]
-y tienen la forma dada por~\eqref{eq:sux-U-general}, donde el generador
-$\mmm{B}$ es una matriz hermítica
+y tienen la forma dada por~\eqref{eq:sux-U-general}, donde el generador $\mmm{B}$ es una
+matriz hermítica
 \[
   \mmm{U}(\theta) = e^{i\theta\mmm{B}}
 \]
 
-Hay un teorema que asegura que toda matriz hermítica es diagonalizable y
-tiene valores propios reales
+Hay un teorema que asegura que toda matriz hermítica es diagonalizable y tiene valores
+propios reales
 \[
   \{\lambda_1, \lambda_2\}
   \hspace{1em}
@@ -341,9 +329,9 @@ Cuando se expresa $\mmm{U}(\theta)$ en función de la base propia de $\mmm{B}$
     0 & e^{i\theta\lambda_{2}}
   \end{pmatrix}
 \]
-donde se ha utilizado la propiedad de que la exponencial de una matriz
-diagonal es igual a la matriz diagonal en la que los nuevos elementos
-diagonales son la exponencial de los elementos de la matriz
+donde se ha utilizado la propiedad de que la exponencial de una matriz diagonal es igual
+a la matriz diagonal en la que los nuevos elementos diagonales son la exponencial de los
+elementos de la matriz
 \[
   e^{\begin{pmatrix}\scriptstyle a & \scriptstyle 0\\ \scriptstyle 0 & \scriptstyle b\end{pmatrix}}
   =
@@ -352,8 +340,8 @@ diagonales son la exponencial de los elementos de la matriz
   \end{pmatrix}
 \]
 
-Para demostrar esta propiedad, desarrollamos en serie de potencias la
-exponencial de la matriz
+Para demostrar esta propiedad, desarrollamos en serie de potencias la exponencial de la
+matriz
 \begin{align*}
   e^{\begin{pmatrix}\scriptstyle a & \scriptstyle 0\\ \scriptstyle 0 & \scriptstyle b\end{pmatrix}}
   &=
@@ -397,12 +385,11 @@ El determinante de $\mmm{U}(\theta)$ es
   e^{i\theta\kern1pt Tr\kern1pt\mmm{B}}
 \]
 
-Aunque la última expresión la hemos obtenido escribiendo
-$\mmm{U}(\theta)$ en la base de vectores propios de $\mmm{B}$, se
-puede demostrar que la traza de una matriz es invariante respecto a
-cambios de base, por lo que es un resultado general. Además, la traza
-es un número real, porque es la suma de los valores propios, que son reales
-por ser $\mmm{B}$ una matriz hermítica
+Aunque la última expresión la hemos obtenido escribiendo $\mmm{U}(\theta)$ en la base de
+vectores propios de $\mmm{B}$, se puede demostrar que la traza de una matriz es
+invariante respecto a cambios de base, por lo que es un resultado general. Además, la
+traza es un número real, porque es la suma de los valores propios, que son reales por ser
+$\mmm{B}$ una matriz hermítica
 \begin{equation}
   \det(\mmm{U}(\theta))
   =
@@ -428,11 +415,10 @@ Recordemos que el módulo de un complejo es, $|z| = \sqrt{z^*z}$
   = 1
 \]
 
-Estamos interesados en aquellas matrices unitarias cuyo determinante
-valga $+1$, por lo que la traza de $\mmm{B}$ debe valer $0$.
+Estamos interesados en aquellas matrices unitarias cuyo determinante valga $+1$, por lo
+que la traza de $\mmm{B}$ debe valer $0$.
 
-De acuerdo con estas conclusiones podemos definir el grupo SU(N)
-como
+De acuerdo con estas conclusiones podemos definir el grupo SU(N) como
 \[
   SU(N)
   = \left\{\mmm{U} \,/\, \mmm{U}^\dagger \mmm{U}
@@ -549,8 +535,8 @@ Las matrices anteriores se denominan \emph{matrices de Pauli}
   \end{pmatrix}
 \]
 
-Cualquier generador de SU(2) se puede expresar como combinación lineal de
-las matrices de Pauli
+Cualquier generador de SU(2) se puede expresar como combinación lineal de las matrices de
+Pauli
 \[
   \mmm{B}_{2\times 2}
   = a_1\mmmg{\sigma_x} + a_2\mmmg{\sigma_y} + a_3\mmmg{\sigma_z}
@@ -585,8 +571,8 @@ Por tanto
     n_1\mmmg{\sigma_x} + n_2\mmmg{\sigma_y} + n_3\mmmg{\sigma_z}
   \right)
 \]
-con $n_1^2+n_{2}^2+n_{3}^2 = 1$, por lo que se puede considerar
-que las $n_{i}$ son las componentes de un vector unitario $\xhat{n}$
+con $n_1^2+n_{2}^2+n_{3}^2 = 1$, por lo que se puede considerar que las $n_{i}$ son las
+componentes de un vector unitario $\xhat{n}$
 \[
   \mmm{B}_{2\times 2}
   =
@@ -617,16 +603,16 @@ El grupo SU(2) es
   SU(2) = \left\{\mmm{U}(\theta) = e^{i\theta\,\xhat{n}\cdot \mmmg{\sigma}}\right\}
 \]
 
-Para terminar vamos a analizar una propiedad importante de las
-matrices de Pauli que no demostraremos y se deja como ejercicio
+Para terminar vamos a analizar una propiedad importante de las matrices de Pauli que no
+demostraremos y se deja como ejercicio
 \begin{equation}\label{eq:sux-propiedad-producto-sigmas}
   Tr\,(\sigma_i \sigma_j) = 2\delta_{ij}
 \end{equation}
 
 
 \section{El grupo SU(3)}
-El grupo SU(3) es muy importante en cromodinámica cuántica y está
-relacionado con las cargas de color. Pasamos a definirlo:
+El grupo SU(3) es muy importante en cromodinámica cuántica y está relacionado con las
+cargas de color. Pasamos a definirlo:
 \begin{quote}
   ``SU(3) es el grupo de matrices $3\times 3$ complejas que se
   pueden parametrizar como
@@ -640,9 +626,9 @@ relacionado con las cargas de color. Pasamos a definirlo:
     \mmm{B} \text{ son matrices } 3\times 3 \text{ complejas}\right\}
 \]
 
-Podemos construir las matrices $\mmm{B}$ de muchas formas posibles
-(vale cualquier base para estas matrices), pero vamos a seguir un
-esquema ideado originalmente por el físico Murray Gell-Mann.
+Podemos construir las matrices $\mmm{B}$ de muchas formas posibles (vale cualquier base
+para estas matrices), pero vamos a seguir un esquema ideado originalmente por el físico
+Murray Gell-Mann.
 
 Se copia el esquema seguido para SU(2), añadiendo parámetros según se van necesitando
 \[
@@ -664,8 +650,8 @@ Esta matriz ya es hermítica, pero su traza no es nula
   \end{pmatrix}
 \]
 
-De aquí podríamos obtener una base para todas las posibles $\mmm{B}$, formada
-por ocho matrices
+De aquí podríamos obtener una base para todas las posibles $\mmm{B}$, formada por ocho
+matrices
 {\normalsize
   \begin{align*}
     \mmm{B}
@@ -681,9 +667,8 @@ por ocho matrices
   \end{align*}
 }
   
-Pero Gell-Mann quería añadir una condición más, y es que se
-cumpliera la ecuación~(\ref{eq:sux-propiedad-producto-sigmas}). Lo
-arregló reescalando la última matriz
+Pero Gell-Mann quería añadir una condición más, y es que se cumpliera la
+ecuación~(\ref{eq:sux-propiedad-producto-sigmas}). Lo arregló reescalando la última matriz
 {
   \begin{align*}
     \mmm{B}
@@ -701,85 +686,74 @@ arregló reescalando la última matriz
   \end{align*}
 }
 
-  Las matrices que forman esta base se llaman matrices de Gell-Mann y
-  se denotan con la letra $\mmmg{\lambda}$. Cualquier matriz del grupo SU(3)
-  se puede expresar como combinación lineal de éstas
-  \[
-    \mmm{B} = \sum_{i=1}^{8}a_i\mmmg{\lambda}_i 
-  \]
+Las matrices que forman esta base se llaman matrices de Gell-Mann y se denotan con la
+letra $\mmmg{\lambda}$. Cualquier matriz del grupo SU(3) se puede expresar como
+combinación lineal de éstas
+\[
+  \mmm{B} = \sum_{i=1}^{8}a_i\mmmg{\lambda}_i 
+\]
 
-  Estas matrices sirven para estudiar las rotaciones internas entre los
-  diferentes colores de quarks en cromodinámica cuántica.
+Estas matrices sirven para estudiar las rotaciones internas entre los diferentes
+colores de quarks en cromodinámica cuántica.
   
-  Además se cumple
-  \[
-    Tr\,(\mmmg{\lambda}_i \mmmg{\lambda}_j) = 2\delta_{ij}
-  \]
+Además se cumple
+\[
+  Tr\,(\mmmg{\lambda}_i \mmmg{\lambda}_j) = 2\delta_{ij}
+\]
   
-  Sabemos que los coeficientes de estructura del grupo determinan por
-  completo todo lo que podemos saber del mismo. Hay razones para que
-  los índices estén arriba, pero por ahora no necesitamos saberlo.
-  A continuación se escriben los que son distintos de cero
-  \begin{align*}
-    &f^{123} = 1\\
-    &f^{147} = f^{165} = f^{246} = f^{257} = f^{345} = f^{376} = \dfrac{1}{2}\\
-    &f^{458} = f^{678} = \dfrac{\sqrt{3}}{2}
-  \end{align*}
-  Estos coeficientes son totalmente antisimétricos, lo que significa
-  que si se intercambia cualquier par de índices, cambia el signo del
-  coeficiente. Los que no se puedan obtener intercambiando índices
-  valen cero.
-
-  Los conmutadores se obtendrán, utilizando los coeficientes de
-  estructura, de la siguiente manera
-  \[
-    [\mmmg{\lambda}_i, \mmmg{\lambda}_j]
-    =
-    i \sum_{k=1}^{8} f^{ijk}\,\mmmg{\lambda}_k = i\kern1pt f^{ijk}\,\mmmg{\lambda}_k
-  \]
-
-  \subsubsection{Cálculo de un conmutador utilizando los coeficientes
-    de estructura}
-  Como ejercicio, vamos a calcular un conmutador, por ejemplo,
-  $[\mmmg{\lambda}_4,\mmmg{\lambda}_5]$. Algunos coeficientes de
-  estructura se pueden calcular a partir de los conocidos,
-  intercambiando índices. Los que no se pueden obtener así se anulan
-  {\small
+Sabemos que los coeficientes de estructura del grupo determinan por completo todo lo que
+podemos saber del mismo. Hay razones para que los índices estén arriba, pero por ahora no
+necesitamos saberlo.
+A continuación se escriben los que son distintos de cero
 \begin{align*}
-   [\mmmg{\lambda}_4, \mmmg{\lambda}_5]
-   &=
-     i\kern1pt f^{45k}\mmmg{\lambda}_k\\
-   &=
-     i\kern1pt\left[
-     \cancelout{f^{451}}\mmmg{\lambda}_1
-     + \cancelout{f^{452}}\mmmg{\lambda}_2
-     + f^{453}\,\mmmg{\lambda}_3
-     + \cancelout{f^{454}}\mmmg{\lambda}_4
-     + \cancelout{f^{455}}\mmmg{\lambda}_5
-     + \cancelout{f^{456}}\mmmg{\lambda}_6
-     + \cancelout{f^{457}}\mmmg{\lambda}_7
-     + f^{458}\mmmg{\lambda}_8
-     \right]\\
-   &=
-     i\kern1pt\left[
-     + f^{345}\mmmg{\lambda}_{\kern1pt 3}
-     + f^{458}\mmmg{\lambda}_{\kern1pt 8}
-     \right]\\
-   &=
-     i\kern1pt\left[\frac{1}{2}\,\mmmg{\lambda}_{\kern1pt 3}
-     + \frac{\sqrt{3}}{2}\,\mmmg{\lambda}_{\kern1pt 8}\right]
+  &f^{123} = 1\\
+  &f^{147} = f^{165} = f^{246} = f^{257} = f^{345} = f^{376} = \dfrac{1}{2}\\
+  &f^{458} = f^{678} = \dfrac{\sqrt{3}}{2}
 \end{align*}
+Estos coeficientes son totalmente antisimétricos, lo que significa que si se intercambia
+cualquier par de índices, cambia el signo del coeficiente. Los que no se puedan obtener
+intercambiando índices valen cero.
+
+Los conmutadores se obtendrán, utilizando los coeficientes de estructura, de la siguiente
+manera
+\[
+  [\mmmg{\lambda}_i, \mmmg{\lambda}_j]
+  =
+  i \sum_{k=1}^{8} f^{ijk}\,\mmmg{\lambda}_k = i\kern1pt f^{ijk}\,\mmmg{\lambda}_k
+\]
+
+\subsubsection{Cálculo de un conmutador utilizando los coeficientes
+  de estructura}
+Como ejercicio, vamos a calcular un conmutador, por ejemplo,
+$[\mmmg{\lambda}_4,\mmmg{\lambda}_5]$. Algunos coeficientes de estructura se pueden
+calcular a partir de los conocidos, intercambiando índices. Los que no se pueden obtener
+así se anulan
+{\small
+  \begin{align*}
+    [\mmmg{\lambda}_4, \mmmg{\lambda}_5]
+    &=
+      i\kern1pt f^{45k}\mmmg{\lambda}_k\\
+    &=
+      i\kern1pt\left[
+      \cancelout{f^{451}}\mmmg{\lambda}_1
+      + \cancelout{f^{452}}\mmmg{\lambda}_2
+      + f^{453}\,\mmmg{\lambda}_3
+      + \cancelout{f^{454}}\mmmg{\lambda}_4
+      + \cancelout{f^{455}}\mmmg{\lambda}_5
+      + \cancelout{f^{456}}\mmmg{\lambda}_6
+      + \cancelout{f^{457}}\mmmg{\lambda}_7
+      + f^{458}\mmmg{\lambda}_8
+      \right]\\
+    &=
+      i\kern1pt\left[
+      + f^{345}\mmmg{\lambda}_{\kern1pt 3}
+      + f^{458}\mmmg{\lambda}_{\kern1pt 8}
+      \right]\\
+    &=
+      i\kern1pt\left[\frac{1}{2}\,\mmmg{\lambda}_{\kern1pt 3}
+      + \frac{\sqrt{3}}{2}\,\mmmg{\lambda}_{\kern1pt 8}\right]
+  \end{align*}
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

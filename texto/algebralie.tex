@@ -753,12 +753,65 @@ tiene elementos diagonales nulos; además, los elementos no diagonales correspon
 deben ser opuestos
 \[
   \begin{pmatrix}
-    0 & a & b & c\\
-    -a& 0 & d & e\\
-    -b& -d& 0 & f\\
-    -c& -e& -f& 0
+    0 &  a &  b & c\\
+   -a &  0 &  d & e\\
+   -b & -d &  0 & f\\
+   -c & -e & -f & 0
   \end{pmatrix}
 \]
+{\footnotesize
+\begin{align*}
+  \begin{pmatrix}
+    0 &  a &  b & c\\
+   -a &  0 &  d & e\\
+   -b & -d &  0 & f\\
+   -c & -e & -f & 0
+  \end{pmatrix}
+  =
+  &\hspace{1em}a\,
+    \begin{pmatrix}
+      0 & 1 & 0 & 0\\
+     -1 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0
+    \end{pmatrix}
+    + b\,
+  \begin{pmatrix}
+    0 & 0 &  1 & 0\\
+    0 & 0 &  0 & 0\\
+   -1 & 0 &  0 & 0\\
+    0 & 0 &  0 & 0
+  \end{pmatrix}
+    + c\,
+  \begin{pmatrix}
+    0 &  0 &  0 & 1\\
+    0 &  0 &  0 & 0\\
+    0 &  0 &  0 & 0\\
+   -1 &  0 &  0 & 0
+  \end{pmatrix}\\
+  &+ d\,
+  \begin{pmatrix}
+    0 &  0 &  0 & 0\\
+    0 &  0 &  1 & 0\\
+    0 & -1 &  0 & 0\\
+    0 &  0 &  0 & 0
+  \end{pmatrix}
+    + e\,
+  \begin{pmatrix}
+    0 &  0 &  0 & 0\\
+    0 &  0 &  0 & 1\\
+    0 &  0 &  0 & 0\\
+    0 & -1 &  0 & 0
+  \end{pmatrix}
+    + f\,
+  \begin{pmatrix}
+    0 &  0 &  0 & 0\\
+    0 &  0 &  0 & 0\\
+    0 &  0 &  0 & 1\\
+    0 &  0 & -1 & 0
+  \end{pmatrix}    
+\end{align*}
+}
 Como vemos, hay seis parámetros independientes para formar una matriz antisimétrica de
 esta dimensión: $a$, $b$, $c$, $d$, $e$ y $f$, lo que se traduce en que hay seis matrices
 generadoras en este grupo. Estas son

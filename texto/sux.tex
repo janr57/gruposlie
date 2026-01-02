@@ -395,19 +395,17 @@ invariante respecto a cambios de base, por lo que es un resultado general. Adem�
 traza es un número real, porque es la suma de los valores propios, que son reales por ser
 $\mmm{B}$ una matriz hermítica
 \begin{equation}
+  \label{eq:sux-determinante_U}
   \det(\mmm{U}(\theta))
   =
   e^{i\theta\kern1pt Tr\mmm{B}}
 \end{equation}
 
-De la expresión anterior deducimos que el determinante de $\mmm{U}(\theta)$
-es un número complejo, pues la traza de $\mmm{B}$ es un número real.
-Como estamos interesados en las matrices unitarias cuyo determinante valga $1$, la traza
-de $\mmm{B}$ debe valer $0$.
-
+De la expresión anterior deducimos que el determinante de $\mmm{U}(\theta)$ es un número
+complejo, pues la traza de $\mmm{B}$ es un número real.
 ¿Qué módulo tiene el determinante de la matriz de transformación?
-Podemos demostrar que el módulo de este complejo vale la unidad.
-Recordemos que el módulo de un complejo es, $|z| = \sqrt{z^*z}$
+Podemos demostrar que vale la unidad, independientemente del valor de la traza de
+$\mmm{B}$, (recordemos que el módulo de un complejo es, $|z| = \sqrt{z^*z}$)
 \begin{align*}
   \left|\det (U(\theta))\right|
   &=
@@ -421,10 +419,11 @@ Recordemos que el módulo de un complejo es, $|z| = \sqrt{z^*z}$
   =
   \sqrt{e^0\cdot e^0}
   = 1
-\end{align}
+\end{align*}
 
-%Estamos interesados en aquellas matrices unitarias cuyo determinante valga $1$, por lo
-%que la traza de $\mmm{B}$ debe valer $0$.
+Pero nosotros no estamos interesados en el módulo del determinante de la matriz
+unitaria, sino en el valor del determinante \eqref{eq:sux-determinante_U}, que imponemos
+que su valor sea real e igual a $1$. Por tanto la traza de $\mmm{B}$ debe valer $0$.
 
 De acuerdo con estas conclusiones podemos definir el grupo SU(N) como
 \[

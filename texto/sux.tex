@@ -578,35 +578,38 @@ Por tanto
   \right)
 \]
 con $n_1^2+n_{2}^2+n_{3}^2 = 1$, por lo que se puede considerar que las $n_{i}$ son las
-componentes de un vector unitario $\xhat{n}$
+componentes de un vector unitario $\xhat{n}$, con las debidas reservas, dado que
+$\xhat{\vvv{n}}\cdot\mmm{\sigma}$ no es un producto escalar, aunque aquí utilizamos
+esta simbología para abreviar la expresión matemática (mejor sería utilizar la notación
+de Einstein ("$\xhat{\vvv{n}}\cdot\mmm{\sigma}$"\hspace{-1.5pt} $= n_i\sigma_i$)
 \[
   \mmm{B}_{2\times 2}
   =
-  \sqrt{a_1^2+a_{2}^2+a_{3}^2}\,\xhat{n}\cdot\mmmg{\sigma}
+  \sqrt{a_1^2+a_{2}^2+a_{3}^2}\,\xhat{n}\cdot\mmm{\sigma}
 \]
 
 Entonces $\mmm{U}(\theta)$ es
 \[
   \mmm{U}(\theta)
   = e^{i\theta\mmm{B}}
-  = e^{i\theta\sqrt{a_1^2+a_{2}^2+a_{3}^2}\,\xhat{n}\cdot\mmmg{\sigma}}
+  = e^{i\theta\sqrt{a_1^2+a_{2}^2+a_{3}^2}\,\xhat{n}\cdot\mmm{\sigma}}
 \]
 
 Llamamos $\beta = \theta\sqrt{a_1^2+a_2^2+a_3^2}$
 \[
   \mmm{U}(\beta)
-  = e^{i\beta\,\xhat{n}\cdot\mmmg{\sigma}}
+  = e^{i\beta\,\xhat{n}\cdot\mmm{\sigma}}
 \]
 
 Finalmente renombramos $\beta$ a $\theta$
 \[
   \mmm{U}(\theta)
-  = e^{i\theta\,\xhat{n}\cdot\mmmg{\sigma}}
+  = e^{i\theta\,\xhat{n}\cdot\mmm{\sigma}}
 \]
 
 El grupo SU(2) es
 \[
-  SU(2) = \left\{\mmm{U}(\theta) = e^{i\theta\,\xhat{n}\cdot \mmmg{\sigma}}\right\}
+  SU(2) = \left\{\mmm{U}(\theta) = e^{i\theta\,\xhat{n}\cdot \mmm{\sigma}}\right\}
 \]
 
 Para terminar vamos a analizar una propiedad importante de las matrices de Pauli que no
@@ -693,10 +696,10 @@ ecuación~(\ref{eq:sux-propiedad-producto-sigmas}). Lo arregló reescalando la �
 }
 
 Las matrices que forman esta base se llaman matrices de Gell-Mann y se denotan con la
-letra $\mmmg{\lambda}$. Cualquier matriz del grupo SU(3) se puede expresar como
+letra $\mmm{\lambda}$. Cualquier matriz del grupo SU(3) se puede expresar como
 combinación lineal de éstas
 \[
-  \mmm{B} = \sum_{i=1}^{8}a_i\mmmg{\lambda}_i 
+  \mmm{B} = \sum_{i=1}^{8}a_i\mmm{\lambda}_i 
 \]
 
 Estas matrices sirven para estudiar las rotaciones internas entre los diferentes
@@ -704,7 +707,7 @@ colores de quarks en cromodinámica cuántica.
   
 Además se cumple
 \[
-  Tr\,(\mmmg{\lambda}_i \mmmg{\lambda}_j) = 2\delta_{ij}
+  Tr\,(\mmm{\lambda}_i \mmm{\lambda}_j) = 2\delta_{ij}
 \]
   
 Sabemos que los coeficientes de estructura del grupo determinan por completo todo lo que
@@ -723,41 +726,41 @@ intercambiando índices valen cero.
 Los conmutadores se obtendrán, utilizando los coeficientes de estructura, de la siguiente
 manera
 \[
-  [\mmmg{\lambda}_i, \mmmg{\lambda}_j]
+  [\mmm{\lambda}_i, \mmm{\lambda}_j]
   =
-  i \sum_{k=1}^{8} f^{ijk}\,\mmmg{\lambda}_k = i\kern1pt f^{ijk}\,\mmmg{\lambda}_k
+  i \sum_{k=1}^{8} f^{ijk}\,\mmm{\lambda}_k = i\kern1pt f^{ijk}\,\mmm{\lambda}_k
 \]
 
 \subsubsection{Cálculo de un conmutador utilizando los coeficientes
   de estructura}
 Como ejercicio, vamos a calcular un conmutador, por ejemplo,
-$[\mmmg{\lambda}_4,\mmmg{\lambda}_5]$. Algunos coeficientes de estructura se pueden
+$[\mmm{\lambda}_4,\mmm{\lambda}_5]$. Algunos coeficientes de estructura se pueden
 calcular a partir de los conocidos, intercambiando índices. Los que no se pueden obtener
 así se anulan
 {\small
   \begin{align*}
-    [\mmmg{\lambda}_4, \mmmg{\lambda}_5]
+    [\mmm{\lambda}_4, \mmm{\lambda}_5]
     &=
-      i\kern1pt f^{45k}\mmmg{\lambda}_k\\
+      i\kern1pt f^{45k}\mmm{\lambda}_k\\
     &=
       i\kern1pt\left[
-      \cancelout{f^{451}}\mmmg{\lambda}_1
-      + \cancelout{f^{452}}\mmmg{\lambda}_2
-      + f^{453}\,\mmmg{\lambda}_3
-      + \cancelout{f^{454}}\mmmg{\lambda}_4
-      + \cancelout{f^{455}}\mmmg{\lambda}_5
-      + \cancelout{f^{456}}\mmmg{\lambda}_6
-      + \cancelout{f^{457}}\mmmg{\lambda}_7
-      + f^{458}\mmmg{\lambda}_8
+      \cancelout{f^{451}}\mmm{\lambda}_1
+      + \cancelout{f^{452}}\mmm{\lambda}_2
+      + f^{453}\,\mmm{\lambda}_3
+      + \cancelout{f^{454}}\mmm{\lambda}_4
+      + \cancelout{f^{455}}\mmm{\lambda}_5
+      + \cancelout{f^{456}}\mmm{\lambda}_6
+      + \cancelout{f^{457}}\mmm{\lambda}_7
+      + f^{458}\mmm{\lambda}_8
       \right]\\
     &=
       i\kern1pt\left[
-      + f^{345}\mmmg{\lambda}_{\kern1pt 3}
-      + f^{458}\mmmg{\lambda}_{\kern1pt 8}
+      + f^{345}\mmm{\lambda}_{\kern1pt 3}
+      + f^{458}\mmm{\lambda}_{\kern1pt 8}
       \right]\\
     &=
-      i\kern1pt\left[\frac{1}{2}\,\mmmg{\lambda}_{\kern1pt 3}
-      + \frac{\sqrt{3}}{2}\,\mmmg{\lambda}_{\kern1pt 8}\right]
+      i\kern1pt\left[\frac{1}{2}\,\mmm{\lambda}_{\kern1pt 3}
+      + \frac{\sqrt{3}}{2}\,\mmm{\lambda}_{\kern1pt 8}\right]
   \end{align*}
 }
 

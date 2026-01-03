@@ -347,28 +347,34 @@ elementos de la matriz
 Para demostrar esta propiedad, desarrollamos en serie de potencias la exponencial de la
 matriz
 \begin{align*}
-  e^{\begin{pmatrix}\scriptstyle a & \scriptstyle 0\\ \scriptstyle 0 & \scriptstyle b\end{pmatrix}}
-  &=
-  \mmm{I}
-  + \begin{pmatrix} a & 0\\ 0 & b  \end{pmatrix}
-  + \dfrac{1}{2!}\,\begin{pmatrix} a & 0\\ 0 & b \end{pmatrix}^2
-  + \dfrac{1}{3!}\,\begin{pmatrix} a & 0\\ 0 & b \end{pmatrix}^3
-  + \cdots\\
+  e^{%
+  \begin{pmatrix}
+    \scriptstyle a & \scriptstyle 0\\ \scriptstyle 0 & \scriptstyle b\end{pmatrix}
+  }
   &=
     \mmm{I}
-    + \begin{pmatrix}a & 0\\ 0 & b\end{pmatrix}
-    + \dfrac{1}{2!}\,\begin{pmatrix}a^2 & 0\\ 0 & b^2\end{pmatrix}
-    + \dfrac{1}{3!}\,\begin{pmatrix}a^3 & 0\\ 0 & b^3\end{pmatrix}
+    + \begin{pmatrix} a & 0\\ 0 & b  \end{pmatrix}
+    + \dfrac{1}{2!}\,\begin{pmatrix} a & 0\\ 0 & b \end{pmatrix}^2
+    + \dfrac{1}{3!}\,\begin{pmatrix} a & 0\\ 0 & b \end{pmatrix}^3
     + \cdots\\
-  &=
-  \begin{pmatrix}
-    1 + a + \frac{1}{2!}\,a^2+ \frac{1}{3!}\,a^3+\cdots & 0\\
-    0 & 1 + b + \frac{1}{2!}\,b^2+\frac{1}{3!}\,b^3+\cdots
-  \end{pmatrix}\\
-  &=
-  \begin{pmatrix}
-    e^a & 0\\ 0 & e^b
-    \end{pmatrix}
+    &=
+      \mmm{I}
+      + \begin{pmatrix}a & 0\\ 0 & b\end{pmatrix}
+      + \dfrac{1}{2!}\,\begin{pmatrix}a^2 & 0\\ 0 & b^2\end{pmatrix}
+      + \dfrac{1}{3!}\,\begin{pmatrix}a^3 & 0\\ 0 & b^3\end{pmatrix}
+      + \cdots\\
+    &=
+      \begin{pNiceArray}{cc}
+        1 + a + \frac{1}{2!}\,a^2+ \frac{1}{3!}\,a^3+\cdots & 0\\[0.5em]
+        0 & 1 + b + \frac{1}{2!}\,b^2+\frac{1}{3!}\,b^3+\cdots
+        \CodeAfter
+        \tikz \draw[black!50,line width=0.4pt] (1.9-|1.0) -- (1.9-|last);
+        \tikz \draw[black!50,line width=0.5pt] (2.0|-1.0) -- (2.0|-last);
+      \end{pNiceArray}\\
+    &=
+      \begin{pmatrix}
+        e^a & 0\\ 0 & e^b
+      \end{pmatrix}
 \end{align*}
 
 El determinante de $\mmm{U}(\theta)$ es
@@ -415,14 +421,14 @@ $\mmm{B}$, (recordemos que el módulo de un complejo es, $|z| = \sqrt{z^*z}$)
   &=
   \sqrt{e^{-i\theta\kern1pt Tr\kern1pt\mmm{B}}
     \, e^{i\theta\kern1pt Tr\kern1pt\mmm{B}}
-    \, e^{\frac{1}{2}(\theta Tr\mmm{B})^2\,[\mmm{B},\mmm{B}]}}
+    \, e^{\frac{1}{2}(\theta \,Tr\mmm{B})^2\,[\mmm{B},\mmm{B}]}}
   =
   \sqrt{e^0\cdot e^0}
   = 1
 \end{align*}
 
 Pero nosotros no estamos interesados en el módulo del determinante de la matriz
-unitaria, sino en el valor del determinante \eqref{eq:sux-determinante_U}, que imponemos
+unitaria, sino en el valor del determinante \eqref{eq:sux-determinante_U}, e imponemos
 que su valor sea real e igual a $1$. Por tanto la traza de $\mmm{B}$ debe valer $0$.
 
 De acuerdo con estas conclusiones podemos definir el grupo SU(N) como
@@ -578,10 +584,10 @@ Por tanto
   \right)
 \]
 con $n_1^2+n_{2}^2+n_{3}^2 = 1$, por lo que se puede considerar que las $n_{i}$ son las
-componentes de un vector unitario $\xhat{n}$, con las debidas reservas, dado que
-$\xhat{\vvv{n}}\cdot\mmm{\sigma}$ no es un producto escalar, aunque aquí utilizamos
-esta simbología para abreviar la expresión matemática (mejor sería utilizar la notación
-de Einstein ("$\xhat{\vvv{n}}\cdot\mmm{\sigma}$"\hspace{-1.5pt} $= n_i\sigma_i$)
+componentes de un vector unitario $\xhat{n}$. En la siguiente expresión, y con las
+debidas reservas utilizamos $\xhat{\vvv{n}}\cdot\mmm{\sigma}$, aunque no es un producto
+escalar, con el objetivo de abreviar la expresión matemática (mejor sería utilizar la
+notación de Einstein, $n_i\sigma_i$, en lugar de "$\xhat{\vvv{n}}\cdot\mmm{\sigma}$)
 \[
   \mmm{B}_{2\times 2}
   =

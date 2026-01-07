@@ -98,7 +98,6 @@
 % Producto vectorial
 \newcommand{\prodvec}{%
   % Actívese sólo una de las dos opciones
-  %\ensuremath{\wedge}
   \ensuremath{\times}
 }
 
@@ -124,6 +123,9 @@
   %\ensuremath{\kern1.2pt\pmb{\hat{#1}}}
   \ensuremath{\kern1.2pt\symbf{\hat{#1}}}
 }
+
+% \uvec{\i} y \uvec{\j} producen i y j sin punto y con acento circunflejo en negrita
+\newcommand{\uvec}[1]{\textbf{\^{#1}}}
 
 %\xhat{\pmb{\mathrm{n}}}
 %% --------------------------------------------------------------------

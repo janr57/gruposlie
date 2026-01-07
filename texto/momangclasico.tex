@@ -40,18 +40,17 @@ cartesianas rectangulares
 \[
   \vvv{L}
   =
-    \vvv{r} \prodvec \vvv{p}
-    =
+  \vvv{r} \prodvec \vvv{p}
+  =
   \begin{vmatrix}
-    %\xhat{\imath} & \xhat{\jmath} & \xhat{k}\\
-    \xhat{i} & \xhat{j} & \xhat{k}\\
+    \uvec{\i} & \uvec{\j} & \xhat{k}\\
     x & y & z\\
     p_x & p_y & p_z
   \end{vmatrix}
   =
-  (yp_z-zp_y){\xhat{i}}
-  + (zp_x-xp_z)\xhat{j}
-  + (xp_y-yp_z)\xhat{k}
+  (yp_z-zp_y)\,\uvec{i}
+  + (zp_x-xp_z)\,\uvec{j}
+  + (xp_y-yp_z)\,\xhat{k}
 \]
 
 De la expresión anterior, deducimos sus componentes cartesianas:
@@ -67,8 +66,8 @@ es multiplicar escalarmente el vector unitario que tenga esa dirección
 por el vector. Así, si queremos calcular, por ejemplo las componentes
 cartesianas del momento angular, podemos hacer
 \begin{align*}
-  L_x &= \xhat{i}\cdot\vvv{L}\\
-  L_y &= \xhat{i}\cdot\vvv{L}\\
+  L_x &= \uvec{\i}\cdot\vvv{L}\\
+  L_y &= \uvec{\j}\cdot\vvv{L}\\
   L_z &= \xhat{k}\cdot\vvv{L}
 \end{align*}
 

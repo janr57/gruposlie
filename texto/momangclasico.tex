@@ -224,19 +224,19 @@ Girar una función implica lo siguiente:
   Al tratarse de una rotación activa (rotación de vectores), la matriz de rotación es
   \begin{subequations}
   \begin{equation}\label{eq:cla-matrizrotacion-funcion}
-    \mmm{R} = \mmm{R}(\xhat{n}, \theta) = e^{-\theta \xhat{n}\cdot\mmm{G}}
+    \mmm{R}^{-1} = \mmm{R}^{-1}\!\left(\xhat{n},\theta\right) = e^{-\theta \xhat{n}\cdot\mmm{G}}
   \end{equation}
   y las coordenadas del punto rotado se hallan aplicando esta matriz a las originales
   \begin{equation}\label{eq:cla-rotacion-aciva-funcion-coordenadasrotadas}
-    \vvv{\tilde{r}} = \mmm{R} \vvv{r} = e^{-\theta\xhat{n}\cdot\mmm{G}}\vvv{r}
+    \vvv{\tilde{r}} = \mmm{R}^{-1}\,\vvv{r} = e^{-\theta\xhat{n}\cdot\mmm{G}}\vvv{r}
   \end{equation}
 \end{subequations}
-Sabemos rotar vectores mediante matrices, como
+Sabemos rotar segmentos orientados mediante matrices, como
 en~\eqref{eq:cla-rotacion-aciva-funcion-coordenadasrotadas}, pero una función no es un
-vector; de hecho no tendría ningún sentido la expresión equivalente para funciones, si
-$\mmm{R}$ se representara mediante una matriz
+segmento orientado; de hecho, no tendría ningún sentido la expresión equivalente para
+funciones, si $\mmm{R}^{-1}$ se representara mediante una matriz
 \[
-  \cancelout{\tilde{f} = \mmm{R} f}
+  \cancelout{\tilde{f} = \mmm{R}^{-1}\, f}
 \]
 
 Es como si una función no tuviera \emph{elementos físicos} que permitieran girarla
@@ -248,7 +248,7 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
 \item ¿Cómo podremos dar con una expresión matemática para la función rotada $\tilde{f}$?
   
   Cada punto, al rotar, debe \emph{llevarse consigo} de alguna manera el valor que tenía
-  en la función original $f$ hasta la rotada $\tilde{f}$; en otras palabras,
+  en la función original $f$\, hasta la rotada $\tilde{f}$; en otras palabras,
   \emph{la nueva función se debe obtener a partir de la original y tener el mismo valor
     para los puntos originales y sus correspondientes rotados}.
   En otras palabras, se debe cumplir $f$ y $\tilde{f}$ tengan el mismo valor

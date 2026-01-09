@@ -324,6 +324,9 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
     % Vector P
     \pgfmathsetmacro{\PMOD}{\PPRIMAMOD}
     \pgfmathsetmacro{\PANG}{\PPRIMAANG - \ANGROT}
+    % Fondo
+    \pgfmathsetmacro{\HORZ}{0.5}
+    \pgfmathsetmacro{\VERT}{0.5}
     % 
     \centering
     \begin{tikzpicture}[%
@@ -333,7 +336,7 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
       vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
       vectorrotado/.style={vector, draw=green!50!black},
       pcirculo/.style={fill=red, draw=black},
-      pprimacirculo/.style={green!90!black, draw=black},
+      pprimacirculo/.style={green!90!black, draw=black},      
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -386,10 +389,12 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
       % Matriz inversa
       \node[above right] at (minversa)
       {\footnotesize $\mmm{R}^{-1}\vvv{\tilde{r}}$};
-      
-      % Fondo
+
+      % Fondo amarillo
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
-        \node [background, fit= (letraejex) (letraejey)] {};
+        \draw[background] (SW) rectangle (NE);
       \end{scope}
     \end{tikzpicture}
     \caption{Para calcular el valor de la función rotada $\tilde{f}$ en el punto
@@ -566,19 +571,28 @@ véase la figura~\ref{fig:cla-rot-funcion-ej-1}
   \pgfmathsetmacro{\rvec}{1.9}
   \pgfmathsetmacro{\thetavec}{90}
   \pgfmathsetmacro{\phivec}{90}
+  % Fondo
+  \pgfmathsetmacro{\HORZ}{0.25}
+  \pgfmathsetmacro{\VERT}{0.25}
   % 
-  
-  \tikzfading[name=fade out, inner color=transparent!0,
-  outer color=transparent!100]
+  \tikzfading[%
+  name=fade out, inner color=transparent!0, outer color=transparent!100
+  ]
   
   \centering
   \begin{tikzpicture}[%
     scale=\scl,tdplot_main_coords,
-    background/.style={
+    axisrotation/.style={%
+      line width=1.6pt,
+      -{Latex[round,length=12pt,width=7.0pt,bend]},
+      color=green!85!black},
+    angulogiro/.style={%
+      line width=1.4pt,-{Latex[round,length=7pt,width=4.5pt,bend]},green!85!black},
+    background/.style={%
       line width=\bgborderwidth,
       draw=\bgbordercolor,
       fill=\bgcolor,
-    },    
+    },
     ]
     % SISTEMA ORIGINAL (A LA IZQUIERDA)
     % Para 'tikz-3dplot' son los ejes principales
@@ -594,9 +608,8 @@ véase la figura~\ref{fig:cla-rot-funcion-ej-1}
     % Notice you have to tell tiks-3dplot you are now in rotated coords
     % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
     % the former y axis is now the z axis.
-    \tdplotdrawarc[line width=2.25pt,
-    -{Latex[round,length=15pt,width=7.7pt,bend]},color=black!30]
-    {(0,0,2.2)}{0.35}{70}{410}{anchor=south west,color=black}{}
+    \tdplotdrawarc[axisrotation] {(0,0,2.2)}{0.35}{70}{410}{}
+
     % Reponer parte final del eje z para simular perspectiva
     \draw[very thick,->] (0,0,2.2) -- (0,0,\longeje);  
     
@@ -624,18 +637,18 @@ véase la figura~\ref{fig:cla-rot-funcion-ej-1}
     % sintaxis:
     % \tdplotdrawarc[coordinate frame, draw options]
     % {center point}{r}{angle}{label options}{label}
-    \tdplotdrawarc[-{Latex[round,length=5pt,width=4pt,bend]},black!50]
-    {(0,0,0)}{0.8}{8}{\phivec-10}{anchor=north}{\footnotesize $\pi/2$}
+    \tdplotdrawarc[angulogiro]
+    {(0,0,0)}{0.8}{8}{\phivec-10}{anchor=north}
+    {\textcolor{green!50!black}{\footnotesize $\pi/2$}};
     % Texto de rotación
     \node[right=1.5em] at (0,0,2.4) {\small Rotación activa de};
     \node[right=1.5em] at (0,0,2.0) {\small $f= 2x+3y-z$};
-    % Más límites para el fondo
-    \node[left=3.5em,name=fr2] at (P) {};
-    \node[right=9em,name=frp2] at (0,0,2.2) {};
-    
+
+    % Fondo amarillo
+    \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+    \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
     \begin{scope}[on background layer]
-      \node [background,
-      fit= (letraejex) (letraejey) (letraejez) (fr2) (frp2)] {};
+      \draw[background] (SW) rectangle (NE);
     \end{scope}
   \end{tikzpicture}
   \caption{Rotación activa de la función $f(x,y,z) = 2x + 3y -z$, del ejemplo 1,
@@ -1095,6 +1108,11 @@ Por tanto, la función $f(x,y) = x^2 + y^2$ es invariante bajo una rotación
 infinitesimal.
 \begin{figure}[ht]
   \def\scl{1}
+  % Fondo
+  \pgfmathsetmacro{\HORZIZDA}{1.0}
+  \pgfmathsetmacro{\HORZDCHA}{0.25}
+  \pgfmathsetmacro{\VERT}{0.25}
+  % 
   \centering
   \begin{tikzpicture}[%
     scale=\scl,
@@ -1128,7 +1146,7 @@ infinitesimal.
       ]
       \addplot3[surf,samples=60] ({r*cos(u)},{r*sin(u)},{r^2});
       % Eje z
-      \draw (0,0,22.8) -- (0,0,29);
+      \draw (0,0,22.8) -- (0,0,32);
       %node[above,name=letraejez] {\small $z$};
       % Eje y
       \draw[-{>}] (0,0,0) -- (7,0,0)
@@ -1140,12 +1158,12 @@ infinitesimal.
       %\addplot3[surf,samples=50,domain=180:190] ({r*cos(u)},{r*sin(u)},{r^2});
       % Inversa del eje y para que el recuadro del gráfico esté centrado
       % en el eje z
-      \path[-{>}] (0,0,0) -- (-7,0,0)
-      node[left,name=letraejeyinv] {\small $\phantom{y}$};
+      %\path[-{>}] (0,0,0) -- (-7,0,0)
+      %node[left,name=letraejeyinv] {\small $\phantom{y}$};
 
       % Rotación
-      \draw[-{Stealth[round,width=4.5pt]}, black!40, line width=1.2pt]
-      (0,1.25,28) arc[%
+      \draw[-{Stealth[round,width=4.5pt]}, green!80!black, line width=1.2pt]
+      (0,1.25,30) arc[%
       start angle=-35,end angle=310,x radius=1,y radius=1
       ];
       %\draw[-{Stealth[round,width=4.5pt]}, black!40, line width=1.2pt]
@@ -1153,15 +1171,18 @@ infinitesimal.
       %start angle=-35,end angle=310,x radius=1,y radius=1
       %];
       % Reponer eje z
-      \draw[-{>}] (0,0,29) -- (0,0,32)
+      \draw[-{>}] (0,0,32) -- (0,0,35)
       node[above,name=letraejez] {\small $z$};
       %\filldraw[fill=red,draw=black,ultra thin] (0,0,22.7) circle [radius=.2pt];
-      
+
       % Fondo amarillo
+      \coordinate (SW)
+      at ($(current bounding box.south west) + (-\HORZIZDA cm,-\VERT cm)$);
+      \coordinate (NE)
+      at ($(current bounding box.north east) + (\HORZDCHA cm,\VERT cm)$);    
       \begin{scope}[on background layer]
-        \node [background,
-        fit= (letraejex) (letraejey) (letraejeyinv) (letraejez)] {};
-      \end{scope}      
+        \draw[background] (SW) rectangle (NE);
+      \end{scope}
     \end{axis}
   \end{tikzpicture}%
   \caption{La función $f(x,y) = x^2+y^2$ no varía al rotar alrededor del

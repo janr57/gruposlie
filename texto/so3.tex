@@ -202,9 +202,6 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.20}
     \pgfmathsetmacro{\VERT}{0.20}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}    
     % 
     \centering
     \begin{tikzpicture}[%
@@ -275,9 +272,8 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$z$}; \fill[fill=black] (O) circle[radius=.7pt];
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}
@@ -303,9 +299,6 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.20}
     \pgfmathsetmacro{\VERT}{0.20}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}        
     % 
     \centering
     \begin{tikzpicture}[%
@@ -376,9 +369,8 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$x$}; \fill[fill=black] (O) circle[radius=.7pt];
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}
@@ -404,9 +396,6 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.20}
     \pgfmathsetmacro{\VERT}{0.20}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}    
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}            
     % 
     \centering
     \begin{tikzpicture}[%
@@ -477,12 +466,11 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$y$}; \fill[fill=black] (O) circle[radius=.7pt];
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
-      \end{scope}
+      \end{scope}      
     \end{tikzpicture}
   \end{minipage}
   \caption{Rotación infinitesimal de un ángulo $\varepsilon$,
@@ -972,9 +960,6 @@ igualdades que se necesitarán posteriormente:
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.60}
     \pgfmathsetmacro{\VERT}{0.30}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}          
     \begin{tikzpicture}[%
       scale=1.0,
       baseline,
@@ -1114,11 +1099,11 @@ igualdades que se necesitarán posteriormente:
       \fill (vertice) circle[radius=0.5pt];
 
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
-      \end{scope}            
+      \end{scope}      
     \end{tikzpicture}
     \caption{Rotación pasiva un ángulo $\alpha$ sobre un vector $\vvv{x}$ alrededor de
       un eje de giro genérico.}
@@ -1134,9 +1119,6 @@ igualdades que se necesitarán posteriormente:
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.55}
     \pgfmathsetmacro{\VERT}{0.45}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}          
     \begin{tikzpicture}[%
       scale=1.0,
       baseline,
@@ -1264,11 +1246,11 @@ igualdades que se necesitarán posteriormente:
       \fill (centrobase) circle[radius=1pt];
       \fill (vertice) circle[radius=0.5pt];
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
-      \end{scope}
+      \end{scope}      
     \end{tikzpicture}
     \caption{Vectores de referencia para obtener el resultado de un giro pasivo de un
       vector $\vvv{x}$ un ángulo $\alpha$.}
@@ -1294,9 +1276,6 @@ igualdades que se necesitarán posteriormente:
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.78}
     \pgfmathsetmacro{\VERT}{0.30}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}    
     \begin{tikzpicture}[%
       scale=1.0,
       baseline,
@@ -1449,11 +1428,11 @@ igualdades que se necesitarán posteriormente:
       \fill (centrobase) circle[radius=1pt];
       \fill (vertice) circle[radius=0.5pt];
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
-      \end{scope}
+      \end{scope}      
     \end{tikzpicture}
     \caption{El vector transformado $\vvv{x}'$ es la suma de
       $\vvv{x}'_{\scriptstyle\perp}$ y
@@ -1474,9 +1453,6 @@ igualdades que se necesitarán posteriormente:
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.30}
     \pgfmathsetmacro{\VERT}{0.46}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}             
     \begin{tikzpicture}[scale=1.0,
       baseline,
       circunferencia/.style={%
@@ -1544,12 +1520,11 @@ igualdades que se necesitarán posteriormente:
       %%% Centro
       \fill[fill=black,draw=black] (origen) circle[radius=1pt];
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
-      \end{scope}
+      \end{scope}      
     \end{tikzpicture}
     \caption{Circunferencia de giro y descomposición de
       $\vvv{x}'_{\scriptstyle\perp}$ en función de

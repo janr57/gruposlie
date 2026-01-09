@@ -57,9 +57,6 @@ Las coordenadas de P con respecto a este sistema son
     % Fondo
     \pgfmathsetmacro{\HORZ}{0.40}
     \pgfmathsetmacro{\VERT}{0.24}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
     %
     \centering
     \begin{tikzpicture}[%
@@ -113,10 +110,10 @@ Las coordenadas de P con respecto a este sistema son
       \node[above right] at (P) {$P$};
       % Origen
       \filldraw (O) circle [radius=.2pt];
+      
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}
@@ -143,9 +140,6 @@ Las coordenadas de P con respecto a este sistema son
      % Fondo
     \pgfmathsetmacro{\HORZ}{0.25}
     \pgfmathsetmacro{\VERT}{0.35}
-    \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-    \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-    \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
     % 
     \centering
     \begin{tikzpicture}[%
@@ -209,12 +203,11 @@ Las coordenadas de P con respecto a este sistema son
       % Origen
       \filldraw (O) circle [radius=.2pt];
       % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
+      \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
-      \end{scope}      
+      \end{scope}
     \end{tikzpicture}
     \caption{Ejes rotados un ángulo $\alpha$.
       Las coordenadas de P con respecto a estos nuevos ejes son $(x'_1,x'_2)$.}
@@ -1055,9 +1048,6 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
   % Fondo
   \pgfmathsetmacro{\HORZ}{0.23}
   \pgfmathsetmacro{\VERT}{0.25}
-  \pgfmathsetmacro{\MOD}{sqrt(\HORZ^2 + \VERT^2)}
-  \pgfmathsetmacro{\ANGSD}{atan(\VERT / \HORZ)}
-  \pgfmathsetmacro{\ANGII}{\ANGSD + 180.0}
   % 
   \centering
   \begin{tikzpicture}[%
@@ -1125,16 +1115,12 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
     {\scriptsize $\Delta y < 0$} (P' -| left_origin);
     % Origen
     \filldraw (O) circle [radius=.2pt];
-      % Fondo amarillo
-      \path (current bounding box.south west) ++(\ANGII:\MOD) coordinate (SW);
-      \path (current bounding box.north east) ++(\ANGSD:\MOD) coordinate (NE);
-      % \filldraw[draw=black, fill=red] (NE) circle[radius=1pt];
-      \begin{scope}[on background layer]
-        \draw[background] (SW) rectangle (NE);
-      \end{scope}    
-%    \begin{scope}[on background layer]
-%      \node [background, fit= (incx) (incy) (letraejex) (letraejey)] {};
-%    \end{scope}
+    % Fondo amarillo
+    \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+    \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+    \begin{scope}[on background layer]
+      \draw[background] (SW) rectangle (NE);
+    \end{scope}
   \end{tikzpicture}
   \caption{Giro infinitesimal antihorario $\varepsilon$, de los ejes
     $x$ e $y$, que desde el punto de vista de estos, el vector aparenta

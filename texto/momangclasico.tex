@@ -617,7 +617,7 @@ véase la figura~\ref{fig:cla-rot-funcion-ej-1}
     \draw[-{Latex[width=7pt]},black!50,line width=2pt]
     (0,0,0) -- node[above left=0pt and -3pt] {\small $\vvv{r}$}
     (\rvec,0,0) coordinate (P);
-    \filldraw (P) circle[radius=1.2pt];
+    \filldraw[fill=gray] (P) circle[radius=1.2pt];
     \node[above right=-8pt and 0pt,black!50] at (P) {\small $P$};
     \node[above left=0pt and 5pt] at (P)
     {\footnotesize $f(\vvv{r}) = 2$};
@@ -626,7 +626,7 @@ véase la figura~\ref{fig:cla-rot-funcion-ej-1}
     \draw[-{Latex[width=7pt]},red!90!black,line width=2pt]
     (0,0,0) -- node[above left=0pt and -3pt] {\small $\vvv{\tilde{r}}$}
     (0,\rvec,0) coordinate (P');
-    \filldraw (P') circle[radius=1.2pt];
+    \filldraw[fill=red] (P') circle[radius=1.2pt];
     \node[below left] at (P') {\small $\tilde{P}$};
     \node[above right=4pt and 0pt] at (P')
     {\footnotesize $\tilde{f}(\vvv{\tilde{r}}) = 2$};

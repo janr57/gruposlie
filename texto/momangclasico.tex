@@ -35,8 +35,7 @@ Tierra y despreciando el resto de interacciones, como las debidas a otros astros
 Cuando ocurre esto, se pueden resolver las ecuaciones del movimiento de una forma más
 sencilla.
 
-Calculamos el momento angular de una partícula en coordenadas
-cartesianas rectangulares
+Calculamos el momento angular de una partícula en coordenadas cartesianas rectangulares
 \[
   \vvv{L}
   =
@@ -60,11 +59,10 @@ De la expresión anterior, deducimos sus componentes cartesianas:
   L_z &= xp_y - yp_x
 \end{align*}
   
-Hay una forma más general para calcular la componente del momento
-angular (o de cualquier vector) con respecto a cualquier dirección, y
-es multiplicar escalarmente el vector unitario que tenga esa dirección
-por el vector. Así, si queremos calcular, por ejemplo las componentes
-cartesianas del momento angular, podemos hacer
+Hay una forma más general para calcular la componente del momento angular (o de cualquier
+vector) con respecto a cualquier dirección, y es multiplicar escalarmente el vector
+unitario que tenga esa dirección por el vector. Así, si queremos calcular, por ejemplo
+las componentes cartesianas del momento angular, podemos hacer
 \begin{align*}
   L_x &= \uvec{\i}\cdot\vvv{L}\\
   L_y &= \uvec{\j}\cdot\vvv{L}\\
@@ -73,10 +71,9 @@ cartesianas del momento angular, podemos hacer
 
 
 \section{Componente del momento angular con respecto a un eje}
-En general, si $\xhat{n} = (n_x, n_y, n_z)$ es el versor que define
-una dirección cualquiera del espacio, $\vvv{r} = (x, y, z)$ y
-$\vvv{p} = (p_x, p_y, p_z)$, la componente del momento angular según
-esa dirección es
+En general, si $\xhat{n} = (n_x, n_y, n_z)$ es el versor que define una dirección
+cualquiera del espacio, $\vvv{r} = (x, y, z)$ y $\vvv{p} = (p_x, p_y, p_z)$, la
+componente del momento angular según esa dirección es
 \[
   L_n = \xhat{n}\cdot\vvv{L}
   = n_x(yp_z-zp_y) + n_y(zp_x-xp_z) + n_z(xp_y-yp_x)
@@ -155,8 +152,8 @@ En esta última expresión reconocemos los generadores del grupo SO(3)
     \end{pmatrix}\\
 \end{align*}
 
-Finalmente obtenemos una expresión que nos relaciona la componente del
-momento angular con una rotación en el espacio --grupo SO(3)--
+Finalmente obtenemos una expresión que nos relaciona la componente del momento angular
+con una rotación en el espacio --grupo SO(3)--
 \begin{equation}\label{eq:cla-Ln}
   L_n
   =
@@ -166,18 +163,17 @@ momento angular con una rotación en el espacio --grupo SO(3)--
 \end{equation}
 
 \subsection{Rotación de vectores en el espacio euclídeo}
-Ya hemos visto que al girar los ejes de coordenadas alrededor de un cierto
-eje (rotación pasiva) se produce un cambio en las coordenadas de un vector
+Ya hemos visto que al girar los ejes de coordenadas alrededor de un cierto eje (rotación
+pasiva) se produce un cambio en las coordenadas de un vector
 \[
   \vvv{\tilde{r}}
   = \mmm{R}(\xhat{n},\theta) \vvv{r}
   = e^{\theta\/\xhat{n}\cdot\mmm{G}} \vvv{r}
 \]
-y que matematicamente equivale a dejar los ejes inmóviles y a girar en
-sentido contrario (horario) ese objeto con respecto al mismo eje
-(rotación activa).
-Si quisiéramos rotar el vector en sentido positivo (antihorario), deberíamos
-realizar la operación inversa
+y que matematicamente equivale a dejar los ejes inmóviles y a girar en sentido contrario
+(horario) ese objeto con respecto al mismo eje (rotación activa).
+Si quisiéramos rotar el vector en sentido positivo (antihorario), deberíamos realizar la
+operación inversa
 \[
   \vvv{\tilde{r}}
   = \mmm{R}(\xhat{n},\theta) \vvv{r}
@@ -190,33 +186,31 @@ En Física asignamos un significado distinto a los dos tipos de transformaciones
 %punto de vista físico más que matemático.
 
 \subsubsection{Rotación pasiva}
-Recurrimos a una transformación pasiva (traslación o rotación) cuando queremos
-presentar el punto de vista de un observador situado en otro sistema de
-referencia, que puede estar desplazado o rotado con respecto al sistema de
-referencia original.
-En este caso estamos considerando \emph{el mismo fenómeno u objeto físico}
-desde otro punto de vista.% y los dos puntos de vista se pueden considerar
+Recurrimos a una transformación pasiva (traslación o rotación) cuando queremos presentar
+el punto de vista de un observador situado en otro sistema de referencia, que puede estar
+desplazado o rotado con respecto al sistema de referencia original.
+En este caso estamos considerando \emph{el mismo fenómeno u objeto físico}desde otro
+punto de vista.% y los dos puntos de vista se pueden considerar
 %en el mismo o en distintos instantes de tiempo.
 
 \subsubsection{Rotación activa}
-Cuando consideramos una rotación activa (en general, cualquier transformación
-activa, como traslación o rotación), estamos considerando que \emph{el objeto
-  físico está cambiando con respecto a un observador}, esto es, estamos
+Cuando consideramos una rotación activa (en general, cualquier transformación activa, como
+traslación o rotación), estamos considerando que
+\emph{el objeto físico está cambiando con respecto a un observador}, esto es, estamos
 considerando una situación dinámica que cambia al transcurrir el tiempo.
 
 
 \section{Rotación de una función real definida en
 \mathinhead{\symbb{R}^3}{rdufrdeR3}}
 \label{sect:cla-rotacionfunciones}
-En esta sección se analizará la rotación de una función real $f(x, y, z)$,
-definida en el espacio euclídeo, alrededor de una dirección dada por el
-versor $\xhat{n}$.
+En esta sección se analizará la rotación de una función real $f(x, y, z)$, definida en el
+espacio euclídeo, alrededor de una dirección dada por el versor $\xhat{n}$.
 
 \subsubsection{¿Qué se entiende por girar una función?}
 Girar una función implica lo siguiente:
 \begin{enumerate}
-\item Deberíamos rotar todos los puntos del espacio $\vvv{r} = (x,y,z)$, donde
-  esté definida la función, transformándolos en otros
+\item Deberíamos rotar todos los puntos del espacio $\vvv{r} = (x,y,z)$, donde esté
+  definida la función, transformándolos en otros
   $\tilde{r}=(\tilde{x},\tilde{y},\tilde{z})$
   \[
     \vvv{r} = (x,y,z)\hspace{1em}
@@ -225,63 +219,59 @@ Girar una función implica lo siguiente:
     \vvv{\tilde{r}} = (\tilde{x},\tilde{y},\tilde{z})
   \]
   
-  Al tratarse de una rotación activa (rotación de vectores), la matriz
-  de rotación es
+  Al tratarse de una rotación activa (rotación de vectores), la matriz de rotación es
   \begin{subequations}
   \begin{equation}\label{eq:cla-matrizrotacion-funcion}
     \mmm{R} = \mmm{R}(\xhat{n}, \theta) = e^{-\theta \xhat{n}\cdot\mmm{G}}
   \end{equation}
-  y las coordenadas del punto rotado se hallan aplicando esta matriz a las
-  originales
+  y las coordenadas del punto rotado se hallan aplicando esta matriz a las originales
   \begin{equation}\label{eq:cla-rotacion-aciva-funcion-coordenadasrotadas}
     \vvv{\tilde{r}} = \mmm{R} \vvv{r} = e^{-\theta\xhat{n}\cdot\mmm{G}}\vvv{r}
   \end{equation}
 \end{subequations}
 Sabemos rotar vectores mediante matrices, como
-en~\eqref{eq:cla-rotacion-aciva-funcion-coordenadasrotadas}, pero una función
-no es un vector; de hecho no tendría ningún sentido la expresión equivalente
-para funciones, si $\mmm{R}$ se representara mediante una matriz
+en~\eqref{eq:cla-rotacion-aciva-funcion-coordenadasrotadas}, pero una función no es un
+vector; de hecho no tendría ningún sentido la expresión equivalente para funciones, si
+$\mmm{R}$ se representara mediante una matriz
 \[
   \cancelout{\tilde{f} = \mmm{R} f}
 \]
 
-Es como si una función no tuviera \emph{elementos físicos} que permitieran
-girarla mediante la \emph{herramienta} matriz de rotación.
+Es como si una función no tuviera \emph{elementos físicos} que permitieran girarla
+mediante la \emph{herramienta} matriz de rotación.
 Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}.
 \footnotetext{Más adelante se verá que la expresión $\tilde{f} = \mmm{R} f$
   tendrá sentido cuando $\mmm{R}$ se represente como operador diferencial.}
 
-\item ¿Cómo podremos dar con una expresión matemática para la función
-  rotada $\tilde{f}$?
+\item ¿Cómo podremos dar con una expresión matemática para la función rotada $\tilde{f}$?
   
-  Cada punto, al rotar, debe \emph{llevarse consigo} de alguna manera el
-  valor que tenía en la función original $f$ hasta la rotada $\tilde{f}$;
-  en otras palabras,
-  \emph{la nueva función se debe obtener a partir de la original y tener
-  el mismo valor para los puntos originales y sus correspondientes rotados}.
+  Cada punto, al rotar, debe \emph{llevarse consigo} de alguna manera el valor que tenía
+  en la función original $f$ hasta la rotada $\tilde{f}$; en otras palabras,
+  \emph{la nueva función se debe obtener a partir de la original y tener el mismo valor
+    para los puntos originales y sus correspondientes rotados}.
   En otras palabras, se debe cumplir $f$ y $\tilde{f}$ tengan el mismo valor
   \begin{equation}\label{eq:cla-funcion-relacion-funcionrotada}
     f(x,y,z) = \tilde{f}(\tilde{x},\tilde{y},\tilde{z})
   \end{equation}
-  siempre que $\tilde{x}$, $\tilde{y}$, $\tilde{z}$ sean las coordenadas
-  rotadas del punto original $x$, $y$, $z$.
+  siempre que $\tilde{x}$, $\tilde{y}$, $\tilde{z}$ sean las coordenadas rotadas del
+  punto original $x$, $y$, $z$.
 
-  Obsérvese que una función se define a través de sus argumentos y de
-  la expresión matemática que especifica cómo se opera con estos.
-  Por ejemplo, en la siguiente función los argumentos son las coordenadas
-  $x$, $y$, $z$ y la expresión $x^2 - y + 2xz$ detalla cómo se opera con
-  ellos para obtener el valor de $f$
+  Obsérvese que una función se define a través de sus argumentos y de la expresión
+  matemática que especifica cómo se opera con estos.
+  Por ejemplo, en la siguiente función los argumentos son las coordenadas $x$, $y$, $z$ y
+  la expresión $x^2 - y + 2xz$ detalla cómo se opera con ellos para obtener el valor de
+  $f$
   \[
     f(x,y,z) = x^2 - y + 2xz
   \]
   
-  Así para girar la función debemos recurrir a modificar los
-  argumentos y obtener una expresión matemática para la función rotada.
+  Así para girar la función debemos recurrir a modificar los argumentos y obtener una
+  expresión matemática para la función rotada.
   
   Para obtener la expresión matemática de la nueva función
-  $\tilde{f}(\tilde{x},\tilde{y},\tilde{z})$, partimos del valor
-  de la función original $f(x,y,z)$ y sustituimos las coordenadas originales
-  por sus equivalentes rotadas. Esto se realiza mediante la inversa de la
+  $\tilde{f}(\tilde{x},\tilde{y},\tilde{z})$, partimos del valor de la función original
+  $f(x,y,z)$ y sustituimos las coordenadas originales por sus equivalentes rotadas. Esto
+  se realiza mediante la inversa de la
   matriz de rotación~\eqref{eq:cla-matrizrotacion-funcion}
   \begin{subequations}
     \begin{equation}\label{eq:cla-matrizrotacioninversa-funcion}
@@ -300,8 +290,8 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
     \end{equation}
   \end{subequations}
 
-  Se podría vislumbrar la necesidad de la rotación inversa mediante el
-  siguiente argumento, que se intenta ilustrar a través de la
+  Se podría vislumbrar la necesidad de la rotación inversa mediante el siguiente
+  argumento, que se intenta ilustrar a través de la
   figura~\eqref{fig:cla-calculo-f-girada}:
 
   Para calcular el valor de la función girada en el punto $\tilde{P}$,
@@ -399,37 +389,35 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
     \end{tikzpicture}
     \caption{Para calcular el valor de la función rotada $\tilde{f}$ en el punto
       $\tilde{P}$, esto es, ($\tilde{f}(\vvv{\tilde{r}}$), giramos el punto
-      \emph{en sentido contrario} al giro que se le dio a la función para
-      localizar el punto original $P$ y se calcula el valor de la función
-      original en ese punto $P$ sin girar $f(\vvv{r}=$. Finalmente se
-    igualan los valores $\tilde{f}(\vvv{\tilde{r}}) = f(\vvv{r})$.}
+      \emph{en sentido contrario} al giro que se le dio a la función para localizar el
+      punto original $P$ y se calcula el valor de la función original en ese punto $P$
+      sin girar $f(\vvv{r}=$. Finalmente se igualan los valores
+      $\tilde{f}(\vvv{\tilde{r}}) = f(\vvv{r})$.}
     \label{fig:cla-calculo-f-girada}
   \end{figure}
 
 \end{enumerate}
 
 Es importante que se comprenda que
-\emph{al transformar las coordenadas originales
-$x$, $y$, $z$ de la función mediante la transformación inversa $\mmm{R}^{-1}$,
-estamos rotando la función según la transformación directa $\mmm{R}$}.
+\emph{al transformar las coordenadas originales $x$, $y$, $z$ de la función mediante la
+  transformación inversa $\mmm{R}^{-1}$, estamos rotando la función según la
+  transformación directa $\mmm{R}$}.
 
-Para terminar esta explicación podríamos dar una \emph{receta} para rotar
-una función:
+Para terminar esta explicación podríamos dar una \emph{receta} para rotar una función:
 \begin{itemize}
 \item Identifíquese una matriz de rotación $\mmm{R}$ para la función.
-\item Aplique la inversa de la matriz anterior $\mmm{R}^{-1}$, para
-  expresar las coordenadas originales en función de las nuevas
+\item Aplique la inversa de la matriz anterior $\mmm{R}^{-1}$, para expresar las
+  coordenadas originales en función de las nuevas
   $\vvv{r} = \mmm{R}^{-1} \vvv{\tilde{r}}$.
-\item Sustituya las coordenadas originales en la función original
-  por sus equivalentes obtenidas en el punto anterior, para obtener
-  la función rotada, $\tilde{f}(\vvv{\tilde{r}})=f(\mmm{R}^{-1}\vvv{\tilde{r}})$
-\item Opcionalmente, reescriba la función rotada quitando las tildes a las
-  coordenadas, para obtener $\tilde{f}(x,y,z)$.
+\item Sustituya las coordenadas originales en la función original por sus equivalentes
+  obtenidas en el punto anterior, para obtener la función rotada,
+  $\tilde{f}(\vvv{\tilde{r}})=f(\mmm{R}^{-1}\vvv{\tilde{r}})$
+\item Opcionalmente, reescriba la función rotada quitando las tildes a las coordenadas,
+  para obtener $\tilde{f}(x,y,z)$.
 \end{itemize}
 
 \subsubsection{Primer ejemplo}
-Rotaremos la función $f(x,y,z) = 2x+3y-z$ un ángulo de \ang{90}
-alrededor del eje $z$.
+Rotaremos la función $f(x,y,z) = 2x+3y-z$ un ángulo de \ang{90} alrededor del eje $z$.
 
 Identificamos la matriz de rotación
 \begin{equation}\label{eq:cla-matriz-ej1}
@@ -460,8 +448,8 @@ La inversa de la matriz, la traspuesta porque es una matriz ortogonal, es
   \end{pmatrix}    
 \end{equation}
 
-Aplicamos~\eqref{eq:cla-matrizinversa-ej1} para obtener las coordenadas
-originales en función de las rotadas
+Aplicamos~\eqref{eq:cla-matrizinversa-ej1} para obtener las coordenadas originales en
+función de las rotadas
 \[
   \vvv{r} = \mmm{R}_z^{-1} \vvv{\tilde{r}}
 \]
@@ -489,9 +477,9 @@ produciendo las siguientes relaciones
   z &= \tilde{z}
 \end{align*}
 
-La función transformada que buscamos se obtiene sustituyendo las coordenadas
-originales en función de las rotadas, obligando a que tenga el mismo valor
-que la original en los puntos originales y rotados
+La función transformada que buscamos se obtiene sustituyendo las coordenadas originales
+en función de las rotadas, obligando a que tenga el mismo valor que la original en los
+puntos originales y rotados
 \[
   \tilde{f}(\tilde{x},\tilde{y},\tilde{z})
   = f(x,y,z)
@@ -515,16 +503,14 @@ función rotada $\tilde{f}$
   \tilde{f}(x, y, z) = 2y + 3x - z
 \]
 
-Para terminar, vamos a aseguranos de que hemos obtenido la función rotada
-correcta.
-Para comprobarlo, calcularemos el valor de la función en un punto,
-por ejemplo $\vvv{r} = (1,0,0)$
+Para terminar, vamos a aseguranos de que hemos obtenido la función rotada correcta.
+Para comprobarlo, calcularemos el valor de la función en un punto, por ejemplo
+$\vvv{r} = (1,0,0)$
 \[
   f(1,0,0) = 2\cdot 1 + 3\cdot 0 - 0 = 2
 \]
 
-Ahora giramos el punto (vector) usando la matriz de rotación activa
-$R_z(\pi/2)$
+Ahora giramos el punto (vector) usando la matriz de rotación activa $R_z(\pi/2)$
 \[
   \begin{pmatrix}
     \tilde{x}\\
@@ -555,9 +541,8 @@ El punto rotado es $\vvv{\tilde{r}} = (0,1,0)$
   \vvv{r}'(0,1,0)
 \]
 Finalmente, calculamos el valor de la función rotada
-$\tilde{f}(x,y,z) = 2y + 3x - z$ y debería dar el mismo resultado que
-la función original aplicada al punto sin rotar $f(1,0,0)=2$,
-véase la figura~\ref{fig:cla-rot-funcion-ej-1}
+$\tilde{f}(x,y,z) = 2y + 3x - z$ y debería dar el mismo resultado que la función original
+aplicada al punto sin rotar $f(1,0,0)=2$, véase la figura~\ref{fig:cla-rot-funcion-ej-1}
 \[
   \tilde{f}(0,1,0) = 2\cdot 1 + 3\cdot 0 - 0 = 2
 \]
@@ -652,9 +637,8 @@ véase la figura~\ref{fig:cla-rot-funcion-ej-1}
     \end{scope}
   \end{tikzpicture}
   \caption{Rotación activa de la función $f(x,y,z) = 2x + 3y -z$, del ejemplo 1,
-    alrededor del eje $z$, un ángulo de \ang{90}, que se representa mediante
-    la rotación de un punto $P(1,0,0)$ hasta $\tilde{P}(0,1,0)$ del espacio
-    tridimensional.}
+    alrededor del eje $z$, un ángulo de \ang{90}, que se representa mediante la rotación
+    de un punto $P(1,0,0)$ hasta $\tilde{P}(0,1,0)$ del espacio tridimensional.}
   \label{fig:cla-rot-funcion-ej-1}
 \end{figure}
 
@@ -678,8 +662,8 @@ La matriz de rotación y su inversa en función del ángulo son
   \end{pmatrix}    
 \]
 
-Las coordenadas originales en función de las transformadas se obtendrían
-mediante la matriz inversa
+Las coordenadas originales en función de las transformadas se obtendrían mediante la
+matriz inversa
 \[
   \begin{pmatrix}
     x\\
@@ -717,14 +701,14 @@ La función rotada queda
     - \tilde{z}
 \end{align*}
 
-Ahora comprobaremos que la anterior es la función rotada correcta, calculando el
-valor de la función original en un punto genérico $\vvv{r}_0 = (x_0, y_0, z_0)$
+Ahora comprobaremos que la anterior es la función rotada correcta, calculando el valor de
+la función original en un punto genérico $\vvv{r}_0 = (x_0, y_0, z_0)$
 \[
   f(\vvv{r}_0) = f(x_0, y_0, z_0) = 2x_0 + 3y_0 -z_0
 \]
 
-Ahora rotamos el punto $\vvv{r}_0 = (x_0, y_0, z_0)$ utilizando la matriz
-de rotación activa $\mmm{R}_z$, obteniendo
+Ahora rotamos el punto $\vvv{r}_0 = (x_0, y_0, z_0)$ utilizando la matriz de rotación
+activa $\mmm{R}_z$, obteniendo
 \[
   \vvv{r}_0 = (x_0, y_0, z_0)
   \longrightarrow
@@ -763,8 +747,8 @@ La función rotada en el nuevo punto da
 que coincide con el valor de la función $f(x_0,y_0,z_0) = 2x_0+3y_0-z_0$.
 
 \subsubsection{Tercer ejemplo}
-Nos proponemos rotar la función $f(x,y,z) = 5x-4y+z$ un ángulo
-de $\ang{60}=\pi/3\,\si{\radian}$ alrededor del eje $z$.
+Nos proponemos rotar la función $f(x,y,z) = 5x-4y+z$ un ángulo de
+$\ang{60}=\pi/3\,\si{\radian}$ alrededor del eje $z$.
 
 El valor de la función un punto cualquiera, como $\vvv{r} = P(3,2,1)$ es
 \begin{equation}\label{eq:cla-valor-funcion-ej3}
@@ -823,9 +807,9 @@ $\tilde{f}(\tilde{x},\tilde{y},\tilde{z})$ de manera que se cumpla
   \tilde{f}(\vvv{\tilde{r}}) = f(\vvv{r}) = 8
 \]
 
-Para encontrar la función para cualquier valor de los argumentos,
-aplicamos la matriz inversa de~(\ref{eq:cla-matriz-ej3}) para
-encontrar las coordenadas originales en función de las rotadas
+Para encontrar la función para cualquier valor de los argumentos, aplicamos la matriz
+inversa de~(\ref{eq:cla-matriz-ej3}) para encontrar las coordenadas originales en función
+de las rotadas
 \[
   \begin{pmatrix}
     x\\
@@ -849,8 +833,7 @@ encontrar las coordenadas originales en función de las rotadas
   \end{pmatrix}
 \]
 
-Sustituimos estas coordenadas en la función original, para obtener la
-función rotada
+Sustituimos estas coordenadas en la función original, para obtener la función rotada
 \begin{align*}
   \tilde{f}(\tilde{x},\tilde{y},\tilde{z})
   &=
@@ -872,8 +855,8 @@ Operando la expresión anterior, la función rotada queda
   + \tilde{z}
 \]
 
-Los argumentos de la  función son mudos y en realidad son coordenadas
-cartesianas, se pueden reescribir 
+Los argumentos de la  función son mudos y en realidad son coordenadas cartesianas, se
+pueden reescribir 
 $\tilde{x}\rightarrow x$, $\tilde{y}\rightarrow y$ y $\tilde{z}\rightarrow z$
 quedando la función rotada en su forma final
 \begin{equation}\label{eq:cla-functionrotada-ej3}
@@ -883,9 +866,9 @@ quedando la función rotada en su forma final
   + z
 \end{equation}
 
-Por último, comprobamos que el valor de la función rotada en el punto
-rotado $\tilde{P}$ es el mismo que el de la función original en el punto
-$P$, ver~\eqref{eq:cla-valor-funcion-ej3}
+Por último, comprobamos que el valor de la función rotada en el punto rotado $\tilde{P}$
+es el mismo que el de la función original en el punto $P$,
+ver~\eqref{eq:cla-valor-funcion-ej3}
 \begin{align*}
   \tilde{f}(\vvv{\tilde{r}})
   &=
@@ -925,8 +908,8 @@ Necesitamos la matriz inversa para obtener la expresión rotada de la función
   \end{pmatrix}
 \]
 
-Las coordenadas originales se pueden poner en función de las rotadas mediante
-la matriz inversa
+Las coordenadas originales se pueden poner en función de las rotadas mediante la matriz
+inversa
 \[
   \vvv{r}
   = \mmm{R}_z^{-1}(\theta)\,\vvv{\tilde{r}}
@@ -962,8 +945,7 @@ Produciendo las siguientes transformaciones de coordenadas
   z &= \tilde{z}
 \end{align*}
 
-La función rotada debe tener el mismo valor que la original con las coordenadas
-sin rotar
+La función rotada debe tener el mismo valor que la original con las coordenadas sin rotar
 \begin{align*}
   \tilde{f}(\tilde{x}, \tilde{y}, \tilde{z})
   &= f(x,y,z) =
@@ -1005,18 +987,18 @@ Si $\theta=\pi/2\,\si{\radian} = \ang{90}$
 }
 
 \section{El momento angular y el teorema de Noether}
-El teorema de Noether relaciona la invariancia del lagrangiano bajo
-ciertas transformaciones con la conservación de algunas magnitudes físicas.
-Por ejemplo, cuando el lagrangiano es invariante bajo una rotación,
-entonces se conserva el momento angular.
-En este contexto también se puede afirmar que hay una relación entre una
-rotación y el momento angular.
+El teorema de Noether relaciona la invariancia del lagrangiano bajo ciertas
+transformaciones con la conservación de algunas magnitudes físicas.
+Por ejemplo, cuando el lagrangiano es invariante bajo una rotación, entonces se conserva
+el momento angular.
+En este contexto también se puede afirmar que hay una relación entre una rotación y el
+momento angular.
 
 \subsection{Invariancia de una función bajo rotaciones}
 Supongamos que tenemos una función de dos variables\footnotemark{}, como
-\footnotetext{Elegimos una función de dos variables, en lugar de tres, para
-  que se pueda comprobar gráficamente la invariancia; una
-función de tres variables no se podría representar gráficamente.}
+\footnotetext{Elegimos una función de dos variables, en lugar de tres, para que se pueda
+  comprobar gráficamente la invariancia; una función de tres variables no se podría
+  representar gráficamente.}
 \begin{equation}\label{eq:cla-funcion-invariante-ejemplo}
   f(x,y) = x^2 + y^2
 \end{equation}
@@ -1044,13 +1026,12 @@ Así, la función rotada es idéntica a la original, ver figura~\ref{fig:cla-x2y
   \tilde{f}(x,y) = x^2 + y^2 = f(x,y)
 \]
 
-Cuando la función tiene la misma forma antes que después de rotar los
-ejes, como en este caso, se dice que $f$ es invariante bajo la
-rotación.
+Cuando la función tiene la misma forma antes que después de rotar los ejes, como en este
+caso, se dice que $f$ es invariante bajo la rotación.
 
-Hemos probado la invariancia con una rotación finita. Ahora llevaremos a
-cabo una rotación infinitesimal de un ángulo $\varepsilon$, porque a menudo
-es más comodo realizar transformaciones infinitesimales.
+Hemos probado la invariancia con una rotación finita. Ahora llevaremos a cabo una
+rotación infinitesimal de un ángulo $\varepsilon$, porque a menudo es más comodo realizar
+transformaciones infinitesimales.
 
 Primero escribimos el desarrollo de Taylor de las funciones seno y coseno
 \begin{align*}
@@ -1058,9 +1039,9 @@ Primero escribimos el desarrollo de Taylor de las funciones seno y coseno
   \sin\theta &= \theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots
 \end{align*}
 
-Recordemos que cuando consideramos una cantidad $\varepsilon$ como
-infinitesimal, estamos despreciando los términos en $\varepsilon^2$ y
-superiores. Las funciones anteriores, en función de $\varepsilon$ quedan
+Recordemos que cuando consideramos una cantidad $\varepsilon$ como infinitesimal, estamos
+despreciando los términos en $\varepsilon^2$ y superiores. Las funciones anteriores, en
+función de $\varepsilon$ quedan
 \begin{align*}
   \cos\varepsilon
   &=
@@ -1085,8 +1066,8 @@ El cambio en las coordenadas es
   \Delta y &= \tilde{y} - y = -\varepsilon x + y -y = -\varepsilon x
 \end{align*}
 
-El desarrollo en serie de la función $\tilde{f}(\tilde{x},\tilde{y})$,
-de dos variables después de la rotación infinitesimal es
+El desarrollo en serie de la función $\tilde{f}(\tilde{x},\tilde{y})$, de dos variables
+después de la rotación infinitesimal es
 \[
   \tilde{f}(\tilde{x},\tilde{y})
   =
@@ -1104,8 +1085,7 @@ Resulta que
   \tilde{f} = f
 \]
 
-Por tanto, la función $f(x,y) = x^2 + y^2$ es invariante bajo una rotación
-infinitesimal.
+Por tanto, la función $f(x,y) = x^2 + y^2$ es invariante bajo una rotación infinitesimal.
 \begin{figure}[ht]
   \def\scl{1}
   % Fondo
@@ -1190,12 +1170,11 @@ infinitesimal.
   \label{fig:cla-x2y2}
 \end{figure}
 
-¿Bastaría con saber que se mantiene invariable la función bajo una
-transformación infinitesimal para colegir que ocurrirá lo mismo para una
-transformación finita?
-La respuesta es sí, con la condición de que la transformación forme un grupo
-continuo en el que se obtenga la transformación identidad cuando el parámetro
-sea cero, $\theta=0$, osea que la transformación forme un grupo de Lie.
+¿Bastaría con saber que se mantiene invariable la función bajo una transformación
+infinitesimal para colegir que ocurrirá lo mismo para una transformación finita?
+La respuesta es sí, con la condición de que la transformación forme un grupo continuo en
+el que se obtenga la transformación identidad cuando el parámetro sea cero, $\theta=0$,
+osea que la transformación forme un grupo de Lie.
 
 \subsection{Invariancia del lagrangiano bajo rotaciones}
 El lagrangiano de un sistema es una función de las coordenadas generalizadas,
@@ -1206,8 +1185,8 @@ Se define como la energía cinética menos la energía potencial del sistema
   = T - U
 \]
 
-A partir de él se pueden deducir las ecuaciones de Euler-Lagrange,
-que en mecánica son el equivalente de las ecuaciones del movimiento
+A partir de él se pueden deducir las ecuaciones de Euler-Lagrange, que en mecánica son el
+equivalente de las ecuaciones del movimiento
 \begin{equation}\label{eq:cla-EulerLagrange}
   \dfrac{\partial \symcal{L}}{\partial q_i}
   =
@@ -1216,17 +1195,16 @@ que en mecánica son el equivalente de las ecuaciones del movimiento
   (i = 1, 2, \cdots, N)
 \end{equation}
 
-Se suele llamar \emph{momento generalizado} asociado a la coordenada $q_i$
-a la cantidad
+Se suele llamar \emph{momento generalizado} asociado a la coordenada $q_i$ a la cantidad
 \[
   p_i = p_{q{_i}} = \dfrac{\partial\symcal{L}}{\partial\dot{q}_i}
 \]
 
-Nos preguntamos en qué tipo de situaciones físicas es invariante el lagrangiano
-bajo una rotación.
-Como las rotaciones forman un grupo de Lie, si el lagrangiano fuera invariante
-bajo una rotación infinitesimal, querría decir que también lo sería bajo
-cualquier rotación finita. 
+Nos preguntamos en qué tipo de situaciones físicas es invariante el lagrangiano bajo una
+rotación.
+Como las rotaciones forman un grupo de Lie, si el lagrangiano fuera invariante bajo una
+rotación infinitesimal, querría decir que también lo sería bajo cualquier rotación
+finita. 
 
 La matriz de rotación infinitesimal activa (antihoraria) del lagrangiano es
 \[
@@ -1237,14 +1215,12 @@ La matriz de rotación infinitesimal activa (antihoraria) del lagrangiano es
   \approx{I} - \varepsilon\xhat{n}\cdot\mmm{G}
 \]
 
-Consideraremos el caso más simple de un sistema formado por una
-partícula\footnotemark{}.
-\footnotetext{El resultado se podría generalizar fácilmente para un sistema
-  de $N$ partículas.}
-El lagrangiano $\symcal{L}$ de una partícula es una función de su posición y
-su velocidad.
-Cuando lo rotamos, el nuevo lagrangiano $\tilde{\symcal{L}}$ dependerá de la
-posición y velocidad rotadas
+Consideraremos el caso más simple de un sistema formado por una partícula\footnotemark{}.
+\footnotetext{El resultado se podría generalizar fácilmente para un sistema de $N$
+  partículas.}
+El lagrangiano $\symcal{L}$ de una partícula es una función de su posición y su velocidad.
+Cuando lo rotamos, el nuevo lagrangiano $\tilde{\symcal{L}}$ dependerá de la posición y
+velocidad rotadas
 \[
   \symcal{L}(\vvv{r}, \vvv{\dot{r}})
   \longrightarrow
@@ -1253,8 +1229,8 @@ posición y velocidad rotadas
 y queremos averiguar bajo qué condiciones se cumple la invariancia
 $\tilde{\symcal{L}} = \symcal{L}$.
 
-Como $\symcal{L}$ es una función, para rotarlo mediante $\mmm{R}$, aplicamos
-la rotación inversa a las coordenadas de la función
+Como $\symcal{L}$ es una función, para rotarlo mediante $\mmm{R}$, aplicamos la rotación
+inversa a las coordenadas de la función
 \[
   \vvv{\tilde{r}}
   =
@@ -1280,8 +1256,8 @@ Se ha producido un cambio en la posición
   \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{r}
 \end{equation}
 
-De forma similar podríamos haber calculado el cambio en la velocidad
-como consecuencia de la rotación infinitesimal
+De forma similar podríamos haber calculado el cambio en la velocidad como consecuencia de
+la rotación infinitesimal
 \begin{equation}\label{eq:cla-delta-velocidad}
   \Delta\dot{\vvv{r}}
   =
@@ -1293,12 +1269,11 @@ como consecuencia de la rotación infinitesimal
   =
   \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}
 \end{equation}
-donde hemos tenido en cuenta que $\xhat{n}$ y $\mmm{G}$ son independientes
-del tiempo.
+donde hemos tenido en cuenta que $\xhat{n}$ y $\mmm{G}$ son independientes del tiempo.
 
 Desarrollamos en serie el lagrangiano transformado por la rotación infinitesimal,
-despreciando los términos de orden $\varepsilon^2$ o superior y sustiyendo
-los incrementos~\eqref{eq:cla-delta-posicion} y~\eqref{eq:cla-delta-velocidad}
+despreciando los términos de orden $\varepsilon^2$ o superior y sustiyendo los
+incrementos~\eqref{eq:cla-delta-posicion} y~\eqref{eq:cla-delta-velocidad}
 \begin{align*}
   \tilde{\symcal{L}}(\tilde{\vvv{r}},\dot{\tilde{\vvv{r}}})
   &=
@@ -1317,8 +1292,7 @@ los incrementos~\eqref{eq:cla-delta-posicion} y~\eqref{eq:cla-delta-velocidad}
     \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}
 \end{align*}
 
-La traspuesta de la parcial del lagrangiano con respecto a las
-coordenadas es
+La traspuesta de la parcial del lagrangiano con respecto a las coordenadas es
 \[
   \left(\dfrac{\partial\symcal{L}}{\partial\vvv{r}}\right)^\trasp
   =
@@ -1328,8 +1302,7 @@ coordenadas es
     & \dfrac{\partial\symcal{L}}{\partial z}
     \end{pmatrix}
 \]
-y una fórmula similar para la traspuesta de la parcial con respecto a
-la velocidad.
+y una fórmula similar para la traspuesta de la parcial con respecto a la velocidad.
 
 Abreviamos ligeramente la notación
 \[
@@ -1397,8 +1370,8 @@ y que es una matriz antisimética
 
 Fijémomos en el término
 $\vvv{p}^\trasp (\xhat{n}\cdot\mmm{G}) \vvv{r}$ de la
-ecuación~(\ref{eq:cla-lagrangiana_rotada_1}). Como es un número, su
-traspuesta es el mismo número
+ecuación~(\ref{eq:cla-lagrangiana_rotada_1}). Como es un número, su traspuesta es el
+mismo número
 \[
   \vvv{p}^\trasp (\xhat{n}\cdot\mmm{G}) \vvv{r}
   =
@@ -1425,9 +1398,9 @@ Susituimos la expresión anterior en~(\ref{eq:cla-lagrangiana_rotada_1})
     (\xhat{n}\cdot\mmm{G})\,\vvv{p} \right]
 \]
 
-Teniendo en cuenta~\eqref{eq:cla-Ln}, vemos que el interior del corchete es
-la componente del momento angular del sistema con respecto de la dirección
-$\xhat{n}$ de rotación del lagrangiano.
+Teniendo en cuenta~\eqref{eq:cla-Ln}, vemos que el interior del corchete es la componente
+del momento angular del sistema con respecto de la dirección $\xhat{n}$ de rotación del
+lagrangiano.
 Llegamos a la expresión del lagrangiano cuando se rota infinitesimalmente
 \begin{equation}
   \tilde{\symcal{L}}
@@ -1435,25 +1408,23 @@ Llegamos a la expresión del lagrangiano cuando se rota infinitesimalmente
   \varepsilon\,\dfrac{d}{dt}\left(\xhat{n}\cdot\vvv{L}\right)
 \end{equation}
 
-Si resultase que la componente del momento angular con respecto de cualquier
-eje no dependiera del tiempo
+Si resultase que la componente del momento angular con respecto de cualquier eje no
+dependiera del tiempo
 \[
   \dfrac{d}{dt}(\xhat{n}\cdot\vvv{L}) = 0
 \]
-entonces el lagrangiano sería un invariante con respecto a
-las rotaciones continuas SO(3), y $\xhat{n}\cdot\vvv{L}$ sería constante,
-lo que quiere decir que la componente del momento angular con respecto
-a cualquier eje es constante, por lo que el momento angular $\vvv{L}$ no
-cambia con el tiempo.
+entonces el lagrangiano sería un invariante con respecto a las rotaciones continuas
+SO(3), y $\xhat{n}\cdot\vvv{L}$ sería constante, lo que quiere decir que la componente
+del momento angular con respecto a cualquier eje es constante, por lo que el momento angular $\vvv{L}$ no cambia con el tiempo.
 
-Así, según el teorema de Noether, si el lagrangiano de un sistema es
-invariante bajo rotaciones SO(3), se conserva el momento angular.
-En general, si se presentara otro tipo de simetría (traslaciones, etc.)
-se conservaría otra magnitud física.
+Así, según el teorema de Noether, si el lagrangiano de un sistema es invariante bajo
+rotaciones SO(3), se conserva el momento angular.
+En general, si se presentara otro tipo de simetría (traslaciones, etc.) se conservaría
+otra magnitud física.
 
 El momento angular está pues relacionado con las rotaciones.
-Para terminar adelantamos que como el spin es un momento angular, también
-estará relacionado con rotaciones, pero ¿qué tipo de rotaciones?
+Para terminar adelantamos que como el spin es un momento angular, también estará
+relacionado con rotaciones, pero ¿qué tipo de rotaciones?
 La respuesta la descubriremos más adelante.
 
 

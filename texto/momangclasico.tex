@@ -162,7 +162,8 @@ con una rotación en el espacio --grupo SO(3)--
     \vvv{r}^\trasp (\xhat{n}\cdot \mmm{G}) \,\vvv{p}
 \end{equation}
 
-\subsection{Rotación de vectores en el espacio euclídeo}
+\subsection{Rotación de vectores en el espacio euclídeo
+\mathinhead{\symbb{R}^3}{dlkjfjsR3}}
 Ya hemos visto que al girar los ejes de coordenadas alrededor de un cierto eje (rotación
 pasiva) se produce un cambio en las coordenadas de un vector
 \[
@@ -449,7 +450,24 @@ equivalente de las ecuaciones del movimiento
 
 Se suele llamar \emph{momento generalizado} asociado a la coordenada $q_i$ a la cantidad
 \[
-  p_i = p_{q{_i}} = \dfrac{\partial\symcal{L}}{\partial\dot{q}_i}
+  p_{q{_i}} = \dfrac{\partial\symcal{L}}{\partial\dot{q}_i}
+\]
+
+Cuando se utilizan coordenadas cartesianas, las ecuaciones de Euler-Lagrange para una
+partícula tienen la forma
+\[
+  \dfrac{\partial \symcal{L}}{\partial x_i}
+  =
+  \dfrac{d}{dt}\,\left(\dfrac{\partial\symcal{L}}{\partial \dot{x_i}}\right)
+  \hspace*{2em}
+  (i = 1, 2, 3)
+\]
+donde $x_1=x$, $x_2=y$, $x_3=z$.
+En este caso, tendríamos el momento lineal cartesiano de toda la vida
+\[
+  p_i = \dfrac{\partial\symcal{L}}{\partial\dot{x}_i}
+  \hspace{2em}
+  (i = 1, 2, 3)
 \]
 
 Nos preguntamos en qué tipo de situaciones físicas es invariante el lagrangiano bajo una
@@ -457,11 +475,11 @@ rotación.
 Como las rotaciones forman un grupo de Lie y, según la sección anterior
 \ref{sect:invariancia-bajo-rotaciones}, si el lagrangiano fuera invariante bajo una
 rotación infinitesimal, querría decir que también lo sería bajo cualquier rotación
-finita. 
+finita, vamos a aplicar al lagrangiano una rotación infinitesimal.
 
 La matriz de rotación infinitesimal activa (antihoraria) del lagrangiano es
 \[
-  \mmm{R}(\xhat{n},\varepsilon)
+  \mmm{R}^{-1}(\xhat{n},\varepsilon)
   =
   e^{-\varepsilon\xhat{n}\cdot\mmm{G}}
   \mmm
@@ -482,8 +500,8 @@ velocidad rotadas
 y queremos averiguar bajo qué condiciones se cumple la invariancia
 $\tilde{\symcal{L}} = \symcal{L}$.
 
-Como $\symcal{L}$ es una función, para rotarlo mediante $\mmm{R}$, aplicamos la rotación
-inversa a las coordenadas de la función
+Como $\symcal{L}$ es una función, para rotarlo mediante la matriz $\mmm{R}$, aplicamos la
+rotación inversa a las coordenadas de la función
 \[
   \vvv{\tilde{r}}
   =

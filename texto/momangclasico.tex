@@ -1015,14 +1015,18 @@ Las coordenadas se transforman como
 \]
 Operando la expresión matricial anterior, obtenemos las nuevas coordenadas (con tilde)
 en función de las originales
-\begin{align*}
-  \tilde{x}
-  &= x\cos\theta + y\sin\theta\\
-  \tilde{y}
-  &= -x\sin\theta + y\cos\theta
-\end{align*}
+\begin{subequations}
+  \begin{align}\label{eq:mangclas-xtilde}
+    \tilde{x}
+    &= x\cos\theta + y\sin\theta\\
+    \label{eq:mangclas-ytilde}
+    \tilde{y}
+    &= -x\sin\theta + y\cos\theta
+  \end{align}
+\end{subequations}
 
-La función rotada un ángulo finito $\theta$ es
+Sustituimos las ecuaciones anteriores \ref{eq:mangclas-xtilde} y \ref{eq:mangclas-ytilde}
+en $\tilde{f}(\tilde{x},\tilde{y}) =  \tilde{x}^2 + \tilde{y}^2$
 {\small
 \begin{align*}
   \tilde{f}(\tilde{x},\tilde{y})
@@ -1041,7 +1045,8 @@ La función rotada un ángulo finito $\theta$ es
 \end{align*}
 }
 
-Así, la función rotada es idéntica a la original%, ver figura~\ref{fig:cla-x2y2}
+Así, la función rotada es idéntica a la original, ver figura~\ref{fig:cla-x2y2}, donde
+se aprecia la simetría con respecto a un giro de los ejes $x$ e $y$
 \[
   \tilde{f}(\tilde{x},\tilde{y}) = \tilde{x}^2 + \tilde{y}^2 = x^2 + y^2 = f(x,y)
 \]
@@ -1049,170 +1054,7 @@ Así, la función rotada es idéntica a la original%, ver figura~\ref{fig:cla-x2
 Cuando la función tiene la misma forma antes que después de rotar los ejes, como en este
 caso, se dice que $f$ es invariante bajo la rotación.
 
-\subsection{Rotación infinitesimal}
-Hemos probado la invariancia con una rotación finita. Ahora llevaremos a cabo una
-rotación infinitesimal de un ángulo $\varepsilon$, porque a menudo es más comodo realizar
-transformaciones infinitesimales.
-
-Primero escribimos el desarrollo de Taylor de las funciones seno y coseno
-\begin{align*}
-  \cos\theta &= 1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots\\
-  \sin\theta &= \theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots
-\end{align*}
-
-Recordemos que cuando consideramos una cantidad $\varepsilon$ como infinitesimal, estamos
-despreciando los términos en $\varepsilon^2$ y superiores. Las funciones anteriores, en
-función de $\varepsilon$ quedan
-\begin{align*}
-  \cos\varepsilon
-  &=
-    1-\dfrac{\varepsilon^2}{2!} + \dfrac{\varepsilon^4}{4!} + \cdots \approx 1\\
-  \sin\varepsilon
-  &=
-    \varepsilon - \dfrac{\varepsilon^3}{3!}
-    + \dfrac{\varepsilon^5}{5!} + \cdots \approx \varepsilon
-\end{align*}
-
-La rotación en el plano $xy$ modifica las coordenadas
-\begin{align*}
-  x \longrightarrow \,&\tilde{x} = \cos\varepsilon\, x + \sin\varepsilon\, y
-                        = x + \varepsilon y\\
-  y \longrightarrow \,&\tilde{y} = -\sin\varepsilon\,x + \cos\varepsilon\,y
-                        = -\varepsilon x + y = y -\varepsilon x
-\end{align*}
-
-El cambio en las coordenadas es
-\begin{align*}
-  \Delta x &= \tilde{x} - x = x + \varepsilon y - x = \varepsilon y\\
-  \Delta y &= \tilde{y} - y = -\varepsilon x + y -y = -\varepsilon x
-\end{align*}
-
-El desarrollo en serie de la función $\tilde{f}(\tilde{x},\tilde{y})$, de dos variables
-después de la rotación infinitesimal es
-\[
-  \tilde{f}(\tilde{x},\tilde{y})
-  =
-  f(x,y)
-  + \dfrac{\partial f}{\partial x} \Delta x
-  + \dfrac{\partial f}{\partial y} \Delta y
-  = x^2 + y^2
-  + \cancelout{2x\,(y\varepsilon)}
-  + \cancelout{2y\,(-x\varepsilon)}
-  = x^2 + y^2
-\]
-
-Resulta que
-\[
-  \tilde{f} = f
-\]
-
-
-
-
-
-
-
-
-\section{El momento angular y el teorema de Noether}
-El teorema de Noether relaciona la invariancia del lagrangiano bajo ciertas
-transformaciones con la conservación de algunas magnitudes físicas.
-Por ejemplo, cuando el lagrangiano es invariante bajo una rotación, entonces se conserva
-el momento angular.
-En este contexto también se puede afirmar que hay una relación entre una rotación y el
-momento angular.
-
-\subsection{Invariancia de una función bajo rotaciones}
-Supongamos que tenemos una función de dos variables\footnotemark{}, como
-\footnotetext{Elegimos una función de dos variables, en lugar de tres, para que se pueda
-  comprobar gráficamente la invariancia; una función de tres variables no se podría
-  representar gráficamente.}
-\begin{equation}\label{eq:cla-funcion-invariante-ejemplo}
-  f(x,y) = x^2 + y^2
-\end{equation}
-La función rotada un ángulo finito $\theta$ es
-{\small
-\begin{align*}
-  \tilde{f}(\tilde{x},\tilde{y})
-  &=
-    x^2 + y^2
-  = (\tilde{x}\cos\theta + \tilde{y}\sin\theta)^2
-    + (-\tilde{x}\sin\theta + \tilde{y}\cos\theta)^2\\
-  &=
-    \tilde{x}^2\cos^2\theta + \tilde{y}^2\sin^2\theta
-    + \cancelout{2\tilde{x}\tilde{y}\sin\theta\cos\theta}
-    + \tilde{x}^2\sin^2\theta + \tilde{y}^2\cos^2\theta
-    - \cancelout{2\tilde{x}\tilde{y}\sin\theta\cos\theta}\\
-  &= \tilde{x}^2(\sin^2\theta + \cos^2\theta)
-    + \tilde{y}^2(\sin^2\theta + \cos^2\theta)
-    = \tilde{x}^2 + \tilde{y}^2
-\end{align*}
-}
-
-Así, la función rotada es idéntica a la original, ver figura~\ref{fig:cla-x2y2}
-\[
-  \tilde{f}(x,y) = x^2 + y^2 = f(x,y)
-\]
-
-Cuando la función tiene la misma forma antes que después de rotar los ejes, como en este
-caso, se dice que $f$ es invariante bajo la rotación.
-
-Hemos probado la invariancia con una rotación finita. Ahora llevaremos a cabo una
-rotación infinitesimal de un ángulo $\varepsilon$, porque a menudo es más comodo realizar
-transformaciones infinitesimales.
-
-Primero escribimos el desarrollo de Taylor de las funciones seno y coseno
-\begin{align*}
-  \cos\theta &= 1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots\\
-  \sin\theta &= \theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots
-\end{align*}
-
-Recordemos que cuando consideramos una cantidad $\varepsilon$ como infinitesimal, estamos
-despreciando los términos en $\varepsilon^2$ y superiores. Las funciones anteriores, en
-función de $\varepsilon$ quedan
-\begin{align*}
-  \cos\varepsilon
-  &=
-    1-\dfrac{\varepsilon^2}{2!} + \dfrac{\varepsilon^4}{4!} + \cdots \approx 1\\
-  \sin\varepsilon
-  &=
-    \varepsilon - \dfrac{\varepsilon^3}{3!}
-    + \dfrac{\varepsilon^5}{5!} + \cdots \approx \varepsilon
-\end{align*}
-
-La rotación en el plano $xy$ modifica las coordenadas
-\begin{align*}
-  x \longrightarrow \,&\tilde{x} = \cos\varepsilon\, x + \sin\varepsilon\, y
-                        = x + \varepsilon y\\
-  y \longrightarrow \,&\tilde{y} = -\sin\varepsilon\,x + \cos\varepsilon\,y
-                        = -\varepsilon x + y = y -\varepsilon x
-\end{align*}
-
-El cambio en las coordenadas es
-\begin{align*}
-  \Delta x &= \tilde{x} - x = x + \varepsilon y - x = \varepsilon y\\
-  \Delta y &= \tilde{y} - y = -\varepsilon x + y -y = -\varepsilon x
-\end{align*}
-
-El desarrollo en serie de la función $\tilde{f}(\tilde{x},\tilde{y})$, de dos variables
-después de la rotación infinitesimal es
-\[
-  \tilde{f}(\tilde{x},\tilde{y})
-  =
-  f(x,y)
-  + \dfrac{\partial f}{\partial x} \Delta x
-  + \dfrac{\partial f}{\partial y} \Delta y
-  = x^2 + y^2
-  + \cancelout{2x\,(y\varepsilon)}
-  + \cancelout{2y\,(-x\varepsilon)}
-  = x^2 + y^2
-\]
-
-Resulta que
-\[
-  \tilde{f} = f
-\]
-
-Por tanto, la función $f(x,y) = x^2 + y^2$ es invariante bajo una rotación infinitesimal.
+\vspace{1ex}
 \begin{figure}[ht]
   \def\scl{1}
   % Fondo
@@ -1297,11 +1139,78 @@ Por tanto, la función $f(x,y) = x^2 + y^2$ es invariante bajo una rotación inf
   \label{fig:cla-x2y2}
 \end{figure}
 
+\subsection{Rotación infinitesimal}
+Hemos probado la invariancia con una rotación finita. Ahora llevaremos a cabo una
+rotación infinitesimal de un ángulo $\varepsilon$, porque a menudo es más cómodo realizar
+transformaciones infinitesimales.
+
+Primero escribimos el desarrollo de Taylor de las funciones seno y coseno
+\begin{align*}
+  \cos\theta &= 1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots\\
+  \sin\theta &= \theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots
+\end{align*}
+
+Recordemos que cuando consideramos una cantidad $\varepsilon$ como infinitesimal, estamos
+despreciando los términos en $\varepsilon^2$ y superiores. Las funciones anteriores, en
+función de $\varepsilon$ quedan
+\begin{align*}
+  \cos\varepsilon
+  &=
+    1-\dfrac{\varepsilon^2}{2!} + \dfrac{\varepsilon^4}{4!} + \cdots \approx 1\\
+  \sin\varepsilon
+  &=
+    \varepsilon - \dfrac{\varepsilon^3}{3!}
+    + \dfrac{\varepsilon^5}{5!} + \cdots \approx \varepsilon
+\end{align*}
+
+La rotación en el plano $xy$ modifica las coordenadas
+\begin{align*}
+  x \longrightarrow \,&\tilde{x} = \cos\varepsilon\, x + \sin\varepsilon\, y
+                        = x + \varepsilon y\\
+  y \longrightarrow \,&\tilde{y} = -\sin\varepsilon\,x + \cos\varepsilon\,y
+                        = -\varepsilon x + y = y -\varepsilon x
+\end{align*}
+
+El cambio en las coordenadas es
+\begin{align*}
+  \Delta x &= \tilde{x} - x = x + \varepsilon y - x = \varepsilon y\\
+  \Delta y &= \tilde{y} - y = -\varepsilon x + y -y = -\varepsilon x
+\end{align*}
+
+El desarrollo en serie de la función $\tilde{f}(\tilde{x},\tilde{y})$, de dos variables
+después de la rotación infinitesimal es
+\[
+  \tilde{f}(\tilde{x},\tilde{y})
+  =
+  f(x,y)
+  + \dfrac{\partial f}{\partial x} \Delta x
+  + \dfrac{\partial f}{\partial y} \Delta y
+  = x^2 + y^2
+  + \cancelout{2x\,(y\varepsilon)}
+  + \cancelout{2y\,(-x\varepsilon)}
+  = x^2 + y^2
+\]
+
+Resulta que
+\[
+  \tilde{f} = f
+\]
+Por tanto, la función $f(x,y) = x^2 + y^2$ es invariante bajo una rotación infinitesimal.
+
 ¿Bastaría con saber que se mantiene invariable la función bajo una transformación
-infinitesimal para colegir que ocurrirá lo mismo para una transformación finita?
+infinitesimal, para colegir que ocurrirá lo mismo para una transformación finita?
 La respuesta es sí, con la condición de que la transformación forme un grupo continuo en
 el que se obtenga la transformación identidad cuando el parámetro sea cero, $\theta=0$,
 osea que la transformación forme un grupo de Lie.
+
+
+\section{El momento angular y el teorema de Noether}
+El teorema de Noether relaciona la invariancia del lagrangiano bajo ciertas
+transformaciones con la conservación de algunas magnitudes físicas.
+Por ejemplo, cuando el lagrangiano es invariante bajo una rotación, entonces se conserva
+el momento angular.
+En este contexto también se puede afirmar que hay una relación entre una rotación y el
+momento angular.
 
 \subsection{Invariancia del lagrangiano bajo rotaciones}
 El lagrangiano de un sistema es una función de las coordenadas generalizadas,

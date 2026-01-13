@@ -262,7 +262,7 @@ en $\tilde{f}(\tilde{x},\tilde{y}) =  \tilde{x}^2 + \tilde{y}^2$
 \end{align*}
 }
 
-Así, la función rotada es idéntica a la original, ver figura~\ref{fig:cla-x2y2}, donde
+Así, la función rotada es idéntica a la original, ver figura~\ref{fig:mom-x2y2}, donde
 se aprecia la simetría con respecto a un giro de los ejes $x$ e $y$
 \[
   \tilde{f}(\tilde{x},\tilde{y}) = \tilde{x}^2 + \tilde{y}^2 = x^2 + y^2 = f(x,y)
@@ -353,7 +353,7 @@ caso, se dice que $f$ es invariante bajo la rotación.
   \end{tikzpicture}%
   \caption{La función $f(x,y) = x^2+y^2$ no varía al rotar alrededor del
     eje $z$.}
-  \label{fig:cla-x2y2}
+  \label{fig:mom-x2y2}
 \end{figure}
 
 \subsection{Rotación infinitesimal}
@@ -419,6 +419,167 @@ infinitesimal, para colegir que ocurrirá lo mismo para una transformación fini
 La respuesta es sí, con la condición de que la transformación forme un grupo continuo en
 el que se obtenga la transformación identidad cuando el parámetro sea cero, $\theta=0$,
 osea que la transformación forme un grupo de Lie.
+
+\section{Rotación del vector posición de una partícula}
+Ahora vamos a rotar el vector de posición $\vvv{r}$ de una cierta partícula
+\[
+  \vvv{r} \longrightarrow \mmm{R}\vvv{r}
+\]
+
+Si derivamos el vector rotado $\mmm{R}\vvv{r}$ un ángulo $\theta$ fijo con respecto del
+tiempo, tendremos que tener en cuenta que el ángulo es constante y que el vector posición
+depende del tiempo
+\[
+  \dfrac{d}{dt}(\mmm{R}\vvv{r})
+  = \dfrac{d}{dt}(\mmm{R}\left(\theta)\vvv{r}(t)\right)
+  = \mmm{R}\left(\dfrac{d\vvv{r}(t)}{dt}\right)
+  = \mmm{R}(\theta)\left(\vvv{v}(t)\right)
+  = \mmm{R}\vvv{v}
+\]
+Multiplicamos la expresión anterior por la masa
+\[
+  m\dfrac{d}{dt}\left(\mmm{R}\vvv{r}\right)
+  = m\mmm{R}\vvv{v}
+  = \mmm{R}\left(m\vvv{v}\right)
+  = \mmm{R}\vvv{p}
+\]
+donde la masa $m$ es una constante.
+La conclusión que sacamos es que si la posición $\vvv{r}$ de una partícula rota un
+ángulo $\theta$ determinado, su momento lineal rota de la misma manera, ver
+figura~\ref{fig:mom-giro-pos-momento}
+\begin{align*}
+  \vvv{r} &\longrightarrow \mmm{R}\vvv{r}\\
+  \vvv{p} &\longrightarrow \mmm{R}\vvv{p}
+\end{align*}
+
+\begin{figure}[ht]
+  % Escala
+  \def\scl{1}
+  % Longitudes ejes
+  \pgfmathsetmacro{\XLONG}{3}
+  \pgfmathsetmacro{\YLONG}{3}
+  % Ángulo rotado
+  \pgfmathsetmacro{\ANGROT}{35}
+  % Vector R
+  \pgfmathsetmacro{\RMOD}{2.5}
+  \pgfmathsetmacro{\RANG}{20}
+  % Momento lineal p
+  \pgfmathsetmacro{\PMOD}{1.2}
+  \pgfmathsetmacro{\PANG}{90}
+  % Vector R'
+  \pgfmathsetmacro{\RPRIMAMOD}{\RMOD}
+  \pgfmathsetmacro{\RPRIMAANG}{\RANG + \ANGROT}
+  % Momento lineal p'
+  \pgfmathsetmacro{\PPRIMAMOD}{\PMOD}
+  \pgfmathsetmacro{\PPRIMAANG}{\PANG + \ANGROT}
+  % Línea vertical gris
+  \pgfmathsetmacro{\LINEAGRISMOD}{\PMOD}
+  \pgfmathsetmacro{\LINEAGRISANG}{\PANG}
+  % Fondo
+  \pgfmathsetmacro{\HORZ}{0.23}
+  \pgfmathsetmacro{\VERT}{0.25}
+  % 
+  \centering
+  \begin{tikzpicture}[%
+    scale=\scl,
+    every node/.style={black,font=\small},
+    eje/.style={->},
+    posicion/.style={%
+      -{Latex}, shorten >=1.2pt, line width=.8pt, draw=green!50!black},
+    textopos/.style={%
+      below right=-2.2pt and 0pt,green!50!black},
+    momento/.style={%
+      -{Latex}, line width=0.5pt, draw=green!50!black},
+    textomomento/.style={color=green!50!black, right=-1.5pt},
+    posicionrotado/.style={posicion, draw=red!75!black},
+    textoposrotado/.style={%
+      above=2pt, red!75!black},
+    momentorotado/.style={%
+      momento, draw=red!75!black},
+    textomomrotado/.style={%
+      below left=-4pt and -1pt, red!75!black},
+    rcirculo/.style={fill=green!90!black, draw=black},
+    rprimacirculo/.style={red, draw=black},
+    background/.style={
+      line width=\bgborderwidth,
+      draw=\bgbordercolor,
+      fill=\bgcolor,
+    },
+    ]
+    % COORDENADAS
+    % ORIGEN Y RELACIONADOS
+    \coordinate (O) at (0,0);
+    \coordinate (under_origin) at (0,-3mm);
+    \coordinate (left_origin) at (-3mm,0);
+    % EJES x E y
+    \coordinate (xini) at (O);
+    \coordinate (xfin) at (\XLONG cm,0);
+    \coordinate (yini) at (0, 0 cm);
+    \coordinate (yfin) at (0,\YLONG cm);
+    % POSICIÓN VECTORES r Y p
+    \coordinate (r) at (\RANG:\RMOD cm);
+    \path (r) -- ++(\PANG:\PMOD cm) coordinate (p);
+    % POSICIÓN VECTORES r' y p'
+    \coordinate (r') at  (\RPRIMAANG:\RPRIMAMOD cm);
+    \path (r') -- ++(\PPRIMAANG:\PPRIMAMOD cm) coordinate (p');
+    % POSICIONES PUNTO MEDIO DE VECTORES r Y p PARA NODOS NOMBRE
+    \path (r) -- coordinate (ORmidway) (O);
+    \path (r) -- coordinate (RPmidway) (p);
+    % POSICIONES PUNTO MEDIO DE VECTORES r' y p' PARA NODOS NOMBRE
+    \path (r') -- coordinate (OR'midway) (O);
+    \path (r') -- coordinate (R'P'midway) (p');
+    % POSICIÓN FINAL LÍNEA VERTICAL GRIS
+    \draw[lightgray] (r') -- ++(\LINEAGRISANG:\LINEAGRISMOD) coordinate (lineagris);
+    % --- DIBUJO
+    % ÁNGULO THETA EN VECTORES POSICIÓN
+    \path (r) -- (O) -- (r') pic
+    [-{Latex[length=3.6pt]},draw=black!70!,fill=green!20,"\footnotesize $\theta$",angle
+    radius=6mm, angle eccentricity=1.4] {angle = r--O--r'};
+    % ÁNGULO THETA EN VECTORES MOMENTO
+    \path (lineagris) -- (r') -- (p') pic
+    [-{Latex[length=3.6pt]},draw=black!70!,fill=green!20,"\footnotesize $\theta$",angle
+    radius=5mm, angle eccentricity=1.5] {angle = lineagris--r'--p'};
+    % EJES
+    \draw[eje] (xini) -- (xfin);
+    \node[right, name=letraejex] at (xfin) {$x$};
+    \draw[eje] (yini) -- (yfin);
+    \node[above, name=letraejey] at (yfin) {$y$};
+    % VECTOR r
+    \draw[posicion] (O) -- (r);
+    \node[textopos] at (ORmidway) {$\vvv{r}$};
+    % VECTOR p
+    \draw[momento] (r) -- (p);
+    \node[textomomento] at (RPmidway) {$\vvv{p}$};
+    % PUNTO INICIAL PARTÍCULA
+    \fill[rcirculo] (r) circle [radius=1.4pt];
+    % Línea vertical en la posición final
+    \draw[black!15] (r') -- (lineagris);
+    % VECTOR r'
+    \draw[posicionrotado] (O) -- (r');
+    \node[textoposrotado] at (OR'midway) {$\vvv{r}'$};
+    % VECTOR p'
+    \draw[momentorotado] (r') -- (p');
+    \node[textomomrotado] at (R'P'midway) {$\vvv{p}'$};
+    % PUNTO FINAL PARTÍCULA
+    \fill[rprimacirculo] (r') circle [radius=1.4pt];
+%    % Origen
+    \filldraw (O) circle [radius=.3pt];
+    % Fondo amarillo
+    \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+    \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+    \begin{scope}[on background layer]
+      \draw[background] (SW) rectangle (NE);
+    \end{scope}
+  \end{tikzpicture}
+  \caption{El vector momento lineal de una partícula gira el mismo ángulo que el
+    vector posición.}
+  \label{fig:mom-giro-pos-momento}
+\end{figure}
+
+
+
+
+\section{El lagrangiano \mathinhead{\symcal{L}}{sdlkfjji9}}
 
 
 \section{El momento angular y el teorema de Noether}

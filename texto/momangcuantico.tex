@@ -1,0 +1,1760 @@
+% momangcuantico.tex
+%
+% Copyright (C) 2022--2025 José A. Navarro Ramón <janr.devel@gmail.com>
+% Licencia del código GPLv2
+% Licencia Creative Commons Recognition Non-Commercial Share-alike.
+% (CC-BY-NC-SA)
+
+\chapter{El momento angular en física cuántica}
+\label{chapt:cua-momentoangular-cuantica}
+En este capítulo estudiaremos el momento angular desde el punto de vista de
+la mecánica cuántica. Recordamos brevemente las expresiones que obtuvimos en el
+capítulo anterior al estudiar el momento angular desde el punto de vista de la
+mecánica clásica
+\begin{align}
+  \label{eq:cua-nL-clas}
+  &\xhat{n}\cdot\vvv{L}
+    = \vvv{r}^\trasp (\xhat{n}\cdot\mmm{G}) \vvv{p}\\
+  \label{eq:cua-rotobj-clas}
+  &\mmm{R}(\xhat{n},\theta)
+    = \exp\left(\theta\,\xhat{n}\cdot\mmm{G}\right)\\
+  \label{eq:cua-G1G2G3-clas}
+  &\mmm{G}_1
+  =
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 1\\
+      0 & -1 & 0
+    \end{pmatrix}
+  ;\hspace{1em}
+  \mmm{G}_2
+  =
+    \begin{pmatrix}
+      0 & 0 & -1\\
+      0 & 0 & 0\\
+      1 & 0 & 0
+    \end{pmatrix}
+  ;\hspace{1em}
+  \mmm{G}_3
+  =
+    \begin{pmatrix}
+      0 & 1 & 0\\
+      -1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+\end{align}
+
+La expresión~(\ref{eq:cua-nL-clas}) nos da el valor de la componente del
+momento angular con respecto a un eje genérico $\xhat{n}$ y relaciona el
+momento angular con los generadores del grupo de rotaciones SO(3).
+La matriz de rotación pasiva alrededor de un eje $\xhat{n}$ cualquiera
+se especifica en la ecuación~(\ref{eq:cua-rotobj-clas});
+Por último,~(\ref{eq:cua-G1G2G3-clas}) contiene una base de generadores
+para el grupo SO(3).
+
+
+\section{Primera versión de generadores de rotación}
+En algún capítulo anterior señalamos que en mecánica cuántica las matrices u
+operadores que representan a observables deben ser hermíticas o autoadjuntas,
+para que al medir estos observables se obtengan valores reales.
+Una matriz $\mmm{A}$ es hermítica cuando
+\[
+  \mmm{A}^\dagger = \mmm{A}
+\]
+
+El problema es que los generadores de la rotación~(\ref{eq:cua-G1G2G3-clas}),
+no son matrices hermíticas
+\[
+  \mmm{G}_i^\dagger = -\mmm{G}_i
+  \hspace{2em}
+  (i=1,2,3)
+\]
+
+Por ejemplo
+\[
+  \mmm{G}_1^\dagger
+  =
+  \begin{pmatrix}
+    0 & 0 & 0\\
+    0 & 0 & 1\\
+    0 & -1 & 0
+  \end{pmatrix}^\dagger
+  =
+  \begin{pmatrix}
+    0 & 0 & 0\\
+    0 & 0 & -1\\
+    0 & 1 & 0
+  \end{pmatrix}
+  =
+  -\mmm{G}_1
+\]
+
+Vimos también que mediante un cambio, las $\mmm{G}$ se pueden poner en
+función de matrices $\mmm{J}_i$ hermíticas
+\[
+  \mmm{G}_i = i\mmm{J}_i
+  \hspace{1em}
+  \text{o bien }
+  \hspace{.5em}
+  \mmm{J}_i = \frac{\mmm{G}_i}{i} = -i\mmm{G}_i
+  \hspace{2em}
+  (i=1,2,3)
+\]
+
+Las expresiones clásicas se convertirían en
+\begin{align}
+  \label{eq:cua-nL-v1}
+  &\xhat{n}\cdot\vvv{L}
+    = i\,\vvv{r}^\trasp (\xhat{n}\cdot \mmm{J}) \vvv{p}\\
+  \label{eq:cua-rot-v1}
+  &\mmm{R}(\xhat{n},\theta)
+    = \exp\left(i\theta\,\xhat{n}\cdot\mmm{J}\right)\\
+  \label{eq:cua-J1-J2-J3-v1}
+  &\mmm{J}_1
+  =
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & -i\\
+      0 & i & 0
+    \end{pmatrix}
+  ;\hspace{.5em}
+  \mmm{J}_2
+  =
+    \begin{pmatrix}
+      0 & 0 & i\\
+      0 & 0 & 0\\
+      -i & 0 & 0
+    \end{pmatrix}
+  ;\hspace{.5em}
+  \mmm{J}_3
+  =
+    \begin{pmatrix}
+      0 & -i & 0\\
+      i & 0 & 0\\
+      0 & 0 & 0
+     \end{pmatrix}
+\end{align}
+Se deja como ejercicio comprobar que las $\mmm{J}_i$ son hermíticas.
+
+%Con estas matrices $\mmm{J}_i$, el exponente $\mmm{A}$ de una matriz de
+%transformación unitaria
+%$\mmm{R}(\xhat{n}\cdot\mmm{J},\theta)
+%= e^{\mmm{A}} = e^{i\mmm{B}} = e^{i\theta\xhat{n}\cdot\mmm{J}}$
+%es una matriz hermítica, $\mmm{A}^\dagger = \mmm{A}$.
+%Por supuesto esto también se aplica a transformaciones infinitesimales unitarias
+%a un vector
+%\[
+%  \mmm{U}(\varepsilon) \approx \mmm{I}  i\varepsilon\mmm{B}
+%\]
+
+%\begin{equation}\label{eq:sux-U-infinitesimal}
+%  \mmm{U}(\varepsilon)
+%  \approx \mmm{I} + i\varepsilon\mmm{B}
+%\end{equation}
+
+Más adelante, cuando calculemos los conmutadores del momento angular en el
+contexto de la mecánica cuántica, se modificarán ligeramente las expresiones
+anteriores, añadiendo la constante de Planck reducida $\hbar$.
+Esta modificación sólo se realizará en mecánica cuántica y no en matemáticas.
+
+\subsection{Relaciones de conmutación}
+Si calcularámos los conmutadores de los nuevos generadores obtendríamos
+\begin{align*}
+  [\mmm{J}_1, \mmm{J}_2] &= i\mmm{J}_3\\
+  [\mmm{J}_2, \mmm{J}_3] &= i\mmm{J}_1\\
+  [\mmm{J}_3, \mmm{J}_1] &= i\mmm{J}_2\\
+  [\mmm{J}_1, \mmm{J}_2]
+  &= [\mmm{J}_1, \mmm{J}_3]
+    = [\mmm{J}_2, \mmm{J}_3] = 0\\
+ [\mmm{J}_i, \mmm{J}_j] &= -[\mmm{J}_j, \mmm{J}_i]
+\end{align*}
+
+Todas estas relaciones de conmutación se pueden resumir en la expresión
+que se obtuvo en~\eqref{eq:alg-j1-j2-Levi-Civita}, en función del símbolo
+de Levi-Civita
+\begin{equation}\label{eq:cua-conmutacion-v1}
+  [\mmm{J}_i,\mmm{J}_j] = i\, \epsilon_{ijk} \mmm{J}_k
+\end{equation}
+
+\subsection{Matriz de rotación con las  \mathinhead{\mmm{J}_i}{ji}}
+Aunque estamos adaptando los generadores de rotación para la mecánica cuántica,
+estos siguen siendo útiles en mecánica clásica. Para comprobarlo, vamos
+a obtener la matriz de rotación alrededor del eje $z$ utilizando la
+expresión~(\ref{eq:cua-rot-v1}), mediante un desarrollo de Taylor alrededor
+de $\theta = 0$ y teniendo en cuenta que el eje $z$ se corresponde con el
+versor $\xhat{n} = (0,0,1)$
+\begin{align*}
+  \mmm{R}(\xhat{n},\theta)
+  =
+  e^{i\theta\,\xhat{n}\cdot\mmm{J}}
+  =
+  r^{i\theta\,(0,0,1)\cdot (\mmm{J}_1,\mmm{J}_2,\mmm{J}_3)}
+  =
+  e^{i\theta\,\mmm{J}_3}
+\end{align*}
+
+Necesitamos las potencias de $J_3$
+\[
+  J_3
+  =
+  \begin{pmatrix}
+    0 & -i & 0\\
+    i & 0 & 0\\
+    0 & 0 & 0
+  \end{pmatrix}
+  ;\hspace{.5em}
+  J_3^2
+  = I_a =
+  \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 0
+  \end{pmatrix}
+  ;\hspace{.5em}
+  J_3^3
+  = J_3
+  =
+  \begin{pmatrix}
+    0 & -i & 0\\
+    i & 0 & 0\\
+    0 & 0 & 0
+  \end{pmatrix}; \cdots
+\]
+
+Cuando el exponente de $\mmm{J} _3$ es par, la matriz resultante la hemos
+denotamos por $\mmm{I}_a$ y cuando es impar, el resultado es $\mmm{J}_3$.
+Además llamamos $\mmm{I}_b$ a
+\[
+  \mmm{I}_b
+  =
+  \begin{pmatrix}
+    0 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 1
+  \end{pmatrix}
+\]
+
+Observamos que se cumple
+\[
+  \mmm{I} = \mmm{I}_a + \mmm{I}_b
+\]
+
+A continuaución desarrollamos la exponencial por Taylor para un ángulo de giro
+$\theta$ de los ejes y en un entorno de $\theta=0$
+\begin{align*}
+  R_z(\theta)
+  &=
+    e^{i\theta\mmm{J}_3}
+  =
+    \mmm{I}
+    +
+    i\theta\mmm{J}_3
+    +
+    \frac{(i\theta\mmm{J}_3)^2}{2!}
+    +
+    \frac{(i\theta\mmm{J}_3)^3}{3!}
+    +
+    \frac{(i\theta\mmm{J}_3)^4}{4!}
+    +
+    \cdots\\
+  &=
+    \mmm{I}_a
+    +
+    \mmm{I}_b
+    + i\theta\mmm{J}_3
+    - \frac{1}{2!}\,\theta^2\mmm{I}_a
+    - \frac{i}{3!}\,\theta^3\mmm{J}_3
+    + \frac{1}{4!}\,\theta^4\mmm{I}_a
+    + \cdots\\
+  &=
+    \mmm{I}_b
+    + \left(
+    1-\frac{1}{2!}\,\theta^2 +\frac{1}{4!}\,\theta^4 +\cdots
+    \right) \mmm{I}_a
+    + i\,\left(
+    \theta -\frac{1}{3!}\,\theta^3 +\cdots
+    \right) \mmm{J}_3\\
+  &=
+    \mmm{I}_b
+    + \cos\theta\,\mmm{I}_a
+    + i\sin\theta\,\mmm{J}_3\\
+  &=
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & 0\\
+      0 & 0 & 1
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      \cos\theta & 0 & 0\\
+      0 & \cos\theta & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    + 
+    \begin{pmatrix}
+      0 & -i^2\sin\theta & 0\\
+      i^2\sin\theta & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}              
+\end{align*}
+
+El resultado es el mismo que el que se obtendría mediante los generadores
+$\mmm{G}_i$ antisimétricos
+\begin{equation}\label{eq:cua-Rz}
+  \mmm{R}_z(\theta)
+  =
+  \begin{pmatrix}
+    \cos\theta & \sin\theta & 0\\
+    -\sin\theta & \cos\theta & 0\\
+    0 & 0 & 1
+  \end{pmatrix}
+\end{equation}
+
+\section{Rotación de funciones en el espacio\/
+  \mathinhead{L^2(\symbb{R}^3)}{RdfeleL2R3}}
+En la sección~\ref{sect:cla-rotacionfunciones} se explicó la rotación de
+funciones en el espacio euclídeo. En ésta vamos a extenderla al espacio
+de funciones $L^2(\symbb{R}^3)$, esto es, funciones complejas de
+variable real en el espacio euclídeo. La principal diferencia con
+respecto a la sección anterior está en que aquí necesitamos utilizar
+matrices hermíticas, de manera que recurriremos a los generadores $\mmm{J}$.
+
+Cada punto del espacio se corresponde con un vector en $\symbb{R}^3$.
+Una función de tres variables $x$, $y$ y $z$ hace corresponder a cada punto
+del espacio un valor que puede ser complejo. El espacio de funciones que
+estamos considerando se representa como $L^2(\symbb{R}^3)$.
+
+Recordemos que al aplicar una rotación pasiva se transforman las coordenadas
+de los vectores. La matriz de rotación correspondiente es la representada en la
+ecuación~(\ref{eq:cua-rot-v1})
+\[
+  \mmm{R}(\xhat{n},\theta)
+  = \exp\left(i\theta\,\xhat{n}\cdot\mmm{J}\right)   
+\]
+
+Si quisiéramos rotar un objeto (un punto, vector, etc.), deberíamos aplicar
+una rotación activa
+\[
+  \mmm{R}(\xhat{n},\theta)
+  = \exp\left(-i\theta\,\xhat{n}\cdot\mmm{J}\right)   
+\]
+donde el signo negativo indica que la rotación activa de los objetos se lleva
+a cabo girando los ejes en sentido horario (negativo).
+
+Ya vimos en la sección~\ref{sect:cla-rotacionfunciones} que para girar una
+función en sentido positivo
+\[
+  \mmm{R}(\xhat{n},\theta)
+  = \exp\left(-i\theta\,\xhat{n}\cdot\mmm{J}\right)   
+\]
+hemos de aplicar a las coordenadas de la función
+la matriz inversa
+\begin{equation}\label{eq:cua-matrizrotfuncion}
+  \mmm{R}(\xhat{n},\theta)
+  = \exp\left(i\theta\,\xhat{n}\cdot\mmm{J}\right)  
+\end{equation}
+
+\subsection{Rotación de \mathinhead{z=f(x,y)}{zfxy}}
+\def\agl{60}
+Supongamos que queremos girar una función $f(x,y)$, de dos variables
+independientes.
+Ilustremos como rotar una función de este tipo mediante un ejemplo sencillo.
+En la figura~\ref{fig:cua-girofuncion} se observa el giro de la función
+$z = f(x,y) = -x e^{-(x^2+y^2)}$ un ángulo de \ang{\agl} alrededor del eje $z$
+\begin{figure}[ht]
+  \def\scl{0.9}
+  \def\agl{60}
+  \begin{tikzpicture}[%
+    scale=\scl,
+    baseline,
+    background/.style={
+      line width=\bgborderwidth,
+      draw=\bgbordercolor,
+      fill=\bgcolor,
+    },
+    backgroundonly/.style={
+      line width=\bgborderwidth,
+      fill=\bgcolor,
+    },      
+    ]
+    \begin{axis}[%
+      xlabel=$x$, ylabel=$y$,
+      small,
+      mesh/interior colormap name=greenyellow,
+      % mesh/interior colormap name=hot,
+      colormap name=janrGRAYWHITE,
+      % axis background/.style={fill=yellow!20},
+      ]
+      \addplot3[%
+      surf,
+      domain=-2:2,
+      domain y=-1.8:1.8,
+      samples=40,
+      ] {-x*exp(-x^2-y^2)}; 
+    \end{axis}
+        
+    \begin{scope}[xshift=5.2cm]
+      \draw[-{Latex}] (0,1.65) --
+      node[midway,above] {\footnotesize Giro $\ang{\agl}$}
+      node[midway,below] {\footnotesize eje $z$}
+      +(right:1.7cm);
+    \end{scope}
+    
+    \begin{scope}[xshift=7.4cm]
+      \begin{axis}[%
+        xlabel=$x$, ylabel=$y$,
+        small,
+        mesh/interior colormap name=greenyellow,
+        % mesh/interior colormap name=hot,
+        % colormap/janrgraywhite,
+        colormap name=janrGRAYWHITE,
+        % axis background/.style={fill=yellow!20},
+        ]
+        \addplot3[%
+        surf,
+        domain=-2:2,
+        domain y=-1.8:1.8,
+        samples=40,
+        ]
+        {-(x*cos(60)+y*sin(60))*exp(-x^2-y^2)};
+      \end{axis}
+    \end{scope}
+    
+    \begin{scope}[on background layer]
+      \filldraw[background]
+      rectangle (-.8cm, -.8cm) rectangle (5.2cm + 7.4cm, 4.7cm);     
+      \fill[backgroundonly]
+      rectangle (-.8cm, -.8cm) rectangle (5.2cm + 7.4cm, 4.7cm);     
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Función $f(x,y) = -x\exp\left\{-\left(x^2+y^2\right)\right\}$ rotada
+    \ang{\agl} alrededor del eje $z$.}
+\label{fig:cua-girofuncion}
+\end{figure}
+
+Empezamos hallando la matriz de rotación activa~(\ref{eq:cua-matrizrotfuncion})
+de una función alrededor del eje $z$.
+El resultado es la inversa de la matriz de rotación que obtuvimos en la
+ecuación~(\ref{eq:cua-Rz})
+\begin{equation}\label{eq:cua-rotzfuncion}
+  R_z(\theta)
+  =
+  e^{-i\theta \xhat{n}\cdot\mmm{J}}
+  =
+  e^{-i\theta (0,0,1)\cdot (\mmm{J}_1,\mmm{J}_2,\mmm{J}_3)}
+  =
+  e^{-i\theta\mmm{J}_3}
+  =
+  \cdots
+  =
+  \begin{pmatrix}
+    \cos\theta & -\sin\theta & 0\\
+    \sin\theta & \cos\theta & 0\\
+    0 & 0 & 1
+  \end{pmatrix}
+\end{equation}
+
+Cada punto $\vvv{r} = (x,y,z)$ de la izquierda de la figura,
+se transforma mediante la matriz de rotación en otro punto girado
+$\vvv{\tilde{r}} = (\tilde{x}, \tilde{y}, \tilde{z})$, señalado con tilde
+\begin{align*}
+  \vvv{\tilde{r}}
+  &=
+  \mmm{R}_z(\theta) \vvv{r}
+  =
+    \begin{pmatrix}
+      \cos\theta & -\sin\theta & 0\\
+      \sin\theta & \cos\theta & 0\\
+      0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+      x \\ y \\ z            
+    \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x\cos\theta -y\sin\theta\\
+    x\sin\theta +y\cos\theta\\
+    z
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \tilde{x}\\
+    \tilde{y}\\
+    \tilde{z}
+  \end{pmatrix}
+\end{align*}
+
+Resumimos la transformación que hay que realizar a cada
+punto $\vvv{r}$ de $\symbb{R}^3$
+\begin{align}
+  \label{eq:cua-rotz-x}
+  \tilde{x} &= x\cos\theta -y\sin\theta\\
+  \label{eq:cua-rotz-y}
+  \tilde{y} &= x\sin\theta +y\cos\theta\\
+  \label{eq:cua-rotz-z}
+  \tilde{z} &= z
+\end{align}
+
+En la parte derecha de la figura~\ref{fig:cua-girofuncion} se observa la
+gráfica de la función girada.
+
+Pero normalmente estaremos interesados en la expresión matemática de
+la función girada $\tilde{z} = \tilde{f}(\tilde{x},\tilde{y})$,
+conocida la función $f(x,y)$ y para ello tendremos que transformar cada
+$x$ e $y$ en la expresión analítica de $f$ en términos de las
+$\tilde{x}$ e $\tilde{y}$; pero ésta es la transformación
+inversa $R_z^{-1}(\theta)$ que se aplica a los puntos.
+
+En nuestro ejemplo, la función original es
+\[
+  z = f(x,y) = -x e^{-\left(x^2+y^2\right)}
+\]
+
+Para obtener la función rotada un ángulo $\theta$ tenemos que aplicar
+la transformación inversa de la ecuación~(\ref{eq:cua-rotzfuncion}), que
+cuando se aplica a un vector girado $\vvv{\tilde{r}}$ da
+\begin{align}
+  \label{eq:cua-rotzinv-x}
+  x &= \tilde{x}\cos\theta + \tilde{y}\sin\theta\\
+  \label{eq:cua-rotzinv-y}
+  y &= -\tilde{x}\sin\theta + \tilde{y}\cos\theta\\
+  \label{eq:cua-rotzinv-z}
+  z &= \tilde{z}
+\end{align}
+
+La función girada se obtiene aplicando las transformaciones anteriores
+\begin{align*}
+  \tilde{z}
+  &= \tilde{f}(\tilde{x},\tilde{y})
+  = -(\tilde{x}\cos\theta + \tilde{y}\sin\theta)\,
+  e^{-\left[
+      (\tilde{x}\cos\theta+\tilde{y}\sin\theta)^2
+      + (-\tilde{x}\sin\theta+\tilde{y}\cos\theta)^2
+    \right]}
+  =
+    \cdots\\
+  &=
+    -(\tilde{x}\cos\theta+\tilde{y}\sin\theta)\,
+    e^{-\left(\tilde{x}^2+\tilde{y}^2\right)}
+\end{align*}
+que es la función que se representa en la parte derecha de la figura,
+para $\theta=\ang{60} = \frac{\pi}{3}\,\si{\radian}$.
+
+\subsection{Rotación de \mathinhead{f(x,y,z)}{fxyz}}
+En mecánica cuántica será muy corriente tener tres variables independientes
+--si no más--, lo que junto con el valor complejo de la función 
+nos daría cinco variables, que no se pueden representar gráficamente.
+
+Cuando nos encontramos en esta situación, renunciaremos a la representación
+gráfica de la función rotada, pero podremos obtener su expresión analítica.
+
+Vamos a poner un ejemplo sencillo que nos demuestre cómo proceder.
+Supongamos que queremos girar un cierto ángulo la función, alrededor del eje $z$
+\[
+  f(x,y,z) = (3-z)x + 2y
+\]
+
+Calculamos el valor de $f$ en un punto
+\begin{equation}\label{eq:cua-fxyz1punto}
+  f(1,2,-3)
+  = (3-(-3))\cdot 1 + 2\cdot 2
+  = 6 + 4
+  = 10
+\end{equation}
+
+Sustituimos las $x$, $y$ y $z$ de esta expresión por sus valores según la
+matriz inversa $\mmm{R}_z^{-1}(\theta)$ que obtuvimos anteriormente,
+ecuaciones~(\ref{eq:cua-rotzinv-x}), (\ref{eq:cua-rotzinv-y}
+y (\ref{eq:cua-rotzinv-z})
+\[
+  \tilde{f}(\tilde{x},\tilde{y},\tilde{z})
+  =
+  (3-\tilde{z}) (\tilde{x}\cos\theta+\tilde{y}\sin\theta)
+  + 2(-\tilde{x}\sin\theta+\tilde{y}\cos\theta)
+\]
+
+Rotamos el punto $(1,2,-3)$ alrededor del eje $z$ un ángulo de \ang{30}
+usando la matriz de rotación $\mmm{R}_z$
+\begin{align*}
+  \tilde{x}
+  &= x\cos\theta-y\sin\theta
+  = 1\cos\ang{30}-2\sin\ang{30}
+  = \frac{\sqrt{3}}{2} - 2\cdot \frac{1}{2} = \frac{\sqrt{3}-2}{2}\\
+  \tilde{y}
+  &= x\sin\theta+y\cos\theta
+    = 1\sin\ang{30} + 2\cos\ang{30}
+    = \frac{1}{2} + 2\cdot\frac{\sqrt{3}}{2}
+    = \frac{1+2\sqrt{3}}{2}\\
+  \tilde{z}
+  &= z = -3
+\end{align*}
+
+Ahora calculamos el valor de la función rotada
+\begin{align*}
+  \tilde{f}(\tilde{x},\tilde{y},\tilde{z})
+  &=
+  {\scriptstyle (3-(-3))
+  \left(
+    \frac{\sqrt{3}-2}{2}\cos\ang{30}+\frac{1+2\sqrt{3}}{2}\sin\ang{30}
+  \right)
+  + 2
+  \left(
+    \frac{2-\sqrt{3}}{2}\sin\ang{30}+\frac{1+2\sqrt{3}}{2}\cos\ang{30}
+    \right)}\\
+  &=
+  {6
+  \left(
+    \frac{\sqrt{3}-2}{2}\frac{\sqrt{3}}{2}+\frac{1+2\sqrt{3}}{2}\frac{1}{2}
+  \right)
+  + 2
+  \left(
+    \frac{2-\sqrt{3}}{2}\frac{1}{2}+\frac{1+2\sqrt{3}}{2}\frac{\sqrt{3}}{2}
+    \right)}\\
+  &=
+  {6
+  \left(
+    \frac{3-2\sqrt{3}}{4}+\frac{1+2\sqrt{3}}{4}
+  \right)
+  + 2
+  \left(
+    \frac{2-\sqrt{3}}{4}+\frac{\sqrt{3}+6}{4}
+    \right)}\\
+  &=
+    6\cdot\frac{4}{4} + 2\cdot\frac{8}{4}
+    = 10
+\end{align*}
+
+El resultado de la función rotada en el punto $(1,2,-3)$ es el mismo que el de
+la función original, ecuación~(\ref{eq:cua-fxyz1punto}).
+
+En resumen, para obtener la expresión analítica de una función rotada,
+hay que hacer
+\[
+  \tilde{f}(\vvv{\tilde{r}})
+  =
+  \tilde{f}(\mmm{R}^{-1} \vvv{r})
+\]
+siendo $\mmm{R}^{-1}$ la inversa de la matriz de rotación que queremos aplicar
+a la función $f$.
+
+\section{Generador de rotación para funciones}
+\label{sect:cua-generador-rotacion-funciones}
+Hemos estudiado el generador de rotación de vectores, pero ahora nos interesamos
+por el generador de rotación de funciones.
+Se usará el símbolo $\Psi(x,y,z)$ para representar cualquier función genérica;
+el símbolo $\Psi$ se utiliza para que parezca una función de onda, pero por
+ahora para nosotros será podrá ser cualquier función de las coordenadas. En
+realidad $\Psi(x,y,z)$ representa cualquier función compleja de variable real.
+El espacio de estas funciones se escribe como $L^2\left(\symbb{R}^3\right)$.
+
+La función rotada se calcula a partir de la original aplicando sobre el
+argumento la inversa de la rotación
+\begin{equation}\label{eq:cua-funcionrotadadef}
+  \tilde{\Psi}(\vvv{\tilde{r}})
+  =
+  \Psi(\mmm{R}^{-1}\vvv{r})
+\end{equation}
+
+Queremos rotar una función, no los ejes, la matriz de rotación activa es
+$R(\varepsilon)=\exp(-i\varepsilon\,\xhat{n}\cdot\mmm{J})$,
+y como las rotaciones forman un grupo de Lie, podemos aplicar rotaciones
+infinitesimales y las conclusiones a las que lleguemos serán válidas para
+cualquier rotación finita
+\[
+  \mmm{R}(\varepsilon)
+  =
+  e^{-i\varepsilon \xhat{n}\cdot\mmm{J}}
+  =
+  \mmm{I} - i\varepsilon \xhat{n}\cdot\mmm{J}
+\]
+
+Como $\mmm{J}$ es hermítica, la rotación inversa será la adjunta o
+traspuesta conjugada
+\[
+  \mmm{J}^\dagger = \mmm{J}
+\]
+
+Así
+\begin{align*}
+  \mmm{R}^{-1}(\varepsilon)
+  &=
+  \mmm{R}^\dagger(\varepsilon)
+  =
+    (\mmm{I} - i\varepsilon\xhat{n}\cdot\mmm{J})^\dagger
+  =
+    I^\dagger - i^*\varepsilon\xhat{n}\cdot\mmm{J}^\dagger
+  =
+    I + i\varepsilon\xhat{n}\cdot\mmm{J}
+\end{align*}
+
+Entonces
+\[
+  \mmm{R}^{-1} \vvv{r}
+  =
+  (I + i\varepsilon\xhat{n}\cdot\mmm{J}) \vvv{r}
+  =
+  \vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}
+\]
+
+Ahora se desarrolla la función rotada~(\ref{eq:cua-funcionrotadadef})
+en serie de potencias\footnotemark{}
+\footnotetext{En las lecciones en vídeo se desarrolla la función de una
+  manera que no llego a comprender del todo, véase el
+  apéndice~\ref{chapt:apcua-acerca-generador-funciones}.}
+\begin{equation}\label{eq:cua-desarrollo-psi}
+  \tilde{\Psi}
+  = \Psi(\mmm{R}^{-1}\vvv{r})
+  = \Psi(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r})
+    = \Psi(\vvv{r})
+    + \left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger
+    \frac{\partial\Psi}{\partial\vvv{r}}
+\end{equation}
+
+\clearpage
+Antes de continuar, vamos a analizar el segundo sumando del
+desarrollo~\eqref{eq:cua-desarrollo-psi}:
+\begin{itemize}
+\item El primer factor,
+$\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$,
+contiene el producto de una matriz $3\times 3$ y otra $3\times 1$,
+produciendo una matriz $3\times 1$
+\begin{center}
+  \begin{tabular}{ccccc}
+    $i\varepsilon$ & $(\xhat{n}\cdot\mmm{J})$ & $\vvv{r}$ &&\\
+    & $3\times 3$ & $3\times 1$ & $\longrightarrow$ & $3\times 1$
+  \end{tabular}
+\end{center}
+que al realizar su traspuesta conjugada nos da una matriz $1\times 3$
+\begin{center}
+  \begin{tabular}{ccc}
+    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$ &&\\
+    $[3\times 1]^\dagger$ & $\longrightarrow$ & $1\times 3$
+  \end{tabular}
+\end{center}
+
+\item Esta última matriz se multiplica por una matriz $3\times 1$,
+dando como resultado una matriz $1\times 1$, esto es, se forma un
+escalar, que en el espacio $L^2\symbb{R}^3$ es un número complejo
+\begin{center}
+  \begin{tabular}{cccc}
+    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$
+    & $\frac{\partial\Psi}{\partial\vvv{r}}$ &&\\
+    $1\times 3$ & $3\times 1$ & $\longrightarrow$ & $1\times 1$
+  \end{tabular}
+\end{center}
+\end{itemize}
+
+Seguimos con el desarrollo de la función rotada infinitesimalmente
+\begin{align*}
+  \tilde{\Psi}
+  &=
+    \Psi
+    - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}^\dagger)\,
+    \frac{\partial\Psi}{\partial\vvv{r}}
+    = \Psi - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,
+    \frac{\partial\Psi}{\partial\vvv{r}}\\
+  &=
+    \left[
+    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})
+    \frac{\partial}{\partial\vvv{r}}
+    \right]
+    \Psi
+  = \left[
+    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}) \vvv{\nabla}
+    \right]
+    \Psi
+\end{align*}
+donde el gradiente es
+$\partial/\partial\vvv{r}
+= \vvv{\nabla} = (\partial_x,\partial_y,\partial_z)
+=(\partial/\partial x,\partial/\partial y, \partial/\partial z)$
+
+Para una rotación finita
+\[
+  \tilde{\Psi}(\vvv{\tilde{r}})
+  = \exp\left\{-i\theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{\nabla}\right\}
+  \,\Psi(\vvv{r})
+\]
+
+Ahora bien, sabemos que en mecánica cuántica el momento se define como
+\[
+  \vvv{p} \equiv -i\hbar\vvv{\nabla}
+\]
+\[
+  \tilde{\Psi}(\vvv{\tilde{r}})
+  = \exp\left[
+    -i\frac{\theta}{\hbar}i\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{p}
+  \right]
+  \,\Psi(\vvv{r})
+\]
+
+Y teniendo en cuenta la expresión~\ref{eq:cua-nL-v1}, que relaciona
+el momento angular con los generadores $\mmm{J}$,
+la función rotada un ángulo discreto $\theta$ es
+\[
+  \tilde{\Psi}(\vvv{\tilde{r}})
+  =
+  \exp\left[-\frac{\theta}{\hbar}(\xhat{n}\cdot\vvv{L})\right]\,\Psi(\vvv{r})
+\]
+
+El operador de rotación en SO(3) para funciones es
+\begin{equation}
+  \label{eq:cua-rot-nL}
+  \mmm{R}(\xhat{n},\theta)
+  =
+  \exp\left[-i\frac{\theta}{\hbar}\, \xhat{n}\cdot\vvv{L}\right]
+\end{equation}
+
+Este operador sirve para rotar funciones, reales o complejas, definidas en el
+espacio euclídeo $\symbb{R}^3$, alrededor de un cierto eje $\xhat{n}$.
+Otra conclusión a la que hemos llegado es que se conecta directamente el
+momento angular con una rotación.
+
+\section{Conmutadores básicos}
+Se pretende calcular algunos conmutadores básicos en mecánica cuántica,
+sobre todo, los relacionados con el momento angular y compararlos con
+los de los generadores de rotación $\mmm{J}$.
+\begin{itemize}
+\item Empezamos con una propiedad importante de los conmutadores
+  \[
+    [A,B]
+    = AB - BA = -BA -(-AB) = -(BA - AB) = -[B,A]
+  \]
+
+  La propiedad es
+  \begin{equation}\label{eq:cua-conmut-inversa}
+    [A,B] = -[B,A]
+  \end{equation}
+
+\item Empezaremos con los conmutadores de las coordenadas. Nos fijaremos
+  en $[x,y]$. Observamos que las dos coordenadas se pueden intercambiar
+  libremente en toda expresión; esto significa que son independientes y que
+  el conmutador dará cero
+  \[
+    [x,y]
+    = xy - yx
+    = xy - xy
+    = 0
+  \]
+  Lo mismo ocurre con cualquier combinación de ellas, incluso aún cuando
+  se trate de la misma coordenada.
+
+  Resumimos esta observación
+  \begin{equation}\label{eq:cua-conmut-posiciones}
+    [r_i,r_j] = 0
+  \end{equation}
+
+\item Lo mismo ocurre con los conmutadores de las derivadas parciales. Se
+  pueden intercambiar libremente siempre que las funciones se comporten bien
+  \begin{equation}\label{eq:cua-conmut-derivadas}
+    \left[\frac{\partial}{\partial r_i},\frac{\partial}{\partial r_j}\right]
+    =
+    0
+  \end{equation}
+
+\item Ahora nos ocupamos de los que contienen coordenadas y derivadas.
+  Si queremos hallar, por ejemplo, el conmutador $[x,\partial/\partial x]$, nos
+  damos cuenta de que no se pueden intercambiar libremente, de manera que para
+  calcularlo, le aplicamos una función y observamos el resultado
+\[
+  \left[x,\frac{\partial}{\partial x}\right] f
+  =
+  x\frac{\partial f}{\partial x} - \frac{\partial }{\partial x} xf
+  =
+  xf' - (f + xf')
+  =
+  -f
+\]
+
+Por tanto, $[x,\partial/\partial x] f = -1 f$, y el conmutador vale
+\[
+  [x,\partial/\partial x] = -1
+\]
+
+Cuando la derivada no lleva la misma variable que la coordenada, el conmutador
+vale cero porque se pueden intercambiar.
+Por ejemplo para el conmutador $[x,\partial/\partial y]$, le aplicamos
+una función $f$
+\[
+  \left[x,\frac{\partial}{\partial y}\right] f
+  =
+  x\frac{\partial f}{\partial y} - \frac{\partial }{\partial y} xf
+  =
+  x\frac{\partial f}{\partial y} - x\frac{\partial }{\partial y} f
+  =
+  0
+\]
+
+Así, el conmutador que buscamos vale cero $[x,\partial/\partial y] = 0$
+
+Generalizando, podemos escribir las siguientes relaciones de conmutación
+\begin{align}\label{eq:cua-conmut-posicionderivada1}
+  \left[x,\frac{\partial}{\partial x}\right]
+  &=
+    \left[y,\frac{\partial}{\partial y}\right]
+    =
+    \left[z,\frac{\partial}{\partial z}\right]
+    =
+    -1\\
+  \label{eq:cua-conmut-posicionderivada2}
+  \left[x,\frac{\partial}{\partial y}\right]
+  &=
+    \left[y,\frac{\partial}{\partial z}\right]
+    =
+    \left[z,\frac{\partial}{\partial x}\right]
+    =
+    0
+\end{align}
+
+\item Todos los conmutadores que contienen momentos lineales se anulan, debido
+  al resultado~(\ref{eq:cua-conmut-derivadas}). Por ejemplo
+  \[
+    [p_x,p_y]
+    =
+    \left[
+      -i\hbar\frac{\partial}{\partial x},-i\hbar\frac{\partial}{\partial y}
+    \right]
+    =
+    (-i\hbar)^2
+    \left[\frac{\partial}{\partial x},\frac{\partial}{\partial y}\right]
+    =
+    0
+  \]
+
+  Resumiendo
+  \begin{equation}\label{eq:cua-conmut-momentoslineales}
+    [p_i,p_j]
+    =
+    0
+  \end{equation}
+
+\item Ayudándonos de los anteriores, nos ocupamos de los conmutadores
+  posición--momento, como $[x,p_x]$
+  \[
+    [x,p_x]
+    = \left[x,-i\hbar\frac{\partial}{\partial x}\right]
+    = -i\hbar \left[x,\frac{\partial}{\partial x}\right]
+    = -i\hbar (-1)
+    = i\hbar
+  \]
+
+  Realizando cálculos similares, los conmutadores posición--momento quedan
+  \begin{align}\label{eq:cua-conmut-posicionmomento1}
+    [x,p_x]
+    &=
+      [y,p_y] = [z,P_z] = i\hbar\\
+    \label{eq:cua-conmut-posicionmomento2}
+    [x,p_y]
+    &=
+      [y,p_z] = [z,P_x] = 0
+  \end{align}
+  
+Las relaciones de conmutación posición-momento se pueden resumir en una
+expresión
+\begin{equation}\label{eq:cua-conmut-posicionmomento}
+  [r_i,p_j] = i\hbar\delta_{ij}
+\end{equation}
+
+\item El punto central de esta sección es el cálculo de los conmutadores
+  de momentos angulares. Empezaremos por $[L_x,L_y]$
+  \begin{align*}
+    [L_x,L_y]
+    &= [yp_z-zp_y,zp_x-xp_z]\\
+    &= [yp_z,zp_x] - [yp_z,xp_z] - [zp_y,zp_x] + [zp_y,xp_z]
+  \end{align*}
+
+  Tenemos cuatro conmutadores. Vamos a desarrollar cada uno por separado.
+  El primero es $[yp_z,zp_x]$. Vemos que su primer término es la coordenada
+  $y$, que es independiente de todos los demás, por lo que podemos quitarla
+  del conmutador por la izquierda. Lo mismo le ocurre a $p_x$, que es el
+  último término, por lo que lo extraemos por la derecha
+  \[
+    [yp_z,zp_x]
+    =
+    y[p_z,z]p_x
+    y (-i\hbar) p_x
+    = -i\hbar yp_x
+  \]
+
+  El resto de conmutadores se calculan a continuación
+  \begin{align*}
+    [yp_z,xp_z]
+    &= y[p_z,x]p_z = 0\\
+    [zp_y,zp_x]
+    &= z[p_y,z]p_x = 0\\
+    [zp_y,xp_z]
+    &= x[z,p_z]p_y = x (i\hbar) p_y = i\hbar xp_y
+  \end{align*}
+
+  El conmutador $[L_x,L_y]$ queda
+  \[
+    [L_x,L_y]
+    = -i\hbar yp_x + - 0 - 0 + i\hbar xp_y
+    = i\hbar (xp_y-yp_x)
+    = i\hbar L_z
+  \]
+
+  El siguiente conmutador que vamos a estudiar es $[L_x,L_x]$
+  \[
+    [L_x,L_x]
+    = [yp_z,yp_z]
+    = y^2[p_z,p_z]
+    = 0
+  \]
+
+  A continuación tenemos un resumen de conmutadores del momento angular
+  \begin{align}
+    \label{eq:cua-conmut-Lxy}
+    [L_x,L_y] &= i\hbar L_z\\
+    \label{eq:cua-conmut-Lyz}
+    [L_y,L_z] &= i\hbar L_x\\
+    \label{eq:cua-conmut-Lzx}
+    [L_z,L_x] &= i\hbar L_y\\
+    \label{eq:cua-conmut-Lii}
+    [L_x,L_x] &= [L_y,L_y] = [L_z,L_z] = 0
+  \end{align}
+
+  Podemos generalizar estas relaciones y sus opuestas en una fórmula
+  \begin{equation}\label{eq:cua-conmut-Lij}
+    [L_i,L_j] = i\hbar\epsilon_{ijk}L_k
+  \end{equation}
+
+\end{itemize}
+
+Sabemos que el momento angular $\xhat{n}\cdot\vvv{L}$ es el generador de
+rotaciones, y también lo es la matriz $\xhat{n}\cdot\vvv{J}$. Si comparamos
+los conmutadores de estas magnitudes, ecuaciones~(\ref{eq:cua-conmut-Lij})
+y (\ref{eq:cua-conmutacion-v1})
+\begin{align*}
+  [L_i,L_j] &= i\hbar\epsilon_{ijk}L_k\\
+  [\mmm{J}_i,\mmm{J}_j] &= i\epsilon_{ijk} \mmm{J}_k
+\end{align*}
+
+Observamos que la relación de conmutación del momento angular contiene el
+factor $\hbar$, mientras que el de las matrices $\mmm{J}_i$ no. Lo que se
+suele hacer en mecánica cuántica (no en matemáticas) es redefinir las
+matrices $\mmm{J}$ para que lleven la constante de Planck, lo que obliga
+a dividir entre $\hbar$ las demás expresiones donde apareciera $\mmm{J}$,
+como en las ecuaciones~(\ref{eq:cua-nL-v2}) y (\ref{eq:cua-rot-v2}).
+Obsérvese que ésta última expresión define el operador de rotación de
+objetos (no es el de una rotación pasiva) debido al signo negativo en el
+exponente
+\begin{align} 
+  \label{eq:cua-J1J2J3-v2}
+  &\mmm{J}_1
+  = \hbar
+    \begin{pmatrix}
+      0 & 0 & 0\\
+      0 & 0 & -i\\
+      0 & i & 0
+    \end{pmatrix}
+  ;\hspace{.5em}
+  \mmm{J}_2
+  = \hbar
+    \begin{pmatrix}
+      0 & 0 & i\\
+      0 & 0 & 0\\
+      -i & 0 & 0
+    \end{pmatrix}
+  ;\hspace{.5em}
+  \mmm{J}_3
+  = \hbar
+    \begin{pmatrix}
+      0 & -i & 0\\
+      i & 0 & 0\\
+      0 & 0 & 0
+     \end{pmatrix}\\
+  \label{eq:cua-JiJj-v2}
+  &[\mmm{J}_i,\mmm{J}_j] = i\hbar\epsilon_{ijk} \mmm{J}_k\\
+  \label{eq:cua-LiLj-v2}
+  &[L_i,L_j] = i\hbar\epsilon_{ijk} L_k\\
+  \label{eq:cua-nL-v2}
+  &\xhat{n}\cdot\vvv{L}
+    = i\,\frac{1}{\hbar}\vvv{r}^\trasp (\xhat{n}\cdot \mmm{J}) \vvv{p}\\
+  \label{eq:cua-rot-v2}
+  &\mmm{R}(\xhat{n},\theta)
+    = \exp\left(-i\frac{\theta}{\hbar}(\xhat{n}\cdot\mmm{J})\right)\\
+  \label{eq:cua-rotL-v2}
+  &\mmm{R}(\xhat{n},\theta)
+    = \exp\left(-i\frac{\theta}{\hbar}(\xhat{n}\cdot\mmm{L})\right)
+\end{align}
+
+Por último, recordemos que la matriz de rotación~(\ref{eq:cua-rot-v2}) define
+la rotación de vectores en $\symbb{R}^3$, mientras que (\ref{eq:cua-rotL-v2})
+es la matriz de rotación de funciones en $L^2(\symbb{R}^3)$.
+
+\subsection{Fórmula de Hadamard}
+Hacemos un paréntesis para presentar una fórmula que es muy útil
+y, en particular, la necesitaremos después para ilustrar la rotación de una
+derivada parcial más adelante.
+
+Nos proponemos realizar la operación
+\begin{equation}\label{eq:cua-hadamard-generica}
+  \mmm{E}(\theta)
+  =
+  e^{-\theta\mmm{A}}\,\vvv{B}\,\,e^{\theta\mmm{A}}
+\end{equation}
+sin tener que aplicar el desarrollo de Taylor a cada exponencial, con la
+condición de que $\mmm{A}$ y $\mmm{B}$ sean independientes de $\theta$.
+
+Desarrollamos $\mmm{E}(\theta)$ en serie de potencias de $\theta$ en un
+entorno de $\theta = 0$
+\[
+  \mmm{E}(\theta)
+  =
+  \mmm{E}(0) + \mmm{E}'(0)\,\theta + \frac{1}{2!}\,\mmm{E}''(0)\,\theta^2
+  + \cdots
+\]
+
+Obtenemos el primer sumando del desarrollo, $\mmm{E}(0)$
+\begin{align*}
+  \mmm{E}(\theta)
+  &=
+    e^{-\theta\mmm{A}}\,\vvv{B}\,\,e^{\theta\mmm{A}}\\
+  \mmm{E}(0)
+  &= e^{-0}\,\mmm{B}\,\,e^0
+    = \mmm{B}
+\end{align*}
+
+Calculamos la primera derivada de~(\ref{eq:cua-hadamard-generica})
+con respecto de $\theta$, respetando el orden en el que aparecen los
+operadores $\mmm{A}$ y $\mmm{B}$ porque en general no podemos intercambiarlos,
+a menos que conmuten
+\begin{align*}
+  \mmm{E}'(\theta)
+  &=
+    -\mmm{A}\,e^{-\theta\mmm{A}}\,\mmm{B}\,\,e^{\theta\mmm{A}}
+    + e^{-\theta\mmm{A}}\,\mmm{B}\,\,e^{\theta\mmm{A}}\mmm{A}
+    = -\mmm{A}\mmm{E} + \mmm{E}\mmm{A}
+    = [\mmm{E},\mmm{A}]\\
+  \mmm{E}'(0)
+  &=
+  [\mmm{B},\mmm{A}]
+\end{align*}
+
+La segunda derivada
+\begin{align*}
+  \mmm{E}''(\theta)
+  &=
+    -\mmm{A}\mmm{E}' + \mmm{E}'\mmm{A} = [\mmm{E}',\mmm{A}]
+    = \left[[\mmm{E},\mmm{A}],\mmm{A}\right]\\
+  \mmm{E}''(0)
+  &=
+    \left[[\mmm{B},\mmm{A}],\mmm{A}\right]
+\end{align*}
+
+La tercera derivada
+\begin{align*}
+  \mmm{E}'''(\theta)
+  &=
+    -\mmm{A}\mmm{E}'' + \mmm{E}''\mmm{A} = [\mmm{E}'',\mmm{A}]
+    = \left[\left[[\mmm{E},\mmm{A}],\mmm{A}\right],\mmm{A}\right]\\
+  \mmm{E}'''(0)
+  &=
+    \left[\left[[\mmm{B},\mmm{A}],\mmm{A}\right],\mmm{A}\right]
+\end{align*}
+Y así sucesivamente.
+
+Sustituimos estas derivadas en~(\ref{eq:cua-hadamard-generica}) y obtenemos
+la fórmula de Hadamard
+{\small
+\begin{equation}\label{eq:cua-hadamard-formula}
+  e^{-\theta\mmm{A}}\,\mmm{B}\,e^{\theta\mmm{A}}
+  = \mmm{B} + [\mmm{B},\mmm{A}]\,\theta +
+  + \frac{1}{2!}\,
+  \left[[\mmm{B},\mmm{A}],\mmm{A}\right]\,\theta^2
+  + \frac{1}{3!}\,
+  \left[\left[[\mmm{B},\mmm{A}],\mmm{A}\right],\mmm{A}\right]\,\theta^3
+  + \cdots
+\end{equation}
+
+
+\section{Representaciones del momento angular}
+Para rotar una función de onda $\Psi(x,y,z)$ definida en $\symbb{R}^3$,
+hemos de utilizar los generadores $\vvv{L}$, que cumplen las siguientes
+relaciones de conmutación
+\[
+  [L_i,L_j] = i\hbar\epsilon_{ijk}L_k
+\]
+
+En cambio, si quisiéramos rotar un vector en $\symbb{R}^3$, utilizaremos
+los generadores $\vvv{J}$ con las mismas relaciones de conmutación
+\[
+  [J_i,J_j] = i\hbar\epsilon_{ijk}J_k
+\]
+
+Ser un momento angular es \emph{tener una vida dedicada a rotar cosas}.
+Es como si hubiera un único momento angular y según el mundo al que baje
+adoptaría una forma u otra. Se podría comportar como $\vvv{L}$, como $\vvv{J}$
+o como $\vvv{S}$. Éstas son diferentes representaciones del momento angular.
+
+En mecánica clásica no hay problema con el momento angular, se define como
+ya sabemos, y no hay nada más profundo en el concepto
+\[
+  \vvv{L} = \vvv{r}\prodvec\vvv{p}
+\]
+
+En cambio en mecánica cuántica, si queremos rotar funciones de onda
+(espacio de funciones $L^2\left(\symbb{R}^3\right)$)
+utilizaremos el operador diferencial de rotación
+\[
+  \mmm{R}(\theta) = e^{-i\frac{\theta} {\hbar} (\xhat{n}\cdot\vvv{L})}
+\]
+
+Pongamos un ejemplo. Si quisiéramos rotar una función de onda $\Psi(x,y,z)$
+alrededor del eje $z$, necesitaríamos la componente $L_z$ del momento angular.
+Utilizamos la igualdad~\eqref{eq:cua-nL-v2}
+\[
+  \xhat{n}\cdot\vvv{L}
+  =
+  \frac{i}{\hbar}\vvv{r}^\dagger
+  (\xhat{n}\cdot\vvv{J})\, \vvv{p}
+\]
+
+Haríamos que $\xhat{n}$ fuera el vector $(0,0,1)$ y
+como estamos en el espacio de funciones $L^2\left(\symbb{R}^3\right)$ y
+hacemos $\vvv{p} = -i\hbar\vvv{\nabla}$
+\begin{align*}
+  L_z
+  &=
+  \frac{i}{\hbar}
+  \begin{pmatrix}
+    x & y & z
+  \end{pmatrix}
+  \left[
+      \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}
+      \begin{pmatrix} J_1 \\ J_2 \\ J_3 \end{pmatrix}
+  \right]
+    \begin{pmatrix} p_x \\ p_y \\ p_z\end{pmatrix}\\
+  &= \frac{i}{\cancelout{\hbar}}
+    \begin{pmatrix}
+       x & y & z
+     \end{pmatrix}
+    i\cancelout{\hbar}
+    \begin{pmatrix}
+      0 & -1 & 0\\
+      1 & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      p_x \\ p_y \\ p_z
+    \end{pmatrix}
+  =
+    -\begin{pmatrix} x & y & z\end{pmatrix}
+    \begin{pmatrix} -p_y \\ p_x \\ 0 \end{pmatrix}\\
+  &=
+    xp_y-yp_x
+  n=
+    x\,\left(-i\hbar\,\frac{\partial}{\partial y}\right)
+    - y\,\left(-i\hbar\,\frac{\partial}{\partial x}\right)
+  =
+   -i\hbar
+   \left(x\,\frac{\partial}{\partial y} - y\,\frac{\partial}{\partial x}\right)
+\end{align*}
+
+Vemos que el generador de la rotación es un operador diferencial.
+En este espacio de funciones, el momento angular adopta la representación
+de un operador diferencial.
+Si aplicamos $L-z$ a una función $\Psi(x,y,z)$, tendríamos
+\[
+  L_z\Psi
+  = -i\hbar \left(x\,\frac{\partial\Psi}{\partial y}
+    - y\,\frac{\partial\Psi}{\partial x}\right)
+\]
+
+Una función se rotaría aplicándole el operador de rotación
+\[
+  R(\xhat{n},\theta)
+  =
+  e^{-i\frac{\theta}{\hbar}\,(\xhat{n}\cdot\vvv{L})}
+\]
+\[
+  \tilde{\Psi} = e^{-i\frac{\theta}{\hbar}\,(\xhat{n}\cdot\vvv{L})} \Psi
+\]
+
+En cambio, si estuviéramos, por ejemplo, en el espacio $\symbb{C}^3$,
+los objetos serían vectores del tipo
+\[
+  \begin{pmatrix}
+    a_1 \\ a_2 \\ a_3
+  \end{pmatrix}
+  ;\hspace{1em}
+  \text{con }
+  a_i\in\symbb{C}
+\]
+
+Para rotar este tipo de vectores utilizaríamos el operador
+\[
+  R(\xhat{n},\theta)
+  =
+  e^{-i\frac{\theta}{\hbar}\,(\xhat{n}\cdot\mmm{J})}
+\]
+
+Si quisiéramos rotar estos vectores alrededor del eje $z$, el operador
+se transformaría en la matriz que ya nos es familiar
+\[
+  R_z(\theta)
+  =
+  \begin{pmatrix}
+    \cos\theta & -\sin\theta & 0\\
+    \sin\theta & \cos\theta & 0\\
+    0 & 0 &1
+  \end{pmatrix}
+\]
+
+El operador que gira vectores en $\symbb{C}^3$ es una matriz, mientras
+que en el caso de la rotación de funciones era un operador diferencial.
+Lo importante es entender que ambos se encargan de rotar objetos de
+distinta naturaleza.
+
+Todas las representaciones de la rotación tienen un invariante.
+En el caso de las funciones el valor de la función debe ser el mismo,
+tanto en la función original como en la rotada; en la rotación de
+vectores el invariante es el módulo de los vectores.
+
+Vemos que el momento angular es único, pero tiene diferentes reprsentaciones,
+una en el espacio de funciones $L^2\left(\symbb{R}^3\right)$,
+otra en el espacio $\symbb{C}^3$, o en $\symbb{R}^3$, etc.
+
+El momento angular también puede girar vectores en otros espacios, como
+en $\symbb{C}^2$. Esta cosa que permite girar vectores en este espacio
+es el spin 1/2.
+Así, el spin 1/2 es la representación del momento angular en el espacio
+$\symbb{C}^2$, mientras que el spin 3/2 es su representación en el
+espacio $\symbb{C}^3$.
+
+También podemos decir que el spin 1/2 es el generador de las rotaciones en
+$\symbb{C}^2$ y el spin 3/2 es el generador de las rotaciones en
+$\symbb{C}^3$.
+
+\subsection{Concepto de representación del momento angular}
+Cualquier objeto $\vvv{A} = (A_1, A_2, A_3)$ que se comporte como un
+vector bajo rotaciones y que cumpla las relaciones de conmutación
+$[A_i,A_j] = i\epsilon_{ijk}A_k$ es una representación del momento
+angular y genera las rotaciones en el espacio \emph{donde vive} mediante
+el operador
+\[
+  \mmm{R}(\xhat{n},\theta)
+  =
+  e^{-i\frac{\theta}{\hbar}\,\xhat{n}\cdot\vvv{A}}
+\]
+
+
+\subsection{¿Qué es ser un vector bajo rotaciones?}
+Responderemos a esta pregunta mediante un ejemplo.
+Sabemos que el gradiente de una función en coordenadas cartesianas es
+\[
+  \vvv{\nabla} f
+  =
+  \left(
+    \frac{\partial f}{\partial x},
+    \frac{\partial f}{\partial y},
+    \frac{\partial f}{\partial z}\right)
+\]
+
+El operador gradiente en estas coordenadas está formado por las tres
+derivadas parciales respectivas
+\[
+  \vvv{\nabla}
+  =
+  (\partial_x, \partial_y, \partial_z)
+\]
+donde $\partial_k$ es abreviatura de $\partial/\partial k$.
+
+Sabemos por los textos de física y matemáticas que al gradiente se le
+considera un vector, y es frecuente expresarlo como
+\[
+  \vvv{\nabla}
+  = \frac{\partial}{\partial x}\,\xhat{i}
+  + \frac{\partial}{\partial y}\,\xhat{j}
+  \frac{\partial}{\partial z}\,\xhat{k}
+\]
+
+Un objeto, en este caso el operador gradiente será un
+\emph{vector bajo rotaciones} si al rotar se comportara exactamente como
+los vectores.
+
+Como excusa para poder responder a la pregunta, vamos a rotar una derivada y,
+de paso, para añadir algo de emoción plantearemos el siguiente problema
+\begin{quote}
+  ``Se supone que sabemos como realizar la derivada parcial de una
+  función con respecto de $x$, pero no tenemos ni la más remota idea
+  de calcularla con respecto de $y$.''
+\end{quote}
+
+Nos vamos a ayudar de la figura~\ref{fig:cua-gradiente}. En la parte izquierda
+se representa una función de forma abstracta ---de hecho no se muestra
+explícitamente---; en su lugar se colorean en rojo las variables de la
+función como si fueran ejes de coordenadas.
+Estas variables se corresponden, como no podía ser de otra manera, con los
+ejes de coordenadas, en negro, para la función original.
+
+Como no sabemos calcular la derivada parcial con respecto de $y$
+---el eje en rojo que representa a esta variable se traza con mayor grosor---,
+pero sí calcular $\partial_x$, rotamos \ang{-90} la función alrededor del
+eje $z$, como se observa en la parte derecha de la figura, consiguiendo
+que la variable $y$ se transforme temporalmente en la nueva variable $x$
+de la función rotada.
+\begin{figure}[ht]
+\def\scl{0.78}
+\def\longeje{3}
+%
+\tdplotsetmaincoords{60}{110}
+% 
+\pgfmathsetmacro{\rvec}{\longeje}
+\pgfmathsetmacro{\thetavec}{90}
+\pgfmathsetmacro{\phivec}{90}
+%
+\pgfmathsetmacro{\xvec}{0}
+\pgfmathsetmacro{\yvec}{\longeje}
+\pgfmathsetmacro{\zvec}{\longeje}
+%
+\centering
+\begin{tikzpicture}[
+  scale=\scl,
+  tdplot_main_coords,
+  background/.style={
+    line width=\bgborderwidth,
+    draw=\bgbordercolor,
+    fill=\bgcolor,
+  },
+  backgroundonly/.style={
+    line width=\bgborderwidth,
+    fill=\bgcolor,
+  },
+  ]
+  \coordinate (dx) at (1.8,0,0);
+  \coordinate (dy) at (0,1.8,0);
+  \coordinate (dz) at (0,0,1.8);
+  \draw[thick,->] (0,0,0) -- (\longeje,0,0)
+  node[anchor=north east]{$x$} coordinate (x);
+  \draw[thick,->] (0,0,0) -- (0,\longeje,0)
+  node[below right=-5pt and 0pt]{$y$};
+  \draw[thick,->] (0,0,0) -- (0,0,\longeje)
+  node[anchor=south]{$z$};
+  \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dx);
+  \node[above left,red!80!black] at (dx) {$x$};
+  \draw[line width=2pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dy); 
+  \node[above,red!80!black] at (dy) {$y$};
+  \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dz);
+  \node[left,red!80!black] at (dz) {$z$};
+
+  \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+  \tdplotdrawarc[latex-]{(0,0,0)}{0.8}{0}{\phivec}{anchor=north}
+  {$\ang{-90}$}
+
+  % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE Z
+  % \tdplotsetthetaplanecoords{-90}
+  % Notice you have to tell tiks-3dplot you are now in rotated coords
+  % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
+  % the former y axis is now the z axis.
+  \tdplotdrawarc[line width=2.25pt,
+  -{Latex[round,length=15pt,width=7.7pt,bend]},color=black!30]
+  {(0,0,2.3)}{0.35}{290}{-25}{anchor=south west,color=black}{}
+  % Reponer parte final del eje z para simular perspectiva
+  \draw[thick,->] (0,0,2.3) -- (0,0,\longeje);
+
+  \begin{scope}[xshift=4cm]
+    \draw[-{Latex}] (0,0,0) --
+    node[above] {\small Giro activo}
+    node[below] {\small $\ang{-90}$ eje $z$}
+    +(right:2.5cm);
+  \end{scope}
+
+  \begin{scope}[xshift=10cm]
+    \coordinate (ddx) at (0,-1.8,0);
+    \coordinate (ddy) at (1.8,0,0);
+    \coordinate (ddz) at (0,0,1.8);
+    \draw[thick,->] (0,0,0) -- (\longeje,0,0)
+    node[anchor=north east]{$x$} coordinate (x);
+    \draw[thick,->] (0,0,0) -- (0,\longeje,0)
+    node[below right=-5pt and 0pt]{$y$};
+    \draw[thick,->] (0,0,0) -- (0,0,\longeje)
+    node[anchor=south]{$z$};
+    \draw[line width=2pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddy);
+    \node[right=4pt,red!80!black] at (ddy) {$y$};
+    \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddx);
+    \node[above,red!80!black] at (ddx) {$x$}; 
+    \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddz);
+    \node[left,red!80!black] at (ddz) {$z$};
+  \end{scope}
+
+   \begin{scope}[on background layer]
+%     \node [line width=1pt, draw=black!10,fill=yellow!20,
+%     fit= (x) (z) (ddy)] {};
+     \filldraw[background]
+     rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
+     \fill[backgroundonly]
+     rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
+   \end{scope}
+  
+\end{tikzpicture}
+\caption{Se representan de forma abstracta en rojo las variables de la
+  función que se va a rotar \ang{-90}.
+  El eje $y$ de la función original se traza con mayor grosor para
+  distinguirlo de los demás. Los ejes cartesianos fijos se muestran en negro.
+  Al girar la función, la antigua variable $y$ se ha transformado en la nueva
+  variable $x$, que sabemos derivar según hemos supuesto.}
+\label{fig:cua-gradiente}
+\end{figure}
+
+Los siguientes pasos que ya no se representan en la figura son: Se deriva esta
+función rotada con respecto de $x$ --recordemos que es la $y$ original--
+y finalmente se volvería a rotar la función derivada--ahora \ang{+90}-- para
+restablecer la orientación original, o en otras palabras, la
+correspondencia original de variables y ejes de coordenadas\footnotemark{}.
+\footnotetext{El lector atento se habrá dado cuenta de que es mejor aprender
+  a derivar parcialmente con respecto a $y$ que calcular la derivada
+  mediante rotaciones.}
+
+Como queremos rotar una función, el generador de la rotación es
+$\vvv{L}$
+\[
+  \mmm{R} = e^{-i\frac{\theta}{\hbar} (\xhat{n}\cdot\vvv{L})}
+\]
+
+Cuando rotamos alrededor del eje $z$
+\[
+  \xhat{n}\cdot\vvv{L}
+  =
+  \begin{pmatrix}
+    0 & 0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    Lx\\
+    Ly\\
+    Lz
+  \end{pmatrix}
+  =
+  L_z
+\]
+
+El operador de rotación que aplicaremos a la función será
+\[
+  \mmm{R}_z = e^{-i\frac{\theta}{\hbar} L_z}
+\]
+
+Desglosamos las operaciones que vamos a realizar con la función $f(x,y,z)$:
+\begin{itemize}
+\item Primero rotamos la función en torno al eje $z$ un ángulo de
+  $-\pi/2\,\si{\radian}$. El generador de la rotación es $L_z$
+  \[
+    \mmm{R}_z(-\pi/2)\,f
+    =
+    e^{-i\frac{-\pi/2}{\hbar}\,L_z} f(x,y,z)
+    =
+    e^{i\frac{\pi/2}{\hbar}\,L_z} f(x,y,z)
+  \]
+  
+\item Luego derivamos la función rotada con respecto a $x$
+  \[
+    \partial_x\left[\mmm{R}_z(-\pi/2)\, f\right]
+    =
+    \frac{\partial}{\partial x}
+    \left[
+      e^{i\frac{\pi/2}{\hbar}\,L_z} f(x,y,z)
+    \right]
+  \]
+
+\item Por último, restablecemos la orientación de las variables rotando
+  el resultado alrededor del eje $z$ un ángulo de $+\pi/2\,\si{\radian}$
+  \[
+    \mmm{R}_z(\pi/2)\left\{\partial_x\left[\mmm{R}_z(-\pi/2)\, f\right]\right\}
+    =
+    e^{-i\frac{\pi/2}{\hbar}\,L_z}
+    \left\{
+      \frac{\partial}{\partial x}
+      \left[
+        e^{i\frac{\pi/2}{\hbar}\,L_z} f(x,y,z)
+      \right]
+    \right\}
+  \]
+\end{itemize}
+
+Podemos resumir las operaciones como la aplicación a la función $f$,
+del operador
+\[
+  \mmm{R}_z(\pi/2)\,\partial_x\,\mmm{R}_z(-\pi/2)
+  =
+  e^{-i\frac{\pi/2}{\hbar}\,L_z} \,\frac{\partial}{\partial x}\,
+  e^{i\frac{\pi/2}{\hbar}\,L_z}
+\]
+
+Vamos a demostrar que el operador equivale a la derivada parcial
+con respecto de $y$
+\begin{equation}\label{eq:cua-parcial-y-rotando}
+  \frac{\partial}{\partial y}
+  =
+  e^{-i\frac{\pi/2}{\hbar}\,L_z} \,\frac{\partial}{\partial x}\,
+  e^{i\frac{\pi/2}{\hbar}\,L_z}
+\end{equation}
+
+Multiplicamos por $-i\hbar$ los dos miembros de la igualdad
+\[
+  -i\hbar\,\frac{\partial}{\partial y}
+  =
+  e^{-i\frac{\pi/2}{\hbar}\,L_z} \,\left(-i\hbar\,\frac{\partial}{\partial x}\right)\,
+  e^{i\frac{\pi/2}{\hbar}\,L_z}
+\]
+
+Así, demostrar~\eqref{eq:cua-parcial-y-rotando} equivale a demostrar
+\begin{equation}\label{eq:cua-py-px}
+  p_y
+  =
+  \mmm{R}_z(\pi/2)\,\,p_x\,\mmm{R}_z(-\pi/2) 
+  =
+  e^{-i\frac{\pi/2}{\hbar}\,L_z} \,p_x\,\,
+  e^{i\frac{\pi/2}{\hbar}\,L_z}
+\end{equation}
+Hemos pasado las derivadas parciales a componentes del momento lienal porque,
+conocer las relaciones de conmutación entre $p_x$ y $L_z$ nos va a facilitar
+enormemente la demostración, e incluso poder generalizar el resultado.
+
+\subsubsection{Demostrando que
+  \mathinhead{p_y=R_z(\pi/2)\,\,p_x\,R_z(-\pi/2)}{pyop}}
+Nos interesa expresar temporalmente el operador en función de
+$\theta = \pi/2\,\si{\radian}$
+\[
+  e^{-i\frac{\theta}{\hbar}\,L_z} \, p_x \, e^{i\frac{\theta}{\hbar}\,L_z}
+\]
+
+Comparamos el operador que queremos calcular~(\ref{eq:cua-py-px}) con
+el que hace referencia la fórmula de Hadamard~(\ref{eq:cua-hadamard-formula})
+\begin{align*}
+  e^{-\theta\mmm{A}}\,\mmm{B}\,e^{\theta\mmm{A}}
+  =
+  e^{-i\frac{\theta}{\hbar}\,L_z} \,(p_x)\,
+  e^{i\frac{\theta}{\hbar}\,L_z}
+\end{align*}
+Vemos que
+\[
+  \mmm{A} = \frac{i}{\hbar}\,L_z
+  ;\hspace{1em}
+  \vvv{B} = p_x
+  ;\hspace{1em}
+  \theta = \frac{\pi}{2}\,\si{\radian}
+\]
+
+Ahora podemos calcular los conmutadores de la fórmula de Hadamard
+\begin{align*}
+  &[\mmm{B},\mmm{A}]
+  =
+    [p_x,\frac{i}{\hbar}\,L_z]
+    = \frac{i}{\hbar} [p_x,L_z]
+    = \frac{i}{\hbar}[p_x,xp_y-yp_x]
+    = \frac{i}{\hbar}
+    \left\{
+    [p_x,xp_y] - [p_x,yp_x]
+  \right\}\\
+  &\hspace{2.8em}=
+    \frac{i}{\hbar}
+    \left\{
+    [p_x,x]p_y - y\cancelout{[p_x,p_x]}
+    \right\}
+    = \frac{i}{\hbar}\,(-i\hbar)\,p_y
+    = p_y\\
+  &\left[[\mmm{B},\mmm{A}],\mmm{A}\right]
+  =
+    [p_y,\frac{i}{\hbar}L_z]
+    = \frac{i}{\hbar}[p_y,xp_y-yp_x]
+    = \frac{i}{\hbar}
+    \left\{
+    [p_y,xp_y] - [p_y,yp_x]
+    \right\}\\
+  &\hspace{4.9em}=
+    \frac{i}{\hbar}
+    \left\{
+    x\cancelout{[p_y,p_y]} - [p_y,y] p_x
+    \right\}
+    = -\frac{i}{\hbar}\,(-i\hbar)\,p_x
+    = -p_x
+\end{align*}
+
+Calculamos nuestro operador
+\begin{align*}
+  \mmm{E}(\theta)
+  &=
+    p_x + p_y\,\theta + \frac{1}{2!}[P_y,\mmm{A}]\,\theta^2
+    + \frac{1}{3!}[-p_x,\mmm{A}]\,\theta^3
+    + \frac{1}{4!}[-p_y,\mmm{A}]\,\theta^4 + \cdots\\
+  &=
+    p_x + p_y\,\theta + \frac{1}{2!}\,(-p_x)\,\theta^2
+    + \frac{1}{3!}\,(-p_y)\,\theta^3
+    + \frac{1}{4!}\,(p_x)\,\theta^4 + \cdots\\
+  &=
+    \left(1-\frac{\theta^2}{2!}+\frac{\theta^4}{4!}+\cdots\right) p_x
+    + \left(\theta-\frac{\theta^3}{3!} + \cdots\right) p_y\\
+  &=
+    p_x \cos\theta + p_y \sin\theta
+\end{align*}
+
+Sustituimos $\theta$ por $\pi/2$
+\[
+  \mmm{E}(\pi/2)
+  = p_x \cos(\pi/2) + p_y \sin(\pi/2)
+  = p_y
+\]
+
+Hemos demostrado~(\ref{eq:cua-py-px})
+\[
+  p_y
+  =
+  \mmm{R}_z(\pi/2)\,(p_x)\,\mmm{R}_z(-\pi/2) 
+  =
+  e^{-i\frac{\pi/2}{\hbar}\,L_z} \,(p_x)\,
+  e^{i\frac{\pi/2}{\hbar}\,L_z}
+\]
+\[
+  -i\hbar\frac{\partial}{\partial y}
+  =
+  \mmm{R}_z(\pi/2)\,(p_x)\,\mmm{R}_z(-\pi/2) 
+  =
+  e^{-i\frac{\pi/2}{\hbar}\,L_z} \,\left(-i\hbar\frac{\partial}{\partial x}\right)\,
+  e^{i\frac{\pi/2}{\hbar}\,L_z}
+\]
+
+Hemos comprobado que podemos derivar parcialmente con respecto de $y$
+sólo sabiendo derivar con respecto de $x$
+\[
+  \frac{\partial}{\partial y}
+  =
+  \mmm{R}_z(\pi/2)\,(p_x)\,\mmm{R}_z(-\pi/2) 
+  =
+  e^{-i\frac{\pi/2}{\hbar}\,L_z} \,\left(\frac{\partial}{\partial x}\right)\,
+  e^{i\frac{\pi/2}{\hbar}\,L_z}
+\]
+
+Pero el problema anterior era sólo una excusa para probar que el gradiente
+se comporta como un vector bajo rotaciones; la primera igualdad ya la hemos
+demostrado y las demás se podrían obtener de forma similar
+\begin{align*}
+  \left(\frac{\partial}{\partial x}\right)'
+  &= \sin\theta\,\frac{\partial}{\partial x}
+    + \cos\theta\,\frac{\partial}{\partial y}\\
+  \left(\frac{\partial}{\partial y}\right)'
+  &= -\sin\theta\,\frac{\partial}{\partial x}
+    + \cos\theta\frac{\partial}{\partial y}\\
+  \left(\frac{\partial}{\partial z}\right)'
+  &= \frac{\partial}{\partial z}
+\end{align*}
+lo que demuestra que el operador gradiente se transforma como vectores
+bajo rotación.
+
+Un comentario para terminar, el gradiente $\vvv{\nabla}$ es un vector,
+pero como sus componentes no cumplen las relaciones de conmutación apropiadas,
+no es un momento angular.
+Pero $\vvv{L}$ se comporta como un vector bajo rotaciones y sus
+componentes sí cumplen las relaciones de conmutación, por lo que sí es un
+momento angular.
+
+
+
+
+
+  
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie.tex"
+%%% End:
+ 

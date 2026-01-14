@@ -577,12 +577,8 @@ figura~\ref{fig:mom-giro-pos-momento}
 \end{figure}
 
 
-
-
-\section{El lagrangiano \mathinhead{\symcal{L}}{sdlkfjji9}}
-
-
 \section{El momento angular y el teorema de Noether}
+\label{sect:mom-momento-angular-y-Noether}
 El teorema de Noether relaciona la invariancia del lagrangiano, bajo ciertas
 transformaciones con la conservación de algunas magnitudes físicas.
 Por ejemplo, cuando el lagrangiano es invariante bajo una rotación, entonces se conserva
@@ -590,7 +586,7 @@ el momento angular.
 En este contexto también se puede afirmar que hay una relación entre una rotación y el
 momento angular.
 
-\subsection{Invariancia del lagrangiano bajo rotaciones}
+\subsection{El lagrangiano de un sistema}
 El lagrangiano de un sistema es una función de las coordenadas generalizadas,
 $q_1, q_2, \cdots$ y las velocidades respectivas, $\dot{q}_1, \dot{q}_2, \cdots$.
 Se define como la energía cinética menos la energía potencial del sistema
@@ -631,6 +627,7 @@ En este caso, tendríamos el momento lineal cartesiano de toda la vida
   (i = 1, 2, 3)
 \]
 
+\subsection{Invariancia del lagrangiano bajo rotaciones}
 Nos preguntamos en qué tipo de situaciones físicas es invariante el lagrangiano bajo una
 rotación.
 Como las rotaciones forman un grupo de Lie y, según la sección anterior
@@ -638,21 +635,24 @@ Como las rotaciones forman un grupo de Lie y, según la sección anterior
 rotación infinitesimal, querría decir que también lo sería bajo cualquier rotación
 finita, vamos a aplicar al lagrangiano una rotación infinitesimal.
 
-La matriz de rotación infinitesimal activa (antihoraria) del lagrangiano es
-\[
-  \mmm{R}^{-1}(\xhat{n},\varepsilon)
-  =
-  e^{-\varepsilon\xhat{n}\cdot\mmm{G}}
-  \mmm
-  \approx{I} - \varepsilon\xhat{n}\cdot\mmm{G}
-\]
+%La matriz de rotación infinitesimal pasiva del lagrangiano (antihoraria) es
+%\[
+%  \mmm{R}^{-1}(\xhat{n},\varepsilon)
+%  =
+%  e^{-\varepsilon\xhat{n}\cdot\mmm{G}}
+%  \mmm
+%  \approx{I} - \varepsilon\xhat{n}\cdot\mmm{G}
+%\]
 
 Consideraremos el caso más simple de un sistema formado por una partícula\footnotemark{}.
 \footnotetext{El resultado se podría generalizar fácilmente para un sistema de $N$
   partículas.}
 El lagrangiano $\symcal{L}$ de una partícula es una función de su posición y su velocidad.
 Cuando lo rotamos, el nuevo lagrangiano $\tilde{\symcal{L}}$ dependerá de la posición y
-velocidad rotadas
+velocidad rotadas\footnotemark{}
+\footnotetext{Esta notación con el lagrangiano dependiendo de $\vvv{r}$ y $\vvv{\dot{r}}$
+  está simplificada. En realidad debe haber una ecuación por cada coordenada linealmente
+  independiente.}
 \[
   \symcal{L}(\vvv{r}, \vvv{\dot{r}})
   \longrightarrow
@@ -661,54 +661,64 @@ velocidad rotadas
 y queremos averiguar bajo qué condiciones se cumple la invariancia
 $\tilde{\symcal{L}} = \symcal{L}$.
 
-Como $\symcal{L}$ es una función, para rotarlo mediante la matriz $\mmm{R}$, aplicamos la
-rotación inversa a las coordenadas de la función
-\[
+Para nuestro propósito en esta subsección, podremos utilizar tanto una rotación pasiva, como una activa, pues llegaríamos a la misma conclusión.
+Rotaremos la función lagrangiana $\symcal{L}$ utilizando la rotación pasiva, $\mmm{R}$ de
+las coordenadas y, como se vio en la introducción de la sección
+\ref{sect:mom-momento-angular-y-Noether}, también cambiarań de forma similar las
+velocidades
+\begin{align*}
   \vvv{\tilde{r}}
-  =
-  \mmm{R}^{-1}(\varepsilon)\vvv{r}
+  &=
+  \mmm{R}(\varepsilon)\vvv{r}
   =
   e^{\varepsilon \xhat{n}\cdot\mmm{G}} \vvv{r}
-  =
+  \approx
   (\mmm{I} + \varepsilon\xhat{n}\cdot\mmm{G})\vvv{r}
   =
-  \vvv{r} + \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{r}
-\]
+    \vvv{r} + \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{r}\\
+  \vvv{\dot{\tilde{r}}}
+  &=
+  \mmm{R}(\varepsilon)\vvv{\dot{r}}
+  =
+  e^{\varepsilon \xhat{n}\cdot\mmm{G}} \vvv{\dot{r}}
+  \approx
+  (\mmm{I} + \varepsilon\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}
+  =
+  \vvv{\dot{r}} + \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}
+\end{align*}
 
-Se ha producido un cambio en la posición
-\begin{equation}\label{eq:cla-delta-posicion}
+Se ha producido un cambio en la posición y en la velocidad
+\begin{subequations}
+\begin{align}\label{eq:cla-delta-posicion}
   \Delta\vvv{r}
-  =
+  &=
   \vvv{\tilde{r}} - \vvv{r}
-  =
+  \approx
   \cancelout{\vvv{r}}
   + \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{r}
   - \cancelout{\vvv{r}}
   =
-  \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{r}
-\end{equation}
-
-De forma similar podríamos haber calculado el cambio en la velocidad como consecuencia de
-la rotación infinitesimal
-\begin{equation}\label{eq:cla-delta-velocidad}
-  \Delta\dot{\vvv{r}}
-  =
-  \vvv{\dot{\tilde{r}}} - \dot{\vvv{r}}
-  =
+    \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{r}\\
+  \label{eq:cla-delta-velocidad}
+    \Delta\vvv{\dot{r}}
+  &=
+  \vvv{\tilde{\dot{r}}} - \vvv{\dot{r}}
+  \approx
   \cancelout{\vvv{\dot{r}}}
   + \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}
   - \cancelout{\vvv{\dot{r}}}
   =
   \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}
-\end{equation}
+\end{align}
+\end{subequations}
 donde hemos tenido en cuenta que $\xhat{n}$ y $\mmm{G}$ son independientes del tiempo.
 
 Desarrollamos en serie el lagrangiano transformado por la rotación infinitesimal,
-despreciando los términos de orden $\varepsilon^2$ o superior y sustiyendo los
+despreciando los términos de orden $\varepsilon^2$ o superior y sustituyendo los
 incrementos~\eqref{eq:cla-delta-posicion} y~\eqref{eq:cla-delta-velocidad}
 \begin{align*}
   \tilde{\symcal{L}}(\tilde{\vvv{r}},\dot{\tilde{\vvv{r}}})
-  &=
+  &\approx
   \symcal{L}
   (\vvv{r}+\varepsilon\xhat{n}\cdot\mmm{G}\vvv{r},
     \vvv{\dot{r}}+\varepsilon\xhat{n}\cdot\mmm{G}\vvv{\dot{r}})\\
@@ -723,8 +733,12 @@ incrementos~\eqref{eq:cla-delta-posicion} y~\eqref{eq:cla-delta-velocidad}
     + \left(\dfrac{\partial\symcal{L}}{\partial \vvv{\dot{r}}}\right)^\trasp
     \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}
 \end{align*}
+donde se ha tenido en cuenta que $\Delta\vvv{r}$ y $\Delta\vvv{\dot{r}}$ son vectores
+y, por tanto, las derivada parciales del lagrangiano con respecto de las coordenadas de
+$\vvv{r}$ y $\vvv{\dot{r}}$ deben ser vectores traspuestos para que el resultado final
+sea un escalar.
 
-La traspuesta de la parcial del lagrangiano con respecto a las coordenadas es
+La traspuesta de la parcial del lagrangiano con respecto a coordenadas cartesianas es
 \[
   \left(\dfrac{\partial\symcal{L}}{\partial\vvv{r}}\right)^\trasp
   =
@@ -855,7 +869,7 @@ En general, si se presentara otro tipo de simetría (traslaciones, etc.) se cons
 otra magnitud física.
 
 El momento angular está pues relacionado con las rotaciones.
-Para terminar adelantamos que como el spin es un momento angular, también estará
+Para terminar, adelantamos que como el spin es un momento angular, también estará
 relacionado con rotaciones, pero ¿qué tipo de rotaciones?
 La respuesta la descubriremos más adelante.
 

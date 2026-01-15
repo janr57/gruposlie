@@ -12,11 +12,11 @@ FILES =	gruposlie.pkg.sty\
 	texto/algebralie.tex\
 	texto/sux.tex\
 	texto/momangclasico.tex\
+	texto/momangcuantico.tex\
 	apendices/ap_matrizrotaciongeneral.tex\
 	apendices/ap_algebralie.tex
-	#texto/gl-momangcuantico.tex\
-	#texto/gl-spin.tex\
-	#texto/gl-poincare.tex
+	#texto/spin.tex\
+	#texto/poincare.tex
 
 gruposlie.pdf: gruposlie.tex $(FILES)
 
@@ -33,7 +33,7 @@ clean:
 	rm -rf texto/*.aux texto/*~
 	rm -rf portada/*.aux portada/*~
 	rm -rf tablacontenidos/*.aux tablacontenidos/*~
-	rm -rf prologo/*.aux prologo/*~
+	rm -rf prefacio/*.aux prefacio/*~
 	rm -rf apendices/*.aux apendices/*~
 
 

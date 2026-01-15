@@ -1,0 +1,203 @@
+\chapter{Acerca de generador de rotación para funciones}
+\label{chapt:apcua-acerca-generador-funciones}
+
+En este apéndice presento ideas que pueden estar completamente equivocadas.
+Se trata de situaciones que no controlo muy bien, pero que analizo de
+la mejor forma que encuentro, cuando no he entendido muy bien algún detalle
+en el desarrollo de las lecciones originales en vídeo.
+
+\section{Problema con el desarrollo original de
+  \mathinhead{ \tilde{\Psi}(\vvv{\tilde{r}})}{ddpsir}
+en los vídeos}
+En la sección~\ref{sect:cua-generador-rotacion-funciones}
+(\emph{Generador de rotación para funciones}) del
+capítulo~\ref{chapt:cua-momentoangular-cuantica}
+(\emph{Momento angular en física cuántica})
+se desarrolló en serie de potencias una función $\tilde{\Psi}$ compleja
+de variable real definida en $\symbb{R}^3$ cuando se rota un ángulo
+infinitesimal $\varepsilon$ alrededor de una dirección $\xhat{n}$.
+
+El desarrollo original en los vídeos de YouTube se planteó de una forma
+ligeramente diferente, cambiando el orden de las matrices
+\begin{subequations}
+\begin{equation}\label{eq:apcua-desarrollo-original}
+  \tilde{\Psi}
+  = \Psi(\mmm{R}^{-1}\vvv{r})
+  = \Psi(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r})
+    = \Psi(\vvv{r})
+    + \left(\frac{\partial\Psi}{\partial\vvv{r}}\right)^{\dagger}
+    i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}
+\end{equation}
+
+En el vídeo se sustituye el segundo sumando del desarrollo
+\begin{equation}\label{eq:apcua-segundo-sumando}
+  \left(\frac{\partial\Psi}{\partial\vvv{r}}\right)^{\dagger}
+  i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}
+\end{equation}
+por su traspuesta conjugada
+\begin{equation}\label{eq:apcua-z}
+  \left[
+    \left(\frac{\partial\Psi}{\partial\vvv{r}}\right)^{\dagger}
+    i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}
+  \right]^\dagger
+  =
+  -i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})
+  \frac{\partial\Psi}{\partial\vvv{r}}
+\end{equation}
+
+Quedando
+\begin{equation}\label{eq:apcua-desarrollo-original-sust}
+  \tilde{\Psi}
+  = \Psi(\mmm{R}^{-1}\vvv{r})
+  = \Psi(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r})
+    = \Psi(\vvv{r})
+    - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})
+    \frac{\partial\Psi}{\partial\vvv{r}}
+\end{equation}
+
+Bueno, creo que este cambio sería correcto si $\Psi(x,y,z)$ fuera una función
+real definida en el espacio euclídeo, pero que si se trata de una función
+compleja, habría que sustituirla por
+\begin{equation}\label{eq:apcua-zconj}
+  -i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})
+  \frac{\partial\Psi^*}{\partial\vvv{r}}
+\end{equation}
+que es el opuesto del complejo conjugado de~\eqref{eq:apcua-z}.
+Y si esto último fuera correcto, el primer sumando contiene la
+función original $\Psi$ y el segundo sumando tendría el complejo
+conjugado de la función $\Psi^*$ y no se podría sacar factor común
+posteriormente como se puede estudiar en la sección correspondiente.
+
+Voy a intentar explicar la situación.
+Obsérvese que el segundo sumando~\eqref{eq:apcua-segundo-sumando} es un
+número complejo porque el producto de tres matrices
+$(1\times 3) \cdot (3\times 3) \cdot (3\times 1)$
+es una matriz de una fila y una columna, $1\times 1$, es decir, un escalar.
+Este escalar debe ser un número complejo porque tratamos con funciones
+complejas de variable real.
+
+Analizamos Con más detalle las matrices de este sumando y llamaremos $z$ al
+complejo que se obtiene
+\begin{align*}
+  i\varepsilon \left(\frac{\partial\Psi}{\partial\vvv{r}}\right)^{\dagger}
+  (\xhat{n}\cdot\mmm{J})\vvv{r}
+  &=
+    i\varepsilon
+    \begin{pmatrix}
+      \left(\dfrac{\partial\Psi}{\partial x}\right)^*
+      & \left(\dfrac{\partial\Psi}{\partial y}\right)^*
+      & \left(\dfrac{\partial\Psi}{\partial z}\right)^*
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & -in_z & in_y\\
+      in_z & 0 & -in_x\\
+      -in_y & in_x & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      x \\ y \\ z
+    \end{pmatrix}\\
+  &=
+    i^2\varepsilon
+    \begin{pmatrix}
+      \dfrac{\partial\Psi^*}{\partial x}
+      & \dfrac{\partial\Psi^*}{\partial y}
+      & \dfrac{\partial\Psi^*}{\partial z}
+    \end{pmatrix}
+    \begin{pmatrix}
+      -yn_z+zn_y \\ xn_z-zn_x\\-xn_y+yn_x
+    \end{pmatrix}\\
+  &=
+    \varepsilon
+    \left[
+    (yn_z-zn_y)\frac{\partial\Psi^*}{\partial x}
+    + (zn_x-xn_z)\frac{\partial\Psi^*}{\partial y}
+    + (xn_y-yn_x)\frac{\partial\Psi^*}{\partial z}
+    \right]\\
+  &=
+    z\in\symbb{C}
+\end{align*}
+En la expresión anterior sólo tenemos con valor complejo $\Psi$; los
+demás valores son reales.
+
+Ahora vamos a desarrollar de la misma manera la expresión por la que se
+sustituyó~\eqref{eq:apcua-z}. Observemos que es justo la traspuesta
+conjugada o adjunta de la expresión original. Encontramos que el resultado
+es el opuesto del complejo conjugado de la expresión original.
+Y sólo cuando la función es real $\Psi^* = \Psi$, se pueden considerar
+equivalentes las dos expresiones (porque serían números reales sin componente
+imaginaria)
+\begin{align*}
+  \left[
+  i\varepsilon\left(\frac{\partial\Psi}{\partial\vvv{r}}\right)^{\dagger}
+  (\xhat{n}\cdot\vvv{J})\vvv{r}
+  \right]^{\dagger}
+  &=
+    i^*\varepsilon
+    \vvv{r}^{\dagger} (\xhat{n}\cdot\mmm{J}^{\dagger})
+    \frac{\partial\Psi}{\partial\vvv{r}}
+  =
+    -i\varepsilon
+    \vvv{r}^{\dagger} (\xhat{n}\cdot\mmm{J})
+    \frac{\partial\Psi}{\partial\vvv{r}}\\
+  &=
+    i\varepsilon
+    \begin{pmatrix}
+      x & y & z\\
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & -in_z & in_y\\
+      in_z & 0 & -in_x\\
+      -in_y & in_x & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      \frac{\partial\Psi}{\partial x}\\[1.2ex]
+      \frac{\partial\Psi}{\partial y}\\[1.2ex]
+      \frac{\partial\Psi}{\partial z}
+    \end{pmatrix}\\
+  &=
+    i^2\varepsilon
+    \begin{pmatrix}
+      x & y & z
+    \end{pmatrix}
+    \begin{pmatrix}
+      -n_z\frac{\partial\Psi}{\partial y}
+      +n_y\frac{\partial\Psi}{\partial z}\\[1.2ex]
+      n_z\frac{\partial\Psi}{\partial x}
+      -n_x\frac{\partial\Psi}{\partial z}\\[1.2ex]
+      -n_y\frac{\partial\Psi}{\partial x}
+      +n_x\frac{\partial\Psi}{\partial y}
+    \end{pmatrix}\\
+%  &=
+%    -\varepsilon\left[%
+%    -xn_z\frac{\partial\Psi}{\partial y}
+%    + xn_y\frac{\partial\Psi}{\partial z}
+%    + yn_z\frac{\partial\Psi}{\partial x}
+%    - yn_x\frac{\partial\Psi}{\partial z}
+%    - zn_y\frac{\partial\Psi}{\partial x}
+%    + zn_x\frac{\partial\Psi}{\partial y}
+%    \right]\\
+  &= -\varepsilon \left[
+    (yn_z-zn_y)\frac{\partial\Psi}{\partial x} +
+    (zn_x-xn_z)\frac{\partial\Psi}{\partial y} +
+    (xn_y-yn_x)\frac{\partial\Psi}{\partial z} \right]\\
+  &=
+    -z^*\in\symbb{C}
+\end{align*}
+Por tanto, \eqref{eq:apcua-segundo-sumando}
+es distinto de \eqref{eq:apcua-z} y no se puede sustituir directamente,
+a menos que la función tenga sólo valores reales.
+\end{subequations}
+
+
+
+
+
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie"
+%%% End:
+

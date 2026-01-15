@@ -299,24 +299,26 @@ La principal diferencia con respecto a la sección anterior está en que aquí n
 utilizar matrices hermíticas, de manera que recurriremos a los generadores $\mmm{J}$.
 
 Cada punto del espacio se corresponde con un vector en $\symbb{R}^3$.
-Cuando una función definida en $\symbb{R}^3$ hace corresponder a cada punto del espacio
-$x, y, z$ un valor que puede ser complejo. El espacio de funciones que estamos
-considerando se representa como $L^2(\symbb{R}^3)$.
-%
-Recordemos que al aplicar una rotación pasiva, se transforman las coordenadas de los
-vectores, en este caso pertenecientes a $\symbb{R}^3$ y, por tanto, de los ejes que
-determinan el espacio. La matriz de rotación correspondiente es la representada en la
+Aquí trataremos con funciones definidas en $\symbb{R}^3$ que hacen corresponder a cada
+punto del espacio $x, y, z$ un valor que puede ser complejo. El espacio de funciones que
+estamos considerando se representa como $L^2(\symbb{R}^3)$.
+
+Recordemos que al aplicar una rotación pasiva, se transforman las coordenadas de todos
+los vectores de $\symbb{R}^3$, esto es, rotan los ejes que determinan todos los puntos
+del espacio. La matriz de rotación correspondiente es la representada en la
 ecuación~(\ref{eq:cua-rot-v1})
-\[
+\begin{equation}\label{eq:cua-matriz-rotacion-pasiva}
   \mmm{R}(\xhat{n},\theta)
   = \exp\left(i\theta\,\xhat{n}\cdot\mmm{J}\right)   
-\]
-Es importante señalar que al rotar los ejes, no estamos rotando la función. Pero si
-consideramos que los ejes no han girado, el efecto que se produce es el de que la
-función ha girado en sentido contrario (horario).
+\end{equation}
+Es importante señalar que en una rotación pasiva, rotan los ejes, pero no estamos rotando
+la función. Pero también se puede interpretar como si no hubieran girado los ejes pero la
+función lo hubiera hecho en sentido contrario. Así, podríamos suponer que los ejes no han girado y la función lo ha hecho en sentido contrario (horario).
 
-Si quisiéramos rotar un objeto (un punto, vector, etc.), deberíamos aplicar una rotación
-activa
+Aquí queremos rotar la función en sentido antihorario (rotación activa), de manera que
+debemos rotar los ejes en sentido horario, mediante la matriz inversa de
+\ref{eq:cua-matriz-rotacion-pasiva}. Como es la rotación que nos interesa, prescindiremos
+del exponente $-1$
 \[
   \mmm{R}(\xhat{n},\theta)
   = \exp\left(-i\theta\,\xhat{n}\cdot\mmm{J}\right)   
@@ -336,12 +338,15 @@ hemos de aplicar a las coordenadas de la función la matriz inversa
   = \exp\left(i\theta\,\xhat{n}\cdot\mmm{J}\right)  
 \end{equation}
 
-\subsection{Rotación de \mathinhead{z=f(x,y)}{zfxy}}
+\subsection{Rotación de \mathinhead{f(x,y)}{zfxy}}
 \def\agl{60}
+Para centrar ideas y ayudarnos de la gráfica de funciones, vamos a suponer que nuestra función está definida en $\symbb{R}^2$, por lo que el eje perpendicular a $x$ e $y$
+representa el valor de la función y no el eje $z$.
+
 Supongamos que queremos girar una función $f(x,y)$, de dos variables independientes.
 Ilustremos como rotar una función de este tipo mediante un ejemplo sencillo.
 En la figura~\ref{fig:cua-girofuncion} se observa el giro de la función
-$z = f(x,y) = -x e^{-(x^2+y^2)}$ un ángulo de \ang{\agl} alrededor del eje $z$
+$f(x,y) = -x e^{-(x^2+y^2)}$ un ángulo de $\ang{\agl}$ alrededor del eje $f(x,y)$
 \begin{figure}[ht]
   \def\scl{0.9}
   \def\agl{60}
@@ -371,13 +376,13 @@ $z = f(x,y) = -x e^{-(x^2+y^2)}$ un ángulo de \ang{\agl} alrededor del eje $z$
       domain=-2:2,
       domain y=-1.8:1.8,
       samples=40,
-      ] {-x*exp(-x^2-y^2)}; 
+      ] {-x*exp(-x^2-y^2)};
     \end{axis}
         
     \begin{scope}[xshift=5.2cm]
       \draw[-{Latex}] (0,1.65) --
       node[midway,above] {\footnotesize Giro $\ang{\agl}$}
-      node[midway,below] {\footnotesize eje $z$}
+      node[midway,below] {\footnotesize eje $f(x,y)$}
       +(right:1.7cm);
     \end{scope}
     
@@ -409,12 +414,13 @@ $z = f(x,y) = -x e^{-(x^2+y^2)}$ un ángulo de \ang{\agl} alrededor del eje $z$
     \end{scope}
   \end{tikzpicture}
   \caption{Función $f(x,y) = -x\exp\left\{-\left(x^2+y^2\right)\right\}$ rotada
-    \ang{\agl} alrededor del eje $z$.}
+    \ang{\agl} alrededor del eje $f(x,y)$.}
 \label{fig:cua-girofuncion}
 \end{figure}
 
 Empezamos hallando la matriz de rotación activa~(\ref{eq:cua-matrizrotfuncion}) de una
-función alrededor del eje $z$.
+función alrededor del eje perpendicular a $x$ y a $y$, que llamamos eje $f(x,y)$, para
+que no e confunda con el espacio euclídeo $\symbb{R}^3$.
 El resultado es la inversa de la matriz de rotación que obtuvimos en la
 ecuación~(\ref{eq:cua-Rz})
 \begin{equation}\label{eq:cua-rotzfuncion}

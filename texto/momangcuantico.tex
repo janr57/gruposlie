@@ -320,17 +320,21 @@ respecto a la sección anterior está en que aquí necesitamos utilizar
 matrices hermíticas, de manera que recurriremos a los generadores $\mmm{J}$.
 
 Cada punto del espacio se corresponde con un vector en $\symbb{R}^3$.
-Una función de tres variables $x, y, z$, hace corresponder a cada punto
-del espacio un valor que puede ser complejo. El espacio de funciones que
-estamos considerando se representa como $L^2(\symbb{R}^3)$.
-
-Recordemos que al aplicar una rotación pasiva se transforman las coordenadas
-de los vectores. La matriz de rotación correspondiente es la representada en la
+Cuando una función definida en $\symbb{R}^3$ hace corresponder a cada punto del espacio
+$x, y, z$ un valor que puede ser complejo. El espacio de funciones que estamos
+considerando se representa como $L^2(\symbb{R}^3)$.
+%
+Recordemos que al aplicar una rotación pasiva, se transforman las coordenadas de los
+vectores, en este caso pertenecientes a $\symbb{R}^3$ y, por tanto, de los ejes que
+determinan el espacio. La matriz de rotación correspondiente es la representada en la
 ecuación~(\ref{eq:cua-rot-v1})
 \[
   \mmm{R}(\xhat{n},\theta)
   = \exp\left(i\theta\,\xhat{n}\cdot\mmm{J}\right)   
 \]
+Es importante señalar que al rotar los ejes, no estamos rotando la función. Pero si
+consideramos que los ejes no han girado, el efecto que se produce es el de que la
+función ha girado en sentido contrario (horario).
 
 Si quisiéramos rotar un objeto (un punto, vector, etc.), deberíamos aplicar
 una rotación activa

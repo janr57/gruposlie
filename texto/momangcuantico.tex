@@ -881,52 +881,61 @@ girando los ejes en sentido horario (negativo).
 %siendo $\mmm{R}^{-1}$ la inversa de la matriz de rotación que queremos aplicar
 %a la función $f$.
 
-\subsection{Generador de rotación para funciones}
+\section{Generador de rotación para funciones}
 \label{ssect:cua-generador-rotacion-funciones}
-Hemos visto el generador de rotación de vectores, pero ahora nos interesamos por la
-rotación de funciones.
-Usaremos $\Psi(x,y,z)$ para representar cualquier función genérica; el símbolo $\Psi$ lo
-utilizamos para que parezca una función de onda de mecánica cuántica, pero por ahora, para
-nosotros podrá ser cualquier función, real o compleja, de las coordenadas, aunque en
-más tarde, $\Psi(x,y,z)$ representará después cualquier función compleja de variable real.
+Hemos visto el generador de rotación de vectores, pero ahora nos interesamos por el de
+funciones.
+Usaremos el símbolo $\Psi$ para representar cualquier función genérica definida en el
+espacio euclídeo. Este símbolo lo utilizamos para que parezca una función de onda en mecánica cuántica aunque, por ahora, podrá ser cualquier función, real o compleja, de las
+coordenadas pero, más tarde, representará funciones compleja de variable real.
 
-\subsubsection{Ejemplo sencillo}
+\subsection{Deducción mediante un ejemplo sencillo}
 Pretendemos deducir cómo rotar una función utilizando un ejemplo sencillo.
-En particular, queremos rotar la función $f(x,y) = 2x + 3y$, un ángulo de
-$\ang{90} = \pi/2 \unit{\radian}$.
-
-La matriz de rotación activa es
+Así, nos proponemos rotar una función definida en $\symbb{R}^2$, un ángulo de \ang{90}
+($\pi/2\,\unit{\radian}$). El valor de la función lo representaremos en el eje $z$
 \[
-  \mmm{R}(z, \pi/2)
-  =
-  e^{-i\frac{\pi}{2} (\xhat{n}\cdot\mmm{J})}
+  z = \Psi(x,y) = 2x + 3y
 \]
 
-Así, las nuevas coordenadas $\vvv{\tilde{r}}$ de cualquier punto $\vvv{r} = (x, y, 0)$
-del dominio de la función se calcularían
+Es importante dejar claro desde el principio que nos interesa obtener la expresión de la
+función rotada $\tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)$.
+
+
+Sabemos que la matriz de rotación activa alrededor del eje $z$ es
+\begin{align*}
+  \mmm{R}((0,0,1), \pi/2)
+  &=
+    e^{-i\frac{\pi}{2} (\xhat{n}\cdot\mmm{J})}
+    =
+    e^{-i\frac{\pi}{2} (0 J_1 + 0 J_2 + 1 J_3)}
+    =
+    e^{-i\frac{\pi}{2} J_3}\\
+  &=
+    \begin{pmatrix}
+      \cos\pi/2 & -\sin\pi/2 & 0\\
+      \sin\pi/2 & \phantom{-}\cos\pi/2 & 0\\
+      0 & 0 & 1
+    \end{pmatrix}
+    =
+  \begin{pmatrix}
+    0 & -1 & 0\\
+    1 & \phantom{-}0 & 0\\
+    0 & \phantom{-}0 & 1
+  \end{pmatrix}      
+\end{align*}
+
+Las nuevas coordenadas $\vvv{\tilde{r}}$ de cualquier punto $\vvv{r} = (x, y, z)$, se
+calculan haciendo actuar la matriz de rotación anterior sobre este
 \[
   \vvv{\tilde{r}}
   =
   \mmm{R} \vvv{r}
 \]
-
 \[
   \begin{pmatrix}
     \tilde{x}\\
     \tilde{y}\\
     \tilde{z}
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    \cos\pi/2 & -\sin\pi/2 & 0\\
-    \sin\pi/2 & \phantom{-}\cos\pi/2 & 0\\
-    0 & 0 & 1
-  \end{pmatrix}
-  \,
-  \begin{pmatrix}
-    x\\
-    y\\
-    z
   \end{pmatrix}
   =
   \begin{pmatrix}
@@ -948,203 +957,218 @@ del dominio de la función se calcularían
   \end{pmatrix}
 \]
 
-Las nuevas coordenadas de cualquier punto $(x,y)$ del dominio de la función son
+Obtenemos
 \vspace*{-1ex}
-\begin{align*}
-  \tilde{x} &= -y\\
-  \tilde{y} &= x
-\end{align*}
+\begin{subequations}
+  \begin{align}\label{eq:cua-ejsenc-xtilde}
+    \tilde{x} &= -y\\
+    \label{eq:cua-ejsenc-ytilde}
+    \tilde{y} &= x\\
+    \label{eq:cua-ejsenc-ztilde}
+    \tilde{z} &= z
+  \end{align}
+\end{subequations}
 
-También hemos obtenido que
-\[
-  \tilde{z} = z
-\]
-esto es, $\tilde{f}\!\left(\tilde{x},\tilde{y}\right) = f(x,y,z)$.
+Como se aprecia en las igualdades anteriores, las nuevas coordenadas
+$\left(\tilde{x},\tilde{y}\right)$ asociadas cualquier punto original $(x,y)$ del dominio
+de la función se presentan en las igualdades \ref{eq:cua-ejsenc-xtilde} y
+\ref{eq:cua-ejsenc-ytilde}, y la última \ref{eq:cua-ejsenc-ztilde}, se refiere a la
+función rotada.
 
-La función rotada que queremos es $\tilde{f}\!\left(\tilde{x},\tilde{y}\right)$ y la
-expresión anterior nos señala la forma de calcularla.
+Obsérvese que, en general ---a menos que se trate de la rotación identidad---, las
+coordenadas del dominio $(x,y)$ cambian, pero el valor de la función al rotar nunca lo
+hace
+\begin{subequations}
+  \begin{align*}
+    x &\longrightarrow \tilde{x}\neq x\\
+    y &\longrightarrow \tilde{y}\neq y\\
+    \Psi(x,y) &\longrightarrow \tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)=\Psi(x,y)
+  \end{align*}
+\end{subequations}
+Esto es, cada punto del dominio $(x,y)$ rota, mientras que se lleva (arrastra consigo) a
+la nueva posición $\left(\tilde{x},\tilde{y}\right)$, el valor que tenía la función
+original en $(x,y)$.
+
+La igualdad $\tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right) = \Psi(x,y)$,
+nos da la pista para obtener la expresión de la función rotada.
+Lo que tenemos que hacer es sustituir la coordenadas originales $x$ e $y$ del segundo
+miembro de la igualdad anterior por las nuevas $\tilde{x}$ y $\tilde{y}$ con objeto
+de obtener $\tilde{\Psi}$ en función de las nuevas coordenadas
+$\tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)$ y no de las originales.
+Esto es, debemos hallar las coordenadas originales $x$ e $y$ en función de las rotadas
+$\tilde{x}$ y $\tilde{y}$. Esto supone aplicar a las $\vvv{\tilde{r}}$, la matriz inversa
+$\mmm{R}^{-1}$ de la que habíamos utilizado para rotar la función.
 
 
-
-
-
-
-
-
-
-
-
-
-
-La función rotada se calcula a partir de la original aplicando sobre el argumento la
-inversa de la rotación
-\begin{equation}\label{eq:cua-funcionrotadadef}
-  \tilde{\Psi}(\vvv{\tilde{r}})
-  =
-  \Psi(\mmm{R}^{-1}\vvv{r})
-\end{equation}
-
-
-Queremos rotar una función, no los ejes, la matriz de rotación activa es
-\[
-  \mmm{R}(\varepsilon)=\exp(-i\varepsilon\,\xhat{n}\cdot\mmm{J})
-\]
-y como las rotaciones forman un grupo de Lie, podemos aplicar rotaciones infinitesimales
-y las conclusiones a las que lleguemos serán válidas para cualquier rotación finita
-\[
-  \mmm{R}(\varepsilon)
-  =
-  e^{-i\varepsilon \xhat{n}\cdot\mmm{J}}
-  =
-  \mmm{I} - i\varepsilon \xhat{n}\cdot\mmm{J}
-\]
-
-Como $\mmm{J}$ es hermítica, la rotación inversa será la adjunta\footnotemark{}
-o transpuesta conjugada
-\footnotetext{Aquí, \emph{adjunta} es la \emph{adjunta hermitiana} o transpuesta compleja
-  conjugada, usada en espacios complejos y unitarios, por ejemplo
-  $\mmm{U}^\dagger \mmm{U} = I$. En este contexto, no es la matriz adjunta clásica
-  $\text{adj}(\mmm{A})$ que es la matriz de cofactores transpuesta, usada para encontrar
-  la inversa de matrices reales o complejas
-  ($\mmm{A}^{-1} = \frac{1}{\text{det}(A)}\,\text{adj}(A)$)}.
-\[
-  \mmm{J}^\dagger = \mmm{J}
-\]
-
-Así
-\begin{align*}
-  \mmm{R}^{-1}(\varepsilon)
-  &=
-  \mmm{R}^\dagger(\varepsilon)
-  =
-    (\mmm{I} - i\varepsilon\xhat{n}\cdot\mmm{J})^\dagger
-  =
-    I^\dagger - i^*\varepsilon\xhat{n}\cdot\mmm{J}^\dagger
-  =
-    I + i\varepsilon\xhat{n}\cdot\mmm{J}
-\end{align*}
-
-Entonces
-\[
-  \mmm{R}^{-1} \vvv{r}
-  =
-  (I + i\varepsilon\xhat{n}\cdot\mmm{J}) \vvv{r}
-  =
-  \vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}
-\]
-
-Ahora se desarrolla la función rotada~(\ref{eq:cua-funcionrotadadef}) en serie de
-potencias\footnotemark{}
-\footnotetext{En las lecciones en vídeo se desarrolla la función de una manera que no
-  llego a comprender del todo, véase el
-  apéndice~\ref{chapt:apcua-acerca-generador-funciones}.}
-\begin{equation}\label{eq:cua-desarrollo-psi}
-  \tilde{\Psi}
-  = \Psi(\mmm{R}^{-1}\vvv{r})
-  = \Psi(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r})
-    = \Psi(\vvv{r})
-    + \left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger
-    \frac{\partial\Psi}{\partial\vvv{r}}
-\end{equation}
-
-\clearpage
-Antes de continuar, vamos a analizar el segundo sumando del
-desarrollo~\eqref{eq:cua-desarrollo-psi}:
-\begin{itemize}
-\item El primer factor,
-$\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$,
-contiene el producto de una matriz $3\times 3$ y otra $3\times 1$, produciendo una matriz
-$3\times 1$
-\begin{center}
-  \begin{tabular}{ccccc}
-    $i\varepsilon$ & $(\xhat{n}\cdot\mmm{J})$ & $\vvv{r}$ &&\\
-    & $3\times 3$ & $3\times 1$ & $\longrightarrow$ & $3\times 1$
-  \end{tabular}
-\end{center}
-que al realizar su traspuesta conjugada nos da una matriz $1\times 3$
-\begin{center}
-  \begin{tabular}{ccc}
-    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$ &&\\
-    $[3\times 1]^\dagger$ & $\longrightarrow$ & $1\times 3$
-  \end{tabular}
-\end{center}
-
-\item Esta última matriz se multiplica por una matriz $3\times 1$, dando como resultado
-  una matriz $1\times 1$, esto es, se forma un escalar, que en el espacio
-  $L^2\symbb{R}^3$ es un número complejo
-\begin{center}
-  \begin{tabular}{cccc}
-    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$
-    & $\frac{\partial\Psi}{\partial\vvv{r}}$ &&\\
-    $1\times 3$ & $3\times 1$ & $\longrightarrow$ & $1\times 1$
-  \end{tabular}
-\end{center}
-\end{itemize}
-
-Seguimos con el desarrollo de la función rotada infinitesimalmente
-\begin{align*}
-  \tilde{\Psi}
-  &=
-    \Psi
-    - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}^\dagger)\,
-    \frac{\partial\Psi}{\partial\vvv{r}}
-    = \Psi - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,
-    \frac{\partial\Psi}{\partial\vvv{r}}\\
-  &=
-    \left[
-    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})
-    \frac{\partial}{\partial\vvv{r}}
-    \right]
-    \Psi
-  = \left[
-    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}) \vvv{\nabla}
-    \right]
-    \Psi
-\end{align*}
-donde el gradiente es
-$\partial/\partial\vvv{r}
-= \vvv{\nabla} = (\partial_x,\partial_y,\partial_z)
-=(\partial/\partial x,\partial/\partial y, \partial/\partial z)$
-
-Para una rotación finita
-\[
-  \tilde{\Psi}(\vvv{\tilde{r}})
-  = \exp\left\{-i\theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{\nabla}\right\}
-  \,\Psi(\vvv{r})
-\]
-
-Ahora bien, sabemos que en mecánica cuántica el momento se define como
-\[
-  \vvv{p} \equiv -i\hbar\vvv{\nabla}
-\]
-\[
-  \tilde{\Psi}(\vvv{\tilde{r}})
-  = \exp\left[
-    -i\frac{\theta}{\hbar}i\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{p}
-  \right]
-  \,\Psi(\vvv{r})
-\]
-
-Y teniendo en cuenta la expresión~\ref{eq:cua-nL-v1}, que relaciona el momento angular
-con los generadores $\mmm{J}$, la función rotada un ángulo discreto $\theta$ es
-\[
-  \tilde{\Psi}(\vvv{\tilde{r}})
-  =
-  \exp\left[-\frac{\theta}{\hbar}(\xhat{n}\cdot\vvv{L})\right]\,\Psi(\vvv{r})
-\]
-
-El operador de rotación en SO(3) para funciones es
-\begin{equation}
-  \label{eq:cua-rot-nL}
-  \mmm{R}(\xhat{n},\theta)
-  =
-  \exp\left[-i\frac{\theta}{\hbar}\, \xhat{n}\cdot\vvv{L}\right]
-\end{equation}
-
-Este operador sirve para rotar funciones, reales o complejas, definidas en el espacio
-euclídeo $\symbb{R}^3$, alrededor de un cierto eje $\xhat{n}$.
-Otra conclusión a la que hemos llegado es que se conecta directamente el momento angular
-con una rotación.
+%La función rotada se calcula a partir de la original aplicando sobre el argumento la
+%inversa de la rotación
+%\begin{equation}\label{eq:cua-funcionrotadadef}
+%  \tilde{\Psi}(\vvv{\tilde{r}})
+%  =
+%  \Psi(\mmm{R}^{-1}\vvv{r})
+%\end{equation}
+%
+%
+%Queremos rotar una función, no los ejes, la matriz de rotación activa es
+%\[
+%  \mmm{R}(\varepsilon)=\exp(-i\varepsilon\,\xhat{n}\cdot\mmm{J})
+%\]
+%y como las rotaciones forman un grupo de Lie, podemos aplicar rotaciones infinitesimales
+%y las conclusiones a las que lleguemos serán válidas para cualquier rotación finita
+%\[
+%  \mmm{R}(\varepsilon)
+%  =
+%  e^{-i\varepsilon \xhat{n}\cdot\mmm{J}}
+%  =
+%  \mmm{I} - i\varepsilon \xhat{n}\cdot\mmm{J}
+%\]
+%
+%Como $\mmm{J}$ es hermítica, la rotación inversa será la adjunta\footnotemark{}
+%o transpuesta conjugada
+%\footnotetext{Aquí, \emph{adjunta} es la \emph{adjunta hermitiana} o transpuesta compleja
+%  conjugada, usada en espacios complejos y unitarios, por ejemplo
+%  $\mmm{U}^\dagger \mmm{U} = I$. En este contexto, no es la matriz adjunta clásica
+%  $\text{adj}(\mmm{A})$ que es la matriz de cofactores transpuesta, usada para encontrar
+%  la inversa de matrices reales o complejas
+%  ($\mmm{A}^{-1} = \frac{1}{\text{det}(A)}\,\text{adj}(A)$)}.
+%\[
+%  \mmm{J}^\dagger = \mmm{J}
+%\]
+%
+%Así
+%\begin{align*}
+%  \mmm{R}^{-1}(\varepsilon)
+%  &=
+%  \mmm{R}^\dagger(\varepsilon)
+%  =
+%    (\mmm{I} - i\varepsilon\xhat{n}\cdot\mmm{J})^\dagger
+%  =
+%    I^\dagger - i^*\varepsilon\xhat{n}\cdot\mmm{J}^\dagger
+%  =
+%    I + i\varepsilon\xhat{n}\cdot\mmm{J}
+%\end{align*}
+%
+%Entonces
+%\[
+%  \mmm{R}^{-1} \vvv{r}
+%  =
+%  (I + i\varepsilon\xhat{n}\cdot\mmm{J}) \vvv{r}
+%  =
+%  \vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}
+%\]
+%
+%Ahora se desarrolla la función rotada~(\ref{eq:cua-funcionrotadadef}) en serie de
+%potencias\footnotemark{}
+%\footnotetext{En las lecciones en vídeo se desarrolla la función de una manera que no
+%  llego a comprender del todo, véase el
+%  apéndice~\ref{chapt:apcua-acerca-generador-funciones}.}
+%\begin{equation}\label{eq:cua-desarrollo-psi}
+%  \tilde{\Psi}
+%  = \Psi(\mmm{R}^{-1}\vvv{r})
+%  = \Psi(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r})
+%    = \Psi(\vvv{r})
+%    + \left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger
+%    \frac{\partial\Psi}{\partial\vvv{r}}
+%\end{equation}
+%
+%\clearpage
+%Antes de continuar, vamos a analizar el segundo sumando del
+%desarrollo~\eqref{eq:cua-desarrollo-psi}:
+%\begin{itemize}
+%\item El primer factor,
+%$\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$,
+%contiene el producto de una matriz $3\times 3$ y otra $3\times 1$, produciendo una matriz
+%$3\times 1$
+%\begin{center}
+%  \begin{tabular}{ccccc}
+%    $i\varepsilon$ & $(\xhat{n}\cdot\mmm{J})$ & $\vvv{r}$ &&\\
+%    & $3\times 3$ & $3\times 1$ & $\longrightarrow$ & $3\times 1$
+%  \end{tabular}
+%\end{center}
+%que al realizar su traspuesta conjugada nos da una matriz $1\times 3$
+%\begin{center}
+%  \begin{tabular}{ccc}
+%    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$ &&\\
+%    $[3\times 1]^\dagger$ & $\longrightarrow$ & $1\times 3$
+%  \end{tabular}
+%\end{center}
+%
+%\item Esta última matriz se multiplica por una matriz $3\times 1$, dando como resultado
+%  una matriz $1\times 1$, esto es, se forma un escalar, que en el espacio
+%  $L^2\symbb{R}^3$ es un número complejo
+%\begin{center}
+%  \begin{tabular}{cccc}
+%    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$
+%    & $\frac{\partial\Psi}{\partial\vvv{r}}$ &&\\
+%    $1\times 3$ & $3\times 1$ & $\longrightarrow$ & $1\times 1$
+%  \end{tabular}
+%\end{center}
+%\end{itemize}
+%
+%Seguimos con el desarrollo de la función rotada infinitesimalmente
+%\begin{align*}
+%  \tilde{\Psi}
+%  &=
+%    \Psi
+%    - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}^\dagger)\,
+%    \frac{\partial\Psi}{\partial\vvv{r}}
+%    = \Psi - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,
+%    \frac{\partial\Psi}{\partial\vvv{r}}\\
+%  &=
+%    \left[
+%    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})
+%    \frac{\partial}{\partial\vvv{r}}
+%    \right]
+%    \Psi
+%  = \left[
+%    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}) \vvv{\nabla}
+%    \right]
+%    \Psi
+%\end{align*}
+%donde el gradiente es
+%$\partial/\partial\vvv{r}
+%= \vvv{\nabla} = (\partial_x,\partial_y,\partial_z)
+%=(\partial/\partial x,\partial/\partial y, \partial/\partial z)$
+%
+%Para una rotación finita
+%\[
+%  \tilde{\Psi}(\vvv{\tilde{r}})
+%  = \exp\left\{-i\theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{\nabla}\right\}
+%  \,\Psi(\vvv{r})
+%\]
+%
+%Ahora bien, sabemos que en mecánica cuántica el momento se define como
+%\[
+%  \vvv{p} \equiv -i\hbar\vvv{\nabla}
+%\]
+%\[
+%  \tilde{\Psi}(\vvv{\tilde{r}})
+%  = \exp\left[
+%    -i\frac{\theta}{\hbar}i\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{p}
+%  \right]
+%  \,\Psi(\vvv{r})
+%\]
+%
+%Y teniendo en cuenta la expresión~\ref{eq:cua-nL-v1}, que relaciona el momento angular
+%con los generadores $\mmm{J}$, la función rotada un ángulo discreto $\theta$ es
+%\[
+%  \tilde{\Psi}(\vvv{\tilde{r}})
+%  =
+%  \exp\left[-\frac{\theta}{\hbar}(\xhat{n}\cdot\vvv{L})\right]\,\Psi(\vvv{r})
+%\]
+%
+%El operador de rotación en SO(3) para funciones es
+%\begin{equation}
+%  \label{eq:cua-rot-nL}
+%  \mmm{R}(\xhat{n},\theta)
+%  =
+%  \exp\left[-i\frac{\theta}{\hbar}\, \xhat{n}\cdot\vvv{L}\right]
+%\end{equation}
+%
+%Este operador sirve para rotar funciones, reales o complejas, definidas en el espacio
+%euclídeo $\symbb{R}^3$, alrededor de un cierto eje $\xhat{n}$.
+%Otra conclusión a la que hemos llegado es que se conecta directamente el momento angular
+%con una rotación.
 
 \section{Conmutadores básicos}
 Se pretende calcular algunos conmutadores básicos en mecánica cuántica, sobre todo, los

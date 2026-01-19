@@ -1173,26 +1173,19 @@ La función rotada tiene el valor
     \draw[eje] (0,0,0) -- (0,0,\LONGZ) coordinate (ejez);
     \node[above,name=letraejez] at (ejez){$z$};
 
-    % PRUEBA
-%    \filldraw[fill=black,draw=black] (rp) circle[radius=1.2pt];
-%    \filldraw[fill=black,draw=black] (Pty) circle[radius=1.2pt];
-%    \filldraw[fill=black,draw=black] (Pvalor) circle[radius=1.2pt];
-%    \filldraw[fill=black,draw=black] (Rtvalor) circle[radius=1.2pt];
-%    \filldraw[fill=black,draw=black] (z) circle[radius=1.2pt];
-
     % LÍNEAS GUÍA
     \draw[lineaguia] (R) -- (Rvalor);
     \draw[lineaguia] (Rt) -- (Rtvalor);
     \draw[lineaguia] (Rvalor) -- (z);
     \draw[lineaguia] (Rtvalor) -- (z);
 
-    % VECTORES DOMINIO
+    % VECTOR DOMINIO r
     \draw[dominioR, use path=\pathR];
-    %\node[above left=0pt and -4pt, green!60!black] at (Rmedio) {\footnotesize $\vvv{r}$};
     \node[below right=-4pt and -1pt, green!60!black] at (Rmedio)
     {\footnotesize $\vvv{r}$};
+    % VECTOR DOMINIO rtilde
     \draw[dominioRt, use path=\pathRt];
-    \node[below left=-2pt and 2pt,red!60!black] at (Rtmedio)
+    \node[below left=-1.5pt and 2pt,red!60!black] at (Rtmedio)
     {\footnotesize $\vvv{\tilde{r}}$};
     
     % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE Z
@@ -1202,49 +1195,28 @@ La función rotada tiene el valor
     % the former y axis is now the z axis.
     \tdplotdrawarc[axisrotation] {(0,0,3.0)}{0.35}{70}{410}{}
 
-    % Reponer parte final del eje z para simular perspectiva
+    % REPONER PARTE FINAL DEL EJE z PARA SIMULAR PERSPECTIVA
     \draw[eje] (0,0,2.9) -- (0,0,\LONGZ);
     
-    % Vector de posición del punto P en verde
-    % \draw[vectorP] (0,0,0) -- coordinate (Pmedio) (Rvalor);
+    % VECTOR DE POSICIÓN DEL PUNTO P EN VERDE
     \draw[vectorP, use path=\pathP];
-    
     \filldraw[fill=green,draw=black] (Rvalor) circle[radius=1.2pt];
     \node[below left=0pt and -2pt, green!60!black] at (Pmedio) {\footnotesize$\vvv{P}$};
-%    \node[right=0pt, green!60!black] at (Rmedio) {\footnotesize$\vvv{P}$};
+    \node[left=4pt, green!50!black] at (Rvalor) {\footnotesize $(1,0,2)$};
     
-%    Vector de posición del punto Ptilde en rojo
+    % VECTOR DE POSICIÓN DEL PUNTO Ptilde EN ROJO
     \draw[vectorPt, use path=\pathPt];
-    %\draw[vectorP] (0,0,0) -- coordinate (Ptmedio) (Rtvalor);
     \filldraw[fill=red,draw=black] (Rtvalor) circle[radius=1.2pt];
     \node[below right=0pt and -3pt, red!70!black] at (Ptmedio) {\footnotesize$\xhat{P}$};
-    
-%    \path[vectorP] (0,0,0) -- node[above left=0pt and -3pt] {\small $\vvv{r}$}
-%    (\RVEC,0,0) coordinate (P);
-%    \filldraw[fill=gray, line width=0.4pt] (P) circle[radius=1.3pt];
-%    \node[above right=-8pt and 0pt,black!50] at (P) {\small $P$};
-%    \node[above left=0pt and 5pt] at (P)
-%    {\footnotesize $\Psi(\vvv{r}) = 2$};
-    
-    % Vector de posición del punto (P') rotado en rojo
-%    \path[vectorPt]
-%    (0,0,0) -- node[above left=0pt and -3pt] {\small $\vvv{\tilde{r}}$}
-%    (0,\RVEC,0) coordinate (P');
-%    \filldraw[fill=red, line width=0.4pt] (P') circle[radius=1.3pt];
-%    \node[below left] at (P') {\small $\tilde{P}$};
-%    \node[above right=4pt and 0pt] at (P')
-%    {\footnotesize $\tilde{\Psi}(\vvv{\tilde{r}}) = 2$};
+    \node[right=0pt, red!60!black] at (Rtvalor) {\footnotesize $(0,1,2)$};    
 
-%    % VALORES DE CORTE EN EJES
-%    \node[left=5pt, green!50!black] at (Pvalor) {\footnotesize $(1,0,2)$};
-%    \node[right=0pt, red!60!black] at (Ptvalor) {\footnotesize $(0,1,2)$};
-%    \filldraw (rp) circle[radius=0.8pt];
-%    \filldraw (Pty) circle[radius=0.8pt];
-%    \filldraw (Pz) circle[radius=0.8pt];
-%    \node[left] at (rp)
-%    {\scriptsize $1$};
-%    \node[above right=-2pt and -1pt] at (Pty) {\scriptsize $1$};
-%    \node[above left=-2.5pt and -1pt] at (Pz) {\scriptsize $2$};
+    % VALORES DE CORTE EN EJES
+    \filldraw (R) circle[radius=0.8pt];
+    \filldraw (Rt) circle[radius=0.8pt];
+    \filldraw (z) circle[radius=0.8pt];
+    \node[left] at (R) {\scriptsize $1$};
+    \node[above right=-2pt and -1pt] at (Rt) {\scriptsize $1$};
+    \node[above left=-2.5pt and -1pt] at (z) {\scriptsize $2$};
     
     % ÁNGULO PHI 
     \tdplotsetthetaplanecoords{\thetavec}
@@ -1255,10 +1227,6 @@ La función rotada tiene el valor
     \tdplotdrawarc[angulogiro]
     {(0,0,0)}{1.6}{8}{\phivec-12}{anchor=north}
     {\textcolor{black!60}{\footnotesize $\pi/2\,\unit{\radian}$}};
-    % Texto de rotación
-    %\node[right=1.5em] at (0,0,3.6) {\footnotesize Rotación de \ang{90}};
-    %\node[right=1.5em] at (0,0,3.2) {\footnotesize de  $\Psi= 2x+3y$};
-    %\node[right=1.5em] at (0,0,2.8) {\footnotesize hasta $\tilde{\Psi}=-3x+2y$};    
 
     % Fondo amarillo
     \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);

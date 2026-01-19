@@ -1311,9 +1311,9 @@ Así
     =
     (\mmm{I} - i\varepsilon\xhat{n}\cdot\mmm{J})^\dagger
     =
-    I^\dagger- i^*\varepsilon\xhat{n}\cdot\mmm{J}^\dagger
+    I^\dagger- i^*\varepsilon(\xhat{n}\cdot\mmm{J})^\dagger
     =
-    I + i\varepsilon\xhat{n}\cdot\mmm{J}
+    I + i\varepsilon(\xhat{n}\cdot\mmm{J})
 \end{align*}
 
 Entonces
@@ -1327,19 +1327,20 @@ Entonces
 
 Ahora se desarrolla la función rotada~(\ref{eq:cua-funcionrotadadef}) en serie de
 potencias\footnotemark{}
-\footnotetext{En las lecciones en vídeo se desarrolla la función de una manera que no
-  llego a comprender del todo, véase el
-  apéndice~\ref{chapt:apcua-acerca-generador-funciones}.}
-\begin{equation}\label{eq:cua-desarrollo-psi}
+\footnotetext{$f(x+a) \approx f(x) + \dfrac{\partial f}{\partial x} a;
+  \text{ para } a \ll x$.}
+\begin{align*}%\label{eq:cua-desarrollo-psi}
   \tilde{\Psi}
-  = \Psi(\mmm{R}^{-1}\vvv{r})
-  = \Psi(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r})
-  = \Psi(\vvv{r})
-  + \left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger
-  \frac{\partial\Psi}{\partial\vvv{r}}
-\end{equation}
+  &=
+    \Psi(\mmm{R}^{-1}\vvv{r})
+    =
+    \Psi\!\left(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}\right)
+    =
+    \Psi\!\left(\vvv{r}\right)
+    + i\varepsilon\left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
+    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\\
+\end{align*}
 
-%\clearpage
 Antes de continuar, vamos a analizar el segundo sumando del
 desarrollo~\eqref{eq:cua-desarrollo-psi}:
 \begin{itemize}
@@ -1372,6 +1373,42 @@ que al realizar su traspuesta conjugada nos da una matriz $1\times 3$
   \end{tabular}
 \end{center}
 \end{itemize}
+
+
+%\begin{align*}%\label{eq:cua-desarrollo-psi}
+%  \tilde{\Psi}
+%  &=
+%    \Psi(\mmm{R}^{-1}\vvv{r})
+%    =
+%    \Psi\!\left(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}\right)
+%    =
+%    \Psi\!\left(\vvv{r}\right)
+%    + i\varepsilon\left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
+%    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\\
+%  &=
+%    \Psi\!\left(\vvv{r}\right)
+%    + \left[%
+%    i\varepsilon\left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
+%    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\right]^\dagger
+%    =
+%    \Psi\!\left(\vvv{r}\right)
+%    + i^*\varepsilon\vvv{r}^\dagger \left(\xhat{n}\cdot\mmm{J}\right)^\dagger    \left[\left(\dfrac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger\right]^\dagger\\
+%  &=
+%    \Psi\!\left(\vvv{r}\right)
+%    - i\varepsilon\vvv{r}^\dagger\left(\xhat{n}\cdot\mmm{J}\right)
+%    \dfrac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}  
+%\end{align*}
+
+
+
+
+
+
+
+
+
+
+
 
 Seguimos con el desarrollo de la función rotada infinitesimalmente
 \begin{align*}

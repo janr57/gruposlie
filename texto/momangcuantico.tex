@@ -900,7 +900,6 @@ Así, nos proponemos rotar una función definida en $\symbb{R}^2$, un ángulo de
 Es importante dejar claro desde el principio que nos interesa obtener la expresión de la
 función rotada $\tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)$.
 
-
 Sabemos que la matriz de rotación activa alrededor del eje $z$ es
 \begin{align*}
   \mmm{R}((0,0,1), \pi/2)
@@ -1115,118 +1114,6 @@ La función rotada tiene el valor
   = 0 + 2
   = 2
 \]
-%\begin{figure}[ht]
-%  \def\scl{1}
-%  \def\longeje{3}
-%  % 
-%  \tdplotsetmaincoords{60}{110}
-%  %
-%  % Longitud de los ejes x e y
-%  \pgfmathsetmacro{\LONGXY}{3.0}
-%  % Longitud del eje z
-%  \pgfmathsetmacro{\LONGZ}{3.8}
-%  \pgfmathsetmacro{\RVEC}{1.7}
-%  \pgfmathsetmacro{\Z}{2.3}
-%  \pgfmathsetmacro{\thetavec}{90}
-%  \pgfmathsetmacro{\phivec}{90}
-%  % Fondo
-%  \pgfmathsetmacro{\HORZ}{0.25}
-%  \pgfmathsetmacro{\VERT}{0.25}
-%  % 
-%  \tikzfading[%
-%  name=fade out, inner color=transparent!0, outer color=transparent!100
-%  ]
-%  
-%  \centering
-%  \begin{tikzpicture}[%
-%    scale=\scl,tdplot_main_coords,
-%    axisrotation/.style={%
-%      line width=1.6pt,
-%      -{Latex[round,length=12pt,width=7.0pt,bend]},
-%      color=black!30},
-%    angulogiro/.style={%
-%      line width=1.4pt,-{Latex[round,length=7pt,width=4.5pt,bend]},black!30},
-%    vectorP/.style={%
-%      -{Latex[width=7pt,length=8pt]},green!70!black,line width=2pt},
-%    vectorPt/.style={%
-%      -{Latex[width=7pt,length=8pt]},red!90!black,line width=2pt},
-%    background/.style={%
-%      line width=\bgborderwidth,
-%      draw=\bgbordercolor,
-%      fill=\bgcolor,
-%    },
-%    ]
-%    % SISTEMA ORIGINAL (A LA IZQUIERDA)
-%    % Para 'tikz-3dplot' son los ejes principales
-%    \draw[thick,->] (0,0,0) -- (\LONGXY,0,0) coordinate (ejex);
-%    \node[below left,name=letraejex] at (ejex) {$x$};
-%    \draw[thick,->] (0,0,0) -- (0,\LONGXY,0) coordinate (ejey);
-%    \node[below right,name=letraejey] at (ejey) {$y$};
-%    \draw[thick,->] (0,0,0) -- (0,0,\LONGZ) coordinate (ejez);
-%    \node[above,name=letraejez] at (ejez){$z$};
-%    
-%    % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE Z
-%    % \tdplotsetthetaplanecoords{-90}
-%    % Notice you have to tell tiks-3dplot you are now in rotated coords
-%    % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
-%    % the former y axis is now the z axis.
-%    \tdplotdrawarc[axisrotation] {(0,0,3.0)}{0.35}{70}{410}{}
-%
-%    % Reponer parte final del eje z para simular perspectiva
-%    \draw[thick,->] (0,0,2.9) -- (0,0,\LONGZ);  
-%    
-%    % Vector de posición del punto P en gris
-%    \draw[vectorP] (0,0,0) -- node[above left=0pt and -3pt] {\small $\vvv{r}$}
-%    (\RVEC,0,0) coordinate (P);
-%    \filldraw[fill=gray, line width=0.4pt] (P) circle[radius=1.3pt];
-%    \node[above right=-8pt and 0pt,black!50] at (P) {\small $P$};
-%    \node[above left=0pt and 5pt] at (P)
-%    {\footnotesize $\Psi(\vvv{r}) = 2$};
-%    
-%    % Vector de posición del punto (P') rotado en rojo
-%    \draw[vectorPt]
-%    (0,0,0) -- node[above left=0pt and -3pt] {\small $\vvv{\tilde{r}}$}
-%    (0,\RVEC,0) coordinate (P');
-%    \filldraw[fill=red, line width=0.4pt] (P') circle[radius=1.3pt];
-%    \node[below left] at (P') {\small $\tilde{P}$};
-%    \node[above right=4pt and 0pt] at (P')
-%    {\footnotesize $\tilde{\Psi}(\vvv{\tilde{r}}) = 2$};
-%
-%    % ÁNGULO PHI 
-%    \tdplotsetthetaplanecoords{\thetavec}
-%    % Dibuja el ángulo \phi y etiquétalo
-%    % sintaxis:
-%    % \tdplotdrawarc[coordinate frame, draw options]
-%    % {center point}{r}{angle}{label options}{label}
-%    \tdplotdrawarc[angulogiro]
-%    {(0,0,0)}{0.8}{8}{\phivec-10}{anchor=north}
-%    {\textcolor{green!50!black}{\footnotesize $\pi/2$}};
-%    % Texto de rotación
-%    \node[right=1.5em] at (0,0,3.6) {\small Rotación activa de};
-%    \node[right=1.5em] at (0,0,3.2) {\small $\Psi= 2x+3y$};
-%
-%    %% PRUEBA
-%    % P
-%    \draw (P) -- ++(0,0,\Z) coordinate (Pvalor);
-%    \draw (Pvalor) -- ++(-\RVEC,0,0);
-%    % Ptilde
-%    \draw (P') -- ++(0,0,\Z) coordinate (Ptvalor);
-%    \draw (Ptvalor) -- ++(0,-\RVEC,0);
-%    % Función
-%    \filldraw[fill=green,draw=black] at (Pvalor) circle[radius=1.2pt];
-%
-%    % Fondo amarillo
-%v    \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-%    \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
-%    \begin{scope}[on background layer]
-%      \draw[background] (SW) rectangle (NE);
-%    \end{scope}
-%  \end{tikzpicture}
-%  \caption{Rotación activa de la función $f(x,y,z) = 2x + 3y$, del ejemplo,
-%    alrededor del eje $z$, un ángulo de \ang{90}, que se representa mediante la rotación
-%    de un punto $P(1,0,2)$ hasta $\tilde{P}(0,1,2)$ del espacio tridimensional.}
-%  \label{fig:cua-rot-ejsenc-funcion}
-%\end{figure}
 
 \begin{figure}[ht]
   \def\scl{1}

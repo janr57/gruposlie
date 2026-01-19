@@ -39,7 +39,7 @@ Girar una función implica lo siguiente:
     \vvv{r} = (x,y,z)\hspace{1em}
     \longrightarrow
     \hspace{1em}
-    \vvv{\tilde{r}} = (\tilde{x},\tilde{y},\tilde{z})
+    \xtilde{r} = (\tilde{x},\tilde{y},\tilde{z})
   \]
   
   Al tratarse de una rotación activa (rotación de vectores), la matriz de rotación es
@@ -49,7 +49,7 @@ Girar una función implica lo siguiente:
   \end{equation}
   y las coordenadas del punto rotado se hallan aplicando esta matriz a las originales
   \begin{equation}\label{eq:cla-rotacion-aciva-funcion-coordenadasrotadas}
-    \vvv{\tilde{r}} = \mmm{R}^{-1}\,\vvv{r} = e^{-\theta\xhat{n}\cdot\mmm{G}}\vvv{r}
+    \xtilde{r} = \mmm{R}^{-1}\,\vvv{r} = e^{-\theta\xhat{n}\cdot\mmm{G}}\vvv{r}
   \end{equation}
 \end{subequations}
 Sabemos rotar segmentos orientados mediante matrices, como
@@ -103,13 +103,13 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
     Se aplica esta matriz a las coordenadas rotadas
     \begin{equation}\label{eq:cla-rotacion-aciva-funcion-coordenadasoriginales}
       \vvv{r}
-      = \mmm{R}^{-1} \vvv{\tilde{r}}
-      = e^{\theta\xhat{n}\cdot\mmm{G}}\vvv{\tilde{r}}
+      = \mmm{R}^{-1} \xtilde{r}
+      = e^{\theta\xhat{n}\cdot\mmm{G}}\xtilde{r}
     \end{equation}
     Se obliga a que se cumpla la
     igualdad~\eqref{eq:cla-funcion-relacion-funcionrotada}
     \begin{equation}\label{eq:cla-rotacion-de-funcion}
-      f(\vvv{r}) = f(\mmm{R}^{-1}\vvv{r}) = \tilde{f}(\vvv{\tilde{r}})
+      f(\vvv{r}) = f(\mmm{R}^{-1}\vvv{r}) = \tilde{f}(\xtilde{r})
     \end{equation}
   \end{subequations}
 
@@ -118,7 +118,7 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
   figura~\eqref{fig:cla-calculo-f-girada}:
 
   Para calcular el valor de la función girada en el punto $\tilde{P}$,
-  $\tilde{f}(\vvv{\tilde{r}})$, se le aplica la rotación inversa
+  $\tilde{f}(\xtilde{r})$, se le aplica la rotación inversa
   $\mmm{R}^{-1}$ al punto rotado, para obtener el punto original $P$ y
   entonces calcular el valor de la función original en éste, $f(\vvv{r})$
   \begin{figure}[ht]
@@ -181,7 +181,7 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
       \node[above, name=letraejey] at (yfin) {$y$};
       % Punto P'
       \draw[vectorrotado] (O) -- (P');
-      \node[above=5pt] at (OP'midway) {$\vvv{\tilde{r}}$};
+      \node[above=5pt] at (OP'midway) {$\xtilde{r}$};
       \fill[pprimacirculo] (P') circle [radius=1.4pt];
       \node[above] at (P') {$\tilde{P}$};
 
@@ -192,7 +192,7 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
       \node[right] at (P) {$P$};
 
       % Función rotada y original
-      \node[above] at (p'arrow) {$\tilde{f}(\vvv{\tilde{r}})$};
+      \node[above] at (p'arrow) {$\tilde{f}(\xtilde{r})$};
       \node[right] at (parrow) {$f(\vvv{r})$};
       
       % Sentido de giro del vector
@@ -201,7 +201,7 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
 
       % Matriz inversa
       \node[above right] at (minversa)
-      {\footnotesize $\mmm{R}^{-1}\vvv{\tilde{r}}$};
+      {\footnotesize $\mmm{R}^{-1}\xtilde{r}$};
 
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
@@ -211,11 +211,11 @@ Habrá que idear \emph{otra herramienta} o mecanismo para su giro\footnotemark{}
       \end{scope}
     \end{tikzpicture}
     \caption{Para calcular el valor de la función rotada $\tilde{f}$ en el punto
-      $\tilde{P}$, esto es, ($\tilde{f}(\vvv{\tilde{r}}$), giramos el punto
+      $\tilde{P}$, esto es, ($\tilde{f}(\xtilde{r}$), giramos el punto
       \emph{en sentido contrario} al giro que se le dio a la función para localizar el
       punto original $P$ y se calcula el valor de la función original en ese punto $P$
       sin girar $f(\vvv{r}=$. Finalmente se igualan los valores
-      $\tilde{f}(\vvv{\tilde{r}}) = f(\vvv{r})$.}
+      $\tilde{f}(\xtilde{r}) = f(\vvv{r})$.}
     \label{fig:cla-calculo-f-girada}
   \end{figure}
 
@@ -231,10 +231,10 @@ Para terminar esta explicación podríamos dar una \emph{receta} para rotar una 
 \item Identifíquese una matriz de rotación $\mmm{R}$ para la función.
 \item Aplique la inversa de la matriz anterior $\mmm{R}^{-1}$, para expresar las
   coordenadas originales en función de las nuevas
-  $\vvv{r} = \mmm{R}^{-1} \vvv{\tilde{r}}$.
+  $\vvv{r} = \mmm{R}^{-1} \xtilde{r}$.
 \item Sustituya las coordenadas originales en la función original por sus equivalentes
   obtenidas en el punto anterior, para obtener la función rotada,
-  $\tilde{f}(\vvv{\tilde{r}})=f(\mmm{R}^{-1}\vvv{\tilde{r}})$
+  $\tilde{f}(\xtilde{r})=f(\mmm{R}^{-1}\xtilde{r})$
 \item Opcionalmente, reescriba la función rotada quitando las tildes a las coordenadas,
   para obtener $\tilde{f}(x,y,z)$.
 \end{itemize}
@@ -274,7 +274,7 @@ La inversa de la matriz, la traspuesta porque es una matriz ortogonal, es
 Aplicamos~\eqref{eq:cla-matrizinversa-ej1} para obtener las coordenadas originales en
 función de las rotadas
 \[
-  \vvv{r} = \mmm{R}_z^{-1} \vvv{\tilde{r}}
+  \vvv{r} = \mmm{R}_z^{-1} \xtilde{r}
 \]
 \[
   \begin{pmatrix}
@@ -357,7 +357,7 @@ Ahora giramos el punto (vector) usando la matriz de rotación activa $R_z(\pi/2)
   \end{pmatrix}
 \]
 
-El punto rotado es $\vvv{\tilde{r}} = (0,1,0)$
+El punto rotado es $\xtilde{r} = (0,1,0)$
 \[
   \vvv{r}(1,0,0)
   \longrightarrow
@@ -432,12 +432,12 @@ aplicada al punto sin rotar $f(1,0,0)=2$, véase la figura~\ref{fig:cla-rot-func
     
     % Vector de posición del punto (P') rotado en rojo
     \draw[-{Latex[width=7pt]},red!90!black,line width=2pt]
-    (0,0,0) -- node[above left=0pt and -3pt] {\small $\vvv{\tilde{r}}$}
+    (0,0,0) -- node[above left=0pt and -3pt] {\small $\xtilde{r}$}
     (0,\rvec,0) coordinate (P');
     \filldraw[fill=red, line width=0.4pt] (P') circle[radius=1.3pt];
     \node[below left] at (P') {\small $\tilde{P}$};
     \node[above right=4pt and 0pt] at (P')
-    {\footnotesize $\tilde{f}(\vvv{\tilde{r}}) = 2$};
+    {\footnotesize $\tilde{f}(\xtilde{r}) = 2$};
     
     % ÁNGULO PHI 
     \tdplotsetthetaplanecoords{\thetavec}
@@ -535,7 +535,7 @@ activa $\mmm{R}_z$, obteniendo
 \[
   \vvv{r}_0 = (x_0, y_0, z_0)
   \longrightarrow
-  \vvv{\tilde{r}}_0 = (\cos\theta\,x_0 - \sin\theta\,y_0,
+  \xtilde{r}_0 = (\cos\theta\,x_0 - \sin\theta\,y_0,
   \sin\theta\,x_0 + \cos\theta\,y_0,
   z_0)
 \]
@@ -620,14 +620,14 @@ convirtiéndose en
 \[
   \vvv{r} = P(3,2,1)
   \longrightarrow
-  \vvv{\tilde{r}}
+  \xtilde{r}
   = \tilde{P}\left(\frac{3-2\sqrt{3}}{2}, \frac{3\sqrt{3}+2}{2}, 1\right)
 \]
 
 Tenemos que encontrar la función rotada
 $\tilde{f}(\tilde{x},\tilde{y},\tilde{z})$ de manera que se cumpla
 \[
-  \tilde{f}(\vvv{\tilde{r}}) = f(\vvv{r}) = 8
+  \tilde{f}(\xtilde{r}) = f(\vvv{r}) = 8
 \]
 
 Para encontrar la función para cualquier valor de los argumentos, aplicamos la matriz
@@ -693,7 +693,7 @@ Por último, comprobamos que el valor de la función rotada en el punto rotado $
 es el mismo que el de la función original en el punto $P$,
 ver~\eqref{eq:cla-valor-funcion-ej3}
 \begin{align*}
-  \tilde{f}(\vvv{\tilde{r}})
+  \tilde{f}(\xtilde{r})
   &=
   \tilde{f}\left(\frac{3-2\sqrt{3}}{2},\frac{3\sqrt{3}+2}{2},1\right)\\
   &=
@@ -735,8 +735,8 @@ Las coordenadas originales se pueden poner en función de las rotadas mediante l
 inversa
 \[
   \vvv{r}
-  = \mmm{R}_z^{-1}(\theta)\,\vvv{\tilde{r}}
-  = e^{\theta\mmm{G}_z} \,\vvv{\tilde{r}}
+  = \mmm{R}_z^{-1}(\theta)\,\tilde{r}
+  = e^{\theta\mmm{G}_z} \,\tilde{r}
 \]
 \[
   \begin{pmatrix}

@@ -167,7 +167,7 @@ con una rotación en el espacio --grupo SO(3)--
 Ya hemos visto que al girar los ejes de coordenadas alrededor de un cierto eje (rotación
 pasiva) se produce un cambio en las coordenadas de un vector
 \[
-  \vvv{\tilde{r}}
+  \xtilde{r}
   = \mmm{R}\!\left(\xhat{n},\theta\right)\, \vvv{r}
   = e^{\theta\/\xhat{n}\cdot\mmm{G}} \vvv{r}
 \]
@@ -176,7 +176,7 @@ y que matematicamente equivale a dejar los ejes inmóviles y a girar en sentido 
 Si quisiéramos rotar el vector en sentido positivo (antihorario), deberíamos realizar la
 operación inversa
 \[
-  \vvv{\tilde{r}}
+  \xtilde{r}
   = \mmm{R}^{-1}\!\left(\xhat{n},\theta\right)\, \vvv{r}
   = e^{-\theta\/\xhat{n}\cdot\mmm{G}} \vvv{r}
 \]
@@ -669,7 +669,7 @@ velocidad rotadas\footnotemark{}
 \[
   \symcal{L}(\vvv{r}, \vvv{\dot{r}})
   \longrightarrow
-  \tilde{\symcal{L}}(\vvv{\tilde{r}}, \vvv{\dot{\tilde{r}}})
+  \tilde{\symcal{L}}(\xtilde{r}, \xtilde{\dot{r}})
 \]
 y queremos averiguar bajo qué condiciones se cumple la invariancia
 $\tilde{\symcal{L}} = \symcal{L}$.
@@ -680,7 +680,7 @@ las coordenadas y, como se vio en la introducción de la sección
 \ref{sect:cla-momento-angular-y-Noether}, también cambiarań de forma similar las
 velocidades
 \begin{align*}
-  \vvv{\tilde{r}}
+  \xtilde{r}
   &=
   \mmm{R}(\varepsilon)\vvv{r}
   =
@@ -705,7 +705,7 @@ Se ha producido un cambio en la posición y en la velocidad
 \begin{align}\label{eq:cla-delta-posicion}
   \Delta\vvv{r}
   &=
-  \vvv{\tilde{r}} - \vvv{r}
+  \xtilde{r} - \vvv{r}
   \approx
   \cancelout{\vvv{r}}
   + \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{r}
@@ -715,7 +715,7 @@ Se ha producido un cambio en la posición y en la velocidad
   \label{eq:cla-delta-velocidad}
     \Delta\vvv{\dot{r}}
   &=
-  \vvv{\tilde{\dot{r}}} - \vvv{\dot{r}}
+  \xtilde{\dot{r}} - \vvv{\dot{r}}
   \approx
   \cancelout{\vvv{\dot{r}}}
   + \varepsilon(\xhat{n}\cdot\mmm{G})\vvv{\dot{r}}

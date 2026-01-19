@@ -317,7 +317,7 @@ matriz de rotación activa
   = e^{-i\frac{\pi}{2}J_3}
 \]
 \[
-  \vvv{\tilde{P}}
+  \xtilde{P}
   =
   \begin{pmatrix}
     \tilde{x}\\
@@ -357,13 +357,13 @@ matriz de rotación activa
     0
   \end{pmatrix}  
 \]
-Así, el vector rotado es $\vvv{\tilde{P}} = (0,2,0)$.
+Así, el vector rotado es $\xtilde{P} = (0,2,0)$.
 
 Esto sirve para rotar cualquier otro vector, como $\vvv{Q} = (3,3,0)$, produciendo el
-vector $\vvv{\tilde{Q}} = (-3,3,0)$, como se puede apreciar en el cálculo que sigue y
-se puede ver en la figura~\ref{fig:cua-funcrot2}
+vector $\xtilde{Q} = (-3,3,0)$, como se puede apreciar en el cálculo que sigue y se puede
+ver en la figura~\ref{fig:cua-funcrot2}
 \[
-  \vvv{\tilde{Q}}
+  \xtilde{Q}
   =
   \begin{pmatrix}
     \tilde{x}\\
@@ -461,7 +461,7 @@ se puede ver en la figura~\ref{fig:cua-funcrot2}
       \draw[vectorrotado] (O) -- (Pt);
       \filldraw[fill=red, draw=black] (Pt) circle[radius=1.2pt];
       \node[above right=-3pt and 0pt, red!70!black] at (Pt)
-      {\footnotesize $\vvv{\tilde{P}}\,(0,2,0)$};
+      {\footnotesize $\xtilde{P}\,(0,2,0)$};
       % Origen
       \filldraw (O) circle [radius=.8pt];
       \node[below left=-1.5pt and -2.5pt] at (O) {\scriptsize $O$};
@@ -474,7 +474,7 @@ se puede ver en la figura~\ref{fig:cua-funcrot2}
       \end{scope}
     \end{tikzpicture}
     \caption{Un vector (o punto) $\vvv{P}$, en verde, y el vector rotado
-      $\vvv{\tilde{P}}$ rotado, en rojo.}
+      $\xtilde{P}$ rotado, en rojo.}
     \label{fig:cua-funcrot1}
   \end{minipage}
   \hspace{1em}
@@ -550,7 +550,7 @@ se puede ver en la figura~\ref{fig:cua-funcrot2}
       \draw[vectorrotado] (O) -- (Qt);
       \filldraw[fill=red, draw=black] (Qt) circle[radius=1.2pt];
       \node[above right=-3pt and -3pt, red!70!black] at (Qt)
-      {\scriptsize $\vvv{\tilde{Q}}\,(-3,3,0)$};
+      {\scriptsize $\xtilde{Q}\,(-3,3,0)$};
       % Origen
       \filldraw (O) circle [radius=.8pt];
       \node[below=-1pt] at (O) {\scriptsize $O$};
@@ -563,7 +563,7 @@ se puede ver en la figura~\ref{fig:cua-funcrot2}
       \end{scope}
     \end{tikzpicture}
     \caption{Otro vector (o punto) $\vvv{Q}$, en verde, y el vector rotado
-      $\vvv{\tilde{Q}}$, en rojo.}
+      $\tilde{Q}$, en rojo.}
     \label{fig:cua-funcrot2}
   \end{minipage}
 \end{figure}
@@ -704,9 +704,9 @@ girando los ejes en sentido horario (negativo).
 %
 %Cada punto $\vvv{r} = (x,y,z)$ de la izquierda de la figura, se transforma mediante la
 %matriz de rotación en otro punto girado
-%$\vvv{\tilde{r}} = (\tilde{x}, \tilde{y}, \tilde{z})$, señalado con tilde
+%$\xtilde{r} = (\tilde{x}, \tilde{y}, \tilde{z})$, señalado con tilde
 %\begin{align*}
-%  \vvv{\tilde{r}}
+%  \xtilde{r}
 %  &=
 %  \mmm{R}_z(\theta) \vvv{r}
 %  =
@@ -758,7 +758,7 @@ girando los ejes en sentido horario (negativo).
 %
 %Para obtener la función rotada un ángulo $\theta$ tenemos que aplicar la transformación
 %inversa de la ecuación~(\ref{eq:cua-rotzfuncion}), que cuando se aplica a un vector
-%girado $\vvv{\tilde{r}}$ da
+%girado $\xtilde{r}$ da
 %\begin{align}
 %  \label{eq:cua-rotzinv-x}
 %  x &= \tilde{x}\cos\theta + \tilde{y}\sin\theta\\
@@ -874,7 +874,7 @@ girando los ejes en sentido horario (negativo).
 %
 %En resumen, para obtener la expresión analítica de una función rotada, hay que hacer
 %\[
-%  \tilde{f}(\vvv{\tilde{r}})
+%  \tilde{f}(\xtilde{r})
 %  =
 %  \tilde{f}(\mmm{R}^{-1} \vvv{r})
 %\]
@@ -921,10 +921,10 @@ La matriz de rotación activa alrededor del eje $z$ es
   \end{pmatrix}      
 \end{align*}
 
-Las nuevas coordenadas $\vvv{\tilde{r}}$ de cualquier punto $\vvv{r} = (x, y, z)$ de la
+Las nuevas coordenadas $\xtilde{r}$ de cualquier punto $\vvv{r} = (x, y, z)$ de la
 función, se calculan haciendo actuar la matriz de rotación anterior sobre este
 \[
-  \vvv{\tilde{r}}
+  \xtilde{r}
   =
   \mmm{R} \vvv{r}
 \]
@@ -1011,11 +1011,11 @@ coordenadas $x$ e $y$, en función de las nuevas $\tilde{x}$ y $\tilde{y}$, con 
 que la función rotada $\tilde{\Psi}$ se encuentre correctamente expresada.
 
 Esto es, debemos hallar las coordenadas originales $x$ e $y$ en función de las rotadas
-$\tilde{x}$ y $\tilde{y}$. Esto supone aplicar a las $\vvv{\tilde{r}}$, la matriz inversa
+$\tilde{x}$ y $\tilde{y}$. Esto supone aplicar a las $\xtilde{r}$, la matriz inversa
 $\mmm{R}^{-1}$ de la que habíamos utilizado para rotar la función,
-$\vvv{\tilde{r}} = \mmm{R}\vvv{r}$
+$\\xtilde{r} = \mmm{R}\vvv{r}$
 \[
-  \vvv{r} = \mmm{R}^{-1}\vvv{\tilde{r}}
+  \vvv{r} = \mmm{R}^{-1}\xtilde{r}
 \]
 
 Puesto que $\mmm{R}$ es una  matriz ortogonal, basta con calcular su
@@ -1114,11 +1114,11 @@ Rotamos el vector $\vvv{P} = (1,0)$ utilizando las igualdades
 \[
   \vvv{P} = (1,0)
   \longrightarrow
-  \vvv{\tilde{P}} = (0,1)
+  \xtilde{P} = (0,1)
 \]
 La función rotada tiene el valor
 \[
-  \tilde{\Psi}(\vvv{\tilde{P}})
+  \tilde{\Psi}(\xtilde{P})
   =
   \tilde{\Psi}(0,1)
   =
@@ -1206,7 +1206,7 @@ La función rotada tiene el valor
     \node[left=2pt, textoP] at (P) {$\vvv{P}\,(1,0)$};
     % PUNTO DOMINIO Ptilde
     \filldraw[puntoPt] (Pt) circle;
-    \node[above right=-2pt and -1pt, textoPt] at (Pt) {$\vvv{\tilde{P}}\,(0,1)$};
+    \node[above right=-2pt and -1pt, textoPt] at (Pt) {$\xtilde{P}\,(0,1)$};
     
     % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE Z
     % \tdplotsetthetaplanecoords{-90}
@@ -1227,7 +1227,7 @@ La función rotada tiene el valor
     \draw[vectorRt, use path=\pathRt];
     \filldraw[puntoRt] (Rt) circle;
     \node[below right=-1pt and -1pt, textoRt] at (Rtmedio)
-    {\footnotesize $\vvv{\tilde{r}}$};
+    {\footnotesize $\xtilde{r}$};
     \node[right=1pt, textoRt] at (Rt) {$(0,1,2)$};    
 
     % VALOR DE LA FUNCIÓN PARA P(1,0)
@@ -1252,7 +1252,7 @@ La función rotada tiene el valor
   \end{tikzpicture}
   \caption{Rotación de \ang{90} de un punto $\vvv{r}$, en verde, de la función
     original $\Psi(x,y,z) = 2x + 3y$, alrededor del eje $z$, hasta el punto
-    $\vvv{\tilde{r}}$, en rojo, de la función rotada $\tilde{\Psi}=-3x+2y$.}
+    $\xtilde{r}$, en rojo, de la función rotada $\tilde{\Psi}=-3x+2y$.}
   \label{fig:cua-rot-ejsenc-funcion}
 \end{figure}
 
@@ -1272,14 +1272,14 @@ transformación se podría haber realizado mediante una rotación pasiva en SO(2
 \subsection{Generador de rotación para funciones}
 \label{ssect:cua-generador-rotacion-funciones}
 \begin{equation}\label{eq:cua-funcionrotadadef}
-  \tilde{\Psi}(\vvv{\tilde{r}})
+  \tilde{\Psi}(\xtilde{r})
   =
   \Psi(\mmm{R}^{-1}\vvv{r})
 \end{equation}
 
 Queremos rotar una función, no los ejes, la matriz de rotación activa es
 \[
-  \mmm{R}(\varepsilon)=\exp(-i\varepsilon\,\xhat{n}\cdot\mmm{J})
+  \mmm{R}(\theta)=e^{-i\theta\,\xhat{n}\cdot\mmm{J}}
 \]
 y como las rotaciones forman un grupo de Lie, podemos aplicar rotaciones infinitesimales
 y las conclusiones a las que lleguemos serán válidas para cualquier rotación finita
@@ -1307,12 +1307,12 @@ Así
 \begin{align*}
   \mmm{R}^{-1}(\varepsilon)
   &=
-  \mmm{R}^\dagger(\varepsilon)
-  =
+    \mmm{R}^\dagger(\varepsilon)
+    =
     (\mmm{I} - i\varepsilon\xhat{n}\cdot\mmm{J})^\dagger
-  =
-    I^\dagger - i^*\varepsilon\xhat{n}\cdot\mmm{J}^\dagger
-  =
+    =
+    I^\dagger- i^*\varepsilon\xhat{n}\cdot\mmm{J}^\dagger
+    =
     I + i\varepsilon\xhat{n}\cdot\mmm{J}
 \end{align*}
 
@@ -1334,9 +1334,9 @@ potencias\footnotemark{}
   \tilde{\Psi}
   = \Psi(\mmm{R}^{-1}\vvv{r})
   = \Psi(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r})
-    = \Psi(\vvv{r})
-    + \left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger
-    \frac{\partial\Psi}{\partial\vvv{r}}
+  = \Psi(\vvv{r})
+  + \left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger
+  \frac{\partial\Psi}{\partial\vvv{r}}
 \end{equation}
 
 %\clearpage
@@ -1400,7 +1400,7 @@ $\partial/\partial\vvv{r}
 
 Para una rotación finita
 \[
-  \tilde{\Psi}(\vvv{\tilde{r}})
+  \tilde{\Psi}(\xtilde{r})
   = \exp\left\{-i\theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{\nabla}\right\}
   \,\Psi(\vvv{r})
 \]
@@ -1410,7 +1410,7 @@ Ahora bien, sabemos que en mecánica cuántica el momento se define como
   \vvv{p} \equiv -i\hbar\vvv{\nabla}
 \]
 \[
-  \tilde{\Psi}(\vvv{\tilde{r}})
+  \tilde{\Psi}(\xtilde{r})
   = \exp\left[
     -i\frac{\theta}{\hbar}i\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{p}
   \right]
@@ -1420,7 +1420,7 @@ Ahora bien, sabemos que en mecánica cuántica el momento se define como
 Y teniendo en cuenta la expresión~\ref{eq:cua-nL-v1}, que relaciona el momento angular
 con los generadores $\mmm{J}$, la función rotada un ángulo discreto $\theta$ es
 \[
-  \tilde{\Psi}(\vvv{\tilde{r}})
+  \tilde{\Psi}(\xtilde{r})
   =
   \exp\left[-\frac{\theta}{\hbar}(\xhat{n}\cdot\vvv{L})\right]\,\Psi(\vvv{r})
 \]

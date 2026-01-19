@@ -588,8 +588,8 @@ función en sentido contrario, mientras que los ejes no rotan.
 
 Si queremos rotar la función en sentido antihorario, tendremos que
 actuar como si giráramos los ejes en sentido horario mediante la matriz inversa de
-\ref{eq:cua-matriz-rotacion-pasiva}.
-Pero como es la rotación que nos interesa, prescindiremos del exponente $-1$ y la
+\ref{eq:cua-rot-v1}.
+Pero, dado que es la rotación que nos interesa, prescindiremos del exponente $-1$ y la
 representaremos como $\mmm{R}$
 \[
   \mmm{R}(\xhat{n},\theta)
@@ -900,7 +900,7 @@ Así, nos proponemos rotar una función definida en $\symbb{R}^2$, un ángulo de
 Es importante dejar claro desde el principio que nos interesa obtener la expresión de la
 función rotada $\tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)$.
 
-Sabemos que la matriz de rotación activa alrededor del eje $z$ es
+La matriz de rotación activa alrededor del eje $z$ es
 \begin{align*}
   \mmm{R}((0,0,1), \pi/2)
   &=
@@ -923,8 +923,8 @@ Sabemos que la matriz de rotación activa alrededor del eje $z$ es
   \end{pmatrix}      
 \end{align*}
 
-Las nuevas coordenadas $\vvv{\tilde{r}}$ de cualquier punto $\vvv{r} = (x, y, z)$, se
-calculan haciendo actuar la matriz de rotación anterior sobre este
+Las nuevas coordenadas $\vvv{\tilde{r}}$ de cualquier punto $\vvv{r} = (x, y, z)$ de la
+función, se calculan haciendo actuar la matriz de rotación anterior sobre este
 \[
   \vvv{\tilde{r}}
   =
@@ -955,8 +955,7 @@ calculan haciendo actuar la matriz de rotación anterior sobre este
     \phantom{-}z
   \end{pmatrix}
 \]
-
-Obtenemos
+y obtenemos las coordenadas de la función rotada
 \vspace*{-1ex}
 \begin{subequations}
   \begin{align}\label{eq:cua-ejsenc-xtilde}
@@ -971,21 +970,27 @@ Obtenemos
 Como se aprecia en las igualdades anteriores, las nuevas coordenadas
 $\left(\tilde{x},\tilde{y}\right)$ asociadas cualquier punto original $(x,y)$ del dominio
 de la función se presentan en las igualdades \ref{eq:cua-ejsenc-xtilde} y
-\ref{eq:cua-ejsenc-ytilde}, y la última \ref{eq:cua-ejsenc-ztilde}, se refiere a la
-función rotada.
+\ref{eq:cua-ejsenc-ytilde}, y la última \ref{eq:cua-ejsenc-ztilde}, se refiere al valor
+de la función rotada $\tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)$.
 
 Obsérvese que, en general ---a menos que se trate de la rotación identidad---, las
 coordenadas del dominio $(x,y)$ cambian, pero el valor de la función al rotar nunca lo
 hace
 \begin{subequations}
   \begin{align*}
-    x &\longrightarrow \tilde{x}\neq x\\
-    y &\longrightarrow \tilde{y}\neq y\\
-    \Psi(x,y) &\longrightarrow \tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)=\Psi(x,y) 
+    x
+    &\longrightarrow
+      \tilde{x}\neq x\\
+    y
+    &\longrightarrow
+      \tilde{y}\neq y\\
+    z = \Psi(x,y)
+    &\longrightarrow
+      \tilde{z} = \tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)=\Psi(x,y) 
   \end{align*}
 \end{subequations}
-Esto es, cada punto del dominio $(x,y)$ rota, mientras que se lleva (arrastra consigo) a
-la nueva posición $\left(\tilde{x},\tilde{y}\right)$, el valor que tenía la función
+Esto es, cada punto del dominio $(x,y)$ rota a una nueva posición
+$\left(\tilde{x},\tilde{y}\right)$, pero arrastra consigo el valor que tenía la función
 original en $(x,y)$.
 
 La igualdad
@@ -994,28 +999,32 @@ La igualdad
   =
   \Psi(x,y)
 \]
-equivale a
+equivale, en nuestro caso a
 \begin{equation}\label{eq:cua-ejsenc-funcion}
   \tilde{\Psi}\!\left(\tilde{x},\tilde{y}\right)
   =
   2x + 3y
 \end{equation}
-Esta ecuación nos da la pista para obtener la expresión de la función rotada.
-Sustituimos las coordenadas originales $x$ e $y$, del segundo miembro de la
-igualdad anterior, por las nuevas $\tilde{x}$ e $\tilde{y}$.
+La ecuación anterior nos da una pista para calcular la función rotada, pero tiene un
+problema. El valor de la función rotada (primer miembro de la igualdad) está en función
+del valor que \emph{tenía en función de las coordenadas antes de rotar $x$ e $y$}
+(segundo miembro de la igualdad). Para solucionar esto, tenemos que expresar las
+coordenadas $x$ e $y$, en función de las nuevas $\tilde{x}$ y $\tilde{y}$, con el fin de
+que la función rotada $\tilde{\Psi}$ se encuentre correctamente expresada.
+
 Esto es, debemos hallar las coordenadas originales $x$ e $y$ en función de las rotadas
 $\tilde{x}$ y $\tilde{y}$. Esto supone aplicar a las $\vvv{\tilde{r}}$, la matriz inversa
-$\mmm{R}^{-1}$ de la que habíamos utilizado para rotar la función
+$\mmm{R}^{-1}$ de la que habíamos utilizado para rotar la función,
+$\vvv{\tilde{r}} = \mmm{R}\vvv{r}$
 \[
   \vvv{r} = \mmm{R}^{-1}\vvv{\tilde{r}}
 \]
-%\[
-%  \tilde{\Psi}\!\left(\vvv{\tilde{r}}\right)
-%  = \Psi\!\left(\mmm{R}^{-1}\vvv{\tilde{r}}\right)
-%\]
 
-En este caso, puesto que $\mmm{R}$ es una  matriz ortogonal, basta con calcular su
-transpuesta
+Puesto que $\mmm{R}$ es una  matriz ortogonal, basta con calcular su
+transpuesta\footnotemark{}
+\footnotetext{Si estuviéramos en el espacio de funciones $L^2\left(\symbb{R}^3\right)$,
+  habría que calcular la inversa mediante la transpuesta, compleja conjugada
+  $U^\dagger$.}
 \[
   \mmm{R}^{-1}
   =
@@ -1037,6 +1046,9 @@ transpuesta
     \phantom{-}0 & 0 & 1
   \end{pmatrix}
 \]
+
+Hacemos actuar la inversa de la matriz sobre las nuevas coordenadas, obtenemos lo que
+pretendíamos
 \[
   \begin{pmatrix}
     x\\
@@ -1090,9 +1102,9 @@ Ahora que tenemos la función rotada, las coordenadas con tilde son prescindible
 \end{equation}
 
 \subsubsection{Comprobación}
-Vamos a comprobar que la función rotada es correcta, fijándonos en un punto del dominio
-de la función original \eqref{eq:cua-ejsenc-funcion}. Por ejemplo, el punto representado
-por el vector $\vvv{P} = (1,0)$. la función original da el resultado
+Vamos a comprobar que la función rotada es correcta, fijándonos en un punto concreto de los infinitos de que consta el dominio de la función original
+\eqref{eq:cua-ejsenc-funcion}.
+Elegimos, por ejemplo, el punto $P(0,1)$, representado por el vector $\vvv{P} = (1,0)$. a función original da el resultado
 \begin{equation}
   \Psi(\vvv{P}) = \Psi(1,0) = 2\cdot 1 + 3\cdot 0 = 2 + 0 = 2
 \end{equation}
@@ -1115,6 +1127,132 @@ La función rotada tiene el valor
   = 2
 \]
 
+%\begin{figure}[ht]
+%  \def\scl{1}
+%  % 
+%  \tdplotsetmaincoords{60}{110}
+%  %
+%  % Longitud de los ejes x e y
+%  \pgfmathsetmacro{\LONGXY}{3.0}
+%  % Longitud del eje z
+%  \pgfmathsetmacro{\LONGZ}{3.8}
+%  \pgfmathsetmacro{\RVEC}{1.7}
+%  \pgfmathsetmacro{\Z}{2.3}
+%  \pgfmathsetmacro{\thetavec}{90}
+%  \pgfmathsetmacro{\phivec}{90}
+%  % Fondo
+%  \pgfmathsetmacro{\HORZ}{0.25}
+%  \pgfmathsetmacro{\VERT}{0.25}
+%  % 
+%  \tikzfading[%
+%  name=fade out, inner color=transparent!0, outer color=transparent!100
+%  ]
+%  
+%  \centering
+%  \begin{tikzpicture}[%
+%    scale=\scl,tdplot_main_coords,
+%    axisrotation/.style={%
+%      line width=1.6pt,-{Latex[round,length=12pt,width=7.0pt,bend]}, color=black!30},
+%    angulogiro/.style={%
+%      line width=1.4pt,-{Latex[round,length=7pt,width=4.5pt,bend]},black!30},
+%    eje/.style={line width=0.5pt, ->},
+%    vectorP/.style={-{Latex[width=7pt,length=8pt]},green!70!black,line width=2pt},
+%    dominioR/.style={-{Latex}, green!50!black, line width=1pt},
+%    vectorPt/.style={-{Latex[width=7pt,length=8pt]},red!90!black,line width=2pt},
+%    dominioRt/.style={-{Latex}, red!60!black, line width=1pt},
+%    lineaguia/.style={black!50, line width=0.8pt, densely dotted},
+%    background/.style={%
+%      line width=\bgborderwidth,
+%      draw=\bgbordercolor,
+%      fill=\bgcolor,
+%    },
+%    ]
+%    % COORDENADAS
+%    \path[save path=\pathR] (0,0,0) -- coordinate (Rmedio) (\RVEC,0,0) coordinate (R);
+%    \path[save path=\pathRt](0,0,0) -- coordinate (Rtmedio) (0,\RVEC,0) coordinate (Rt);
+%    \path (R) -- ++(0,0,\Z) coordinate (Rvalor);
+%    \path (Rt) -- ++(0,0,\Z) coordinate (Rtvalor);
+%    \path[save path=\pathP] (0,0,0) -- coordinate (Pmedio) (Rvalor);
+%    \path[save path=\pathPt] (0,0,0) -- coordinate (Ptmedio) (Rtvalor);    
+%    \path (Rtvalor) -- ++(0,-\RVEC,0) coordinate (z);
+%    
+%    % EJES
+%    % Para 'tikz-3dplot' son los ejes principales
+%    \draw[eje] (0,0,0) -- (\LONGXY,0,0) coordinate (ejex);
+%    \node[below left,name=letraejex] at (ejex) {$x$};
+%    \draw[eje] (0,0,0) -- (0,\LONGXY,0) coordinate (ejey);
+%    \node[below right,name=letraejey] at (ejey) {$y$};
+%    \draw[eje] (0,0,0) -- (0,0,\LONGZ) coordinate (ejez);
+%    \node[above,name=letraejez] at (ejez){$z$};
+%
+%    % LÍNEAS GUÍA
+%    \draw[lineaguia] (R) -- (Rvalor);
+%    \draw[lineaguia] (Rt) -- (Rtvalor);
+%    \draw[lineaguia] (Rvalor) -- (z);
+%    \draw[lineaguia] (Rtvalor) -- (z);
+%
+%    % VECTOR DOMINIO r
+%    \draw[dominioR, use path=\pathR];
+%    \node[below right=-4pt and -1pt, green!60!black] at (Rmedio)
+%    {\footnotesize $\vvv{r}$};
+%    % VECTOR DOMINIO rtilde
+%    \draw[dominioRt, use path=\pathRt];
+%    \node[below left=-1.5pt and 2pt,red!60!black] at (Rtmedio)
+%    {\footnotesize $\vvv{\tilde{r}}$};
+%    
+%    % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE Z
+%    % \tdplotsetthetaplanecoords{-90}
+%    % Notice you have to tell tiks-3dplot you are now in rotated coords
+%    % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
+%    % the former y axis is now the z axis.
+%    \tdplotdrawarc[axisrotation] {(0,0,3.0)}{0.35}{70}{410}{}
+%
+%    % REPONER PARTE FINAL DEL EJE z PARA SIMULAR PERSPECTIVA
+%    \draw[eje] (0,0,2.9) -- (0,0,\LONGZ);
+%    
+%    % VECTOR DE POSICIÓN DEL PUNTO P EN VERDE
+%    \draw[vectorP, use path=\pathP];
+%    \filldraw[fill=green,draw=black] (Rvalor) circle[radius=1.2pt];
+%    \node[below left=0pt and -2pt, green!60!black] at (Pmedio) {\footnotesize$\vvv{P}$};
+%    \node[left=4pt, green!50!black] at (Rvalor) {\footnotesize $(1,0,2)$};
+%    
+%    % VECTOR DE POSICIÓN DEL PUNTO Ptilde EN ROJO
+%    \draw[vectorPt, use path=\pathPt];
+%    \filldraw[fill=red,draw=black] (Rtvalor) circle[radius=1.2pt];
+%    \node[below right=0pt and -3pt, red!70!black] at (Ptmedio) {\footnotesize$\xhat{P}$};
+%    \node[right=0pt, red!60!black] at (Rtvalor) {\footnotesize $(0,1,2)$};    
+%
+%    % VALORES DE CORTE EN EJES
+%    \filldraw (R) circle[radius=0.8pt];
+%    \filldraw (Rt) circle[radius=0.8pt];
+%    \filldraw (z) circle[radius=0.8pt];
+%    \node[left] at (R) {\scriptsize $1$};
+%    \node[above right=-2pt and -1pt] at (Rt) {\scriptsize $1$};
+%    \node[above left=-2.5pt and -1pt] at (z) {\scriptsize $2$};
+%    
+%    % ÁNGULO PHI 
+%    \tdplotsetthetaplanecoords{\thetavec}
+%    % Dibuja el ángulo \phi y etiquétalo
+%    % sintaxis:
+%    % \tdplotdrawarc[coordinate frame, draw options]
+%    % {center point}{r}{angle}{label options}{label}
+%    \tdplotdrawarc[angulogiro]
+%    {(0,0,0)}{1.6}{8}{\phivec-12}{anchor=north}
+%    {\textcolor{black!60}{\footnotesize $\pi/2\,\unit{\radian}$}};
+%
+%    % Fondo amarillo
+%    \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+%    \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+%    \begin{scope}[on background layer]
+%      \draw[background] (SW) rectangle (NE);
+%    \end{scope}
+%  \end{tikzpicture}
+%  \caption{Rotación de \ang{90} de un punto $\vvv{P}$, en verde, de la función
+%    original $\Psi(x,y,z) = 2x + 3y$, alrededor del eje $z$, hasta el punto $\xhat{P}$,
+%    en rojo de la función rotada $\tilde{\Psi}=-3x+2y$.}
+%  \label{fig:cua-rot-ejsenc-funcion}
+%\end{figure}
+
 \begin{figure}[ht]
   \def\scl{1}
   % 
@@ -1124,7 +1262,10 @@ La función rotada tiene el valor
   \pgfmathsetmacro{\LONGXY}{3.0}
   % Longitud del eje z
   \pgfmathsetmacro{\LONGZ}{3.8}
-  \pgfmathsetmacro{\RVEC}{1.7}
+  % Longitud de los puntos P y Ptilde en sus ejes
+  \pgfmathsetmacro{\PVEC}{1.7}
+  \pgfmathsetmacro{\PtVEC}{\PVEC}
+  % Posición del punto z en su eje
   \pgfmathsetmacro{\Z}{2.3}
   \pgfmathsetmacro{\thetavec}{90}
   \pgfmathsetmacro{\phivec}{90}
@@ -1144,10 +1285,12 @@ La función rotada tiene el valor
     angulogiro/.style={%
       line width=1.4pt,-{Latex[round,length=7pt,width=4.5pt,bend]},black!30},
     eje/.style={line width=0.5pt, ->},
-    vectorP/.style={-{Latex[width=7pt,length=8pt]},green!70!black,line width=2pt},
-    dominioR/.style={-{Latex}, green!50!black, line width=1pt},
-    vectorPt/.style={-{Latex[width=7pt,length=8pt]},red!90!black,line width=2pt},
-    dominioRt/.style={-{Latex}, red!60!black, line width=1pt},
+    vectorR/.style={-{Latex[width=6pt,length=6pt]},green!70!black,line width=1.2pt},
+    vectorRt/.style={-{Latex[width=6pt,length=6pt]},red!90!black,line width=1.2pt},
+    puntoP/.style={fill=green,draw=black, radius=1.2pt},
+    puntoPt/.style={fill=red,draw=black, radius=1.2pt},
+    textoRP/.style={green!60!black},
+    textoRtPt/.style={red!60!black},
     lineaguia/.style={black!50, line width=0.8pt, densely dotted},
     background/.style={%
       line width=\bgborderwidth,
@@ -1156,13 +1299,13 @@ La función rotada tiene el valor
     },
     ]
     % COORDENADAS
-    \path[save path=\pathR] (0,0,0) -- coordinate (Rmedio) (\RVEC,0,0) coordinate (R);
-    \path[save path=\pathRt](0,0,0) -- coordinate (Rtmedio) (0,\RVEC,0) coordinate (Rt);
-    \path (R) -- ++(0,0,\Z) coordinate (Rvalor);
-    \path (Rt) -- ++(0,0,\Z) coordinate (Rtvalor);
-    \path[save path=\pathP] (0,0,0) -- coordinate (Pmedio) (Rvalor);
-    \path[save path=\pathPt] (0,0,0) -- coordinate (Ptmedio) (Rtvalor);    
-    \path (Rtvalor) -- ++(0,-\RVEC,0) coordinate (z);
+    \path[save path=\pathP] (0,0,0) -- coordinate (Pmedio) (\PVEC,0,0) coordinate (P);
+    \path[save path=\pathPt](0,0,0) -- coordinate (Ptmedio) (0,\PtVEC,0) coordinate (Pt);
+    \path (P) -- ++(0,0,\Z) coordinate (R);
+    \path (Pt) -- ++(0,0,\Z) coordinate (Rt);
+    \path[save path=\pathR] (0,0,0) -- coordinate (Rmedio) (R);
+    \path[save path=\pathRt] (0,0,0) -- coordinate (Rtmedio) (Rt);    
+    \path (Rt) -- ++(0,-\PtVEC,0) coordinate (z);
     
     % EJES
     % Para 'tikz-3dplot' son los ejes principales
@@ -1174,19 +1317,18 @@ La función rotada tiene el valor
     \node[above,name=letraejez] at (ejez){$z$};
 
     % LÍNEAS GUÍA
-    \draw[lineaguia] (R) -- (Rvalor);
-    \draw[lineaguia] (Rt) -- (Rtvalor);
-    \draw[lineaguia] (Rvalor) -- (z);
-    \draw[lineaguia] (Rtvalor) -- (z);
+    \draw[lineaguia] (P) -- (R);
+    \draw[lineaguia] (Pt) -- (Rt);
+    \draw[lineaguia] (R) -- (z);
+    \draw[lineaguia] (Rt) -- (z);
 
-    % VECTOR DOMINIO r
-    \draw[dominioR, use path=\pathR];
-    \node[below right=-4pt and -1pt, green!60!black] at (Rmedio)
-    {\footnotesize $\vvv{r}$};
-    % VECTOR DOMINIO rtilde
-    \draw[dominioRt, use path=\pathRt];
-    \node[below left=-1.5pt and 2pt,red!60!black] at (Rtmedio)
-    {\footnotesize $\vvv{\tilde{r}}$};
+    % PUNTO DOMINIO P
+    \filldraw[puntoP] (P) circle;
+    \node[left=2pt, textoRP] at (P) {\footnotesize $\vvv{P}(1,0)$};
+    % PUNTO DOMINIO Ptilde
+    \filldraw[puntoPt] (Pt) circle;
+    \node[above right=-2pt and -1pt, textoRtPt] at (Pt)
+    {\footnotesize $\vvv{\tilde{P}}(0,1)$};
     
     % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE Z
     % \tdplotsetthetaplanecoords{-90}
@@ -1194,30 +1336,18 @@ La función rotada tiene el valor
     % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
     % the former y axis is now the z axis.
     \tdplotdrawarc[axisrotation] {(0,0,3.0)}{0.35}{70}{410}{}
-
+    
     % REPONER PARTE FINAL DEL EJE z PARA SIMULAR PERSPECTIVA
     \draw[eje] (0,0,2.9) -- (0,0,\LONGZ);
     
-    % VECTOR DE POSICIÓN DEL PUNTO P EN VERDE
-    \draw[vectorP, use path=\pathP];
-    \filldraw[fill=green,draw=black] (Rvalor) circle[radius=1.2pt];
-    \node[below left=0pt and -2pt, green!60!black] at (Pmedio) {\footnotesize$\vvv{P}$};
-    \node[left=4pt, green!50!black] at (Rvalor) {\footnotesize $(1,0,2)$};
+    % VECTOR DE POSICIÓN r
+    \draw[vectorR, use path=\pathR];
+    \node[left=2pt, textoRP] at (R) {\footnotesize $(1,0,2)$};
     
-    % VECTOR DE POSICIÓN DEL PUNTO Ptilde EN ROJO
-    \draw[vectorPt, use path=\pathPt];
-    \filldraw[fill=red,draw=black] (Rtvalor) circle[radius=1.2pt];
-    \node[below right=0pt and -3pt, red!70!black] at (Ptmedio) {\footnotesize$\xhat{P}$};
-    \node[right=0pt, red!60!black] at (Rtvalor) {\footnotesize $(0,1,2)$};    
+    % VECTOR DE POSICIÓN rtilde
+    \draw[vectorRt, use path=\pathRt];
+    \node[right=1pt, textoRtPt] at (Rt) {\footnotesize $(0,1,2)$};    
 
-    % VALORES DE CORTE EN EJES
-    \filldraw (R) circle[radius=0.8pt];
-    \filldraw (Rt) circle[radius=0.8pt];
-    \filldraw (z) circle[radius=0.8pt];
-    \node[left] at (R) {\scriptsize $1$};
-    \node[above right=-2pt and -1pt] at (Rt) {\scriptsize $1$};
-    \node[above left=-2.5pt and -1pt] at (z) {\scriptsize $2$};
-    
     % ÁNGULO PHI 
     \tdplotsetthetaplanecoords{\thetavec}
     % Dibuja el ángulo \phi y etiquétalo

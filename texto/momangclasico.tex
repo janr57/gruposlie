@@ -434,19 +434,19 @@ el que se obtenga la transformación identidad cuando el parámetro sea cero, $\
 osea que la transformación forme un grupo de Lie.
 
 \section{Rotación del vector posición de una partícula}
-Ahora, vamos a rotar el vector de posición $\vvv{r}$ de una cierta partícula
+Empezamos rotando un cierto ángulo $\theta$, el vector de posición $\vvv{r}$ de una
+partícula
 \[
   \vvv{r} \longrightarrow \mmm{R}\vvv{r}
 \]
 
-Si derivamos el vector rotado $\mmm{R}\vvv{r}$ un ángulo $\theta$ fijo con respecto del
-tiempo, tendremos que tener en cuenta que el ángulo es constante y que el vector posición
-depende del tiempo
+Si derivamos el vector rotado $\mmm{R}\vvv{r}$ con respecto del tiempo, tendremos que
+tener en cuenta que el ángulo es constante y que el vector posición depende del tiempo
 \[
   \dfrac{d}{dt}(\mmm{R}\vvv{r})
   = \dfrac{d}{dt}(\mmm{R}\left(\theta)\vvv{r}(t)\right)
-  = \mmm{R}\left(\dfrac{d\vvv{r}(t)}{dt}\right)
-  = \mmm{R}(\theta)\left(\vvv{v}(t)\right)
+  = \mmm{R}(\theta)\dfrac{d\vvv{r}(t)}{dt}
+  = \mmm{R}(\theta)\vvv{v}(t)
   = \mmm{R}\vvv{v}
 \]
 Multiplicamos la expresión anterior por la masa

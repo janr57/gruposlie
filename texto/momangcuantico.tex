@@ -1302,7 +1302,6 @@ o transpuesta conjugada
 \[
   \mmm{J}^\dagger = \mmm{J}
 \]
-
 Así
 \begin{align*}
   \mmm{R}^{-1}(\varepsilon)
@@ -1325,7 +1324,7 @@ Entonces
   \vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}
 \]
 
-Ahora se desarrolla la función rotada~(\ref{eq:cua-funcionrotadadef}) en serie de
+Ahora, se desarrolla la función rotada~(\ref{eq:cua-funcionrotadadef}) en serie de
 potencias\footnotemark{}
 \footnotetext{$f(x+a) \approx f(x) + \dfrac{\partial f}{\partial x} a;
   \text{ para } a \ll x$.}
@@ -1337,64 +1336,60 @@ potencias\footnotemark{}
     \Psi\!\left(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}\right)
     =
     \Psi\!\left(\vvv{r}\right)
-    + \left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
+    + \left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\trasp
     i\varepsilon\left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\\
 \end{align*}
-Simplificamos un poco la notación y pasamos $i\varepsilon$ hacia la izquierda
-\[
-  \tilde{\Psi}
+Simplificamos un poco la notación y pasamos $\varepsilon$ hacia la izquierda y la unidad
+imaginaria $i$ hacia $\mmm{J}$
+\begin{equation}
+  \tilde{\Psi}\label{eq:cua-psirotada-intermedia-J}
   =
   \Psi
-  + i\varepsilon
-  \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\dagger
-  \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}
-\]
-Necesitamos que en el segundo sumando, la expresión anterior no tenga el complejo conjugado de la función, y que además se encuentre a la derecha. Todo ello se puede
-conseguir realizando la transpuesta compleja conjugada de ese sumando. La transpuesta
-es posible, pues ese sumando es un escalar (no es un vector ni matriz), y para la
-operación complejo conjugado solo nos afecta la unidad imaginaria $i$, que cambiará
-a $-i$.
+  + \varepsilon
+  \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+  \left(\xhat{n}\cdot i\mmm{J}\right)\vvv{r}
+\end{equation}
+Pero $\mmm{G}=i\mmm{J}$, ver \eqref{eq:alg-rot-activa}
+\begin{equation}
+  \tilde{\Psi}\label{eq:cua-psirotada-intermedia-G}
+  =
+  \Psi
+  + \varepsilon
+  \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+  \left(\xhat{n}\cdot\mmm{G}\right)\vvv{r}
+\end{equation}
+Necesitamos que en el segundo sumando, la derivada de la función se encuentre a la
+derecha. Esto se puede conseguir realizando la transpuesta de ese sumando.
+La transpuesta es posible, pues ese término es un escalar (no es un vector ni matriz).
 
-Vayamos por partes, fijándonos en los siguientes detalles:
+Vayamos por partes, fijémonos en los siguientes detalles:
 \begin{itemize}
-\item La derivada parcial de $\Psi$ con respecto de $\vvv{r}$ es una matriz transpuesta
-  compleja conjugada, es decir, es un vector fila $1\times 3$, y es el gradiente de
-  $\Psi$, transpuesto conjugado
-\[
-  \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\dagger
-  =
-  \begin{pmatrix}
-    \dfrac{\partial\Psi^*}{\partial x}
-    & \dfrac{\partial\Psi^*}{\partial y}
-    & \dfrac{\partial\Psi^*}{\partial z}
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    \partial_x\Psi^* & \partial_y\Psi^* & \partial_z\Psi^*
-  \end{pmatrix}
-  = \left(\vvv{\nabla}\Psi\right)^\dagger
-\]
-Si calculamos su traspuesta complejo conjugada, tendríamos un vector columna
-\[
-  \left[\left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\dagger\right]^\dagger
-=
-\
-  \begin{pmatrix}
-    \dfrac{\partial\Psi^*}{\partial x}
-    & \dfrac{\partial\Psi^*}{\partial y}
-    & \dfrac{\partial\Psi^*}{\partial z}
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    \partial_x\Psi^* & \partial_y\Psi^* & \partial_z\Psi^*
-  \end{pmatrix}
-  = \left(\vvv{\nabla}\Psi\right)^\dagger
-\]
-
-
-\item El ``producto'' $\xhat{n}\cdot\mmm{J}$ es una matriz cuadrada $3\times 3$,
-  hermítica: $(\xhat{n}\cdot\mmm{J})^\dagger = \xhat{n}\cdot\mmm{J}$.
-\item El vector $\vvv{r}$ es un vector columna $3\times 1$
+\item La derivada parcial de $\Psi$ con respecto de $\vvv{r}$ es una matriz transpuesta,
+  es decir, es un vector fila $1\times 3$, y es el gradiente de $\Psi$.
+  Esta es una función compleja de variable real.
+  \[
+    \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+    =
+    \begin{pmatrix}
+      \dfrac{\partial\Psi}{\partial x}
+      & \dfrac{\partial\Psi}{\partial y}
+      & \dfrac{\partial\Psi}{\partial z}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      \partial_x\Psi & \partial_y\Psi & \partial_z\Psi
+    \end{pmatrix}
+    = \left(\vvv{\nabla}\Psi\right)^\trasp
+  \]
+\item El \emph{producto} $\xhat{n}\cdot\mmm{G}$ es una matriz cuadrada $3\times 3$,
+  antisimétrica: $(\xhat{n}\cdot\mmm{G})^\trasp = -(\xhat{n}\cdot\mmm{G})$.
+  En cambio, $(\xhat{n}\cdot\mmm{J})$ es hermítica
+  \[
+    (\xhat{n}\cdot\mmm{J})^\dagger = \xhat{n}\cdot\mmm{J}
+  \]
+  
+  Todos sus elementos son reales.
+\item El vector $\vvv{r}$ es un vector columna $3\times 1$. Sus elementos son reales
   \[
     \vvv{r}
     =
@@ -1404,105 +1399,79 @@ Si calculamos su traspuesta complejo conjugada, tendríamos un vector columna
       z
     \end{pmatrix}
   \]
+\item El ángulo infinitesimal $\varepsilon$ es un escalar real. Sus dimensiones son
+  $1\times 1$.
+\item El segundo sumando tiene dimensiones $1\times 1$, por tanto es un escalar
+    \[
+    \text{dimensiones }
+    \longrightarrow
+    (1\times 1)\,(1\times 3)\,(3\times 3)\,(3\times 1) = 1\times 1
+  \]
+  Por tanto, también lo es la expresión \eqref{eq:cua-psirotada-intermedia-J}
+  \[
+    i\varepsilon\left(\frac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+    (\xhat{n}\cdot\mmm{J})\vvv{r}
+    \longrightarrow
+    \text{escalar}
+  \]
+  Como es un escalar, su transpuesta es el mismo escalar
+  \begin{align*}
+    i\varepsilon
+    \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+    \left(\xhat{n}\cdot\mmm{J}\right) \vvv{r}
+    &=
+      \left[%
+      i\varepsilon
+      \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+      \left(\xhat{n}\cdot\mmm{J}\right) \vvv{r}
+      \right]^\trasp
+%      =
+%      i\varepsilon
+%      \vvv{r}^\trasp
+%      \left(\xhat{n}\cdot\mmm{J}\right)^\trasp
+%      \dfrac{\partial\Psi}{\partial\vvv{r}}\\
+%    &=
+%      i\varepsilon
+%      \vvv{r}^\trasp
+%      \left(\xhat{n}\cdot\mmm{J}\right)
+%      \dfrac{\partial\Psi}{\partial\vvv{r}}
+  \end{align*}
 \end{itemize}
 
 
-
-
-
-
-
-Antes de continuar, vamos a analizar el segundo sumando del
-desarrollo~\eqref{eq:cua-desarrollo-psi}:
-\begin{itemize}
-\item El primer factor,
-$\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$,
-contiene el producto de una matriz $3\times 3$ y otra $3\times 1$, produciendo una matriz
-$3\times 1$
-\begin{center}
-  \begin{tabular}{ccccc}
-    $i\varepsilon$ & $(\xhat{n}\cdot\mmm{J})$ & $\vvv{r}$ &&\\
-    & $3\times 3$ & $3\times 1$ & $\longrightarrow$ & $3\times 1$
-  \end{tabular}
-\end{center}
-que al realizar su traspuesta conjugada nos da una matriz $1\times 3$
-\begin{center}
-  \begin{tabular}{ccc}
-    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$ &&\\
-    $[3\times 1]^\dagger$ & $\longrightarrow$ & $1\times 3$
-  \end{tabular}
-\end{center}
-
-\item Esta última matriz se multiplica por una matriz $3\times 1$, dando como resultado
-  una matriz $1\times 1$, esto es, se forma un escalar, que en el espacio
-  $L^2\symbb{R}^3$ es un número complejo
-\begin{center}
-  \begin{tabular}{cccc}
-    $\left[i\varepsilon (\xhat{n}\cdot\mmm{J})\vvv{r}\right]^\dagger$
-    & $\frac{\partial\Psi}{\partial\vvv{r}}$ &&\\
-    $1\times 3$ & $3\times 1$ & $\longrightarrow$ & $1\times 1$
-  \end{tabular}
-\end{center}
-\end{itemize}
-
-
-%\begin{align*}%\label{eq:cua-desarrollo-psi}
-%  \tilde{\Psi}
-%  &=
-%    \Psi(\mmm{R}^{-1}\vvv{r})
-%    =
-%    \Psi\!\left(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}\right)
-%    =
-%    \Psi\!\left(\vvv{r}\right)
-%    + i\varepsilon\left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
-%    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\\
-%  &=
-%    \Psi\!\left(\vvv{r}\right)
-%    + \left[%
-%    i\varepsilon\left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
-%    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\right]^\dagger
-%    =
-%    \Psi\!\left(\vvv{r}\right)
-%    + i^*\varepsilon\vvv{r}^\dagger \left(\xhat{n}\cdot\mmm{J}\right)^\dagger    \left[\left(\dfrac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger\right]^\dagger\\
-%  &=
-%    \Psi\!\left(\vvv{r}\right)
-%    - i\varepsilon\vvv{r}^\dagger\left(\xhat{n}\cdot\mmm{J}\right)
-%    \dfrac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}  
-%\end{align*}
-
-
-
-
-
-
-
-
-
-
-
-
-Seguimos con el desarrollo de la función rotada infinitesimalmente
-\begin{align*}
+Seguimos con el desarrollo de la función rotada infinitesimalmente \eqref{eq:cua-psirotada-intermedia-J}
+\begin{align*}%\label{eq:cua-desarrollo-psi}
   \tilde{\Psi}
   &=
     \Psi
-    - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}^\dagger)\,
-    \frac{\partial\Psi}{\partial\vvv{r}}
-    = \Psi - i\varepsilon \vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,
-    \frac{\partial\Psi}{\partial\vvv{r}}\\
+    + i\varepsilon\left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}
+    =
+    \Psi
+    + \left[%
+    i\varepsilon\left(\frac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp
+    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\right]^\trasp\\
   &=
-    \left[
-    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})
-    \frac{\partial}{\partial\vvv{r}}
-    \right]
     \Psi
-  = \left[
-    1 - i\varepsilon\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J}) \vvv{\nabla}
-    \right]
+    + i\varepsilon\vvv{r}^\trasp \left(\xhat{n}\cdot\mmm{J}\right)^\trasp
+   \left[\left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\trasp\right]^\trasp
+    =
     \Psi
+    - i\varepsilon\vvv{r}^\trasp\left(\xhat{n}\cdot\mmm{J}\right)
+    \dfrac{\partial\Psi}{\partial\vvv{r}}\\
+  &=
+    \left(
+    1 - i\varepsilon\vvv{r}^\trasp \left(\xhat{n}\cdot\mmm{J}\right)
+    \dfrac{\partial}{\partial\vvv{r}}
+    \right)
+    \Psi\\
+  &=
+    \left(
+    1 - i\varepsilon\vvv{r}^\trasp \left(\xhat{n}\cdot\mmm{J}\right)
+    \vvv{\nabla}
+    \right)    
 \end{align*}
-donde el gradiente es
-$\partial/\partial\vvv{r}
+donde el gradiente es $\partial/\partial\vvv{r}
 = \vvv{\nabla} = (\partial_x,\partial_y,\partial_z)
 =(\partial/\partial x,\partial/\partial y, \partial/\partial z)$
 

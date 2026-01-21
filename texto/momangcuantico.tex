@@ -1330,16 +1330,87 @@ potencias\footnotemark{}
 \footnotetext{$f(x+a) \approx f(x) + \dfrac{\partial f}{\partial x} a;
   \text{ para } a \ll x$.}
 \begin{align*}%\label{eq:cua-desarrollo-psi}
-  \tilde{\Psi}
+  \tilde{\Psi}(\vvv{r})
   &=
     \Psi(\mmm{R}^{-1}\vvv{r})
     =
     \Psi\!\left(\vvv{r} + i\varepsilon(\xhat{n}\cdot\mmm{J})\vvv{r}\right)
     =
     \Psi\!\left(\vvv{r}\right)
-    + i\varepsilon\left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
-    \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\\
+    + \left(\frac{\partial\Psi(\vvv{r})}{\partial\vvv{r}}\right)^\dagger
+    i\varepsilon\left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}\\
 \end{align*}
+Simplificamos un poco la notación y pasamos $i\varepsilon$ hacia la izquierda
+\[
+  \tilde{\Psi}
+  =
+  \Psi
+  + i\varepsilon
+  \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\dagger
+  \left(\xhat{n}\cdot\mmm{J}\right)\vvv{r}
+\]
+Necesitamos que en el segundo sumando, la expresión anterior no tenga el complejo conjugado de la función, y que además se encuentre a la derecha. Todo ello se puede
+conseguir realizando la transpuesta compleja conjugada de ese sumando. La transpuesta
+es posible, pues ese sumando es un escalar (no es un vector ni matriz), y para la
+operación complejo conjugado solo nos afecta la unidad imaginaria $i$, que cambiará
+a $-i$.
+
+Vayamos por partes, fijándonos en los siguientes detalles:
+\begin{itemize}
+\item La derivada parcial de $\Psi$ con respecto de $\vvv{r}$ es una matriz transpuesta
+  compleja conjugada, es decir, es un vector fila $1\times 3$, y es el gradiente de
+  $\Psi$, transpuesto conjugado
+\[
+  \left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\dagger
+  =
+  \begin{pmatrix}
+    \dfrac{\partial\Psi^*}{\partial x}
+    & \dfrac{\partial\Psi^*}{\partial y}
+    & \dfrac{\partial\Psi^*}{\partial z}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \partial_x\Psi^* & \partial_y\Psi^* & \partial_z\Psi^*
+  \end{pmatrix}
+  = \left(\vvv{\nabla}\Psi\right)^\dagger
+\]
+Si calculamos su traspuesta complejo conjugada, tendríamos un vector columna
+\[
+  \left[\left(\dfrac{\partial\Psi}{\partial\vvv{r}}\right)^\dagger\right]^\dagger
+=
+\
+  \begin{pmatrix}
+    \dfrac{\partial\Psi^*}{\partial x}
+    & \dfrac{\partial\Psi^*}{\partial y}
+    & \dfrac{\partial\Psi^*}{\partial z}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \partial_x\Psi^* & \partial_y\Psi^* & \partial_z\Psi^*
+  \end{pmatrix}
+  = \left(\vvv{\nabla}\Psi\right)^\dagger
+\]
+
+
+\item El ``producto'' $\xhat{n}\cdot\mmm{J}$ es una matriz cuadrada $3\times 3$,
+  hermítica: $(\xhat{n}\cdot\mmm{J})^\dagger = \xhat{n}\cdot\mmm{J}$.
+\item El vector $\vvv{r}$ es un vector columna $3\times 1$
+  \[
+    \vvv{r}
+    =
+    \begin{pmatrix}
+      x\\
+      y\\
+      z
+    \end{pmatrix}
+  \]
+\end{itemize}
+
+
+
+
+
+
 
 Antes de continuar, vamos a analizar el segundo sumando del
 desarrollo~\eqref{eq:cua-desarrollo-psi}:

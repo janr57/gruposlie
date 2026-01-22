@@ -1205,35 +1205,34 @@ Ahora bien, sabemos que en mecánica cuántica el momento se define como
   \hspace{0.5em}
   \longrightarrow
   \hspace{0.5em}
-  -i\hbar\vvv{\nabla}
-  = \dfrac{\vvv{p}}{\hbar}
+  \vvv{\nabla}
+  = \dfrac{\vvv{p}}{-i\hbar}
+  = \dfrac{i\vvv{p}}{\hbar}
 \]
-\[
+\begin{align*}
   \tilde{\Psi}(\xtilde{r})
-  =
+  &=
   \exp\left\{
-    \theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,(-i)\hbar\vvv{\nabla}
-  \right\}
-  \,\Psi(\vvv{r})  
-  =
-  \exp\left\{
-    \theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,\dfrac{\vvv{p}}{\hbar}
-  \right\}
-  \,\Psi(\vvv{r})  
-\]
-\[
-  \tilde{\Psi}(\xtilde{r})
-  = \exp\left\{
-    \frac{\theta}{\hbar}\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{p}
+    -i\theta\vvv{r}^\trasp (\xhat{n}\cdot\mmm{J})\,\frac{i\vvv{p}}{\hbar}
   \right\}
   \,\Psi(\vvv{r})
-\]
+  =
+  \exp\left\{
+    -i\frac{\theta}{\hbar}\vvv{r}^\trasp (\xhat{n}\cdot i\mmm{J})\,\vvv{p}
+  \right\}
+    \,\Psi(\vvv{r})\\
+  &=
+  \exp\left\{
+    -i\frac{\theta}{\hbar}\vvv{r}^\trasp (\xhat{n}\cdot i\mmm{J})\vvv{p}
+  \right\}
+    \,\Psi(\vvv{r})  
+  \end{align*}
 Y teniendo en cuenta la expresión~\ref{eq:cua-nL-v1}, que relaciona el momento angular
 con los generadores $\mmm{J}$, la función rotada un ángulo discreto $\theta$ es
 \[
   \tilde{\Psi}(\xtilde{r})
   =
-  \exp\left\{\frac{\theta}{\hbar}(\xhat{n}\cdot\vvv{L})\right\}\,\Psi(\vvv{r})
+  \exp\left\{-i\frac{\theta}{\hbar}\xhat{n}\cdot\vvv{L}\right\}\,\Psi(\vvv{r})
 \]
 
 El operador de rotación en SO(3) para funciones es
@@ -1241,7 +1240,7 @@ El operador de rotación en SO(3) para funciones es
   \label{eq:cua-rot-nL}
   \mmm{R}(\xhat{n},\theta)
   =
-  \exp\left\{\frac{\theta}{\hbar}\, \xhat{n}\cdot\vvv{L}\right\}
+  \exp\left\{-i\frac{\theta}{\hbar}\, \xhat{n}\cdot\vvv{L}\right\}
 \end{equation}
 
 Este operador sirve para rotar funciones, reales o complejas, definidas en el espacio
@@ -1257,9 +1256,10 @@ $\mmm{J}$.
 \item Empezamos con una propiedad importante de los conmutadores
   \[
     [A,B]
-    = AB - BA = -BA -(-AB) = -(BA - AB) = -[B,A]
+    = AB - BA
+    = -(BA - AB)
+    = -[B,A]
   \]
-
   La propiedad es
   \begin{equation}\label{eq:cua-conmut-inversa}
     [A,B] = -[B,A]
@@ -1324,7 +1324,7 @@ Por ejemplo para el conmutador $[x,\partial/\partial y]$, le aplicamos una funci
 Así, el conmutador que buscamos vale cero $[x,\partial/\partial y] = 0$
 
 Generalizando, podemos escribir las siguientes relaciones de conmutación
-\begin{align}\label{eq:cua-conmut-posicionderivada1}
+\begin{align*}
   \left[x,\frac{\partial}{\partial x}\right]
   &=
     \left[y,\frac{\partial}{\partial y}\right]
@@ -1332,15 +1332,20 @@ Generalizando, podemos escribir las siguientes relaciones de conmutación
     \left[z,\frac{\partial}{\partial z}\right]
     =
     -1\\
-  \label{eq:cua-conmut-posicionderivada2}
   \left[x,\frac{\partial}{\partial y}\right]
+  \label{eq:cua-conmut-pos-derivada-2}
   &=
     \left[y,\frac{\partial}{\partial z}\right]
     =
     \left[z,\frac{\partial}{\partial x}\right]
     =
     0
-\end{align}
+\end{align*}
+Que se pueden resumir en
+\begin{equation}\label{eq:cua-conmut-pos-derivada-delta}
+  \left[r_i,\frac{\partial}{\partial r_j}\right]
+  = -1\delta_{ij}
+\end{equation}
 
 \item Todos los conmutadores que contienen momentos lineales se anulan, debido al
   resultado~(\ref{eq:cua-conmut-derivadas}). Por ejemplo
@@ -1374,18 +1379,21 @@ Generalizando, podemos escribir las siguientes relaciones de conmutación
   \]
 
   Realizando cálculos similares, los conmutadores posición--momento quedan
-  \begin{align}\label{eq:cua-conmut-posicionmomento1}
+  \begin{align*}
     [x,p_x]
     &=
-      [y,p_y] = [z,P_z] = i\hbar\\
-    \label{eq:cua-conmut-posicionmomento2}
+      [y,p_y]
+      = [z,P_z]
+      = i\hbar\\
     [x,p_y]
     &=
-      [y,p_z] = [z,P_x] = 0
-  \end{align}
+      [y,p_z]
+      = [z,P_x]
+      = 0
+  \end{align*}
   
 Las relaciones de conmutación posición-momento se pueden resumir en una expresión
-\begin{equation}\label{eq:cua-conmut-posicionmomento}
+\begin{equation}\label{eq:cua-conmut-posmomento-delta}
   [r_i,p_j] = i\hbar\delta_{ij}
 \end{equation}
 
@@ -1437,22 +1445,17 @@ Las relaciones de conmutación posición-momento se pueden resumir en una expres
   \]
 
   A continuación tenemos un resumen de conmutadores del momento angular
-  \begin{align}
-    \label{eq:cua-conmut-Lxy}
+  \begin{align*}
     [L_x,L_y] &= i\hbar L_z\\
-    \label{eq:cua-conmut-Lyz}
     [L_y,L_z] &= i\hbar L_x\\
-    \label{eq:cua-conmut-Lzx}
     [L_z,L_x] &= i\hbar L_y\\
-    \label{eq:cua-conmut-Lii}
     [L_x,L_x] &= [L_y,L_y] = [L_z,L_z] = 0
-  \end{align}
+  \end{align*}
 
   Podemos generalizar estas relaciones y sus opuestas en una fórmula
   \begin{equation}\label{eq:cua-conmut-Lij}
     [L_i,L_j] = i\hbar\epsilon_{ijk}L_k
   \end{equation}
-
 \end{itemize}
 
 Sabemos que el momento angular $\xhat{n}\cdot\vvv{L}$ es el generador de rotaciones, y
@@ -1508,7 +1511,7 @@ de una rotación pasiva) debido al signo negativo en el exponente
     = \exp\left(-i\frac{\theta}{\hbar}(\xhat{n}\cdot\mmm{J})\right)\\
   \label{eq:cua-rotL-v2}
   &\mmm{R}(\xhat{n},\theta)
-    = \exp\left(-i\frac{\theta}{\hbar}(\xhat{n}\cdot\mmm{L})\right)
+    = \exp\left(\frac{\theta}{\hbar}(\xhat{n}\cdot\mmm{L})\right)
 \end{align}
 
 Por último, recordemos que la matriz de rotación~(\ref{eq:cua-rot-v2}) define la rotación

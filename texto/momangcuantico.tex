@@ -1541,14 +1541,11 @@ $\theta = 0$
 \]
 
 Obtenemos el primer sumando del desarrollo, $\mmm{E}(0)$
-\begin{align*}
-  \mmm{E}(\theta)
-  &=
-    e^{-\theta\mmm{A}}\,\vvv{B}\,\,e^{\theta\mmm{A}}\\
+\[
   \mmm{E}(0)
-  &= e^{-0}\,\mmm{B}\,\,e^0
-    = \mmm{B}
-\end{align*}
+  = e^{-0}\,\mmm{B}\,\,e^0
+  = \mmm{B}
+\]
 
 Calculamos la primera derivada de~(\ref{eq:cua-hadamard-generica}) con respecto de
 $\theta$, respetando el orden en el que aparecen los operadores $\mmm{A}$ y $\mmm{B}$
@@ -1562,7 +1559,8 @@ porque en general no podemos intercambiarlos, a menos que conmuten
     = [\mmm{E},\mmm{A}]\\
   \mmm{E}'(0)
   &=
-  [\mmm{B},\mmm{A}]
+    [\mmm{E}(0),\mmm{A}]
+    = [\mmm{B},\mmm{A}]
 \end{align*}
 
 La segunda derivada
@@ -1573,6 +1571,8 @@ La segunda derivada
     = \left[[\mmm{E},\mmm{A}],\mmm{A}\right]\\
   \mmm{E}''(0)
   &=
+    \left[[\mmm{E}(0),\mmm{A}],\mmm{A}\right]
+    =
     \left[[\mmm{B},\mmm{A}],\mmm{A}\right]
 \end{align*}
 
@@ -1593,7 +1593,7 @@ Hadamard
 {\small
 \begin{equation}\label{eq:cua-hadamard-formula}
   e^{-\theta\mmm{A}}\,\mmm{B}\,e^{\theta\mmm{A}}
-  = \mmm{B} + [\mmm{B},\mmm{A}]\,\theta +
+  = \mmm{B} + [\mmm{B},\mmm{A}]\,\theta
   + \frac{1}{2!}\,
   \left[[\mmm{B},\mmm{A}],\mmm{A}\right]\,\theta^2
   + \frac{1}{3!}\,
@@ -1602,7 +1602,7 @@ Hadamard
 \end{equation}
 
 
-\section{Representaciones del momento angular}
+-\section{Representaciones del momento angular}
 Para rotar una función de onda $\Psi(x,y,z)$ definida en $\symbb{R}^3$, hemos de utilizar
 los generadores $\vvv{L}$, que cumplen las siguientes relaciones de conmutación
 \[

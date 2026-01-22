@@ -1485,21 +1485,38 @@ Para una rotación finita
 Ahora bien, sabemos que en mecánica cuántica el momento se define como
 \[
   \vvv{p} \equiv -i\hbar\vvv{\nabla}
+  \hspace{0.5em}
+  \longrightarrow
+  \hspace{0.5em}
+  -i\hbar\vvv{\nabla}
+  = \dfrac{\vvv{p}}{\hbar}
 \]
 \[
   \tilde{\Psi}(\xtilde{r})
-  = \exp\left[
-    -i\frac{\theta}{\hbar}i\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{p}
-  \right]
+  =
+  \exp\left\{
+    \theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,(-i)\hbar\vvv{\nabla}
+  \right\}
+  \,\Psi(\vvv{r})  
+  =
+  \exp\left\{
+    \theta\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\,\dfrac{\vvv{p}}{\hbar}
+  \right\}
+  \,\Psi(\vvv{r})  
+\]
+\[
+  \tilde{\Psi}(\xtilde{r})
+  = \exp\left\{
+    \frac{\theta}{\hbar}\vvv{r}^\dagger (\xhat{n}\cdot\mmm{J})\vvv{p}
+  \right\}
   \,\Psi(\vvv{r})
 \]
-
 Y teniendo en cuenta la expresión~\ref{eq:cua-nL-v1}, que relaciona el momento angular
 con los generadores $\mmm{J}$, la función rotada un ángulo discreto $\theta$ es
 \[
   \tilde{\Psi}(\xtilde{r})
   =
-  \exp\left[-\frac{\theta}{\hbar}(\xhat{n}\cdot\vvv{L})\right]\,\Psi(\vvv{r})
+  \exp\left\{\frac{\theta}{\hbar}(\xhat{n}\cdot\vvv{L})\right\}\,\Psi(\vvv{r})
 \]
 
 El operador de rotación en SO(3) para funciones es
@@ -1507,13 +1524,13 @@ El operador de rotación en SO(3) para funciones es
   \label{eq:cua-rot-nL}
   \mmm{R}(\xhat{n},\theta)
   =
-  \exp\left[-i\frac{\theta}{\hbar}\, \xhat{n}\cdot\vvv{L}\right]
+  \exp\left\{\frac{\theta}{\hbar}\, \xhat{n}\cdot\vvv{L}\right\}
 \end{equation}
 
 Este operador sirve para rotar funciones, reales o complejas, definidas en el espacio
 euclídeo $\symbb{R}^3$, alrededor de un cierto eje $\xhat{n}$.
-Otra conclusión a la que hemos llegado es que se conecta directamente el momento angular
-con una rotación.
+Otra conclusión a la que se llega es que se conecta directamente el momento angular con
+una rotación.
 
 \section{Conmutadores básicos}
 Se pretende calcular algunos conmutadores básicos en mecánica cuántica, sobre todo, los

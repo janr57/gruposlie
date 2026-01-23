@@ -1,6 +1,8 @@
 # Makefile for gruposlie.tex
 #
 
+IMGSTATICDIR=img/static
+
 FILES =	gruposlie.pkg.sty\
 	gruposlie.defs.sty\
 	portada/portada.tex\
@@ -14,7 +16,8 @@ FILES =	gruposlie.pkg.sty\
 	texto/momangclasico.tex\
 	texto/momangcuantico.tex\
 	apendices/ap_matrizrotaciongeneral.tex\
-	apendices/ap_algebralie.tex
+	apendices/ap_algebralie.tex\
+	$(IMGSTATICDIR)/Cc-by-nc-sa_icon.pfg
 	#texto/spin.tex\
 	#texto/poincare.tex
 
@@ -23,6 +26,9 @@ gruposlie.pdf: gruposlie.tex $(FILES)
 %.pdf:	%.tex
 	lualatex --enable-write18 $<
 	lualatex --enable-write18 $<
+
+$(IMGSTATICDIR)/%.pdf: $(IMGSTATICDIR)/%.svg
+	inkscape $< -o $@ --export-ignore-filters --export-ps-level=3
 
 all: gruposlie.pdf
 

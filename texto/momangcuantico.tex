@@ -1818,12 +1818,12 @@ para añadir algo de emoción plantearemos el siguiente problema
 
 Nos vamos a ayudar de la figura~\ref{fig:cua-gradiente}. En la parte izquierda se
 representa una función de forma abstracta ---de hecho no se muestra explícitamente---;
-en su lugar se colorean en rojo las variables de la función como si fueran ejes de
-coordenadas.
+en su lugar se colorean en rojo las variables de la función como si fueran vectores
+cuya resultante nos dé un punto de la función abstracta definida en $\symbb{R}^3$.
 Estas variables se corresponden, como no podía ser de otra manera, con los ejes de
 coordenadas, en negro, para la función original.
 
-Como no sabemos calcular la derivada parcial con respecto de $y$ ---el eje en rojo que
+Como no sabemos calcular la derivada parcial con respecto de $y$ ---el vector en rojo que
 representa a esta variable se traza con mayor grosor---, pero sí calcular $\partial_x$,
 rotamos \ang{-90} la función alrededor del eje $z$, como se observa en la parte derecha
 de la figura, consiguiendo que la variable $y$ se transforme temporalmente en la nueva
@@ -1866,11 +1866,11 @@ variable $x$ de la función rotada.
   \draw[thick,->] (0,0,0) -- (0,0,\longeje)
   node[anchor=south]{$z$};
   \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dx);
-  \node[above left,red!80!black] at (dx) {$x$};
+  \node[above left,red!80!black] at (dx) {$\vvv{x}$};
   \draw[line width=2pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dy); 
-  \node[above,red!80!black] at (dy) {$y$};
+  \node[above,red!80!black] at (dy) {$\vvv{y}$};
   \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dz);
-  \node[left,red!80!black] at (dz) {$z$};
+  \node[left,red!80!black] at (dz) {$\vvv{z}$};
 
   \tdplotsetcoord{P}{\RVEC}{\thetavec}{\phivec}
   \tdplotdrawarc[latex-]{(0,0,0)}{0.8}{0}{\phivec}{anchor=north}
@@ -1894,7 +1894,7 @@ variable $x$ de la función rotada.
     +(right:2.5cm);
   \end{scope}
 
-  \begin{scope}[xshift=10cm]
+    \begin{scope}[xshift=10cm]
     \coordinate (ddx) at (0,-1.8,0);
     \coordinate (ddy) at (1.8,0,0);
     \coordinate (ddz) at (0,0,1.8);
@@ -1905,21 +1905,21 @@ variable $x$ de la función rotada.
     \draw[thick,->] (0,0,0) -- (0,0,\longeje)
     node[anchor=south]{$z$};
     \draw[line width=2pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddy);
-    \node[right=4pt,red!80!black] at (ddy) {$y$};
+    \node[right=4pt,red!80!black] at (ddy) {$\xtilde{y}$};
     \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddx);
-    \node[above,red!80!black] at (ddx) {$x$}; 
+    \node[above,red!80!black] at (ddx) {$\xtilde{x}$}; 
     \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddz);
-    \node[left,red!80!black] at (ddz) {$z$};
+    \node[left,red!80!black] at (ddz) {$\xtilde{z}$};
   \end{scope}
 
-   \begin{scope}[on background layer]
-%     \node [line width=1pt, draw=black!10,fill=yellow!20,
-%     fit= (x) (z) (ddy)] {};
-     \filldraw[background]
-     rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
-     \fill[backgroundonly]
-     rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
-   \end{scope}
+  \begin{scope}[on background layer]
+    % \node [line width=1pt, draw=black!10,fill=yellow!20,
+    % fit= (x) (z) (ddy)] {};
+    \filldraw[background]
+    rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
+    \fill[backgroundonly]
+    rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
+  \end{scope}
   
 \end{tikzpicture}
 \caption{Se representan de forma abstracta en rojo las variables de la función que se va

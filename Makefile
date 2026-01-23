@@ -15,6 +15,7 @@ FILES =	gruposlie.pkg.sty\
 	texto/sux.tex\
 	texto/momangclasico.tex\
 	texto/momangcuantico.tex\
+	texto/spin.tex\
 	apendices/ap_matrizrotaciongeneral.tex\
 	apendices/ap_algebralie.tex\
 	$(IMGSTATICDIR)/Cc-by-nc-sa_icon.pdf

@@ -1,0 +1,4193 @@
+% spin.tex
+%
+% Copyright (C) 2022--2025 José A. Navarro Ramón <janr.devel@gmail.com>
+% Licencia del código GPLv2
+% Licencia Creative Commons Recognition Non-Commercial Share-alike.
+% (CC-BY-NC-SA)
+
+\chapter{El spin}
+En este capítulo distinguiremos un observable como el spin $S$, de su
+representación mecanocuántica como operador hermítico $\xhat{S}$, que
+aunque lleva el acento circunflejo, no representa un vector unitario
+sino un operador hermítico.
+
+
+\section{Definición}
+El spin $S$ es un observable que \emph{vive} en nuestro mundo
+$\symbb{R}^{3}$ y tiene por tanto tres componentes
+\[
+  \xhat{S} = (\xhat{S}_x,\xhat{S}_y,\xhat{S}_z)
+\]
+
+Como todo observable, el spin se corresponde con un operador hermítico
+---matricial en este caso---, que se comporta como un vector bajo rotaciones;
+además es un momento angular porque sus componentes cumplen las relaciones
+de conmutación
+\[
+  [\xhat{S}_i,\xhat{S}_j] = i\hbar\epsilon_{ijk}\xhat{S}_k
+\]
+
+También se puede definir como la representación del momento angular en
+un espacio de Hilbert $\symbb{C}^N$, donde $N$ es un entero positivo. 
+Cada componente $\xhat{S}_i$ es una matriz cuadrada $N\times N$.
+
+Suponiendo que trabajamos en un espacio de Hilbert $\symbb{C}^N$,
+nuestra misión es:
+\begin{quote}
+  ``Encontrar tres matrices $\xhat{S}_x$, $\xhat{S}_y$ y $\xhat{S}_z$
+  cuadradas $N\times N$, que se comporten como un vector bajo rotaciones,
+  que cumplan las propiedades del momento angular y con las leyes de la
+  mecánica cuántica (en particular que sean hermíticas).
+\end{quote}
+
+Al final veríamos qué relación tiene todo esto con la realidad, sobre todo
+con las partículas y en particular con el electrón.
+
+
+\section{\mathinhead{\xhat{S}^2}{s2} es un escalar bajo
+  rotaciones}
+Normalmente, entendemos por escalares los números, como reales o complejos.
+Vamos a extender el concepto a \emph{escalar bajo rotaciones}, que es un
+objeto que no cambia cuando se somete a rotaciones.
+
+Calculamos $\xhat{S}^2$, que es la norma o longitud del \emph{vector}
+$\xhat{S}$
+\begin{equation}\label{eq:spn-S2}
+  \xhat{S}^2
+  =
+  \xhat{S}_x^2 + \xhat{S}_y^2 + \xhat{S}_z^2
+\end{equation}
+
+Recordemos que las rotaciones no modifican la longitud de los vectores, por
+lo que esta magnitud es un \emph{escalar bajo rotaciones}.
+
+\subsection{Ejemplo}
+Pongamos un ejemplo para explicar el concepto. Imaginemos que tenemos un
+barión, por ejemplo la partícula delta neutra $\Delta^\circ$.
+Su spin es $3/2$, aunque por ahora no sabemos lo que significa.
+Lo demostraremos en su momento pero este spin implica que el espacio
+de Hilbert es de dimensión cuatro, $\symbb{C}^{4}$, de donde deducimos
+que las tres componentes del spin serán matrices $4\times 4$.
+
+El estado cuántico del barión viene dado por una función de las coordenadas
+$\ket{\phi (x,y,z)}$ y otra $\ket{\psi}$, que nos da el estado del spin.
+Con esta función de onda se podría calcular la probabilidad de encontrar el
+barión en una cierta región del espacio y con un spin determinado
+\[
+  \ket{\phi (x,y,z)}\, \otimes\,\ket{\psi}  
+\]
+
+La parte izquierda de la figura~\ref{fig:spn-bob-alice} representa
+un barión $\Delta^\circ$ desde el punto de vista del observador Roberto.
+Según éste, la máxima probabilidad de encontrarlo está en la posición
+$(1,0,0)$, mientras que su spin se encuentra alineado en el sentido
+positivo del eje $z$.
+
+A su vez, en la parte derecha de la figura Alicia observa la misma partícula
+desde su sistema de referencia. Según ella, la máxima probabilidad de
+encontrarla está en la posición $(0,-1,0)$ y su spin está en el sentido
+negativo del eje $x$.
+
+Nótese que la transformación entre las dos observaciones es pasiva, esto
+es, no se ha interaccionado con la partícula; en cierta medida se ha
+producido una cierta rotación del espacio
+\begin{figure}[ht]
+\def\scl{0.8}
+\def\longeje{3}
+%
+\tdplotsetmaincoords{60}{110}
+% 
+\pgfmathsetmacro{\rvec}{\longeje}
+\pgfmathsetmacro{\thetavec}{90}
+\pgfmathsetmacro{\phivec}{90}
+%
+%\pgfmathsetmacro{\xvec}{\xcoord{\rvec}{\thetavec}{\phivec}}
+%\pgfmathsetmacro{\yvec}{\ycoord{1.0}{30}{50}}
+%\pgfmathsetmacro{\zvec}{\zcoord{1.0}{30}{50}}
+\pgfmathsetmacro{\xvec}{0}
+\pgfmathsetmacro{\yvec}{\longeje}
+\pgfmathsetmacro{\zvec}{0}
+% Fondo
+\pgfmathsetmacro{\HORZ}{0.25}
+\pgfmathsetmacro{\VERT}{0.25}
+%
+\tikzfading[name=fade out, inner color=transparent!0, outer
+color=transparent!100]
+%
+\centering
+\begin{tikzpicture}[%
+  scale=\scl,
+  tdplot_main_coords,
+  background/.style={
+    line width=\bgborderwidth,
+    draw=\bgbordercolor,
+    fill=\bgcolor,
+  },
+  backgroundonly/.style={
+    line width=\bgborderwidth,
+    fill=\bgcolor,
+  },
+  ]
+  \coordinate (dx) at (2.2,0,0);
+  \coordinate (dy) at (0,2.2,0);
+  \coordinate (dz) at (0,0,2.2);
+  % Ejes de Roberto
+  \draw[thick,->] (0,0,0) -- (\longeje,0,0)
+  node[anchor=north east]{$x$} coordinate (x);
+  \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[anchor=north west]{$y$};
+  \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+
+  % Estado del spin
+  \draw[-{Latex[round]},red] (1.5,0,0) -- (1.5,0,1.5)
+  node[left] {\footnotesize $\vvv{S}$};
+  % Nube de probabilidad (estado espacial)
+  \fill [red,path fading=fade out] (1.5,0,0) circle [radius=10pt]
+  node[below right=-1pt and 4pt] {$\Delta^\circ$};
+
+  % Roberto
+  % BUG: Hay un bug en tkzpeople cuando se utiliza 'businessman' que se
+  % refleja en el archivo 'gruposlie.log'
+  % con mensajes 'Missing character:'  '*1.25412pt'
+  \node[name=b,dave,hair=brown!60!black,shirt=green!40!black,
+  top color=green!70,bottom color=green!40!black,shading angle=45,
+  tie=black,mirrored,minimum size=4mm] at (0,1.1,3) {};
+    % Texto Nombre
+  \path[tdplot_main_coords] (0,.2,2.5) --
+  node[below,sloped,green!40!black] {\scriptsize ROBERTO} (0,2,2.5);
+  % Bocadillo "Soy Roberto"
+  %\node[ellipse callout, draw,xshift=.5cm,yshift= 2.75cm,
+  %callout absolute pointer={(b.mouth)},font=\tiny] {Soy Roberto};
+
+  \begin{scope}[xshift=7cm]
+    \tdplotsetrotatedcoords{90}{90}{0}
+    % Líneas débiles ejes
+    \draw[ultra thin,black!20] (0,0,0) -- (\longeje,0,0);
+    \draw[ultra thin,black!20] (0,0,0) -- (0,-\longeje,0);
+    \draw[ultra thin,black!20] (0,0,0) -- (0,0,\longeje);
+    % Ejes de Alicia 
+    \draw[thick,color=black,tdplot_rotated_coords,->] (0,0,0) -- (\longeje,0,0)
+    node[anchor=north]{$x’$};
+    \draw[thick,color=black,tdplot_rotated_coords,->] (0,0,0) -- (0,\longeje,0)
+    node[anchor=south west]{$y’$};
+    \draw[thick,color=black,tdplot_rotated_coords,->] (0,0,0) -- (0,0,\longeje)
+    node[anchor=west]{$z’$};
+    % Estado del spin
+    \draw[-{Latex[round]},red] (1.5,0,0) -- (1.5,0,1.5)
+    node[left] {\footnotesize $\vvv{S}$};
+    % Nube de probabilidad (estado espacial)
+    \fill [red,path fading=fade out,tdplot_rotated_coords]
+    (0,-1.5,0) circle [radius=10pt]
+    node[below left=-1pt and 4pt] {$\Delta^\circ$};
+    % Alicia
+    \node[name=a,alice,minimum size=4mm,skin=pink,shirt=red,
+    tdplot_rotated_coords,rotate=-110] at (-1.0,0,2.7) {};
+    \node[red!50!black,tdplot_rotated_coords,rotate=-100]
+    at (-1.0,0,2.0) {\scriptsize\textsf{ALICIA}};
+    %\path[tdplot_rotated_coords] (-1.5,0,2.3) --
+    %node[below,sloped,red!40!black,rotated=90] {\scriptsize ALICIA} (-.5,0,2.3);
+    
+    %\node[ellipse callout, draw,xshift=.5cm,yshift= 2.75cm,
+    %callout absolute pointer={(b.mouth)},font=\tiny] {Soy Alicia};
+  \end{scope}
+
+  % Fondo amarillo
+  \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+  \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+  \begin{scope}[on background layer]
+    \draw[background] (SW) rectangle (NE);
+  \end{scope}
+
+\end{tikzpicture}
+\caption{En la figura de la izquierda Roberto observa el bosón $\Delta^\circ$,
+  desde su sistema de referencia.
+  A la derecha, Alicia lo observa desde otro sistema de referencia.}
+\label{fig:spn-bob-alice}
+\end{figure}
+
+Pero la rotación pasiva es equivalente a su contrapartida activa,
+por ejemplo, manteniendo todo el tiempo el punto de vista de Alicia y
+rotando la partícula ---interaccionando con ella---.
+Las rotaciones que se deben realizar sobre la partícula se representan
+en la figura~\ref{fig:spn-alice}
+\begin{figure}[ht]
+\def\scl{0.69}
+\def\longeje{3}
+%
+\tdplotsetmaincoords{60}{110}
+% 
+\pgfmathsetmacro{\rvec}{\longeje}
+\pgfmathsetmacro{\thetavec}{90}
+\pgfmathsetmacro{\phivec}{90}
+%
+%\pgfmathsetmacro{\xvec}{\xcoord{\rvec}{\thetavec}{\phivec}}
+%\pgfmathsetmacro{\yvec}{\ycoord{1.0}{30}{50}}
+%\pgfmathsetmacro{\zvec}{\zcoord{1.0}{30}{50}}
+\pgfmathsetmacro{\xvec}{0}
+\pgfmathsetmacro{\yvec}{\longeje}
+\pgfmathsetmacro{\zvec}{0}
+
+\tikzfading[name=fade out, inner color=transparent!0, outer
+color=transparent!100]
+
+\centering
+\begin{tikzpicture}[
+  scale=\scl,
+  tdplot_main_coords,
+  background/.style={
+    line width=\bgborderwidth,
+    draw=\bgbordercolor,
+    fill=\bgcolor,
+  },
+  backgroundonly/.style={
+    line width=\bgborderwidth,
+    fill=\bgcolor,
+  },  
+  ]
+  \coordinate (dx) at (2.2,0,0);
+  \coordinate (dy) at (0,2.2,0);
+  \coordinate (dz) at (0,0,2.2);
+  % Líneas débiles ejes
+  \draw[ultra thin,black!20] (0,0,0) -- (-\longeje,0,0);
+  \draw[ultra thin,black!20] (0,0,0) -- (0,-\longeje +1,0);
+  \draw[ultra thin,black!20] (0,0,0) -- (0,0,-2*\longeje /3);
+  % Ejes de Alicia
+  \draw[thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north]{$x$};
+  \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[anchor=north]{$y$};
+  \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+
+  % Giro eje z
+  %BUG: 'Missing character: There is no ;' warning in 'gruposlie.log'
+  \tdplotdrawarc[line width=1pt,-{Latex[round,length=6pt,width=4pt]},
+  color=black!50] {(0,0,1.9)}{0.3}{-25}{-360}{}{};
+  % Reponer parte superior del eje z
+%  \draw[ultra thick,->] (0,0,1.9) -- (0,0,\longeje);
+
+  % Estado del spin
+  \draw[-{Latex[round]},red] (1.5,0,0) -- (1.5,0,1.5)
+  node[left] {\footnotesize $\vvv{S}$};
+  % Nube de probabilidad (estado espacial)
+  \fill [red,path fading=fade out] (1.5,0,0) circle [radius=10pt]
+  node[above left=2pt and 2pt] {$\scriptstyle\Delta^\circ$};
+
+  % Alicia
+  \node[alice,minimum size=1.5mm,skin=pink,shirt=red,mirrored] at (0,1.1,3) {};
+  % Texto Nombre
+  \path[tdplot_main_coords] (0,.2,2.5) --
+  node[below,sloped,red!50!black] {\tiny ALICIA} (0,2,2.5);
+  % Bocadillo "Soy Alicia"
+  % \node[ellipse callout, draw,xshift=.5cm,yshift= 2.75cm,
+  % callout absolute pointer={(b.mouth)},font=\tiny] {Soy Alicia};
+
+  % Draw the arcs on each theta plane
+  % The first position is obvious since we are in the x-y plane and rotating
+  % around the z-axis.
+  % The anchor already went crazy, north is pointing downwards...
+  %\tdplotdrawarc[-{Latex[round]},color=black!50]
+  %{(0,0,1.9)}{0.3}{0}{-350}{anchor=south west,color=black}{}
+  % We move to the z-x axis
+  %\tdplotsetthetaplanecoords{0}
+  % Notice you have to tell tiks-3dplot you are now in rotated coords
+  % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
+  % the former y axis is now the z axis.
+  %\tdplotdrawarc[tdplot_rotated_coords,-{Latex[round]},color=red!80!black]
+  %{(0,0,1.9)}{0.3}{340}{0}{anchor=south west,color=black}{}
+  %%%% \tdplotsetthetaplanecoords{-90}
+  % Once again we swaps the planes. I don't know why it's working like this
+  % but we turn backwards so the arrow turns in the positive direction.
+  %%%% \tdplotdrawarc[tdplot_rotated_coords,->,color=black]
+  % {(0,0,0.7)}{0.1}{120}{470}{anchor=south west,color=black}{roll}
+  % If you turn the theta plane of 90 degrees position and rotation are inverted.
+  % \tdplotsetthetaplanecoords{90}
+  % \tdplotdrawarc[tdplot_rotated_coords,->,color=black]
+  % {(0,0,-0.7)}{0.1}{470}{120}{anchor=south east,color=black}{roll}
+
+  % Giro eje z
+  \tdplotdrawarc[-{Latex[round,length=5pt,width=3pt]},color=black!50]
+  {(0,0,1.9)}{0.3}{-25}{-365}{anchor=south west,color=black}{};
+  % Reponer parte superior del eje z
+  \draw[thick,->] (0,0,1.9) -- (0,0,\longeje);
+
+  \begin{scope}[xshift=6cm]
+    % Líneas débiles ejes
+    \draw[ultra thin,black!20] (0,0,0) -- (-\longeje,0,0);
+    \draw[ultra thin,black!20] (0,0,0) -- (0,-\longeje +.5,0);
+    \draw[ultra thin,black!20] (0,0,0) -- (0,0,-2*\longeje /3);
+    % Ejes de Alicia
+    \draw[thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north]{$x$};
+    \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[anchor=north]{$y$};
+    \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+
+    % Giro eje y
+    \tdplotsetthetaplanecoords{0}
+    % Notice you have to tell tiks-3dplot you are now in rotated coords
+    % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
+    % the former y axis is now the z axis.
+    \tdplotdrawarc[tdplot_rotated_coords,line width=1pt,
+    -{Latex[round,length=6pt,width=4pt]},color=black!50]
+    {(0,0,1.9)}{0.3}{380}{40}{anchor=south west,color=black}{}
+    % Reponer parte derecha del eje y
+    \draw[thick,->] (0,1.9,0) -- (0,\longeje,0);
+
+    % Estado del spin
+    \draw[-{Latex[round]},red] (0,-1.5,0) -- (0,-1.5,1.5) node[left]
+    {\footnotesize $\vvv{S}$};
+    % Nube de probabilidad (estado espacial)
+    \fill [red,path fading=fade out] (0,-1.5,0) circle [radius=10pt]
+    node[below left=-1pt and 3pt] {$\scriptstyle\Delta^\circ$};
+
+    % Alicia
+    \node[alice,minimum size=1.5mm,skin=pink,shirt=red,mirrored] at (0,1.1,3) {};
+    % Texto Nombre
+    \path[tdplot_main_coords] (0,.2,2.5) --
+    node[below,sloped,red!50!black] {\tiny ALICIA} (0,2,2.5);
+    % Bocadillo "Soy Alicia"
+    % \node[ellipse callout, draw,xshift=.5cm,yshift= 2.75cm,
+    % callout absolute pointer={(b.mouth)},font=\tiny] {Soy Alicia};
+  \end{scope}
+
+  \begin{scope}[xshift=12cm]
+    % Líneas débiles ejes
+    \draw[ultra thin,black!20] (0,0,0) -- (-\longeje,0,0);
+    \draw[ultra thin,black!20] (0,0,0) -- (0,-\longeje +.5,0);
+    \draw[ultra thin,black!20] (0,0,0) -- (0,0,-2*\longeje /3);
+    % Ejes de Alicia
+    \draw[thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north]{$x$};
+    \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[anchor=north]{$y$};
+    \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+
+    % Estado del spin
+    \draw[-{Latex[round]},red] (0,-1.5,0) -- (-1.5,-1.5,0) node[left]
+    {\footnotesize $\vvv{S}$};
+    % Nube de probabilidad (estado espacial)
+    \fill [red,path fading=fade out] (0,-1.5,0) circle [radius=10pt]
+    node[below left=-1pt and 3pt] {$\scriptstyle\Delta^\circ$};
+
+    % Alicia
+    \node[alice,minimum size=1.5mm,skin=pink,shirt=red,mirrored] at (0,1.1,3) {};
+    % Texto Nombre
+    \path[tdplot_main_coords] (0,.2,2.5) --
+    node[below,sloped,red!50!black] {\tiny ALICIA} (0,2,2.5);
+    % Bocadillo "Soy Alicia"
+    % \node[ellipse callout, draw,xshift=.5cm,yshift= 2.75cm,
+    % callout absolute pointer={(b.mouth)},font=\tiny] {Soy Alicia};
+  \end{scope}
+
+  \begin{scope}[on background layer]
+    \filldraw[background]
+    rectangle (-2.1cm, -2.2cm) rectangle (3.4cm + 12cm, 3.4cm);     
+    \fill[backgroundonly]
+    rectangle (-2.1cm, -2.2cm) rectangle (3.4cm + 12cm, 3.4cm);     
+  \end{scope}
+  
+\end{tikzpicture}
+\caption{A la izquierda de la figura el bosón aparece tal y como lo veía
+  Roberto. Lo rotamos \ang{-90} alrededor del eje $z$, después de lo cual
+  queda como se aprecia en el centro de la figura.
+  Finalmente, lo rotamos otros \ang{-90} en torno al eje $y$ y queda como
+  se observa a la derecha, tal y como lo veía Alicia.
+  Además, obsérvese que la longitud $|\vvv{S}|$ es invariante bajo
+  rotaciones.}
+\label{fig:spn-alice}
+\end{figure}
+
+Desde el punto de vista de Alicia, para pasar el bosón desde lo observado
+por Roberto hasta el suyo, debe realizar primero una rotación de \ang{-90}
+respecto del eje $z$ y luego otra rotación de \ang{-90} alrededor el eje $y$.
+
+Rotar implica utilizar el momento angular correspondiente al mundo de que
+se trate. Así, para rotar la función de estado $\phi(x,y,z) \otimes \ket{\psi}$,
+utilizaremos $\xhat{L}$ para la función $\phi$ y $\xhat{S}$ para girar
+el vector de estado de spin $\ket{\psi}$.
+
+La rotación activa representada en la figura~\ref{fig:spn-alice} se efectúa
+aplicando los operadores
+\[
+  \left(
+    e^{-i\frac{-\pi/2}{\hbar}\,\xhat{L}_y}\,e^{-i\frac{-\pi/2}{\hbar}\,\xhat{L}_z}\,\phi
+  \right)
+  \otimes
+  \left(
+    e^{-i\frac{-\pi/2}{\hbar}\,\xhat{S}_y}\,e^{-i\frac{-\pi/2}{\hbar}\,\xhat{S}_z}\,\ket{\psi}
+  \right)
+\]
+
+De la ecuación anterior sólo nos interesa aquí la parte del spin.
+Observamos que $\xhat{S}^2$ es un escalar porque es invariante bajo rotaciones.
+Por ejemplo, al rotarlo alrededor del eje $x$
+\begin{equation}\label{eq:spn-S2-invariante}
+  e^{-i\frac{\theta}{\hbar}\,\xhat{S}_x}\,\xhat{S}^2\,e^{i\frac{\theta}{\hbar}\,\xhat{S}_x}
+  = \xhat{S}^2
+\end{equation}
+
+Para que esto suceda, $\xhat{S}^2$ debe ser independiente de rotaciones
+alrededor del eje $x$, o lo que es lo mismo, $\xhat{S}^2$ y $\xhat{S}_x$
+deben conmutar. Además, ocurrirá lo mismo con los demás ejes
+\[
+  [\xhat{S}^2,\xhat{S}_x]
+  = [\xhat{S}^2,\xhat{S}_y]
+  = [\xhat{S}^2,\xhat{S}_z]
+  = 0
+\]
+
+Podemos demostrar la afirmación anterior mediante la fórmula de Hadamard
+\[
+  e^{-\theta\mmm{A}}\,\mmm{B}\,e^{\theta\mmm{A}}
+  =
+  \mmm{B} + [\mmm{B},\mmm{A}]\theta + \cdots
+\]
+
+que aplicada a nuestra transformación alrededor del eje $x$ por ejemplo
+\[
+  e^{-i\frac{\theta}{\hbar}\mmm{S}_x}\,\xhat{S}^2\,e^{i\frac{\theta}{\hbar}\mmm{S}_x}
+  =
+  \xhat{S}^2 + \left[\xhat{S}^2,i\frac{1}{\hbar}\mmm{S}_x\right]\theta
+  + \cdots
+\]
+
+Para que se cumpla~(\ref{eq:spn-S2-invariante}), debe ocurrir
+que $[\xhat{S}^2,\mmm{S}_x] = 0$.
+
+\section{Representación matricial de un operador}
+Para simplificar la explicación nos centraremos en un espacio de Hilbert
+$\symbb{C}^2$, aunque las conclusiones valdrán para cualquier dimensión.
+
+Sea $\xhat{A}$ un operador mecanocuántico de un espacio de Hilbert, y sea
+$B = \set{\ket{v_1},\ket{v_2}}$ una base ortonormal que no tiene por qué
+ser la base propia de $\xhat{A}$.
+Afirmamos que la siguiente matriz es la representación del operador
+$\xhat{A}$ en la base considerada
+\begin{equation}\label{eq:spn-representacion-matricial-operador}
+  \xhat{A}
+  =
+  \begin{pmatrix}
+    \braket{v_1|\xhat{A}|v_1} & \braket{v_1|\xhat{A}|v_2} \\
+    \braket{v_2|\xhat{A}|v_1} & \braket{v_2|\xhat{A}|v_2}
+  \end{pmatrix}
+\end{equation}
+
+Supongamos que al operar $\xhat{A}$ sobre los vectores de la base, obtenemos
+los siguientes resultados
+\begin{align*}
+  \xhat{A}\ket{v_1} &= 3\ket{v_1} + 2\ket{v_2}\\
+  \xhat{A}\ket{v_2} &= 5\ket{v_1} - \ket{v_2}  
+\end{align*}
+
+Realizamos los cálculos pertinentes, teniendo en cuenta que la base es
+ortonormal, por lo que se cumple $\braket{v_i|v_j} = \delta_{ij}$
+\begin{align*}
+  \braket{v_1|\xhat{A}|v_1}
+  &=
+    3\braket{v_1|v_1} + 2\braket{v_1|v_2} = 3\\
+  \braket{v_1|\xhat{A}|v_2}
+  &=
+    5\braket{v_1|v_1} - \braket{v_1|v_2} = 5\\
+  \braket{v_2|\xhat{A}|v_1}
+  &=
+    3\braket{v_2|v_1} + 2\braket{v_2|v_1} = 2\\
+  \braket{v_2|\xhat{A}|v_2}
+  &=
+    5\braket{v_2|v_1} - \braket{v_2|v_2} = -1\\
+\end{align*}
+
+La representación del operador $\xhat{A}$ en la base
+$B = \set{\ket{v_1}, \ket{v_2}}$ es,
+según~(\ref{eq:spn-representacion-matricial-operador})
+\[
+  \xhat{A}
+  =
+  \begin{pmatrix}
+    3 & 5\\
+    2 & -1
+  \end{pmatrix}
+\]
+
+En el resultado anterior se aprecia que la representación matricial de un
+operador está formada por las componentes de $\xhat{A} \ket{v_i}$
+dispuestas en la columna $i$. 
+
+
+\section{Representación de
+  \mathinhead{\xhat{S}_z}{matrsz} y
+  \mathinhead{\xhat{S}^2}{matrs2} en su base propia}
+Aclaramos que se podría haber elegido cualquiera de los operadores
+$\xhat{S}_x$, $\xhat{S}_y$ o $\xhat{S}_z$, pero escogemos el último
+porque tiene una representación matemática más sencilla.
+
+La ecuación de autovalores y autovectores de $\xhat{S}_z$ es
+\[
+  \xhat{S}_z \ket{m} = \hbar m \ket{m}
+\]
+donde $\ket{m}$ es una función propia genérica, el operador tiene $N$ funciones
+propias y $\hbar m$ es su valor propio. La constante $\hbar$ aparece porque
+los valores propios deben tener unidades de momento angular\footnotemark{}.
+\footnotetext{Se podría haber supuesto un valor propio $m$ y en el
+  desarrollo posterior se hubiera deducido que $m$ contiene $\hbar$.}
+
+Dado que los operadores $\xhat{S}_z$ y $\xhat{S}^2$ conmutan, hay un
+teorema que dice que existe una base propia común de ambos operadores
+\[
+  \xhat{S}^2 \ket{m} = \hbar^2 c \ket{m}
+\]
+donde $c$ es un número no negativo porque $\xhat{S}^2$ es el cuadrado
+de la longitud o norma del operador y $\hbar^2$ lo ponemos porque
+sus unidades son el cuadrado del momento angular.
+Además, como $\xhat{S}^2$ es invariante frente a rotaciones alrededor
+de los ejes de coordenadas, debe ser proporcional a la matriz unidad
+---$\xhat{S}^2$ es un invariante Casimir---
+\begin{equation}\label{eq:spn-S2casimir}
+  \xhat{S}^2 = \hbar^2 c\,\mmm{I}
+\end{equation}
+
+Para escribir la representación matricial de $\xhat{S}_z$ realizamos el cálculo
+\begin{equation}\label{eq:spn-elem-matriz-Sz-delta}
+  \braket{m_i|\xhat{S}_z|m_j}
+  =
+  \braket{m_i|\hbar m_j|m_j}
+  =
+  \hbar m_j \braket{m_i|m_j}
+  =
+  \hbar m_j \,\delta_{ij}
+\end{equation}
+donde hemos tenido en cuenta que la base propia es ortonormal.
+
+Los elementos no diagonales serán cero y los diagonales tendrán la forma
+\[
+  \xhat{S}_{z\, ii} = \hbar m_i
+\]
+
+La matriz será
+\[
+  \xhat{S}_z
+  = \hbar\,
+  \begin{pNiceMatrix}
+    m_1   & 0      & \Cdots  & 0      \\
+    0      & \Ddots &  \Ddots & \Vdots \\
+    \Vdots & \Ddots &         & 0      \\
+    0      & \Cdots & 0       & m_{N}
+  \end{pNiceMatrix}
+\]
+donde las $m_i$ están ordenadas de mayor a menor
+\[
+  m_1 \ge m_2 \ge \cdots \ge m_{N}
+\]
+
+Por otra parte $\xhat{S}^2$, según~(\ref{eq:spn-S2casimir})
+\[
+  \xhat{S}^2
+  = \hbar^2 c\,
+  \begin{pNiceMatrix}
+    1      & 0      & \Cdots  & 0      \\
+    0      & \Ddots &  \Ddots & \Vdots \\
+    \Vdots & \Ddots &         & 0      \\
+    0      & \Cdots & 0       & 1    
+  \end{pNiceMatrix}
+\]
+
+\section{Operadores escalera del momento angular de spin}
+Por el momento no conocemos los valores propios ni las funciones propias
+del momento angular. Utilizaremos una técnica llamada de los
+\emph{operadores escalera} para calcularlos.
+
+Contstruiremos unos operadores, $\xhat{S}_{+}$ y $\xhat{S}_{-}$, que aplicados
+sobre una función propia del momento angular, consigan elevar o disminuir
+su valor propio.
+Al aplicar sucesivamente estos operadores escalera a estas funciones propias,
+llegaremos a un límite inferior y a otro superior.
+De esta forma demostraremos que los valores propios están acotados tanto
+superior como inferiormente y esto nos dará la clave para hallarlos.
+
+De la ecuación~(\ref{eq:spn-S2}) obtenemos
+\begin{equation}\label{eq:spn-Sx2Sy2}
+  \xhat{S}_x^2 + \xhat{S}_y^2
+  =
+  \xhat{S}^2 - \xhat{S}_z^2
+\end{equation}
+
+\subsection{Definición y propiedades útiles}
+\subsubsection{Definición de operadores escalera}
+Definimos los operadores escalera ascendente y descendente
+\begin{align}\label{eq:spn-S-}
+  \xhat{S}_{-} &= \xhat{S}_x - i\xhat{S}_y\\
+  \label{eq:spn-S+}
+  \xhat{S}_{+} &= \xhat{S}_x + i\xhat{S}_y
+\end{align}
+
+\subsubsection{Cálculo de \mathinhead{\xhat{S}_{+}\xhat{S}_{-}}{s+s-}
+  y \mathinhead{\xhat{S}_{-}\xhat{S}_{+}}{s-s+}}
+Calculamos $\xhat{S}_{+} \xhat{S}_{-}$ porque nos será útil posteriormente
+\begin{align*}
+  \xhat{S}_{+} \xhat{S}_{-}
+  &=
+  (\xhat{S}_x + i\xhat{S}_y)
+  (\xhat{S}_x - i\xhat{S}_y)
+  =
+  \xhat{S}_x^2 + \xhat{S}_y^2
+  -i\xhat{S}_x\xhat{S}_y +i\xhat{S}_y\xhat{S}_x\\
+  &=
+  \xhat{S}_x^2 + \xhat{S}_y^2 + i[\xhat{S}_y,\xhat{S}_x]
+    = \xhat{S}_x^2 + \xhat{S}_y^2 + i (-i\hbar\xhat{S}_z)
+    = \xhat{S}_x^2 + \xhat{S}_y^2 + \hbar\xhat{S}_z
+\end{align*}
+
+Utilizando la ecuación~(\ref{eq:spn-Sx2Sy2})
+\begin{equation}\label{eq:spn-S+S-}
+  \xhat{S}_{+} \xhat{S}_{-}
+  =
+  \xhat{S}^2 - \xhat{S}_z^2 + \hbar\xhat{S}_z
+\end{equation}
+
+De forma similar obtendríamos
+\begin{equation}\label{eq:spn-S-S+}
+  \xhat{S}_{-} \xhat{S}_{+}
+  =
+  \xhat{S}^2 - \xhat{S}_z^2 - \hbar\xhat{S}_z
+\end{equation}
+
+\subsubsection{Norma de \mathinhead{\xhat{S}_{-}\ket{m}}{s-m}
+  y \mathinhead{\xhat{S}_{+}\ket{m}}{s+m}}
+Las funciones propias $\ket{m}$ están normalizadas, pero la normalización
+se pierde cuando los operadores escalera se aplican a éstas.
+Necesitamos pues, hallar la norma de $\xhat{S}_{-} \ket{m}$ y de
+$\xhat{S}_{+}\ket{m}$, pues ya no valen la unidad%, siendo $\ket{m}$ una función
+%propia genérica
+\begin{align*}
+  \Vert\xhat{S}_{-}\ket{m}\Vert
+  &=
+    \sqrt{(\xhat{S}_{-}\ket{m})^\dagger (\xhat{S}_{-} \ket{m})}
+    = \sqrt{\braket{m|(\xhat{S}_{-})^\dagger\xhat{S}_{-}|m}}
+    = \sqrt{\braket{m|\xhat{S}_{+}\xhat{S}_{-}|m}}\\
+  &=
+    \sqrt{\braket{m|\xhat{S}^2-\xhat{S}_z^2+\hbar\xhat{S}_z|m}}
+    = \sqrt{\hbar^2c -\hbar^2m^2+\hbar^2m}
+    = \hbar \sqrt{c-m^2+m}
+\end{align*}
+\begin{align*}
+  \Vert\xhat{S}_{+}\ket{m}\Vert
+  &=
+    \sqrt{(\xhat{S}_{+}\ket{m})^\dagger (\xhat{S}_{+} \ket{m})}
+    = \sqrt{\braket{m|(\xhat{S}_{+})^\dagger\xhat{S}_{+}|m}}
+    = \sqrt{\braket{m|\xhat{S}_{-}\xhat{S}_{+}|m}}\\
+  &=
+    \sqrt{\braket{m|\xhat{S}^2-\xhat{S}_z^2-\hbar\xhat{S}_z|m}}
+    = \sqrt{\hbar^2c -\hbar^2m^2-\hbar^2m}
+    = \hbar \sqrt{c-m^2-m}
+\end{align*}
+
+Resumimos los resultados anteriores
+\begin{align}\label{eq:spn-norma-S-z}
+  \Vert\xhat{S}_{-}\ket{m}\Vert &= \hbar \sqrt{c-m^2+m}\\
+  \label{eq:spn-norma-S+z}
+  \Vert\xhat{S}_{+}\ket{m}\Vert &= \hbar \sqrt{c-m^2-m}  
+\end{align}
+
+\subsubsection{Cálculo de \mathinhead{\xhat{S}_{-}\xhat{S}_z}{s-sz}
+  y \mathinhead{\xhat{S}_{+}\xhat{S}_z}{s+sz}}
+Primero hallamos los conmutadores de $\xhat{S}_z$ con los operadores
+escalera
+\begin{align*}
+  [\xhat{S}_z,\xhat{S}_{-}]
+  &=
+  [\xhat{S}_z,\xhat{S}_x-i\xhat{S}_y]
+  =
+  [\xhat{S}_z,\xhat{S}_x] -i [\xhat{S}_z,\xhat{S}_y]
+  =
+  i\hbar\xhat{S}_y - i (-i\hbar\xhat{S}_x)\\
+  &=
+    -\hbar\xhat{S}_x + i\hbar\xhat{S}_y
+    = -\hbar (\xhat{S}_x - i\xhat{S}_y)
+    = -\hbar\xhat{S}_{-}
+\end{align*}
+\begin{align*}
+  [\xhat{S}_z,\xhat{S}_{+}]
+  &=
+  [\xhat{S}_z,\xhat{S}_x+i\xhat{S}_y]
+  =
+  [\xhat{S}_z,\xhat{S}_x] +i [\xhat{S}_z,\xhat{S}_y]
+  =
+  i\hbar\xhat{S}_y + i (-i\hbar\xhat{S}_x)\\
+  &=
+    -\hbar\xhat{S}_x + i\hbar\xhat{S}_y
+    = \hbar (\xhat{S}_x + i\xhat{S}_y)
+    = \hbar\xhat{S}_{+}
+\end{align*}
+
+Y después, utilizamos los cálculos anteriores para calcular
+$\xhat{S}_{-}\xhat{S}_z$ y $\xhat{S}_{+}\xhat{S}_z$
+\begin{align}\label{eq:spn-S-z}
+  \xhat{S}_{-}\xhat{S}_z
+  &= \xhat{S}_z\xhat{S}_{-} + \hbar\xhat{S}_{-}\\
+  \label{eq:spn-S+z}
+  \xhat{S}_{+}\xhat{S}_z
+  &= \xhat{S}_z\xhat{S}_{+} - \hbar\xhat{S}_{+}  
+\end{align}
+
+\subsection{Aplicación de los operadores escalera sobre las funciones \mathinhead{\ket{m}}{aplescm}}
+Comenzamos aplicando los operadores escalera a la ecuación de
+autovalores y autovectores de $\xhat{S}_z$
+\[
+  \xhat{S}_z\ket{m} = \hbar m\ket{m}
+\]
+
+\subsubsection{Aplicación de \mathinhead{\xhat{S}_{-}}{apls-} sobre
+  \mathinhead{\ket{m}}{apls-m}}
+Primero aplicamos el operador descendente
+\[
+  \xhat{S}_{-}\xhat{S}_z\ket{m} = \xhat{S}_{-}\hbar m\ket{m}
+\]
+
+Utilizamos el resultado de $\xhat{S}_{-}\xhat{S}_z$ en~(\ref{eq:spn-S-z})
+\[
+  (\xhat{S}_z\xhat{S}_{-}+\hbar\xhat{S}_{-})\ket{m}
+  =
+  \hbar m\xhat{S}_{-}\ket{m}
+\]
+
+Desarrollamos la expresión anterior
+\[
+  \xhat{S}_z\xhat{S}_{-}\ket{m} + \hbar\xhat{S}_{-}\ket{m}
+  =
+  \hbar m\xhat{S}_{-}\ket{m}
+\]
+\[
+  \xhat{S}_z\xhat{S}_{-}\ket{m}
+  =
+  \hbar m\xhat{S}_{-}\ket{m}-\hbar\xhat{S}_{-}\ket{m}
+\]
+\begin{equation}\label{eq:spn-S-1}
+  \xhat{S}_z\xhat{S}_{-}\ket{m}
+  =
+  \hbar (m-1)\xhat{S}_{-}\ket{m}
+\end{equation}
+
+Llegamos a la conclusión de que $\xhat{S}_{-}\ket{m}$ es una función
+propia de $\xhat{S}_z$, bajando el valor propio en $\hbar$ unidades.
+Por esta razón $\xhat{S}_{-}$ se denomina operador \emph{descendente}
+
+\subsubsection{Aplicación de \mathinhead{\xhat{S}_{+}}{apls+} sobre
+  \mathinhead{\ket{m}}{apls+m}}
+Después aplicamos el operador ascendente
+$\xhat{S}_{+}$ a $\xhat{S}_z\ket{m} = \hbar m\ket{m}$.
+Utilizando el resultado de $\xhat{S}_{+}\xhat{S}_z$ en~(\ref{eq:spn-S+z}),
+llegaríamos a obtener
+\begin{equation}\label{eq:spn-S+1}
+  \xhat{S}_z\xhat{S}_{+}\ket{m}
+  =
+  \hbar (m+1)\xhat{S}_{+}\ket{m}
+\end{equation}
+de donde concluimos que $\xhat{S}_{+}\ket{m}$ es otra función propia de
+$\xhat{S}_z$, que eleva el valor propio en $\hbar$ unidades;
+de ahí que $\xhat{S}_{+}$ se llame operador \emph{ascendente}.
+
+\subsubsection{¿Qué son realmente
+  \mathinhead{\xhat{S}_{-}\ket{z}}{apls-z} y
+  \mathinhead{\xhat{S}_{+}\ket{z}}{apls+z}?}
+Ya sabíamos que eran funciones propias de $\xhat{S}_z$ con valores
+propios $\hbar\,(m-1)$ y $\hbar\,(m+1)$, respectivamente.
+\begin{align}\label{eq:spn-S-1-v2}
+  \xhat{S}_z\left(\xhat{S}_{-}\ket{m}\right)
+  &=
+    \hbar (m-1)\left(\xhat{S}_{-}\ket{m}\right)\\
+  \label{eq:spn-S+1-v2}
+  \xhat{S}_z\left(\xhat{S}_{+}\ket{m}\right)
+  &=
+    \hbar (m+1)\left(\xhat{S}_{+}\ket{m}\right)
+\end{align}
+
+Ahora vamos a profundizar en su naturaleza.
+Sabemos que $\ket{m-1}$ y $\ket{m+1}$ son funciones propias de $\xhat{S}_z$
+con los mismos valores propios
+\begin{align}\label{eq:spn-Szm-1}
+  \xhat{S}_z \ket{m-1}
+  &=
+    \hbar (m-1) \ket{m-1}\\
+  \label{eq:spn-Szm+1}
+  \xhat{S}_z \ket{m+1}
+  &=
+    \hbar (m+1) \ket{m+1}
+\end{align}
+
+Pero no son iguales
+\begin{align*}
+  \xhat{S}_{-}\ket{m} &\ne \ket{m-1}\\
+  \xhat{S}_{+}\ket{m} &\ne \ket{m+1}
+\end{align*}
+porque al aplicar un operador escalera sobre una
+función propia del momento angular se pierde la normalización. Recordemos
+que la base formada por las $\ket{m}$ es ortononormal, de manera que la norma
+de cada vector de la base vale la unidad. Pues bien, la norma de
+$\xhat{S}_{-}\ket{m}$ o $\xhat{S}_{+}\ket{m}$ no vale uno.
+
+Así, las funciones son proporcionales y la constante de proporcionalidad
+es la norma de $\xhat{S}_{-}\ket{m}$ o $\xhat{S}_{+}\ket{m}$
+\begin{align}\label{eq:spn-proporcionalidad1}
+  \xhat{S}_{-}\ket{m} &= \Vert\xhat{S}_{-}\ket{m}\Vert\, \ket{m-1}\\
+  \label{eq:spn-proporcionalidad2}
+  \xhat{S}_{+}\ket{m} &= \Vert\xhat{S}_{+}\ket{m}\Vert\, \ket{m+1}
+\end{align}
+
+La norma de las funciones se calcularon en~(\ref{eq:spn-norma-S-z})
+y en~(\ref{eq:spn-norma-S+z})
+\begin{align}\label{eq:spn-S-m-1}
+  \xhat{S}_{-}\ket{m}
+  &=
+    \hbar\sqrt{c-m^2+m}\,\,\ket{m-1}\\
+    \label{eq:spn-S+m+1}
+  \xhat{S}_{+}\ket{m}
+  &=
+    \hbar\sqrt{c-m^2-m}\,\,\ket{m+1}
+\end{align}
+
+\subsection{Representación de \mathinhead{\xhat{S}_x}{sx}
+  y \mathinhead{\xhat{S}_y}{sy}}
+Ahora podremos calcular $\xhat{S}_x\ket{m}$ y $\xhat{S}_y\ket{m}$
+reescribiendo~(\ref{eq:spn-S-m-1})
+y~(\ref{eq:spn-S+m+1})
+\begin{align}\label{eq:spn-S-m-1-v2}
+  \xhat{S}_x\ket{m} - i\xhat{S}_y\ket{m}
+  &=
+    \hbar\sqrt{c-m^2+m}\,\,\ket{m-1}\\
+  \label{eq:spn-S+m+1-v2}
+  \xhat{S}_x\ket{m} + i\xhat{S}_y\ket{m}
+  &=
+    \hbar\sqrt{c-m^2-m}\,\,\ket{m+1}
+\end{align}
+de manera que tenemos dos ecuaciones con dos incógnitas
+$\xhat{S}_x$ y $\xhat{S}_y$.
+
+Sumando y restando las ecuaciones, obtenemos las incógnitas
+\begin{align}\label{eq:spn-Sxm}
+  \xhat{S}_x\ket{m}
+  &=
+  \frac{\hbar}{2}
+  \left(
+    \sqrt{c-m^2+m}\,\,\ket{m-1} + \sqrt{c-m^2-m}\,\,\ket{m+1}
+    \right)\\
+  \label{eq:spn-Sym}
+  \xhat{S}_y\ket{m}
+  &= \frac{i\hbar}{2}
+  \left(
+  \sqrt{c-m^2+m}\,\,\ket{m-1} - \sqrt{c-m^2-m}\,\,\ket{m+1}
+  \right)
+\end{align}
+
+Tenemos el valor de $\xhat{S}_x\ket{m}$ y $\xhat{S}_y\ket{m}$,
+pero no el de los operadores $\xhat{S}_x$, $\xhat{S}_y$.
+Necesitamos obtener su representación matricial y para ello calculamos
+los elementos de las matrices
+\begin{align}\label{eq:spn-elem-matriz-Sx}
+  \braket{m_i|\xhat{S}_x|m_j}
+  &=
+  \frac{\hbar}{2}
+  \left(
+    \sqrt{c-m_j^2+m_j}\,\,\braket{m_i|m_{j-1}}
+    + \sqrt{c-m_j^2-m_j}\,\,\braket{m_i|m_{j+1}}
+    \right)\\
+  \label{eq:spn-elem-matriz-Sy}
+  \braket{m_i|\xhat{S}_y|m_j}
+  &=
+  \frac{i\hbar}{2}
+  \left(
+    \sqrt{c-m_j^2+m_j}\,\,\braket{m_i|m_{j-1}}
+    - \sqrt{c-m_j^2-m_j}\,\,\braket{m_i|m_{j+1}}
+  \right)    
+\end{align}
+donde las $\braket{m_i|m_{j\pm 1}}$ valen cero o uno porque la base de
+vectores $\ket{m}$ es ortonormal.
+
+Como la base de funciones propias de $\xhat{S}_z$ es ortonormal,
+dejamos los elementos matriz anteriores en función de $\delta_{ij}$
+\begin{align}\label{eq:spn-elem-matriz-Sx-delta}
+  \braket{m_i|\xhat{S}_x|m_j}
+  &=
+  \frac{\hbar}{2}
+  \left(
+    \sqrt{c-m_j^2+m_j}\,\,\delta_{m_i|m_j-1}
+    + \sqrt{c-m_j^2-m_j}\,\,\delta_{m_i|m_j+1}
+    \right)\\
+  \label{eq:spn-elem-matriz-Sy-delta}
+  \braket{m_i|\xhat{S}_y|m_j}
+  &=
+  \frac{i\hbar}{2}
+  \left(
+    \sqrt{c-m_j^2+m_j}\,\,\delta_{m_i|m_j-1}
+    - \sqrt{c-m_j^2-m_j}\,\,\delta_{m_i|m_j+1}
+  \right)  
+\end{align}
+
+
+\subsection{Cálculo de los valores propios \mathinhead{m}{m}
+  y \mathinhead{c}{c}}
+Recordemos que el operador $\xhat{S}_z$ tiene el valor propio $\hbar m$
+y función propia $\ket{m}$, pero al aplicar el operador descendente/ascendente
+sobre la función $\ket{m}$, el resultado es otra función propia con un valor
+propio $\hbar$ unidades inferior/superior.
+
+Si no hubiera más limitaciones, $\xhat{S}_z$ tendría infinitos vectores y
+valores propios, pero resulta que para el spin debe haber exactamente $N$
+(la dimensión del espacio de Hilbert).
+Por tanto el conjunto de valores y vectores propios del spin debe estar
+acotado, tanto superior como inferiormente.
+
+Si llamamos $\hbar m_{\text{inf}}$ al menor valor propio y $\hbar m_{\text{sup}}$
+al mayor, y además la dimensión del espacio de Hilbert fuera, por ejemplo $N=4$,
+tendríamos una situación como la representada en la figura~\ref{fig:spn-msteps}
+\begin{figure}[ht]
+  \def\scl{2}
+  \centering
+  \begin{tikzpicture}[scale=\scl]
+    \pgfmathsetmacro{\N}{5};
+    \coordinate (O) at (0,0);
+    \draw[-{Latex}] (O) -- +(right:\N) node[below right] {m};
+
+    \foreach \i [count=\ii] in {\N,...,2}{
+      \filldraw[fill=red,draw=black] (\i-1,0) circle [radius=1.5pt];
+      \ifnum \ii<4
+        \draw[-{Latex[length=7pt,width=6pt]},shorten >=4pt,shorten <=4pt,
+             out=90,in=90] (\i-1,0) to node[above] {\small $\ii$} (\i-2,0);
+      \fi
+    };
+
+    \node[below right=3pt and -7pt] at (1,0) {$m\kern1pt_{\text{inf}}$};
+    \node[below right=3pt and -7pt] at (\N-1,0) {$m\kern1pt_\text{sup}$};
+  \end{tikzpicture}
+  \caption{Los cuatro puntos representan los valores propios de
+    $\xhat{S}_z$ en un espacio de Hilbert de dimensión $N=4$. El
+    símbolo $m_{\text{inf}}$ representa el menor valor y
+    $m_{\text{sup}}$ el mayor.  Las flechas indican las veces que se
+    puede aplicar sucesivamente el operador descendente $\xhat{S}_{-}$
+    a la función propia $\ket{m_{\text{sup}}}$ hasta llegar al menor
+    valor propio posible.  Nótese que el valor propio se obtiene
+    multiplicando la $m$ por $\hbar$.}
+  \label{fig:spn-msteps}
+\end{figure}
+
+En la figura observamos que $\xhat{S}_z$ contiene $N=4$ vectores y valores
+propios y que no se pueden dar más de $N-1=3$ \emph{saltos} para pasar de
+un valor propio extremo al otro.
+La relación entre $m_{\text{sup}}$, $m_{\text{inf}}$ y $N$ es
+\begin{equation}\label{eq:relacion-mMN}
+  m_{\text{sup}} - m_{\text{inf}} = N - 1
+\end{equation}
+
+La función propia $\ket{m_{\text{inf}}}$ de $\xhat{S}_z$ tiene el valor propio
+más bajo posible $\hbar m_{\text{inf}}$.
+Si aplicamos el operador descendente a esta función $\ket{m_{\text{inf}}}$,
+se obtendría según~(\ref{eq:spn-S-m-1})
+\[
+  \xhat{S}_{-} \ket{m_{\text{inf}}}
+  = \hbar \sqrt{c-m_{\text{inf}}^2+m_{\text{inf}}}\,\,\ket{m_{\text{inf}}-1}
+\]
+
+Pero este vector debe tener norma cero porque al aplicarle $\xhat{S}_z$
+no puede producir un valor propio menor que $m_{\text{inf}}$
+\[
+  c-m_{\text{inf}}^2+m_{\text{inf}} = 0
+\]
+\begin{equation}\label{eq:spn-cm}
+  c = m_{\text{inf}}^2-m_{\text{inf}}
+\end{equation}
+
+En cambio, si tenemos la función propia $\ket{m_{\text{sup}}}$ de
+$\xhat{S}_z$ que produce el máximo valor propio $\hbar m_{\text{inf}}$
+y le aplicamos el operador ascendente, nos pasaríamos del valor máximo.
+Según~(\ref{eq:spn-S+m+1})
+\[
+  \xhat{S}_{+} \ket{m_{\text{sup}}}
+  = \hbar \sqrt{c-m_{\text{sup}}^2-m_{\text{sup}}}\,\,\ket{m_{\text{sup}}+1}
+\]
+
+El módulo tiene que ser cero
+\begin{equation}\label{eq:spn-cM}
+  c= m_{\text{sup}}^2 + m_{\text{sup}}
+\end{equation}
+
+Restando las ecuaciones~(\ref{eq:spn-cm}) y (\ref{eq:spn-cM})
+\[
+  m_{\text{sup}}^2-m_{\text{inf}}^2+m_{\text{sup}}+m_{\text{inf}} = 0
+\]
+\begin{equation}\label{eq:spn-resta}
+  (m_{\text{sup}}+m_{\text{inf}})\, (m_{\text{sup}}-m_{\text{inf}})+m_{\text{sup}}+m_{\text{inf}}
+  = 0
+\end{equation}
+
+Sustituyendo la relación entre $m_{\text{inf}}$, $m_{\text{sup}}$ y $N$,
+ecuación~(\ref{eq:relacion-mMN}) en~(\ref{eq:spn-resta})
+\[
+  (m_{\text{sup}}+m_{\text{inf}})\, (N-1) + m_{\text{sup}} + m_{\text{inf}} = 0
+\]
+\[
+  (m_{\text{sup}}+m_{\text{inf}})\, N = 0
+\]
+
+Pero la dimensión del espacio de Hilbert $N$ no puede ser cero, de manera que
+$m_{\text{sup}}+m_{\text{inf}} = 0$, de donde se deduce que
+\begin{equation}\label{eq:spn-m-M}
+  m_{\text{inf}} = -m_{\text{sup}}
+\end{equation}
+
+Si hacemos $m_{\text{sup}} = s$, podemos deducir que $m_{\text{inf}}=-2$
+\begin{align}
+  \label{eq:spn-msup}
+  m_{\text{sup}} = s\\
+  \label{eq:spn-minf}
+  m_{\text{inf}} = -s
+\end{align}
+Y como consecuencia, los valores de $\xhat{S}_z$ van desde $-\hbar s$ hasta
+$+\hbar s$, en saltos de $\hbar$ en $\hbar$.
+
+El valor de $c$ lo calculamos con la ecuación~(\ref{eq:spn-cM})
+\[
+  c = m_{\text{sup}}^2 + m_{\text{sup}}
+  = s^2 + s
+\]
+\begin{equation}\label{eq:spn-c}
+  c = s\,(s+1)
+\end{equation}
+
+Así, llamando $s$ al spin, las ecuaciones de autovalores y autovectores de
+$\xhat{S}_z$ y $\xhat{S}^2$ son
+\begin{align}\label{eq:spn-ecuaciones-Sz-S2}
+  &\xhat{S}_z \ket{m} = \hbar m \ket{m}
+  ;\hspace{1em} (m=-s,-s+1,\cdots,s-1,s)\\
+  &\xhat{S}^2 \ket{m} = \hbar s\,(s+1) \ket{m}
+\end{align}
+
+
+\subsection{Relación entre el spin y la dimensión del espacio de Hilbert}
+Podemos relacionar $m_{\text{sup}} = s$ con $N$
+\[
+  m_{\text{sup}}-m_{\text{inf}} = N-1
+\]
+\[
+  s - (-s) = N - 1
+\]
+\[
+  2s = N - 1
+\]
+\begin{equation}\label{eq:spn-relacion-s-N}
+  s = \frac{N-1}{2}
+  \hspace{1em}
+  \text{o}
+  \hspace{1em}
+  N = 2s + 1
+\end{equation}
+
+Analizaremos algunos casos particulares aplicando la ecuación anterior:
+\begin{itemize}
+\item Si $N=1$, el spin vale cero, $s=0$. Una partícula sin spin es el bosón
+  de Higgs.
+\item Cuando $N=2$, el spin es $s=1/2$. El electrón es una partícula típica con
+  este spin.
+\item Si $N=3$, el spin vale uno, $s=1$. Una partícula con este spin es el fotón.
+\item Si $N=4$, el spin es $3/2$ como la de la partícula $\Delta^\circ$.
+\item Si $N=5$, el spin es $s=2$. Una partícula hipotética con este spin sería
+  el gravitón.
+\end{itemize}
+
+
+\section{Operadores para distintos valores del spin}
+Actualizamos la representación matricial de $\xhat{S}_x$ y $\xhat{S}_y$,
+sustituyendo los valores calculados anteriormente
+en~(\ref{eq:spn-elem-matriz-Sx-delta}) y en~(\ref{eq:spn-elem-matriz-Sy-delta})
+con los valores propios descubiertos
+{\small
+\begin{align}\label{eq:spn-elem-matriz-Sx-delta-form}
+  \braket{m_i|\xhat{S}_x|m_j}
+  &=
+  \frac{\hbar}{2}
+  \left(
+    \sqrt{s\,(s+1)-m_j^2+m_j}\,\,\delta_{m_i|m_j-1}
+    + \sqrt{s\,(s+1)-m_j^2-m_j}\,\,\delta_{m_i|m_j+1}
+    \right)\\
+  \label{eq:spn-elem-matriz-Sy-delta-form}
+  \braket{m_i|\xhat{S}_y|m_j}
+  &=
+  \frac{i\hbar}{2}
+  \left(
+    \sqrt{s(s+1)-m_j^2+m_j}\,\,\delta_{m_i|m_j-1}
+    - \sqrt{s(s+1)-m_j^2-m_j}\,\,\delta_{m_i|m_j+1}
+  \right)
+\end{align}
+}
+
+La representación matricial de $\xhat{S}_z$ se escribió
+en~(\ref{eq:spn-elem-matriz-Sy-delta-form})
+\begin{equation}
+  \braket{m_i|\xhat{S}_z|m_j}
+  =
+  \hbar m_j \delta_{m_i|m_j}
+\end{equation}
+
+Y la de $\xhat{S}^2$ se encuentra en~(\ref{eq:spn-S2casimir})
+\begin{equation}\label{eq:spn-S2casimir-v2}
+  \xhat{S}^2
+  =
+  \hbar^2 s\,(s+1)\mmm{I}
+\end{equation}
+
+\subsection{Matrices para spin \mathinhead{1/2}{spin1/2}}
+El spin $1/2$ está relacionado con el espacio de Hilbert $\symbb{C}^2$.
+
+\subsubsection{Operador \mathinhead{\xhat{S}_z}{spin1/2Sz}}
+Empezamos con $\xhat{S}_z$. Es tradicional ordenar los valores propios
+de mayor a menor $m_1=1/2$ y $m_2=-1/2$; esto nos podría traer problemas
+al hallar las representaciones matriciales de $\xhat{S}_x$ y $\xhat{S}_y$.
+Se avisará en su momento cuando aparezcan estos problemas.
+
+La matriz es diagonal, con elementos $\hbar m$
+\begin{equation}\label{eq:spn-spin-1/2-Sz}
+  \xhat{S}_z
+  =
+  \begin{pmatrix}
+    \hbar m_1 & 0\\
+    0 & \hbar m_2
+  \end{pmatrix}
+    =
+  \begin{pmatrix}
+    \hbar/2 & 0\\
+    0       & -\hbar/2
+  \end{pmatrix}
+    = \frac{\hbar}{2}
+  \begin{pmatrix}
+    1 & 0\\
+    0   & -1
+  \end{pmatrix}
+  =
+  \frac{\hbar}{2}\,\mmmg{\sigma}_z
+\end{equation}
+
+\subsubsection{Operador \mathinhead{\xhat{S}_x}{spin1/2Sx}}
+Seguimos con $\xhat{S}_x$. Calculamos $s\,(s+1)$
+\begin{equation}\label{eq:ssplus1Spin1/2}
+  s(s+1) = \frac{1}{2}\left(\frac{1}{2}+1\right)
+  = \frac{1}{2}\cdot\frac{3}{2}
+  = \frac{3}{4}
+\end{equation}
+
+Recordamos por haber cambiado el orden de los valores propios,
+empezando por el máximo
+\[
+  m_1=1/2 \hspace{.5em}>\hspace{.5em} m_2=-1/2
+\]
+no podemos suponer, por ejemplo, que $m_1+1 = m_2$; lo que trae como
+consecuencia que para calcular las delta de Kronecker debamos bien,
+sustituir las $m_i$ por su valor $1/2$ o $-1/2$, o bien cambiar el
+signo $m_i\pm 1$ por $m_i\mp 1$ en los productos escalares.
+Seguiremos el primer camino
+\begin{itemize}
+\item Los elementos diagonales $\braket{m_i|\xhat{S}_x|m_i}$ valen cero
+  porque $m_i \ne m_i -1$ y $m_i \ne m_i +1$ y los productos escalares
+  $\braket{m_i,\,m_i-1} = 0$ y $\braket{m_i,\,m_i+1} = 0$
+  {\footnotesize
+  \begin{align*}
+    \braket{m_i|\xhat{S}_x|m_i}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_i^2+m_i}\,\,\cancelout{\braket{m_i|m_i-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_i^2-m_i}\,\,\cancelout{\braket{m_i|m_2+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_x|m_2}$:
+  Calculamos las $\braket{m_1|m_2\pm 1}$. El valor $-3/2$ en rojo indica que
+  nos hemos pasado del valor propio inferior, $-1/2$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_2 - 1}
+    &= \braket{+1/2|-1/2-1}
+      = \braket{+1/2|\textcolor{red!80!black}{-3/2}} = 0\\
+    \braket{m_1|m_2 + 1}
+    &= \braket{+1/2|-1/2+1}
+      = \braket{+1/2|+1/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_x|m_2}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_1|m_2-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\braket{m_1|m_2+1}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{3}{4}-\left(-\frac{1}{2}\right)^2-\left(-\frac{1}{2}\right)}
+      = \frac{\hbar}{2} \sqrt{\frac{3}{4} - \frac{1}{4} + \frac{2}{4}}
+      = \frac{\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_x|m_1}$:
+  Calculamos las $\braket{m_2|m_1\pm 1}$. El valor $3/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior $1/2$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_1 - 1}
+    &= \braket{-1/2|1/2-1}
+      = \braket{-1/2|-1/2} = 1\\
+    \braket{m_2|m_1 + 1}
+    &= \braket{-1/2|1/2+1}
+    = \braket{+1/2|\textcolor{red!80!black}{3/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_x|m_1}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_2|m_1-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_2|m_1+1}}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{3}{4}-\left(\frac{1}{2}\right)^2+\left(\frac{1}{2}\right)}
+      = \frac{\hbar}{2} \sqrt{\frac{3}{4} - \frac{1}{4} + \frac{2}{4}}
+      = \frac{\hbar}{2}
+  \end{align*}
+  }
+
+  La matriz queda
+  \begin{equation}\label{eq:spn-spin-1/2-Sx}
+    \xhat{S}_x
+    =
+    \begin{pmatrix}
+      0 & \hbar/2 \\
+      \hbar/2 & 0
+    \end{pmatrix}
+    = \frac{\hbar}{2}
+    \begin{pmatrix}
+      0 & 1\\
+      1 & 0
+    \end{pmatrix}
+    = \frac{\hbar}{2}
+    \mmm{\sigma}_x
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Operador \mathinhead{\xhat{S}_y}{spin1/2Sy}}
+Ahora le toca el turno a $\xhat{S}_y$. Sabemos por~(\ref{eq:ssplus1Spin1/2})
+que $s(s+1) = 3/4$. Recordamos que hemos cambiado el orden de los valores
+propios, empezando por el máximo, $m_1=1/2$ y $m_2=-1/2$.
+Debido a esto no podemos suponer, por ejemplo, que $m_1+1 = m_2$;
+lo que trae como consecuencia que para calcular los productos escalares
+de las funciones propias de $\xhat{S}_z$ debamos sustituir las $m_i$
+por su valor $1/2$ o $-1/2$
+\begin{itemize}
+\item Los elementos diagonales $\braket{m_i|\xhat{S}_x|m_i}$ valen cero
+  porque $m_i \ne m_i -1$ y $m_i \ne m_i +1$ y los productos escalares
+  $\braket{m_i,\,m_i-1} = 0$ y $\braket{m_i,\,m_i+1} = 0$
+  {\footnotesize
+  \begin{align*}
+    \braket{m_i|\xhat{S}_x|m_i}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_i^2+m_i}\,\,\cancelout{\braket{m_i|m_i-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_i^2-m_i}\,\,\cancelout{\braket{m_i|m_2+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_y|m_2}$:
+  Calculamos las $\braket{m_1|m_2\pm 1}$. El valor $-3/2$ en rojo indica que
+  nos hemos pasado del valor propio inferior, $-1/2$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_2 - 1}
+    &= \braket{+1/2|-1/2-1}
+    = \braket{+1/2|\textcolor{red!80!black}{-3/2}} = 0\\
+    \braket{m_1|m_2 + 1}
+    &= \braket{+1/2|-1/2+1}
+    = \braket{+1/2|+1/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_y|m_2}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_1|m_2-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\braket{m_1|m_2+1}\right)\\
+    &=
+      -\frac{i\hbar}{2}
+      \sqrt{\frac{3}{4}-\left(-\frac{1}{2}\right)^2-\left(-\frac{1}{2}\right)}
+      = -\frac{i\hbar}{2} \sqrt{\frac{3}{4} - \frac{1}{4} + \frac{2}{4}}
+      = -\frac{i\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_y|m_1}$:
+  Calculamos las $\braket{m_2|m_1\pm 1}$. El valor $3/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $1/2$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_1 - 1}
+    &= \braket{-1/2|1/2-1}
+    = \braket{-1/2|-1/2} = 1\\
+    \braket{m_2|m_1 + 1}
+    &= \braket{-1/2|1/2+1}
+    = \braket{+1/2|\textcolor{red!80!black}{3/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_y|m_1}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_2|m_1-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_2|m_1+1}}\right)\\
+    &=
+      \frac{i\hbar}{2}
+      \sqrt{\frac{3}{4}-\left(\frac{1}{2}\right)^2+\left(\frac{1}{2}\right)}
+      = \frac{i\hbar}{2} \sqrt{\frac{3}{4} - \frac{1}{4} + \frac{2}{4}}
+      = \frac{i\hbar}{2}
+  \end{align*}
+  }
+
+  La matriz queda
+  \begin{equation}\label{eq:spn-spin-1/2-Sy}
+    \xhat{S}_y
+    =
+    \begin{pmatrix}
+      0 & -i\hbar/2 \\
+      i\hbar/2 & 0
+    \end{pmatrix}
+    = \frac{\hbar}{2}
+    \begin{pmatrix}
+      0 & -i\\
+      i & 0
+    \end{pmatrix}
+    = \frac{\hbar}{2}
+    \mmm{\sigma}_y
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Operador \mathinhead{\xhat{S}^2}{spin1/2S2}}
+Terminamos con $\xhat{S}^2$. Según~(\ref{eq:spn-S2casimir-v2})
+\begin{equation}\label{eq:spn-spin-1/2-S2}
+  \xhat{S}^2
+  =
+  \hbar^2 s\,(s+1)\mmm{I}
+  =
+  \frac{3\hbar^2}{4}
+  \begin{pmatrix}
+    1 & 0 \\
+    0 & 1 
+  \end{pmatrix}
+  = \frac{3\hbar^2}{4} \mmm{I}
+\end{equation}
+
+\subsection{Matrices para spin \mathinhead{1}{spin1}}
+El spin $1$ está relacionado con el espacio de Hilbert $\symbb{C}^{3}$.
+
+\subsubsection{Operador \mathinhead{\xhat{S}_z}{spin1Sz}}
+Empezamos con $\xhat{S}_z$. Es tradicional ordenar los valores propios
+de mayor a menor $m_1=1$, $m_2=0$ y $m_3=-1$; esto nos podría traer problemas
+con las representaciones matriciales de $\xhat{S}_x$ y $\xhat{S}_y$,
+de los que se avisará en su momento.
+
+La matriz es diagonal, con elementos $\hbar m$
+\begin{equation}\label{eq:spn-spin-1-Sz}
+  \xhat{S}_z
+  =
+  \begin{pmatrix}
+    \hbar m_1 & 0 & 0\\
+    0 & \hbar m_2 & 0\\
+    0 & 0 & \hbar m_3
+  \end{pmatrix}
+    =
+  \begin{pmatrix}
+    \hbar & 0  & 0     \\
+    0     & 0  & 0     \\
+    0     & 0  & -\hbar
+  \end{pmatrix}
+    = \hbar\,
+  \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & -1
+  \end{pmatrix}
+\end{equation}
+
+\subsubsection{Operador \mathinhead{\xhat{S}_x}{spin1Sx}}
+Seguimos con $\xhat{S}_x$. Calculamos $s\,(s+1)$
+\begin{equation}\label{eq:ssplus1Spin1}
+  s(s+1) = 1(1+1) = 2
+\end{equation}
+
+Además, recordamos que hemos cambiado el orden de los valores
+propios, empezando por el máximo, $m_1=1$, $m_2=0$ y $m_3=-1$.
+Por esto no podemos suponer, por ejemplo, que $m_1+1 = m_2$;
+lo que trae como consecuencia que para calcular los productos escalares
+de funciones propias de $\xhat{S}_z$ debamos, bien sustituir las $m_i$
+por su valor $1$, $0$ o $-1$, o bien cambiar el signo $m_i\pm 1$ por
+$m_i\mp 1$ en los productos escalares. Seguiremos el primer criterio
+\begin{itemize}
+\item Los elementos diagonales $\braket{m_i|\xhat{S}_x|m_i}$ valen cero
+  porque $m_i \ne m_i -1$ y $m_i \ne m_i +1$ y los productos escalares
+  $\braket{m_i,\,m_i-1} = 0$ y $\braket{m_i,\,m_i+1} = 0$
+  {\footnotesize
+  \begin{align*}
+    \braket{m_i|\xhat{S}_x|m_i}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_i^2+m_i}\,\,\cancelout{\braket{m_i|m_i-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_i^2-m_i}\,\,\cancelout{\braket{m_i|m_2+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_x|m_2}$:
+  Calculamos las $\braket{m_1|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_2 - 1}
+    &= \braket{1|0-1}
+    = \braket{1|-1} = 0\\
+     \braket{m_1|m_2 + 1}
+    &= \braket{1|0+1}
+    = \braket{1|1} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_x|m_2}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_1|m_2-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\braket{m_1|m_2+1}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{2-0^2-0}
+      = \frac{\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_x|m_3}$:
+  Calculamos las $\braket{m_1|m_3\pm 1}$. El valor $-2$ en rojo indica que
+  hemos sobrepasado el valor propio inferior, $-1$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_3 - 1}
+    &= \braket{1|-1-1}
+    = \braket{1|\textcolor{red!80!black}{-2}} = 0\\
+    \braket{1|-1 + 1}
+    &= \braket{1|0} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_x|m_3}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_1|m_3-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\cancelout{\braket{m_1|m_3+1}}\right)\\
+    &= 0
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_x|m_1}$:
+  Calculamos las $\braket{m_2|m_1\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_1 - 1}
+    &= \braket{0|1-1}
+    = \braket{0|0} = 1\\
+    \braket{m_2|m_1 + 1}
+    &= \braket{0|0+1}
+    = \braket{0|1} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_x|m_1}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_2|m_1-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_2|m_1+1}}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{2-1^2+1}
+      = \frac{\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_x|m_3}$:
+  Calculamos las $\braket{m_2|m_3\pm 1}$. El valor $-2$ en rojo indica que
+  hemos sobrepasado el valor propio inferior, $-1$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_3 - 1}
+    &= \braket{0|-1-1}
+    = \braket{0|\textcolor{red!80!black}{-2}} = 0\\
+    \braket{m_2|m_3 + 1}
+    &= \braket{0|-1+1}
+    = \braket{0|0} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_x|m_3}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_2|m_3-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\braket{m_2|m_3+1}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{2-(-1)^2-(-1)}
+      = \frac{\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_x|m_1}$:
+  Calculamos las $\braket{m_3|m_1\pm 1}$. El valor $2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $1$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_1 - 1}
+    &= \braket{-1|1-1}
+    = \braket{-1|-0} = 0\\
+    \braket{m_3|m_1 + 1}
+    &= \braket{-1|1+1}
+    = \braket{0|\textcolor{red!80!black}{2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_x|m_1}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\cancelout{\braket{m_3|m_1-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_3|m_1+1}}\right)\\
+    &= 0
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_x|m_2}$:
+  Calculamos las $\braket{m_3|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_2 - 1}
+    &= \braket{-1|0-1}
+    = \braket{-1|-1} = 1\\
+    \braket{m_3|m_2 + 1}
+    &= \braket{-1|0+1}
+    = \braket{-1|1} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_x|m_2}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\braket{m_3|m_2-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\cancelout{\braket{m_3|m_2+1}}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{2-0^2+0}
+      = \frac{\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+  
+  La matriz queda
+  \begin{equation}\label{eq:spn-spin-1-Sx}
+    \xhat{S}_x
+    =
+    \begin{pmatrix}
+      0 & \hbar/\sqrt{2} & 0\\
+      \hbar/\sqrt{2} & 0 & \hbar/\sqrt{2}\\
+      0 & \hbar/\sqrt{2} & 0
+    \end{pmatrix}
+    = \frac{\hbar}{\sqrt{2}}
+    \begin{pmatrix}
+      0 & 1 & 0\\
+      1 & 0 & 1\\
+      0 & 1 & 0
+    \end{pmatrix}
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Operador \mathinhead{\xhat{S}_y}{spin1Sy}}
+Ahora le toca el turno a $\xhat{S}_y$. Sabemos por~(\ref{eq:ssplus1Spin1})
+que $s(s+1) = 2$.
+Además, recordamos que hemos cambiado el orden de los valores
+propios, empezando por el máximo, $m_1=1/$, $m_2=0$ y $m_2=-1$.
+Debido a esto no podemos suponer, por ejemplo, que $m_1+1 = m_2$;
+lo que trae como consecuencia que para calcular los productos escalares
+de funciones propias de $\xhat{S}_z$ debamos, bien sustituir las $m_i$
+por su valor $1$, $0$ o $-1$, o bien cambiar el signo $m_i\pm 1$ por
+$m_i\mp 1$ en los productos escalares. Seguiremos el primer camino
+\begin{itemize}
+\item Los elementos diagonales $\braket{m_i|\xhat{S}_y|m_i}$ valen cero
+  porque $m_i \ne m_i -1$ y $m_i \ne m_i +1$ y las funciones delta
+  $\braket{m_i,\,m_i-1} = 0$ y $\braket{m_i,\,m_i+1} = 0$
+  \[
+    \braket{m_i|\xhat{S}_y|m_i}
+    = 0
+  \]
+\item $\braket{m_1|\xhat{S}_y|m_2}$:
+  Calculamos las $\braket{m_1|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_2 - 1}
+    &= \braket{1|0-1}
+    = \braket{1|-1} = 0\\
+    \braket{m_1|m_2 + 1}
+    &= \braket{1|0+1}
+    = \braket{1|1} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_y|m_2}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_1|m_2-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\braket{m_1|m_2+1}\right)\\
+    &=
+      -\frac{i\hbar}{2}
+      \sqrt{2-0^2-0}
+      = -\frac{i\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_y|m_3}$:
+  Calculamos las $\braket{m_1|m_3\pm 1}$. El valor $-2$ en rojo indica que
+  hemos sobrepasado el valor propio inferior, $-1$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_3 - 1}
+    &= \braket{1|-1-1}
+    = \braket{1|\textcolor{red!80!black}{-2}} = 0\\
+    \braket{1|-1 + 1}
+    &= \braket{1|0} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_y|m_3}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_1|m_3-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\cancelout{\braket{m_1|m_3+1}}\right)\\
+    &= 0
+  \end{align*}
+  }
+
+\item $\braket{m_2|\xhat{S}_y|m_1}$:
+  Calculamos las $\braket{m_2|m_1\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_1 - 1}
+    &= \braket{0|1-1}
+    = \braket{0|0} = 1\\
+    \braket{m_2|m_1 + 1}
+    &= \braket{0|0+1}
+    = \braket{0|1} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_y|m_1}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_2|m_1-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_2|m_1+1}}\right)\\
+    &=
+      \frac{i\hbar}{2}
+      \sqrt{2-1^2+1}
+      = \frac{i\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+ \item $\braket{m_2|\xhat{S}_y|m_3}$:
+  Calculamos las $\braket{m_2|m_3\pm 1}$. El valor $-2$ en rojo indica que
+  hemos sobrepasado el valor propio inferior, $-1$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_3 - 1}
+    &= \braket{0|-1-1}
+    = \braket{0|\textcolor{red!80!black}{-2}} = 0\\
+    \braket{m_2|m_3 + 1}
+    &= \braket{0|-1+1}
+    = \braket{0|0} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_y|m_3}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_2|m_3-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\braket{m_2|m_3+1}\right)\\
+    &=
+      -\frac{i\hbar}{2}
+      \sqrt{2-(-1)^2-(-1)}
+      = -\frac{i\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_y|m_1}$:
+  Calculamos las $\braket{m_3|m_1\pm 1}$. El valor $2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $1$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_1 - 1}
+    &= \braket{-1|1-1}
+    = \braket{-1|-0} = 0\\
+    \braket{m_3|m_1 + 1}
+    &= \braket{-1|1+1}
+    = \braket{0|\textcolor{red!80!black}{2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_y|m_1}
+    &= \frac{i\hbar}{2}\left(
+    \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\cancelout{\braket{m_3|m_1-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_3|m_1+1}}\right)\\
+    &= 0
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_y|m_2}$:
+  Calculamos las $\braket{m_3|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_2 - 1}
+    &= \braket{-1|0-1}
+    = \braket{-1|-1} = 1\\
+    \braket{m_3|m_2 + 1}
+    &= \braket{-1|0+1}
+    = \braket{-1|1} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_y|m_2}
+    &= \frac{i\hbar}{2}\left(
+    \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\braket{m_3|m_2-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\cancelout{\braket{m_3|m_2+1}}\right)\\
+    &=
+      \frac{i\hbar}{2}
+      \sqrt{2-0^2+0}
+      = \frac{i\hbar}{\sqrt{2}}
+  \end{align*}
+  }
+  
+  La matriz queda
+  \begin{equation}\label{eq:spn-spin-1-Sy}
+    \xhat{S}_y
+    =
+    \begin{pmatrix}
+      0 & -i\hbar/\sqrt{2} & 0\\
+      i\hbar/\sqrt{2} & 0 & -i\hbar/\sqrt{2}\\
+      0 & i\hbar/\sqrt{2} & 0
+    \end{pmatrix}
+    = \frac{i\hbar}{\sqrt{2}}
+    \begin{pmatrix}
+      0 & -1 & 0\\
+      1 & 0 & -1\\
+      0 & 1 & 0
+    \end{pmatrix}
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Operador \mathinhead{\xhat{S}^2}{spin1S2}}
+Terminamos con $\xhat{S}^2$. Según~(\ref{eq:spn-S2casimir-v2})
+\begin{equation}\label{eq:spn-spin-1-S2}
+  \xhat{S}^2
+  =
+  \hbar^2 s\,(s+1)\mmm{I}
+  =
+  2\hbar^2
+  \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1
+  \end{pmatrix}
+  = 2\hbar^2\mmm{I}
+\end{equation}
+
+
+\subsection{Matrices para spin \mathinhead{3/2}{spin3/2}}
+El spin $3/2$ está relacionado con el espacio de Hilbert $\symbb{C}^{4}$.
+
+\subsubsection{Operador \mathinhead{\xhat{S}_z}{spin3/2Sz}}
+Empezamos con $\xhat{S}_z$. Es tradicional ordenar los valores propios
+de mayor a menor $m_1=3/2$, $m_2=1/2$, $m_3=-1/2$ y $m_4=-3/2$;
+esto nos podría traer problemas con las representaciones matriciales de
+$\xhat{S}_x$ y $\xhat{S}_y$, que se avisarán en su momento.
+
+La matriz es diagonal, con elementos $\hbar m$
+{\small
+\begin{equation}\label{eq:spn-spin-3/2-Sz}
+  \xhat{S}_z
+  =
+  \begin{pmatrix}
+    \hbar m_1 & 0 & 0 & 0\\
+    0 & \hbar m_2 & 0 & 0\\
+    0 & 0 & \hbar m_3 & 0\\
+    0 & 0 & 0 & \hbar m_4
+  \end{pmatrix}
+%    =
+%    \begin{pmatrix}
+%      3\hbar/2 & 0 & 0 & 0\\
+%      0 & \hbar/2 & 0 & 0\\
+%      0 & 0 & -\hbar/2 & 0\\
+%      0 & 0 & 0 & -3\hbar/2
+%    \end{pmatrix}
+    = \frac{\hbar}{2}\,
+    \begin{pmatrix}
+      3 & 0 & 0 & 0\\
+      0 & 1 & 0 & 0\\
+      0 & 0 & -1 & 0\\
+      0 & 0 & 0 & -3
+    \end{pmatrix}
+\end{equation}
+}
+
+\subsubsection{Operador \mathinhead{\xhat{S}_x}{spin3/2Sx}}
+Seguimos con $\xhat{S}_x$. Calculamos $s\,(s+1)$
+\begin{equation}\label{eq:ssplus1Spin3/2}
+  s(s+1)
+  = \frac{3}{2}\left(\frac{3}{2}+1\right)
+  = \frac{3}{2}\cdot\frac{5}{2}
+  = \frac{15}{4}
+\end{equation}
+
+Además, recordamos que hemos cambiado el orden de los valores
+propios, empezando por el máximo, $m_1=3/2$, $m_2=1/2$, $m_3=-1/2$
+y $m_4=-3/2$.
+Por esto no podemos suponer, por ejemplo, que $m_1+1 = m_2$;
+lo que trae como consecuencia que para calcular los productos escalares
+de funciones propias de $\xhat{S}_z$ debamos, bien sustituir las $m_i$
+por su valor $3/2$, $1/2$, $-1/2$ o $-3/2$, o bien cambiar el signo
+$m_i\pm 1$ por $m_i\mp 1$ en los productos escalares.
+Seguiremos el primer criterio
+\begin{itemize}
+\item Los elementos diagonales $\braket{m_i|\xhat{S}_x|m_i}$ valen cero
+  porque $m_i \ne m_i -1$ y $m_i \ne m_i +1$ y los productos escalares
+  se anulan, $\braket{m_i,\,m_i-1} = 0$ y $\braket{m_i,\,m_i+1} = 0$
+  {\footnotesize
+  \begin{align*}
+    \braket{m_i|\xhat{S}_x|m_i}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_i^2+m_i}\,\,\cancelout{\braket{m_i|m_i-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_i^2-m_i}\,\,\cancelout{\braket{m_i|m_2+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_x|m_2}$:
+  Calculamos las $\braket{m_1|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_2 - 1}
+    &= \braket{3/2|1/2-1}
+    = \braket{3/2|-1/2} = 0\\
+     \braket{m_1|m_2 + 1}
+    &= \braket{3/2|1/2+1}
+    = \braket{3/2|3/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_x|m_2}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_1|m_2-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\braket{m_1|m_2+1}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(\frac{1}{2}\right)^2-\frac{1}{2}}
+      =\frac{\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}-\frac{2}{4}}
+      = \frac{\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_x|m_3}$:
+  Calculamos las $\braket{m_1|m_3\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_3 - 1}
+    &= \braket{3/2|-1/2-1}
+    = \braket{3/2|-3/2} = 0\\
+     \braket{m_1|m_3 + 1}
+    &= \braket{3/2|-1/2+1}
+    = \braket{3/2|+1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_x|m_3}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_1|m_3-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\cancelout{\braket{m_1|m_3+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_x|m_4}$:
+  Calculamos las $\braket{m_1|m_4\pm 1}$. El valor $-5/2$ en rojo indica que
+  hemos sobrepasado el valor propio inferior, $-3/2$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_4 - 1}
+    &= \braket{3/2|-3/2-1}
+    = \braket{3/2|\textcolor{red!80!black}{-5/2}} = 0\\
+     \braket{m_1|m_4 + 1}
+    &= \braket{3/2|-3/2+1}
+    = \braket{3/2|-1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_x|m_4}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_4^2+m_4}\,\,\cancelout{\braket{m_1|m_4-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_4^2-m_4}\,\,\cancelout{\braket{m_1|m_4+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_x|m_1}$:
+  Calculamos las $\braket{m_2|m_1\pm 1}$. El valor $5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $3/2$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_1 - 1}
+    &= \braket{+1/2|3/2-1}
+    = \braket{+1/2|+1/2} = 1\\
+     \braket{m_2|m_1 + 1}
+    &= \braket{+1/2|3/2+1}
+    = \braket{3/2|\textcolor{red!80}{5/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_x|m_1}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_2|m_1-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_2|m_1+1}}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(\frac{3}{2}\right)^2+\frac{3}{2}}
+      =\frac{\hbar}{2}\sqrt{\frac{15}{4}-\frac{9}{4}+\frac{6}{4}}
+      = \frac{\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_x|m_3}$:
+  Calculamos las $\braket{m_2|m_3\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_3 - 1}
+    &= \braket{+1/2|-1/2-1}
+    = \braket{+1/2|-3/2} = 0\\
+     \braket{m_2|m_3 + 1}
+    &= \braket{+1/2|-1/2+1}
+    = \braket{+1/2|+1/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_x|m_3}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_2|m_3-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\braket{m_2|m_3+1}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(-\frac{1}{2}\right)^2-\left(-\frac{1}{2}\right)}
+      =\frac{\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}+\frac{2}{4}}
+      =\frac{\hbar}{2}\cdot 2
+      = \frac{2\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_x|m_4}$:
+  Calculamos las $\braket{m_2|m_4\pm 1}$. El valor $-5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $-3/2$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_4 - 1}
+    &= \braket{+1/2|-3/2-1}
+    = \braket{+1/2|\textcolor{red!80!black}{-5/2}} = 0\\
+     \braket{m_2|m_4 + 1}
+    &= \braket{+1/2|-3/2+1}
+    = \braket{+1/2|-1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_x|m_4}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_4^2+m_4}\,\,\cancelout{\braket{m_2|m_4-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_4^2-m_4}\,\,\cancelout{\braket{m_2|m_4+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_x|m_1}$:
+  Calculamos las $\braket{m_3|m_1\pm 1}$. El valor $5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $3/2$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_1 - 1}
+    &= \braket{-1/2|3/2-1}
+    = \braket{-1/2|+1/2} = 0\\
+     \braket{m_3|m_1 + 1}
+    &= \braket{-1/2|3/2+1}
+    = \braket{-1/2|\textcolor{red!80}{5/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_x|m_1}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_3|m_1-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_3|m_1+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_x|m_2}$:
+  Calculamos las $\braket{m_3|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_2 - 1}
+    &= \braket{-1/2|1/2-1}
+    = \braket{-1/2|-1/2} = 1\\
+     \braket{m_3|m_2 + 1}
+    &= \braket{-1/2|1/2+1}
+    = \braket{-1/2|3/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_x|m_2}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\braket{m_3|m_2-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\cancelout{\braket{m_3|m_2+1}}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(\frac{1}{2}\right)^2+\frac{1}{2}}
+      =\frac{\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}+\frac{2}{4}}
+      = \frac{\hbar}{2}\cdot 2
+      = \frac{2\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_x|m_4}$:
+  Calculamos las $\braket{m_3|m_4\pm 1}$. El valor $-5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $-3/2$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_4 - 1}
+    &= \braket{-1/2|-3/2-1}
+    = \braket{-1/2|\textcolor{red!80!black}{-5/2}} = 0\\
+     \braket{m_3|m_4 + 1}
+    &= \braket{-1/2|-3/2+1}
+    = \braket{-1/2|-1/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_x|m_4}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_4^2+m_4}\,\,\cancelout{\braket{m_3|m_4-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_4^2-m_4}\,\,\braket{m_3|m_4+1}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(-\frac{3}{2}\right)^2-\left(-\frac{3}{2}\right)}
+      =\frac{\hbar}{2}\sqrt{\frac{15}{4}-\frac{9}{4}+\frac{6}{4}}
+      = \frac{\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_4|\xhat{S}_x|m_1}$:
+  Calculamos las $\braket{m_4|m_1\pm 1}$. El valor $5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $3/2$
+  {\small
+  \begin{align*}
+    \braket{m_4|m_1 - 1}
+    &= \braket{-3/2|3/2-1}
+    = \braket{-3/2|+1/2} = 0\\
+     \braket{m_4|m_1 + 1}
+    &= \braket{-3/2|3/2+1}
+    = \braket{-3/2|\textcolor{red!80}{5/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_4|\xhat{S}_x|m_1}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_4|m_1-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_4|m_1+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_4|\xhat{S}_x|m_2}$:
+  Calculamos las $\braket{m_4|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_4|m_2 - 1}
+    &= \braket{-3/2|1/2-1}
+    = \braket{-3/2|-1/2} = 0\\
+     \braket{m_4|m_2 + 1}
+    &= \braket{-3/2|1/2+1}
+    = \braket{-3/2|3/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_4|\xhat{S}_x|m_2}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_4|m_2-1}}
+      \,+\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\cancelout{\braket{m_4|m_2+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_4|\xhat{S}_x|m_3}$:
+  Calculamos las $\braket{m_4|m_3\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_4|m_3 - 1}
+    &= \braket{-3/2|-1/2-1}
+    = \braket{-3/2|-3/2} = 1\\
+     \braket{m_4|m_3 + 1}
+    &= \braket{-3/2|-1/2+1}
+    = \braket{-3/2|+1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_4|\xhat{S}_x|m_3}
+    &= \frac{\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\braket{m_4|m_3-1}
+      \,+\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\cancelout{\braket{m_4|m_3+1}}\right)\\
+    &=
+      \frac{\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(-\frac{1}{2}\right)^2+\left(-\frac{1}{2}\right)}
+      =\frac{\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}-\frac{2}{4}}
+      = \frac{\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+
+  La matriz queda
+  \begin{equation}\label{eq:spn-spin-3/2-Sx}
+    \xhat{S}_x
+%    =
+%    \begin{pmatrix}
+%      0 & \sqrt{3}\hbar/2 & 0 & 0\\
+%      \sqrt{3}\hbar/2 & 0 & 2\hbar/2 & 0\\
+%      0 & 2\hbar/2 & 0 & 0\\
+%      0 & 0 & \sqrt{3}\hbar/2 & 0
+%    \end{pmatrix}
+    = \frac{\hbar}{2}
+    \begin{pmatrix}
+      0 & \sqrt{3} & 0 & 0\\
+      \sqrt{3} & 0 & 2 & 0\\
+      0 & 2 & 0 & \sqrt{3}\\
+      0 & 0 & \sqrt{3} & 0
+    \end{pmatrix}
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Operador \mathinhead{\xhat{S}_y}{spin3/2Sy}}
+Ahora le toca el turno a $\xhat{S}_y$. Sabemos por~(\ref{eq:ssplus1Spin3/2})
+que $s(s+1) = 15/4$.
+Además, recordamos que hemos cambiado el orden de los valores
+propios, empezando por el máximo, $m_1=3/2$, $m_2=1/2$, $m_3=-1/2$
+y $m_4=-3/2$.
+Por esto no podemos suponer, por ejemplo, que $m_1+1 = m_2$;
+lo que trae como consecuencia que para calcular los productos escalares
+de funciones propias de $\xhat{S}_z$ debamos, bien sustituir las $m_i$
+por su valor $3/2$, $1/2$, $-1/2$ o $-3/2$, o bien cambiar el signo
+$m_i\pm 1$ por $m_i\mp 1$ en los productos escalares.
+Seguiremos el primer criterio
+\begin{itemize}
+\item Los elementos diagonales $\braket{m_i|\xhat{S}_y|m_i}$ valen cero
+  porque $m_i \ne m_i -1$ y $m_i \ne m_i +1$ y los productos escalares
+  se anulan, $\braket{m_i,\,m_i-1} = 0$ y $\braket{m_i,\,m_i+1} = 0$
+  {\footnotesize
+  \begin{align*}
+    \braket{m_i|\xhat{S}_y|m_i}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_i^2+m_i}\,\,\cancelout{\braket{m_i|m_i-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_i^2-m_i}\,\,\cancelout{\braket{m_i|m_2+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_y|m_2}$:
+  Calculamos las $\braket{m_1|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_2 - 1}
+    &= \braket{3/2|1/2-1}
+    = \braket{3/2|-1/2} = 0\\
+     \braket{m_1|m_2 + 1}
+    &= \braket{3/2|1/2+1}
+    = \braket{3/2|3/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_y|m_2}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_1|m_2-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\braket{m_1|m_2+1}\right)\\
+    &=
+      -\frac{i\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(\frac{1}{2}\right)^2-\frac{1}{2}}
+      =-\frac{i\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}-\frac{2}{4}}
+      = -\frac{i\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_y|m_3}$:
+  Calculamos las $\braket{m_1|m_3\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_3 - 1}
+    &= \braket{3/2|-1/2-1}
+    = \braket{3/2|-3/2} = 0\\
+     \braket{m_1|m_3 + 1}
+    &= \braket{3/2|-1/2+1}
+    = \braket{3/2|+1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_y|m_3}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_1|m_3-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\cancelout{\braket{m_1|m_3+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_1|\xhat{S}_y|m_4}$:
+  Calculamos las $\braket{m_1|m_4\pm 1}$. El valor $-5/2$ en rojo indica que
+  hemos sobrepasado el valor propio inferior, $-3/2$
+  {\small
+  \begin{align*}
+    \braket{m_1|m_4 - 1}
+    &= \braket{3/2|-3/2-1}
+    = \braket{3/2|\textcolor{red!80!black}{-5/2}} = 0\\
+     \braket{m_1|m_4 + 1}
+    &= \braket{3/2|-3/2+1}
+    = \braket{3/2|-1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_1|\xhat{S}_y|m_4}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_4^2+m_4}\,\,\cancelout{\braket{m_1|m_4-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_4^2-m_4}\,\,\cancelout{\braket{m_1|m_4+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_y|m_1}$:
+  Calculamos las $\braket{m_2|m_1\pm 1}$. El valor $5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $3/2$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_1 - 1}
+    &= \braket{+1/2|3/2-1}
+    = \braket{+1/2|+1/2} = 1\\
+     \braket{m_2|m_1 + 1}
+    &= \braket{+1/2|3/2+1}
+    = \braket{3/2|\textcolor{red!80}{5/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_y|m_1}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_2|m_1-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_2|m_1+1}}\right)\\
+    &=
+      \frac{i\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(\frac{3}{2}\right)^2+\frac{3}{2}}
+      =\frac{i\hbar}{2}\sqrt{\frac{15}{4}-\frac{9}{4}+\frac{6}{4}}
+      = \frac{i\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_y|m_3}$:
+  Calculamos las $\braket{m_2|m_3\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_3 - 1}
+    &= \braket{+1/2|-1/2-1}
+    = \braket{+1/2|-3/2} = 0\\
+     \braket{m_2|m_3 + 1}
+    &= \braket{+1/2|-1/2+1}
+    = \braket{+1/2|+1/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_y|m_3}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\cancelout{\braket{m_2|m_3-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\braket{m_2|m_3+1}\right)\\
+    &=
+      -\frac{i\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(-\frac{1}{2}\right)^2-\left(-\frac{1}{2}\right)}
+      =-\frac{i\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}+\frac{2}{4}}
+      =-\frac{i\hbar}{2}\cdot 2
+      = -\frac{2\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_2|\xhat{S}_y|m_4}$:
+  Calculamos las $\braket{m_2|m_4\pm 1}$. El valor $-5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $-3/2$
+  {\small
+  \begin{align*}
+    \braket{m_2|m_4 - 1}
+    &= \braket{+1/2|-3/2-1}
+    = \braket{+1/2|\textcolor{red!80!black}{-5/2}} = 0\\
+     \braket{m_2|m_4 + 1}
+    &= \braket{+1/2|-3/2+1}
+    = \braket{+1/2|-1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_2|\xhat{S}_y|m_4}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_4^2+m_4}\,\,\cancelout{\braket{m_2|m_4-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_4^2-m_4}\,\,\cancelout{\braket{m_2|m_4+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_y|m_1}$:
+  Calculamos las $\braket{m_3|m_1\pm 1}$. El valor $5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $3/2$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_1 - 1}
+    &= \braket{-1/2|3/2-1}
+    = \braket{-1/2|+1/2} = 0\\
+     \braket{m_3|m_1 + 1}
+    &= \braket{-1/2|3/2+1}
+    = \braket{-1/2|\textcolor{red!80}{5/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_y|m_1}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_3|m_1-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_3|m_1+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_y|m_2}$:
+  Calculamos las $\braket{m_3|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_2 - 1}
+    &= \braket{-1/2|1/2-1}
+    = \braket{-1/2|-1/2} = 1\\
+     \braket{m_3|m_2 + 1}
+    &= \braket{-1/2|1/2+1}
+    = \braket{-1/2|3/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_y|m_2}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\braket{m_3|m_2-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\cancelout{\braket{m_3|m_2+1}}\right)\\
+    &=
+      \frac{i\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(\frac{1}{2}\right)^2+\frac{1}{2}}
+      =\frac{i\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}+\frac{2}{4}}
+      = \frac{i\hbar}{2}\cdot 2
+      = \frac{i2\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_3|\xhat{S}_y|m_4}$:
+  Calculamos las $\braket{m_3|m_4\pm 1}$. El valor $-5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $-3/2$
+  {\small
+  \begin{align*}
+    \braket{m_3|m_4 - 1}
+    &= \braket{-1/2|-3/2-1}
+    = \braket{-1/2|\textcolor{red!80!black}{-5/2}} = 0\\
+     \braket{m_3|m_4 + 1}
+    &= \braket{-1/2|-3/2+1}
+    = \braket{-1/2|-1/2} = 1
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_3|\xhat{S}_y|m_4}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_4^2+m_4}\,\,\cancelout{\braket{m_3|m_4-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_4^2-m_4}\,\,\braket{m_3|m_4+1}\right)\\
+    &=
+      \frac{i\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(-\frac{3}{2}\right)^2-\left(-\frac{3}{2}\right)}
+      =-\frac{i\hbar}{2}\sqrt{\frac{15}{4}-\frac{9}{4}+\frac{6}{4}}
+      = -\frac{i\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+\item $\braket{m_4|\xhat{S}_y|m_1}$:
+  Calculamos las $\braket{m_4|m_1\pm 1}$. El valor $5/2$ en rojo indica que
+  hemos sobrepasado el valor propio superior, $3/2$
+  {\small
+  \begin{align*}
+    \braket{m_4|m_1 - 1}
+    &= \braket{-3/2|3/2-1}
+    = \braket{-3/2|+1/2} = 0\\
+     \braket{m_4|m_1 + 1}
+    &= \braket{-3/2|3/2+1}
+    = \braket{-3/2|\textcolor{red!80}{5/2}} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_4|\xhat{S}_y|m_1}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_1^2+m_1}\,\,\braket{m_4|m_1-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_1^2-m_1}\,\,\cancelout{\braket{m_4|m_1+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_4|\xhat{S}_y|m_2}$:
+  Calculamos las $\braket{m_4|m_2\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_4|m_2 - 1}
+    &= \braket{-3/2|1/2-1}
+    = \braket{-3/2|-1/2} = 0\\
+     \braket{m_4|m_2 + 1}
+    &= \braket{-3/2|1/2+1}
+    = \braket{-3/2|3/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_4|\xhat{S}_y|m_2}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_2^2+m_2}\,\,\cancelout{\braket{m_4|m_2-1}}
+      \,-\,
+      \sqrt{s\,(s+1)-m_2^2-m_2}\,\,\cancelout{\braket{m_4|m_2+1}}\right)\\
+    &=
+      0
+  \end{align*}
+  }
+\item $\braket{m_4|\xhat{S}_y|m_3}$:
+  Calculamos las $\braket{m_4|m_3\pm 1}$
+  {\small
+  \begin{align*}
+    \braket{m_4|m_3 - 1}
+    &= \braket{-3/2|-1/2-1}
+    = \braket{-3/2|-3/2} = 1\\
+     \braket{m_4|m_3 + 1}
+    &= \braket{-3/2|-1/2+1}
+    = \braket{-3/2|+1/2} = 0
+  \end{align*}
+  }
+  {\footnotesize
+  \begin{align*}
+    \braket{m_4|\xhat{S}_y|m_3}
+    &= \frac{i\hbar}{2}\left(
+      \sqrt{s\,(s+1)-m_3^2+m_3}\,\,\braket{m_4|m_3-1}
+      \,-\,
+      \sqrt{s\,(s+1)-m_3^2-m_3}\,\,\cancelout{\braket{m_4|m_3+1}}\right)\\
+    &=
+      \frac{i\hbar}{2}
+      \sqrt{\frac{15}{4}-\left(-\frac{1}{2}\right)^2+\left(-\frac{1}{2}\right)}
+      =\frac{i\hbar}{2}\sqrt{\frac{15}{4}-\frac{1}{4}-\frac{2}{4}}
+      = \frac{i\sqrt{3}\hbar}{2}
+  \end{align*}
+  }
+
+  La matriz queda
+  \begin{equation}\label{eq:spn-spin-3/2-Sy}
+    \xhat{S}_y
+%    =
+%    \begin{pmatrix}
+%      0 & -i\sqrt{3}\hbar/2 & 0 & 0\\
+%      i\sqrt{3}\hbar/2 & 0 & -i2\hbar/2 & 0\\
+%      0 & i2\hbar/2 & 0 & -i\sqrt{3}\hbar/2\\
+%      0 & 0 & i\sqrt{3}\hbar/2 & 0
+%    \end{pmatrix}
+    = \frac{i\hbar}{2}
+    \begin{pmatrix}
+      0 & -\sqrt{3} & 0 & 0\\
+      \sqrt{3} & 0 & -2 & 0\\
+      0 & 2 & 0 & -\sqrt{3}\\
+      0 & 0 & \sqrt{3} & 0
+    \end{pmatrix}
+  \end{equation}
+\end{itemize}
+
+
+\subsubsection{Operador \mathinhead{\xhat{S}^2}{spin3/2S2}}
+Terminamos con $\xhat{S}^2$. Según~(\ref{eq:spn-S2casimir-v2})
+\begin{equation}\label{eq:spn-spin-3/2-S2}
+  \xhat{S}^2
+  =
+  \hbar^2 s\,(s+1)\,\mmm{I}
+  =
+  \frac{15\hbar^2}{4}
+  \begin{pmatrix}
+    1 & 0 & 0 & 0\\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 1 & 0\\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+  = \frac{15\hbar^2}{4}\,\mmm{I}
+\end{equation}
+
+
+\subsection{Resumen de las matrices de spin 1/2, 1 y 3/2}
+\begin{itemize}
+\item Matrices de spin $1/2$
+  {\footnotesize
+  \begin{align}\label{eq:spn-matrices-SxSySz-spin-1/2}
+      \xhat{S}_x
+      &= \frac{\hbar}{2}
+      \begin{pmatrix}
+        0 & 1\\
+        1 & 0
+      \end{pmatrix}
+      = \frac{\hbar}{2}\mmm{\sigma}_x
+      ;\hspace{1em}
+      \xhat{S}_y
+      = \frac{\hbar}{2}
+      \begin{pmatrix}
+        0 & -i\\
+        i & 0
+      \end{pmatrix}
+      = \frac{\hbar}{2}\mmm{\sigma}_y
+      ;\hspace{1em}
+      \xhat{S}_z
+      = \frac{\hbar}{2}
+      \begin{pmatrix}
+        1 & 0\\
+        0   & -1
+      \end{pmatrix}
+      = \frac{\hbar}{2}\,\mmmg{\sigma}_z\\
+      \xhat{S}^2
+      &=
+      \frac{3\hbar^2}{4}
+      \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 
+      \end{pmatrix}
+      = \frac{3\hbar^2}{4} \mmm{I}
+  \end{align}
+  }
+  
+\item Matrices de spin $1$
+  {\footnotesize
+    \begin{align}\label{eq:spn-matrices-SxSySz-spin-1}
+      \xhat{S}_x
+      &=
+        \frac{\hbar}{\sqrt{2}}
+        \begin{pmatrix}
+          0 & 1 & 0\\
+          1 & 0 & 1\\
+          0 & 1 & 0
+        \end{pmatrix}
+      ;\hspace{1em}
+      \xhat{S}_y
+      = \frac{i\hbar}{\sqrt{2}}
+        \begin{pmatrix}
+          0 & -1 & 0\\
+          1 & 0 & -1\\
+          0 & 1 & 0
+        \end{pmatrix}
+      ;\hspace{1em}
+      \xhat{S}_z
+      = \hbar\,\begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 0 & 0\\
+        0 & 0 & -1
+      \end{pmatrix}\\
+      \xhat{S}^2
+      &=
+        2\hbar^2
+        \begin{pmatrix}
+          1 & 0 & 0\\
+          0 & 1 & 0\\
+          0 & 0 & 1
+        \end{pmatrix}
+        = 2\hbar^2\mmm{I}
+    \end{align}
+  }
+
+\item Matrices de spin $3/2$
+  {\scriptsize
+    \begin{align}\label{eq:spn-matrices-SxSySz-spin-3/2}
+      \xhat{S}_x
+      &= \frac{\hbar}{2}
+      \begin{pmatrix}
+        0 & \sqrt{3} & 0 & 0\\
+        \sqrt{3} & 0 & 2 & 0\\
+        0 & 2 & 0 & \sqrt{3}\\
+        0 & 0 & \sqrt{3} & 0
+      \end{pmatrix}
+      ;\hspace{.8em}
+      \xhat{S}_y
+      = \frac{i\hbar}{2}
+      \begin{pmatrix}
+        0 & -\sqrt{3} & 0 & 0\\
+        \sqrt{3} & 0 & -2 & 0\\
+        0 & 2 & 0 & -\sqrt{3}\\
+        0 & 0 & \sqrt{3} & 0
+      \end{pmatrix}
+      ;\hspace{.8em}
+      \xhat{S}_z
+      = \frac{\hbar}{2}\,
+     \begin{pmatrix}
+       3 & 0 & 0 & 0\\
+       0 & 1 & 0 & 0\\
+       0 & 0 & -1 & 0\\
+       0 & 0 & 0 & -3
+     \end{pmatrix}\\
+  \xhat{S}^2
+  &=
+  \frac{15\hbar^2}{4}
+  \begin{pmatrix}
+    1 & 0 & 0 & 0\\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 1 & 0\\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+  = \frac{15\hbar^2}{4}\,\mmm{I}
+    \end{align}
+  }
+\end{itemize}
+
+
+\section{Jugando con el spin 1/2}
+
+\subsection{Valores propios y vectores propios de
+  \mathinhead{\xhat{S}_z}{vpfpSz}}
+Queremos calcular los valores propios y funciones propias de $\xhat{S}_z$
+\[
+  \xhat{S}_z
+  = \begin{pmatrix}
+    \hbar/2 & 0\\
+    0 & -\hbar/2
+  \end{pmatrix}
+\]
+
+El método más directo en este caso consiste en observar que la matriz
+$\xhat{S}_z$ es diagonal. Los valores propios son los elementos de la diagonal
+\begin{equation}\label{eq:spn-valprop-Sz}
+  \lambda_1 = \hbar/2
+  ;\hspace{1em}
+  \lambda_2 = -\hbar/2
+\end{equation}
+
+Además, cualquier matriz no singular $\mmm{A}$ se puede diagonalizar mediante
+\[
+  \mmm{D} = \mmm{M}^\trasp \mmm{A} \mmm{M}
+\]
+donde $\mmm{D}$ es la matriz diagonalizada y $\mmm{M}$ es la matriz ortogonal
+formada por los vectores propios de $\mmm{A}$ dispuestos en columnas.
+\[
+  \mmm{M} =
+  \begin{tikzpicture}[baseline={(m.center)}]
+    \matrix (m) [
+    matrix of math nodes,
+    left delimiter=(,
+    right delimiter=),
+    minimum width=width(-1),
+    ]
+    {
+      \phantom{1} & \phantom{1} \\
+      \phantom{1} & \phantom{1} \\
+    };
+    \draw (m-1-1.north west) rectangle (m-2-1.south east);
+    \draw (m-1-2.north west) rectangle (m-2-2.south east);
+    \draw (m-1-1.center) node[below] {$\vvv{v}_1$};
+    \draw (m-1-2.south) node {$\vvv{v}_2$};    
+  \end{tikzpicture}
+\]
+
+Pero nuestra matriz matriz $\xhat{S}_z$ ya está diagonalizada, por lo que
+\[
+  \xhat{S}_z = \mmm{M}^\trasp\xhat{S}_z\mmm{M}
+\]
+
+Concluimos que la matriz formada por los vectores propios $\mmm{M}$, debe
+ser la matriz identidad
+\[
+  \mmm{M}
+  =
+  \begin{tikzpicture}[baseline={(m.center)}]
+    \matrix (m) [
+    matrix of math nodes,
+    left delimiter=(,
+    right delimiter=),
+    minimum width=width(-1),
+    ]
+    {
+      \phantom{1} & \phantom{1}\\
+      \phantom{1} & \phantom{1}\\
+    };
+    \draw (m-1-1.north west) rectangle (m-2-1.south east);
+    \draw (m-1-2.north west) rectangle (m-2-2.south east);
+    \draw (m-1-1.center) node[below] {$\vvv{v}_1$};
+    \draw (m-1-2.south) node {$\vvv{v}_2$};    
+  \end{tikzpicture}
+  =
+  \begin{tikzpicture}[baseline={(m.center)}]
+    \matrix (m) [
+    matrix of math nodes,
+    left delimiter=(,
+    right delimiter=),
+    minimum width=width(-1),
+    nodes={align=right},
+    ]
+    {
+      1 & 0\\
+      0 & 1\\
+    };
+    \draw (m-1-1.north west) rectangle (m-2-1.south east);
+    \draw (m-1-2.north west) rectangle (m-2-2.south east);
+  \end{tikzpicture}
+  =
+  \mmm{I}
+\]
+
+Lo que nos permite determinar los vectores propios
+\begin{equation}\label{eq:spn-vecprop-Sz}
+  \vvv{v}_1
+  =
+  \ket{z+}
+  = \begin{pmatrix}
+    1 \\ 0
+  \end{pmatrix}
+  ;\hspace{1em}
+  \vvv{v}_2
+  =
+  \ket{z-}
+  = \begin{pmatrix}
+    0 \\ 1
+  \end{pmatrix}
+\end{equation}
+donde hemos llamado $\ket{z+}$ a la función propia de $\xhat{S}_z$ con
+valor propio $\hbar/2$ y $\ket{z-}$ a la que tiene valor propio $-\hbar/2$.
+
+\subsection{Valores propios y vectores propios de
+  \mathinhead{\xhat{S}_x}{vpfpSx}}
+Queremos calcular los valores y funciones propias del operador $\xhat{S}_x$
+\[
+  \xhat{S}_x
+  = \begin{pmatrix}
+    0 & \hbar/2\\
+    \hbar/2 & 0
+    \end{pmatrix}
+\]
+
+Como no es diagonal tenemos que hallar los valores propios mediante la
+ecuación de valores y vectores propios
+\[
+  \begin{pmatrix}
+    0 & \hbar/2\\
+    \hbar/2 & 0    
+  \end{pmatrix}
+  \begin{pmatrix}
+    x \\ y
+  \end{pmatrix}
+  =
+  \lambda
+  \begin{pmatrix}
+    x \\ y
+  \end{pmatrix}
+\]
+\[
+  \begin{pmatrix}
+    \frac{\hbar}{2}\,y \\ \frac{\hbar}{2}\,x
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \lambda x \\ \lambda y
+  \end{pmatrix}
+\]
+\[
+  \begin{pmatrix}
+    -\lambda x +\frac{\hbar}{2}\,y \\ \frac{\hbar}{2}\,x -\lambda y
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 \\ 0
+  \end{pmatrix}
+\]
+
+Esto nos deja con dos ecuaciones con tres incógnitas, $\lambda$, $x$ e $y$
+\begin{equation}\label{eq:spn-sist-ecuaciones-Sx}
+  \begin{cases}
+    \begin{array}{rlrll}
+      -\lambda x & + &\frac{\hbar}{2} y &= &0\\
+      \frac{\hbar}{2} x& - &\lambda y &= &0
+    \end{array}
+  \end{cases}
+\end{equation}
+
+Para que el sistema sea indeterminado, el determinante de los coeficientes
+debe ser nulo
+\[
+  \begin{vmatrix}
+    -\lambda & \hbar/2\\
+    \hbar/2 & -\lambda
+  \end{vmatrix}
+  = 0
+\]
+\[
+  \lambda^2 - \frac{\hbar^2}{4} = 0
+\]
+
+\[
+  \lambda = \pm \frac{\hbar}{2}
+\]
+
+Los dos valores propios de $\xhat{S}_x$ son los mismos que los del
+operador $\xhat{S}_z$
+\begin{equation}\label{eq:spn-valprop-Sx}
+  \lambda_1 = \hbar/2
+  ;\hspace{1em}
+  \lambda_2 = -\hbar/2
+\end{equation}
+
+Ahora buscamos los vectores propios.
+\begin{itemize}
+\item Si tomamos el valor propio $\lambda_1 = \hbar/2$ y sustituimos en
+  el sistema de ecuaciones~(\ref{eq:spn-sist-ecuaciones-Sx})
+  \[
+  \begin{cases}
+    \begin{array}{rlrll}
+      -\frac{\hbar}{2} x & + &\frac{\hbar}{2} y &= &0\\
+      \frac{\hbar}{2} x& - &\frac{\hbar}{2} y &= &0
+    \end{array}
+  \end{cases}
+\]
+
+Obtenemos $y=x$. Así, el vector propio de $\xhat{S}_x$ con valor propio
+$\hbar/2$ es
+\[
+  \ket{x+}
+  = N_1
+  \begin{pmatrix}
+    1 \\ 1
+  \end{pmatrix}
+\]
+
+\item Ahora elegimos el valor propio $\lambda_2 = -\hbar/2$ y sustituimos en
+  el sistema de ecuaciones~(\ref{eq:spn-sist-ecuaciones-Sx})
+  \[
+    \begin{cases}
+      \begin{array}{rlrll}
+        \frac{\hbar}{2} x & + &\frac{\hbar}{2} y &= &0\\
+        \frac{\hbar}{2} x& + &\frac{\hbar}{2} y &= &0
+      \end{array}
+    \end{cases}
+  \]
+
+Obtenemos $y=-x$. Así, el vector propio de $\xhat{S}_x$ con valor propio
+$\hbar/2$ es\footnotemark{}
+\[
+  \ket{x-}
+  = N_2
+  \begin{pmatrix}
+    -1 \\ 1
+  \end{pmatrix}
+\]
+\footnotetext{No se ha elegido el vector propio
+  $\ket{x-} = \begin{pmatrix} 1 \\ -1\end{pmatrix}$ porque queremos que la
+  matriz formada por los vectores propios
+  $\mmm{M} = |N|^2 \begin{vmatrix} 1 & -1\\ 1 & 1\end{vmatrix}$
+  tenga un determinante positivo y sea una rotación en un espacio
+  abstracto.
+}
+\end{itemize}
+
+Ahora normalizamos los vectores propios eligiendo $\theta=0$.
+El primero tiene una constante de normalización $N=1/\sqrt{2}$
+\[
+  \braket{x+|x+}
+  =
+  N^{*}
+  \begin{pmatrix}
+    1 & 1
+  \end{pmatrix}
+  N
+  \begin{pmatrix}
+    1 \\ 1
+  \end{pmatrix}
+  =
+  |N|^2\, 2
+  =
+  1
+\]
+\[
+  N = \frac{1}{\sqrt{2}}
+\]
+
+El segundo vector propio tiene la misma constante de normalización
+\[
+  \braket{x-|x-}
+  =
+  N^{*}
+  \begin{pmatrix}
+    -1 & 1
+  \end{pmatrix}
+  N
+  \begin{pmatrix}
+    -1 \\ 1
+  \end{pmatrix}
+  =
+  |N|^2\, 2
+  =
+  1
+\]
+\[
+  N = \frac{1}{\sqrt{2}}
+\]
+
+Los vectores propios de $\xhat{S}_x$ quedan
+\begin{equation}\label{eq:spn-vec-prop-Sx}
+  \ket{x+} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1\end{pmatrix}
+  ;\hspace{1em}
+  \ket{x-} = \frac{1}{\sqrt{2}}\begin{pmatrix} -1 \\ 1\end{pmatrix}
+\end{equation}
+
+
+\subsection{Valores propios y vectores propios de
+  \mathinhead{\xhat{S}_y}{vpfpSy}}
+Queremos calcular los valores y funciones propias del operador $\xhat{S}_x$
+\[
+  \xhat{S}_y
+  = \begin{pmatrix}
+    0 & -i\hbar/2\\
+    i\hbar/2 & 0
+    \end{pmatrix}
+\]
+
+Como no es diagonal tenemos que hallar los valores propios mediante la
+ecuación de valores y vectores propios
+\[
+  \begin{pmatrix}
+    0 & -i\hbar/2\\
+    i\hbar/2 & 0    
+  \end{pmatrix}
+  \begin{pmatrix}
+    x \\ y
+  \end{pmatrix}
+  =
+  \lambda
+  \begin{pmatrix}
+    x \\ y
+  \end{pmatrix}
+\]
+\[
+  \begin{pmatrix}
+    \frac{-i\hbar}{2}\,y \\ \frac{i\hbar}{2}\,x
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \lambda x \\ \lambda y
+  \end{pmatrix}
+\]
+\[
+  \begin{pmatrix}
+    -\lambda x -i\frac{\hbar}{2}\,y \\ i\frac{\hbar}{2}\,x -\lambda y
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 \\ 0
+  \end{pmatrix}
+\]
+
+Esto nos deja con dos ecuaciones con tres incógnitas, $\lambda$, $x$ e $y$
+\begin{equation}\label{eq:spn-sist-ecuaciones-Sy}
+  \begin{cases}
+    \begin{array}{rlrll}
+      -\lambda x & - &\frac{i\hbar}{2} y &= &0\\
+      \frac{i\hbar}{2} x& - &\lambda y &= &0
+    \end{array}
+  \end{cases}
+\end{equation}
+
+Para que el sistema sea indeterminado, el determinante de los coeficientes
+debe ser nulo
+\[
+  \begin{vmatrix}
+    -\lambda & -i\hbar/2\\
+    i\hbar/2 & -\lambda
+  \end{vmatrix}
+  = 0
+\]
+\[
+  \lambda^2 - \frac{\hbar^2}{4} = 0
+\]
+
+\[
+  \lambda = \pm \frac{\hbar}{2}
+\]
+
+Los dos valores propios de $\xhat{S}_y$ son los mismos que los de los
+operadores $\xhat{S}_y$ y $\xhat{S}_z$
+\begin{equation}\label{eq:spn-valprop-Sy}
+  \lambda_1 = \hbar/2
+  ;\hspace{1em}
+  \lambda_2 = -\hbar/2
+\end{equation}
+
+Ahora buscamos los vectores propios.
+\begin{itemize}
+\item Si tomamos el valor propio $\lambda_1 = \hbar/2$ y sustituimos en
+  el sistema de ecuaciones~(\ref{eq:spn-sist-ecuaciones-Sy})
+  \[
+  \begin{cases}
+    \begin{array}{rlrll}
+      -\frac{\hbar}{2} x & - &\frac{i\hbar}{2} y &= &0\\
+      \frac{i\hbar}{2} x& - &\frac{\hbar}{2} y &= &0
+    \end{array}
+  \end{cases}
+\]
+
+Obtenemos $y=ix$. Así, el vector propio de $\xhat{S}_x$ con valor propio
+$\hbar/2$ es
+\[
+  \ket{y+}
+  = N_1
+  \begin{pmatrix}
+    1 \\ i
+  \end{pmatrix}
+\]
+
+\item Ahora elegimos el valor propio $\lambda_2 = -\hbar/2$ y sustituimos en
+  el sistema de ecuaciones~(\ref{eq:spn-sist-ecuaciones-Sy})
+  \[
+    \begin{cases}
+      \begin{array}{rlrll}
+        \frac{\hbar}{2} x & - &\frac{i\hbar}{2} y &= &0\\
+        \frac{i\hbar}{2} x& + &\frac{\hbar}{2} y &= &0
+      \end{array}
+    \end{cases}
+  \]
+
+Obtenemos $y=-ix$. Así, el vector propio de $\xhat{S}_x$ con valor propio
+$\hbar/2$ es%\footnotemark{}
+\[
+  \ket{y-}
+  = N_2
+  \begin{pmatrix}
+    i \\ 1
+  \end{pmatrix}
+\]
+donde, de nuevo se ha preferido que el determinante de los vectores
+propios sea positivo para que represente una rotación en $\symbb{C}^2$.
+\end{itemize}
+
+Ahora normalizamos los vectores propios eligiendo $\theta=0$.
+El primero tiene una constante de normalización $N=1/\sqrt{2}$
+\[
+  \braket{y+|y+}
+  =
+  N^{*}
+  \begin{pmatrix}
+    1 & -i
+  \end{pmatrix}
+  N
+  \begin{pmatrix}
+    1 \\ i
+  \end{pmatrix}
+  =
+  |N|^2\, 2
+  =
+  1
+\]
+\[
+  N = \frac{1}{\sqrt{2}}
+\]
+
+El segundo vector propio tiene la misma constante de normalización
+\[
+  \braket{y-|y-}
+  =
+  N^{*}
+  \begin{pmatrix}
+    -i & 1
+  \end{pmatrix}
+  N
+  \begin{pmatrix}
+    i \\ 1
+  \end{pmatrix}
+  =
+  |N|^2\, 2
+  =
+  1
+\]
+\[
+  N = \frac{1}{\sqrt{2}}
+\]
+
+Los vectores propios de $\xhat{S}_y$ quedan
+\begin{equation}\label{eq:spn-vec-prop-Sy}
+  \ket{y+} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ i\end{pmatrix}
+  ;\hspace{1em}
+  \ket{y-} = \frac{1}{\sqrt{2}}\begin{pmatrix} i \\ 1\end{pmatrix}
+\end{equation}
+
+
+\subsection{La medida del spin 1/2}
+Nos centraremos en el spin 1/2 debido a su importancia --el electrón
+es una partícula con este spin-- y a su sencillez. La mayoría de las
+técnicas que aplicaremos sirven también para otros valores del spin.
+
+La descripción física de una partícula con spin se especifica completamente
+mediante su función de onda
+\[
+  \Psi = \phi(x,y,z) \otimes \ket{\varphi}
+\]
+
+El cuadrado de $\phi(x,y,z)$ es la densidad de probabilidad de encontrar a la
+partícula en una cierta región del espacio. En cambio, $\ket{\varphi}$ 
+está relacionada con la probabilidad de que el spin tenga un valor determinado
+en una cierta dirección.
+
+Nos olvidamos conscientemente de la parte espacial para centrarnos en el spin.
+Nos proponemos calcular la probabilidad de que al medir la componente del spin
+según una cierta dirección nos dé un determinado valor.
+
+La dimensión del espacio de Hilbert de este tipo de spin es $2$
+\[
+  N = 2s + 1 = 2\,\frac{1}{2} + 1 = 2
+\]
+
+\subsubsection{Medida de \mathinhead{\xhat{S}_z}{mdSz} para
+una \mathinhead{\ket{\varphi}}{mpuphi} de ejemplo}
+Elegimos una base para este espacio $\symbb{C}^2$, puede ser cualquiera
+pero por sencillez se suele elegir la base propia de $\xhat{S}_z$
+\[
+  B
+  = \set{\ket{z+},\ket{z-}}
+  = \Set{
+  \begin{pmatrix}
+    1 \\ 0
+  \end{pmatrix}
+  , \begin{pmatrix}
+    0 \\ 1
+    \end{pmatrix}
+  }
+\]
+
+Supongamos ahora que la función de onda de spin fuera, por ejemplo
+\[
+  \ket{\varphi}
+  = N
+  \begin{pmatrix}
+    3 \\ i
+  \end{pmatrix}
+\]
+
+Calcularemos la constante de normalización $N$ obligando a que
+$\braket{\varphi|\varphi} = 1$
+\[
+  \braket{\varphi|\varphi}
+  =
+  N^{*}
+  \begin{pmatrix}
+    3 & -i
+  \end{pmatrix}
+  N
+  \begin{pmatrix}
+    3 \\ i
+  \end{pmatrix}
+  =
+  |N|^2\,
+  (9 + 1)
+  =
+  10\, |N|^2
+  =
+  1
+\]
+
+Despejamos el módulo de la constante de normalización
+\[
+  |N| = \frac{1}{\sqrt{10}}
+\]
+
+Pero $N$ es un un número complejo y la fase puede ser cualquiera.
+En general
+\[
+  N = \frac{1}{\sqrt{10}}\,e^{i\theta}
+\]
+
+Elegimos la fase más sencilla con $\theta = 0$
+\[
+  N = \frac{1}{\sqrt{10}}
+\]
+
+La función de onda queda, como combinación lineal de los vectores propios
+de $\xhat{S}_z$
+\begin{equation}\label{eq:spn-phioriginal-z+-}
+  \ket{\varphi}
+  =
+  \frac{1}{\sqrt{10}}\,
+  \begin{pmatrix}
+    3 \\ i
+  \end{pmatrix}
+  =
+  \frac{3}{\sqrt{10}}\,\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+  + \frac{i}{\sqrt{10}}\,\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+  =
+  \frac{3}{\sqrt{10}}\,\ket{z+} + \frac{i}{\sqrt{10}}\,\ket{z-}
+\end{equation}
+
+Los coeficientes del desarrollo $3/\sqrt{10}$ e $i\sqrt{10}$ son las amplitudes
+de probabilidad de que al medir el spin de la partícula en el eje $z$ se
+obtenga, $\hbar/2$ o $-\hbar/2$, respectivamente. Las probabilidades son
+el cuadrado de estas amplitudes.
+
+Así, las probabilidades de obtener los distintos resultados de la medida son
+\begin{align*}
+  P_{+1/2}
+  &=
+    \left(\frac{3}{\sqrt{10}}\cdot\frac{3}{\sqrt{10}}\right)
+    = \frac{9}{10} = 0,9 = \SI{90}{\percent}\\
+  P_{-1/2}
+  &=
+    \left(\frac{-i}{\sqrt{10}}\cdot\frac{i}{\sqrt{10}}\right)
+    = \frac{1}{10} = 0,1 = \SI{10}{\percent}
+\end{align*}
+
+Con nuestra función de onda del ejemplo es mucho más probable obtener
+un spin $+1/2$ cuando se orienta un imán en el eje $z$, aunque
+en una medida puntual se podría obtener el spin $-1/2$, aunque sería
+mucho menos frecuente.
+
+Podemos decir que la partícula está en una superposición de
+estados de la componente $z$ del spin $+1/2$ y $-1/2$ aunque no con igual
+probabilidad.
+El valor que se mide es completamente aleatorio;
+no hay nada en la partícula que nos anticipe la componente $z$ del spin
+que mediremos.
+
+
+\subsubsection{Medida de \mathinhead{\xhat{S}_x}{mdSx} para
+una \mathinhead{\ket{\varphi}}{mpuphi} de ejemplo}
+También podríamos preguntarnos que dada la función de estado
+$\ket{\varphi}$ anterior, cuál sería la probabilidad de obtener
+un spin $+\hbar/2$ o $-\hbar/2$ en otra dirección, por ejemplo en el eje $x$.
+Necesitamos desarrollar la función de onda en términos de los vectores
+propios de $\xhat{S}_x$.
+Podemos conseguir este objetivo de dos formas equivalentes:
+\begin{itemize}
+\item Escribimos los vectores propios de $\xhat{S}_x$ en función de
+  las de $\xhat{S}_z$
+  \begin{align*}
+    \ket{x+}
+    &=
+      \frac{1}{\sqrt{2}}\,\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+    = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+    +
+    \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+    = \frac{1}{\sqrt{2}} \ket{z+} + \frac{1}{\sqrt{2}} \ket{z-}\\
+    \ket{x-}
+    &=
+      \frac{1}{\sqrt{2}}\,\begin{pmatrix} -1 \\ 1 \end{pmatrix}
+    = \frac{-1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+    +
+    \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+    = -\frac{1}{\sqrt{2}} \ket{z+} + \frac{1}{\sqrt{2}} \ket{z-}\\
+  \end{align*}
+
+  Si restamos, por un lado, y sumamos por otro las dos ecuaciones, obtenemos
+  \begin{align*}
+    \ket{x+} - \ket{x-}
+    &=
+      \sqrt{2} \ket{z+}\\
+    \ket{x+} + \ket{x-}
+    &=
+      \sqrt{2} \ket{z-}
+  \end{align*}
+
+  Despejamos $\ket{z+}$ y $\ket{z-}$
+  \begin{align}\label{eq:spn-z+x+x-}
+    \ket{z+}
+    &= \frac{1}{\sqrt{2}}\, (\ket{x+} - \ket{x-})\\
+    \label{eq:spn-z-x+x-}
+    \ket{z-}
+    &= \frac{1}{\sqrt{2}}\, (\ket{x+} + \ket{x-})
+  \end{align}
+
+  Sustituimos estos desarrollos de $\ket{z+}$ y $\ket{z-}$ en la expresión
+  de la función de onda~(\ref{eq:spn-phioriginal-z+-})
+  \[
+    \ket{\varphi}
+    = \frac{3}{\sqrt{10}}\,\frac{1}{\sqrt{2}} (\ket{x+} - \ket{x-})
+    + \frac{i}{\sqrt{10}}\,\frac{1}{\sqrt{2}} (\ket{x+} + \ket{x-})\\
+  \]
+  
+  El vector de estado queda, en términos de los vectores propios de
+  $\xhat{S}_x$ 
+  \[
+    \ket{\varphi}
+    = c_1 \ket{x+} + c_2 \ket{x-}   
+    = \frac{3+i}{\sqrt{20}} \ket{x+} + \frac{-3+i}{\sqrt{20}} \ket{x-}
+  \]
+
+\item También podríamos haber expresado el vector de estado del spin
+  en función de los vectores propios de $\xhat{S}_x$ de forma directa
+  \[
+    \ket{\varphi}
+    =
+    \frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ i \end{pmatrix}
+    =
+    c_1 \ket{x+} + c_2 \ket{x-}
+    = c_1 \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+    + c_2 \frac{1}{\sqrt{2}} \begin{pmatrix} -1 \\ 1 \end{pmatrix}
+  \]
+
+  Esto nos lleva a un sistema de ecuaciones
+  \[
+    \begin{cases}
+      \begin{array}{rlrll}
+        \frac{1}{\sqrt{2}}\,c_1 & - & \frac{1}{\sqrt{2}}\,c_2 &=
+        & \frac{3}{\sqrt{10}}\\
+        \frac{1}{\sqrt{2}}\,c_1 & + & \frac{1}{\sqrt{2}}\,c_2 &=
+        & \frac{i}{\sqrt{10}}
+      \end{array}
+    \end{cases}
+  \]
+
+  Resolviendo el sistema obtenemos las amplitudes de probabilidad
+  \[
+    c_1 = \frac{3+i}{\sqrt{20}}
+    ;\hspace{1em}
+    c_2 = \frac{-3+i}{\sqrt{20}}
+  \]  
+\end{itemize}
+
+Las probabilidades de que el resultado de la medida del spin en la
+dirección $x$ sea $+\hbar/2$ o $-\hbar/2$ son
+\begin{align*}
+  P_{+1/2}
+  &=
+    \left|\frac{3+i}{\sqrt{20}}\right|^2
+    = \left(\frac{3-i}{\sqrt{20}}\cdot\frac{3+i}{\sqrt{20}}\right)
+    = \frac{10}{20} = 0,5 = \SI{50}{\percent}\\
+  P_{-1/2}
+  &=
+    \left|\frac{-3+i}{\sqrt{20}}\right|^2      
+    = \left(\frac{-3-i}{\sqrt{20}}\cdot\frac{-3+i}{\sqrt{20}}\right)
+    = \frac{10}{20} = 0,5 = \SI{50}{\percent}
+\end{align*}
+
+\subsubsection{Medida de \mathinhead{\xhat{S}_y}{mdSy} para
+una \mathinhead{\ket{\varphi}}{mpuphi} de ejemplo}
+También podríamos preguntarnos, dada la función de estado
+$\ket{\varphi}$ anterior, cuál sería la probabilidad de obtener
+un spin $+\hbar/2$ o $-\hbar/2$ en el eje $y$.
+Necesitamos desarrollar la función de onda en términos de los vectores
+propios de $\xhat{S}_y$.
+Podemos conseguir este objetivo de dos formas equivalentes:
+\begin{itemize}
+\item Escribimos los vectores propios de $\xhat{S}_y$ en función de
+  las de $\xhat{S}_z$
+  \begin{align*}
+    \ket{y+}
+    &=
+      \frac{1}{\sqrt{2}}\,\begin{pmatrix} 1 \\ i \end{pmatrix}
+    = \frac{i}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+    +
+    \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+    = \frac{1}{\sqrt{2}} \ket{z+} + \frac{i}{\sqrt{2}} \ket{z-}\\
+    \ket{y-}
+    &=
+      \frac{1}{\sqrt{2}}\,\begin{pmatrix} i \\ 1 \end{pmatrix}
+    = \frac{i}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+    +
+    \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+    = \frac{i}{\sqrt{2}} \ket{z+} + \frac{1}{\sqrt{2}} \ket{z-}\\
+  \end{align*}
+
+  Sumamos la primera multiplicada por $i$ más la segunda, por un lado,
+  y la primera más la segunda multiplicada por $i$, obteniendo
+  \begin{align*}
+    i\ket{y+} + \ket{y-}
+    &=
+      i\sqrt{2} \ket{z+}\\
+    \ket{y+} + i\ket{y-}
+    &=
+      i\sqrt{2} \ket{z-}
+  \end{align*}
+
+  Despejamos $\ket{z+}$ y $\ket{z-}$
+  \begin{align}\label{eq:spn-z+y+y-}
+    \ket{z+}
+    &= \frac{1}{\sqrt{2}}\, (\ket{y+} - i\ket{y-})\\
+    \label{eq:spn-z-y+y-}
+    \ket{z-}
+    &= \frac{1}{\sqrt{2}}\, (-i\ket{y+} + \ket{y-})
+  \end{align}
+
+  Sustituimos estos desarrollos de $\ket{z+}$ y $\ket{z-}$ en la expresión
+  de la función de onda~(\ref{eq:spn-phioriginal-z+-})
+  \[
+    \ket{\varphi}
+    = \frac{3}{\sqrt{10}}\,\frac{1}{\sqrt{2}} (\ket{y+} - i\ket{y-})
+    + \frac{i}{\sqrt{10}}\,\frac{1}{\sqrt{2}} (-i\ket{y+} + \ket{y-})\\
+  \]
+  
+  El vector de estado queda, en términos de los vectores propios de
+  $\xhat{S}_y$ 
+  \[
+    \ket{\varphi}
+    = c_1 \ket{y+} + c_2 \ket{y-}   
+    = \frac{2}{\sqrt{5}} \ket{y+} - \frac{i}{\sqrt{5}} \ket{y-}
+  \]
+
+\item También podríamos haber expresado el vector de estado del spin
+  en función de los vectores propios de $\xhat{S}_y$ de forma directa
+  \[
+    \ket{\varphi}
+    =
+    \frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ i \end{pmatrix}
+    =
+    c_1 \ket{y+} + c_2 \ket{y-}
+    = c_1 \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ i \end{pmatrix}
+    + c_2 \frac{1}{\sqrt{2}} \begin{pmatrix} i \\ 1 \end{pmatrix}
+  \]
+
+  Esto nos lleva a un sistema de ecuaciones
+  \[
+    \begin{cases}
+      \begin{array}{rlrll}
+        \frac{1}{\sqrt{2}}\,c_1 & + & \frac{i}{\sqrt{2}}\,c_2 &=
+        & \frac{3}{\sqrt{10}}\\
+        \frac{i}{\sqrt{2}}\,c_1 & + & \frac{1}{\sqrt{2}}\,c_2 &=
+        & \frac{i}{\sqrt{10}}
+      \end{array}
+    \end{cases}
+  \]
+
+  Resolviendo el sistema obtenemos las amplitudes de probabilidad
+  \[
+    c_1 = \frac{2}{\sqrt{5}}
+    ;\hspace{1em}
+    c_2 = \frac{-i}{\sqrt{5}}
+  \]
+\end{itemize}
+
+  Las probabilidades de que el resultado de la medida del spin en la
+  dirección $y$ sea $+\hbar/2$ o $-\hbar/2$ son
+  \begin{align*}
+    P_{+1/2}
+    &=
+      \left|\frac{2}{\sqrt{5}}\right|^2
+      = \frac{4}{5} = 0,8 = \SI{80}{\percent}\\
+    P_{-1/2}
+    &=
+      \left|\frac{-i}{\sqrt{5}}\right|^2      
+      = \frac{1}{5} = 0,2 = \SI{20}{\percent}
+  \end{align*}
+
+
+\subsection{Colapso de la función de onda}
+Vamos a ver algo extraño: supongamos que medimos la componente $z$ del
+spin de la partícula y encontramos, por ejemplo, que obtenemos un
+spin $+1/2$; entonces la función de onda \emph{colapsa} y quedaría
+\[
+  \ket{\varphi}
+  =
+  \ket{z+}
+\]
+
+Ahora la amplitud de probabilidad del spin $+1/2$ es uno y la del spin
+$-1/2$ es cero. Si volviéramos a medir el spin en el eje $z$ siempre
+obtendríamos $+1/2$, sin importar el número de medidas del spin en esta
+dirección. Ya no hay superposición de estados.
+
+Pero ¿qué ocurriría si midiéramos ahora la componente del spin según un
+eje diferente, por ejemplo el eje $x$?
+
+Ahora queremos representar la función de onda colapsada en la base propia
+de $\xhat{S}_x$, porque vamos a medir la componente $x$ del spin. Para
+ello calculamos los coeficientes del desarrollo de la función de onda
+\[
+  \ket{\varphi}
+  =
+  \begin{pmatrix}
+    1 \\ 0
+  \end{pmatrix}
+  =
+  c_1
+  \frac{1}{\sqrt{2}}
+  \begin{pmatrix}
+    1 \\ 1
+  \end{pmatrix}
+  +
+  c_2
+  \frac{1}{\sqrt{2}}
+  \begin{pmatrix}
+    -1 \\ 1
+  \end{pmatrix}
+\]
+\[
+  \begin{cases}
+    \begin{array}{rlrll}
+      \frac{1}{\sqrt{2}}\,c_1 & - & \frac{1}{\sqrt{2}}\,c_2 &=  & 1\\
+      \frac{1}{\sqrt{2}}\,c_1 & + & \frac{1}{\sqrt{2}}\,c_2 &=  & 0
+    \end{array}
+  \end{cases}
+\]
+
+Los coeficientes son
+\[
+  c_1 = \frac{1}{\sqrt{2}}
+  ;\hspace{1em}
+  c_2 = -\frac{1}{\sqrt{2}}
+\]
+
+Por tanto, la función de onda en términos de la base propia de $\xhat{S}_x$
+queda
+\[
+  \ket{\varphi}
+  =
+  \frac{1}{\sqrt{2}}\,\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+  - \frac{1}{\sqrt{2}}\,\begin{pmatrix} -1 \\ 1 \end{pmatrix}
+\]
+
+Así, las probabilidades de obtener el spin $+1/2$ es
+\begin{align*}
+  P_{+1/2}
+  &=
+    |c_1|^2
+    =
+    \frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{2}}
+    =
+    \frac{1}{2}
+    =
+    0,5
+    =
+    \SI{50}{\percent}
+\end{align*}
+
+Y para obtener el spin $-1/2$
+\begin{align*}
+  P_{-1/2}
+  &=
+    |c_2|^2
+    =
+    \frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{2}}
+    =
+    \frac{1}{2}
+    =
+    0,5
+    =
+    \SI{50}{\percent}
+\end{align*}
+
+Ahora los dos estados del spin en el eje $x$ se encuentran en superposición
+de estados al \SI{50}{\percent}.
+
+
+\subsection{Valor promedio}
+Para hallar experimentalmente el valor promedio de un observable medimos
+muchas veces el sistema --en el mismo estado-- y se divide entre el número
+de medidas. Por supuesto cuanto mayor sea el número de medidas realizadas,
+más exacto será el valor.
+
+En mecánica cuántica se puede calcular el valor promedio de un observable
+mediante
+\begin{equation}\label{eq:spn-valor-promedio-mc}
+  \braket{\xhat{A}} = \braket{\varphi|\xhat{A}|\varphi}
+\end{equation}
+
+
+\subsection{Valor promedio del spin para nuestra
+  \mathinhead{\ket{\varphi}}{sferses} de ejemplo}
+Podríamos calcular el valor promedio de forma teórica si conociéramos
+la probabilidad de cada posible resultado de la medida. Aprovechamos que
+conocemos las probabilidades de que se obtengan los únicos valores posibles
+de la componente del spin en los ejes $x$, $y$ y $z$ para una partícula 
+en el estado
+\[
+  \ket{\varphi}
+  = \frac{1}{\sqrt{10}}
+  \begin{pmatrix}
+    3 \\ i
+  \end{pmatrix}
+\]
+
+Por ejemplo, para calcular los valores promedio de $\xhat{S}_x$, $\xhat{S}_y$
+y $\xhat{S}_z$, hacemos
+\begin{align*}
+  \braket{\xhat{S}_x}
+  &=
+    0,5\cdot\left(\frac{\hbar}{2}\right) + 0,5\cdot\left(-\frac{\hbar}{2}\right)
+    = 0\\
+  \braket{\xhat{S}_y}
+  &=
+    0,8\cdot\left(\frac{\hbar}{2}\right) + 0,2\cdot\left(-\frac{\hbar}{2}\right)
+    = 0,3\,\hbar = \frac{3}{10}\,\hbar\\
+  \braket{\xhat{S}_z}
+  &=
+    0,9\cdot\left(\frac{\hbar}{2}\right) + 0,1\cdot\left(-\frac{\hbar}{2}\right)
+    = 0,4\,\hbar = \frac{2}{5}\,\hbar\\
+\end{align*}
+
+Ahora calcularemos el valor promedio de los operadores del spin mediante la
+ecuación~(\ref{eq:spn-valor-promedio-mc})
+\begin{align*}
+  \braket{\xhat{S}_x}
+  &=
+    \braket{\varphi|\xhat{S}_x|\varphi}
+    = \frac{1}{\sqrt{10}} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \frac{\hbar}{2} \begin{pmatrix} 0 & 1\\ 1 & 0\end{pmatrix}
+      \frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ i \end{pmatrix}\\
+  &= \frac{\hbar}{20} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \begin{pmatrix} i \\ 3 \end{pmatrix}
+  = \frac{\hbar}{20}\,(3i-3i) = 0
+\end{align*}
+\begin{align*}
+  \braket{\xhat{S}_y}
+  &=
+    \braket{\varphi|\xhat{S}_y|\varphi}
+    = \frac{1}{\sqrt{10}} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \frac{\hbar}{2} \begin{pmatrix} 0 & -i\\ i & 0\end{pmatrix}
+      \frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ i \end{pmatrix}\\
+  &= \frac{\hbar}{20} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \begin{pmatrix} 1 \\ 3i \end{pmatrix}
+  = \frac{\hbar}{20}\,(3+3) = \frac{3}{10}\,\hbar
+\end{align*}
+\begin{align*}
+  \braket{\xhat{S}_z}
+  &=
+    \braket{\varphi|\xhat{S}_z|\varphi}
+    = \frac{1}{\sqrt{10}} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \frac{\hbar}{2} \begin{pmatrix} 1 & 0\\ 0 & -1\end{pmatrix}
+      \frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ i \end{pmatrix}\\
+  &= \frac{\hbar}{20} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \begin{pmatrix} 3 \\ -i \end{pmatrix}
+  = \frac{\hbar}{20}\,(9-1) = \frac{2}{5}\,\hbar
+\end{align*}
+\begin{align*}
+  \braket{\xhat{S}^2}
+  &=
+    \braket{\varphi|\xhat{S}^2|\varphi}
+    = \frac{1}{\sqrt{10}} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \frac{3\hbar^2}{4} \begin{pmatrix} 1 & 0\\ 0 & 1\end{pmatrix}
+      \frac{1}{\sqrt{10}} \begin{pmatrix} 3 \\ i \end{pmatrix}\\
+  &= \frac{3\hbar^2}{40} \begin{pmatrix} 3 & -i \end{pmatrix}
+      \begin{pmatrix} 3 \\ i \end{pmatrix}
+  = \frac{3\hbar^2}{40}\,(9+1) = \frac{3}{4}\,\hbar^2
+\end{align*}
+
+
+\subsection{Incertidumbre en la medida de un observable}
+El hecho de que frecuentemente no se conozca con precisión absoluta
+el resultado de una medida, genera una incertidumbre o
+indeterminacion\footnotemark{}.
+\footnotetext{Esta incertidumbre no se basa en el desconocimiento de
+  algún parámetro. Se trata de una indeterminación \emph{intrínseca} que no
+  podemos evitar.}
+
+\subsubsection{Desviación estándar}
+Supongamos que estamos interesados en medir el resultado de la medida de
+una magnitud $x$, podemos realizar y registrar muchas medida --cuantas
+más mejor--.
+Supongamos, además, que siempre obtuviéramos el mismo valor
+\[
+  x = \set{3,3,3,3,\cdots}
+\]
+
+El valor promedio sería $\braket{x} = 3$. En estadística hay varias formas
+de medir la dispersión en la medida; una de ellas se llama desviación
+estándar $\sigma$. En nuestro ejemplo la desviación estándar valdría cero,
+$\sigma = 0$, porque no hay ninguna dispersión en las medidas.
+Cuanto mayor fuera la desviación estándar, habría menos uniformidad en
+los resultados.
+
+En mecánica cuántica la desviación estándar es una medida de la incertidumbre
+que se tiene en el valor de un observable físico.
+Su expresión para el observable $x$
+\[
+  \sigma
+  = \sqrt{\braket{x^2} - \braket{x}^2}
+\]
+
+
+\subsubsection{Incertidumbre en la medida del spin
+  \mathinhead{\xhat{S}}{imss} para nuestra
+  \mathinhead{\ket{\varphi}}{ielmds} de ejemplo}
+Queremos calcular
+\[
+  \sigma
+  = \sqrt{\braket{\xhat{S}^2} - \braket{\xhat{S}}^2}
+\]
+
+Ya se calculó anteriormente $\braket{\xhat{S}^2}$
+\[
+  \braket{\xhat{S}^2} = \frac{3}{4}\,\hbar^2
+\]
+
+\begin{align*}
+  &\braket{\xhat{S}}
+  = \braket{\varphi|\xhat{S}|\varphi}
+  =\left(\braket{\xhat{S}_x},\braket{\xhat{S}_y},\braket{\xhat{S}_z}\right)
+    = \frac{\hbar}{10}\,(0,3,4)\\
+  &\braket{\xhat{S}}^2
+  = \braket{\xhat{S}_x}^2 + \braket{\xhat{S}_y}^2 + \braket{\xhat{S}_z}^2
+  = \frac{\hbar^2}{100}\,\left(0^2 + 3^2 + 4^2\right)
+  = \frac{\hbar^2}{4}
+\end{align*}
+
+La incertidumbre en la medida del spin nos delata que hay una incertidumbre
+intrínseca en la longitud del spin
+\[
+  \sigma
+  = \sqrt{\braket{\xhat{S}^2} - \braket{\xhat{S}}^2}
+  = \sqrt{\frac{3\hbar^2}{4} - \frac{\hbar^2}{4}}
+  = \sqrt{\frac{\hbar^2}{2}}
+  = \frac{\hbar}{\sqrt{2}}
+\]
+
+Vemos que en nuestro estado $\ket{\varphi}$ el spin no tiene componente $x$
+\[
+  \braket{\xhat{S}}
+  =
+  \hbar\,(0, 3/10, 4/10)
+\]
+
+\begin{figure}[ht]
+  \begin{minipage}{.40\linewidth}
+\def\scl{1}
+\def\longeje{3}
+%
+\tdplotsetmaincoords{60}{110}
+% 
+\pgfmathsetmacro{\rvec}{2.7}
+\pgfmathsetmacro{\thetavec}{36.87}
+\pgfmathsetmacro{\phivec}{90}
+%
+
+\tikzfading[name=fade out, inner color=transparent!0,
+outer color=transparent!100]
+
+\begin{tikzpicture}[
+  scale=\scl,tdplot_main_coords,
+  ]
+  \coordinate (dx) at (2.2,0,0);
+  \coordinate (dy) at (0,2.2,0);
+  \coordinate (dz) at (0,0,2.2);
+  % Ejes de Alicia
+  \draw[ultra thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north]{$x$};
+  \draw[ultra thick,->] (0,0,0) -- (0,\longeje,0) node[anchor=north]{$y$};
+  \draw[ultra thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+
+%  % Giro eje x
+%  \tdplotsetthetaplanecoords{-90}
+%  % Notice you have to tell tiks-3dplot you are now in rotated coords
+%  % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
+%  % the former y axis is now the z axis.
+%  \tdplotdrawarc[tdplot_rotated_coords,line width=2pt,
+%  -{Latex[length=11pt,width=7pt,flex=1]},color=black!50]
+%  {(0,0,1.9)}{0.3}{380}{40}{anchor=south west,color=black}{}
+%  % Reponer parte derecha del eje y
+%  \draw[ultra thick,->] (1.9,0,0) -- (\longeje,0,0);
+%%  \tdplotdrawarc[tdplot_rotated_coords,line width=2pt,
+%%  -{Latex[round,length=6pt,width=4pt]},color=black!50]
+%%  {(0,0,1.9)}{0.3}{380}{40}{anchor=south west,color=black}{}
+%%  % Reponer parte derecha del eje y
+%%  \draw[ultra thick,->] (1.9,0,0) -- (\longeje,0,0);
+
+
+
+  \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+  % draw a vector from origin to point (P)
+  \draw[-{Stealth[width=7pt]},color=red!80!black,ultra thick] (O) -- (P)
+  node[above right=0pt and 0pt] {\footnotesize $\braket{\vec{S}}$};
+  
+  % draw projection on xy plane, and a connecting line
+  \draw[dashed, color=red] (P) -- (Pz);
+  \draw[dashed, color=red] (P) -- (Pxy);
+  \tdplotsetthetaplanecoords{\thetavec}
+
+  % draw the angle \phi, and label it
+  % syntax:
+  % \tdplotdrawarc[coordinate frame, draw options]
+  % {center point}{r}{angle}{label options}{label}
+  \tdplotdrawarc{(O)}{0.8}{0}{\phivec}{anchor=north}{\footnotesize $\pi/2$}
+
+  % set the rotated coordinate system so the x'-y' plane lies within the
+  % "theta plane" of the main coordinate system
+  % syntax: \tdplotsetthetaplanecoords{\phi}
+  \tdplotsetthetaplanecoords{\phivec}
+
+  % draw theta arc and label, using rotated coordinate system
+  \tdplotdrawarc[tdplot_rotated_coords]
+  {(0,0,0)}{0.8}{0}{\thetavec}{above right=1pt and 1pt}{\footnotesize $\theta$}
+  
+\end{tikzpicture}
+\caption{El spin para la $\ket{\varphi}$ del ejemplo no tiene componente $x$.}
+\label{fig:spn-vector-S}
+
+\end{minipage}
+\hspace{1em}
+\begin{minipage}{.55\linewidth}
+  \vspace{-14ex}
+
+Calculamos el ángulo $\theta$
+\[
+  \tan\theta
+  =
+  \frac{\braket{\xhat{S}_y}}{\braket{\xhat{S}_z}}
+  =
+  \frac{3\cancelout{\hbar}/\cancelout{10}}{4\cancelout{\hbar}/\cancelout{10}}
+  =
+  \frac{3}{4}
+\]
+
+El ángulo es aproximadamente igual a $\ang{38,7}$ o en radianes
+\[
+  \theta \approx 0,205\pi\,\si{\radian}
+\]
+
+En coordenadas esféricas
+\[
+  \braket{\xhat{S}}
+  =
+  (\hbar/2, 0.205\pi, \pi/2)
+\]
+\end{minipage}
+\end{figure}
+
+Otra forma de expresar el spin sería
+\[
+  \cos\theta
+  = \frac{\braket{\xhat{S}_z}}{|\braket{\xhat{S}}|}
+  = \frac{2\cancelout{\hbar}/5}{\cancelout{\hbar}/2}
+  = \frac{4}{5}
+  ;\hspace{1em}
+  \sin\theta
+  = \frac{\braket{\xhat{S}_y}}{|\braket{\xhat{S}}|}
+  = \frac{3\cancelout{\hbar}/10}{\cancelout{\hbar}/2}
+  = \frac{3}{5}
+\]
+\begin{align*}
+  \braket{\xhat{S}}
+  &=
+  (0, |\braket{\xhat{S}}| \sin\theta, |\braket{\xhat{S}}| \cos\theta)
+  =
+  |\braket{\xhat{S}}|\,(0,\sin\theta,\cos\theta)\\
+  &=
+  \frac{\hbar}{2}\,(0,3/5,4/5)
+\end{align*}
+
+
+\subsubsection{Giro de \mathinhead{\braket{\xhat{S}}}{gds} para
+  la \mathinhead{\ket{\varphi}}{gdspl}}
+Como divertimento vamos a girar el vector $\braket{\xhat{S}}$ alrededor del
+eje $x$ un ángulo aproximado de $\ang{36,87}$ en sentido positivo y deberíamos
+comprobar que el spin se alinea con el eje $z$ y resultará
+\[
+  \braket{\xhat{S}'} = \frac{\hbar}{2}\,(0,0,1)
+\]
+
+\begin{figure}[ht]
+\def\scl{1}
+\def\longeje{3}
+%
+\tdplotsetmaincoords{60}{110}
+% 
+\pgfmathsetmacro{\rvec}{2.7}
+\pgfmathsetmacro{\thetavec}{36.87}
+\pgfmathsetmacro{\phivec}{90}
+%
+
+\tikzfading[name=fade out, inner color=transparent!0,
+outer color=transparent!100]
+
+\begin{tikzpicture}[
+  scale=\scl,tdplot_main_coords,
+  ]
+  % SISTEMA ORIGINAL (A LA IZQUIERDA)
+  % Para 'tikz-3dplot' son los ejes principales
+  \draw[ultra thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north]{$x$};
+  \draw[ultra thick,->] (0,0,0) -- (0,\longeje,0) node[anchor=north]{$y$};
+  \draw[ultra thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+
+  % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE X
+  \tdplotsetthetaplanecoords{-90}
+  % Notice you have to tell tiks-3dplot you are now in rotated coords
+  % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
+  % the former y axis is now the z axis.
+  \tdplotdrawarc[tdplot_rotated_coords,line width=2pt,
+  -{Latex[round,length=12pt,width=7pt,bend]},color=black!30]
+  {(0,0,1.9)}{0.3}{10}{360}{anchor=south west,color=black}{}
+  % Reponer parte final del eje x para simular perspectiva
+  \draw[ultra thick,->] (1.9,0,0) -- (\longeje,0,0);
+
+  % VECTOR DE SPIN ORIGINAL
+  % Define el extremo del vector (P) y sus proyecciones (Px), (Py), (Pxy), etc.
+  \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+  % Dibuja el vector desde el origen hasta el punto (P)
+  \draw[-{Latex[width=7pt]},color=red!90!black,line width=2pt] (O) -- (P)
+  node[above right=-1pt and -1pt] {\footnotesize $\braket{\vec{S}}$};
+  
+  % PROYECCIONES
+  % Proyección del spin en línea roja discontínua en el plano xy y en el eje z
+  \draw[dashed, color=red] (P) -- (Pz);
+  \draw[dashed, color=red] (P) -- (Pxy);
+  \tdplotsetthetaplanecoords{\thetavec}
+
+  % ÁNGULO PHI
+  \tdplotsetthetaplanecoords{\thetavec}
+  % Dibuja el ángulo \phi y etiquétalo
+  % sintaxis:
+  % \tdplotdrawarc[coordinate frame, draw options]
+  % {center point}{r}{angle}{label options}{label}
+  \tdplotdrawarc{(O)}{0.8}{0}{\phivec}{anchor=north}{\footnotesize $\pi/2$}
+
+  % ÁNGULO THETA
+  % set the rotated coordinate system so the x'-y' plane lies within the
+  % "theta plane" of the main coordinate system
+  % sintaxis: \tdplotsetthetaplanecoords{\phi}
+  \tdplotsetthetaplanecoords{\phivec}
+  % draw theta arc and label, using rotated coordinate system
+  \tdplotdrawarc[tdplot_rotated_coords,{Latex}-,shorten <=1pt]
+  {(0,0,0)}{0.8}{0}{\thetavec}{above right=1pt and 1pt}{\footnotesize $\theta$}
+
+  % FLECHA QUE APUNTA AL SISTEMA ROTADO (CENTRO)
+  % (dibujo auxiliar fuera del sistema 3D)
+  \begin{scope}[xshift=3.5cm]
+    \draw[-{Latex}] (0,0,0) --
+    node[above] {\small Giro activo}
+    node[below] {\small $\theta$\,\,\si{\radian} (eje $x$)}
+    +(right:2.5cm);
+  \end{scope}
+  
+  % El sistema rotado tiene la misma orientación que el principal
+  \tdplotsetrotatedcoords{0}{0}{0}
+  \begin{scope}[tdplot_screen_coords]
+    % Desplazamiento del origen a 7.5cm a la derecha de (O)
+    \coordinate (despl) at (7.5,0);
+    % Punto extremo del vector (S) antes de rotar
+    \path (P)+(despl) circle [radius=2pt] coordinate (Pp);
+  \end{scope}
+  % Desplaza el sistema rotado 
+  \tdplotsetrotatedcoordsorigin{(despl)}
+
+  % Ejes trasladados
+  \draw[ultra thick,->,tdplot_rotated_coords]
+  (0,0,0) -- (\longeje,0,0) node[anchor=north]{$x$};
+  \draw[ultra thick,->,tdplot_rotated_coords]
+  (0,0,0) -- (0,\longeje,0) node[anchor=north]{$y$};
+  \draw[ultra thick,->,tdplot_rotated_coords]
+  (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+
+  % Vector de spin antes de rotar en gris claro
+  \draw[-{Latex[width=7pt]},black!20,line width=2pt,tdplot_screen_coords]
+  (despl) -- (Pp)
+  node[above right=-1pt and -1pt] {\footnotesize $\braket{\vec{S}}$};
+  
+  % Vector de spin rotado en rojo
+  \draw[-{Latex[width=7pt]},red!90!black,line width=2pt,tdplot_rotated_coords]
+  (0,0,0) -- (0,0,\rvec) node[left=3pt] {\footnotesize $\braket{\vec{S}}$};
+  
+  \tdplotsetrotatedthetaplanecoords{\phivec}
+  % Dibuja el ángulo theta y etiquétalo, usando el sistema rotado.
+  \tdplotdrawarc[tdplot_rotated_coords,
+  {Latex[round,length=5pt,width=4pt,bend]}-,shorten <=1pt,color=black!40]
+  {(0,0,0)}{0.8}{0}{\thetavec}{above right=1pt and 1pt}{\footnotesize $\theta$}  
+
+  % Giro eje x
+  \tdplotsetrotatedthetaplanecoords{180}
+  % Notice you have to tell tiks-3dplot you are now in rotated coords
+  % Since tikz-3dplot swaps the planes in tdplotsetthetaplanecoords,
+  % the former y axis is now the z axis.
+  \tdplotdrawarc[tdplot_rotated_coords,line width=2pt,
+  -{Latex[round,length=12pt,width=7pt,bend]},color=black!30]
+  {(0,0,1.9)}{0.3}{10}{360}{anchor=south west,color=black}{}
+  % Reponer parte derecha del eje x
+  \draw[ultra thick,->,tdplot_rotated_coords] (0,0,1.9) -- (0,0,\longeje);
+  
+\end{tikzpicture}
+\caption{Al girar un ángulo $\theta\approx\ang{+36,87}$ el vector de
+  estado $\ket{\varphi}$ de ejemplo, esperamos que gire el vector
+  de spin.}
+\label{fig:spn-giro-vector-S}
+\end{figure}
+
+Vamos a rotar nuestro vector de estado de ejemplo
+\begin{equation}\label{eq:spn-giroxvectorestado}
+  \ket{\tilde{\varphi}} =  e^{-i\frac{\theta}{\hbar}\,\xhat{S}_x}  \ket{\varphi}
+\end{equation}
+
+Sustituimos la matriz que representa al operador $\xhat{S}_x$ y
+usamos la identidad de Euler
+\begin{align*}
+  e^{-i\frac{\theta}{\hbar}\,\xhat{S}_x}
+  &=
+  e^{-i\frac{\theta}{\hbar}\,
+  {\scriptscriptstyle\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix}}}
+  = \begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix}\cos\left(-\frac{\theta}{2}\right)
+  +i\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix}\sin\left(-\frac{\theta}{2}\right)\\
+   &=
+     \begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix}\cos\left(\frac{\theta}{2}\right)
+    -i\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix}\sin\left(\frac{\theta}{2}\right)\\
+  &=
+    \begin{pmatrix}
+      \cos(\theta/2) & -i\sin(\theta/2)\\
+      -i\sin(\theta/2) & \cos(\theta/2)
+    \end{pmatrix}
+\end{align*}
+
+Calculamos las funciones trigonométricas
+\begin{align*}
+  \cos\left(\frac{\theta}{2}\right)
+  &= \sqrt{\frac{1+\cos\theta}{2}}
+    = \sqrt{\frac{1+4/5}{2}}
+    =\frac{3}{\sqrt{10}}\\
+  \sin\left(\frac{\theta}{2}\right)
+  &= \sqrt{\frac{1-\cos\theta}{2}}
+    = \sqrt{\frac{1-4/5}{2}}
+    =\frac{1}{\sqrt{10}}
+\end{align*}
+
+La exponencial queda
+\[
+  e^{-i\frac{\theta}{\hbar}\,\xhat{S}_x}
+  = \begin{pmatrix}
+    3/\sqrt{10} & -i/\sqrt{10}\\
+    -i/\sqrt{10} & 3/\sqrt{10}
+  \end{pmatrix}
+  = \frac{1}{\sqrt{10}}
+  \begin{pmatrix}
+    3 & -i\\
+    -i & 3
+  \end{pmatrix}
+\]
+
+Ahora podemos girar el vector de estado según~(\ref{eq:spn-giroxvectorestado})
+\[
+  \ket{\tilde{\varphi}}
+  = \frac{1}{\sqrt{10}}
+  \begin{pmatrix}
+    3 & -i \\
+    -i & 3
+  \end{pmatrix}
+  \frac{1}{\sqrt{10}}
+  \begin{pmatrix}
+    3 \\ i
+  \end{pmatrix}
+  =
+  \frac{1}{10}
+  \begin{pmatrix}
+    9+1 \\ -3i+3i
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    1 \\ 0
+  \end{pmatrix}
+  =
+  \ket{z+}
+\]
+y vemos que el vector de estado rotado se encuentra sobre el eje $z$.
+Al medir ahora $\xhat{S}_z$ nos daría $+\hbar/2$ con un \SI{100}{\percent}
+de seguridad.
+
+Aún así vamos a comprobarlo
+\begin{align*}
+  \braket{\tilde{\varphi}|\xhat{S}_x|\tilde{\varphi}}
+  &=
+    \begin{pmatrix}
+      1 & 0
+    \end{pmatrix}
+    \frac{\hbar}{2}
+    \begin{pmatrix}
+      0 & 1\\
+      1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 \\ 0
+    \end{pmatrix}
+  = 0\\
+  \braket{\tilde{\varphi}|\xhat{S}_y|\tilde{\varphi}}
+  &=
+    \begin{pmatrix}
+      1 & 0
+    \end{pmatrix}
+    \frac{\hbar}{2}
+    \begin{pmatrix}
+      0 & i\\
+      i & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 \\ 0
+    \end{pmatrix}
+  = 0\\
+  \braket{\tilde{\varphi}|\xhat{S}_x|\tilde{\varphi}}
+  &=
+    \begin{pmatrix}
+      1 & 0
+    \end{pmatrix}
+    \frac{\hbar}{2}
+    \begin{pmatrix}
+      1 & 0\\
+      0 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 \\ 0
+    \end{pmatrix}
+  = \frac{\hbar}{2}
+\end{align*}
+
+El giro del vector de estado provoca un giro del spin
+\[
+  \braket{\tilde{\vvv{S}}}
+  = \braket{\tilde{\varphi}|\vvv{S}|\tilde{\varphi}}
+\]
+
+Con esto hemos demostrado que
+\[
+  e^{-i\frac{\theta}{\hbar}\,\left(\xhat{n}\cdot\vvv{S}\right)}
+\]
+gira los elementos del espacio de Hilbert $\symbb{C}^2$.
+
+
+
+
+
+  
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie.tex"
+%%% End:
+  
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../gruposlie.tex"
+%%% End:

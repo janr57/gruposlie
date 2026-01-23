@@ -1841,6 +1841,9 @@ variable $x$ de la función rotada.
 \pgfmathsetmacro{\xvec}{0}
 \pgfmathsetmacro{\yvec}{\longeje}
 \pgfmathsetmacro{\zvec}{\longeje}
+% Fondo
+\pgfmathsetmacro{\HORZ}{0.25}
+\pgfmathsetmacro{\VERT}{0.25}
 %
 \centering
 \begin{tikzpicture}[
@@ -1912,15 +1915,12 @@ variable $x$ de la función rotada.
     \node[left,red!80!black] at (ddz) {$\xtilde{z}$};
   \end{scope}
 
+  % Fondo amarillo
+  \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+  \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
   \begin{scope}[on background layer]
-    % \node [line width=1pt, draw=black!10,fill=yellow!20,
-    % fit= (x) (z) (ddy)] {};
-    \filldraw[background]
-    rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
-    \fill[backgroundonly]
-    rectangle (-1.8cm, -2.1cm) rectangle (3.6cm + 10cm, 3.3cm);
+    \draw[background] (SW) rectangle (NE);
   \end{scope}
-  
 \end{tikzpicture}
 \caption{Se representan de forma abstracta en rojo las variables de la función que se va
   a rotar \ang{-90}. El eje $y$ de la función original se traza con mayor grosor para

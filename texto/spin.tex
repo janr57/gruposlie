@@ -37,7 +37,7 @@ nuestra misión es:
   ``Encontrar tres matrices $\xhat{S}_x$, $\xhat{S}_y$ y $\xhat{S}_z$
   cuadradas $N\times N$, que se comporten como un vector bajo rotaciones,
   que cumplan las propiedades del momento angular y con las leyes de la
-  mecánica cuántica (en particular que sean hermíticas).
+  mecánica cuántica (en particular que sean hermíticas).''
 \end{quote}
 
 Al final veríamos qué relación tiene todo esto con la realidad, sobre todo
@@ -225,7 +225,10 @@ en la figura~\ref{fig:spn-alice}
 \pgfmathsetmacro{\xvec}{0}
 \pgfmathsetmacro{\yvec}{\longeje}
 \pgfmathsetmacro{\zvec}{0}
-
+% Fondo
+\pgfmathsetmacro{\HORZ}{0.25}
+\pgfmathsetmacro{\VERT}{0.25}
+%
 \tikzfading[name=fade out, inner color=transparent!0, outer
 color=transparent!100]
 
@@ -372,12 +375,19 @@ color=transparent!100]
     % callout absolute pointer={(b.mouth)},font=\tiny] {Soy Alicia};
   \end{scope}
 
+  % Fondo amarillo
+  \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+  \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
   \begin{scope}[on background layer]
-    \filldraw[background]
-    rectangle (-2.1cm, -2.2cm) rectangle (3.4cm + 12cm, 3.4cm);     
-    \fill[backgroundonly]
-    rectangle (-2.1cm, -2.2cm) rectangle (3.4cm + 12cm, 3.4cm);     
+    \draw[background] (SW) rectangle (NE);
   \end{scope}
+
+%  \begin{scope}[on background layer]
+%    \filldraw[background]
+%    rectangle (-2.1cm, -2.2cm) rectangle (3.4cm + 12cm, 3.4cm);     
+%    \fill[backgroundonly]
+%    rectangle (-2.1cm, -2.2cm) rectangle (3.4cm + 12cm, 3.4cm);     
+%  \end{scope}
   
 \end{tikzpicture}
 \caption{A la izquierda de la figura el bosón aparece tal y como lo veía
@@ -933,8 +943,23 @@ al mayor, y además la dimensión del espacio de Hilbert fuera, por ejemplo $N=4
 tendríamos una situación como la representada en la figura~\ref{fig:spn-msteps}
 \begin{figure}[ht]
   \def\scl{2}
+  % Fondo
+  \pgfmathsetmacro{\HORZ}{0.25}
+  \pgfmathsetmacro{\VERT}{0.25}
+  % 
   \centering
-  \begin{tikzpicture}[scale=\scl]
+  \begin{tikzpicture}[%
+    scale=\scl,
+    background/.style={
+      line width=\bgborderwidth,
+      draw=\bgbordercolor,
+      fill=\bgcolor,
+    },
+    backgroundonly/.style={
+      line width=\bgborderwidth,
+      fill=\bgcolor,
+    },
+    ]
     \pgfmathsetmacro{\N}{5};
     \coordinate (O) at (0,0);
     \draw[-{Latex}] (O) -- +(right:\N) node[below right] {m};
@@ -949,6 +974,13 @@ tendríamos una situación como la representada en la figura~\ref{fig:spn-msteps
 
     \node[below right=3pt and -7pt] at (1,0) {$m\kern1pt_{\text{inf}}$};
     \node[below right=3pt and -7pt] at (\N-1,0) {$m\kern1pt_\text{sup}$};
+    % Fondo amarillo
+    \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+    \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+    \begin{scope}[on background layer]
+      \draw[background] (SW) rectangle (NE);
+    \end{scope}
+    
   \end{tikzpicture}
   \caption{Los cuatro puntos representan los valores propios de
     $\xhat{S}_z$ en un espacio de Hilbert de dimensión $N=4$. El
@@ -2725,7 +2757,8 @@ formada por los vectores propios de $\mmm{A}$ dispuestos en columnas.
     \draw (m-1-1.north west) rectangle (m-2-1.south east);
     \draw (m-1-2.north west) rectangle (m-2-2.south east);
     \draw (m-1-1.center) node[below] {$\vvv{v}_1$};
-    \draw (m-1-2.south) node {$\vvv{v}_2$};    
+    \draw (m-1-2.south) node {$\vvv{v}_2$};
+    
   \end{tikzpicture}
 \]
 
@@ -2753,7 +2786,8 @@ ser la matriz identidad
     \draw (m-1-1.north west) rectangle (m-2-1.south east);
     \draw (m-1-2.north west) rectangle (m-2-2.south east);
     \draw (m-1-1.center) node[below] {$\vvv{v}_1$};
-    \draw (m-1-2.south) node {$\vvv{v}_2$};    
+    \draw (m-1-2.south) node {$\vvv{v}_2$};
+    
   \end{tikzpicture}
   =
   \begin{tikzpicture}[baseline={(m.center)}]
@@ -3789,13 +3823,24 @@ Vemos que en nuestro estado $\ket{\varphi}$ el spin no tiene componente $x$
 \pgfmathsetmacro{\rvec}{2.7}
 \pgfmathsetmacro{\thetavec}{36.87}
 \pgfmathsetmacro{\phivec}{90}
+% Fondo
+\pgfmathsetmacro{\HORZ}{0.25}
+\pgfmathsetmacro{\VERT}{0.25}
 %
-
 \tikzfading[name=fade out, inner color=transparent!0,
 outer color=transparent!100]
 
 \begin{tikzpicture}[
   scale=\scl,tdplot_main_coords,
+    background/.style={
+      line width=\bgborderwidth,
+      draw=\bgbordercolor,
+      fill=\bgcolor,
+    },
+    backgroundonly/.style={
+      line width=\bgborderwidth,
+      fill=\bgcolor,
+    },  
   ]
   \coordinate (dx) at (2.2,0,0);
   \coordinate (dy) at (0,2.2,0);
@@ -3847,7 +3892,13 @@ outer color=transparent!100]
   % draw theta arc and label, using rotated coordinate system
   \tdplotdrawarc[tdplot_rotated_coords]
   {(0,0,0)}{0.8}{0}{\thetavec}{above right=1pt and 1pt}{\footnotesize $\theta$}
-  
+  % Fondo amarillo
+  \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+  \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+  \begin{scope}[on background layer]
+    \draw[background] (SW) rectangle (NE);
+  \end{scope}
+
 \end{tikzpicture}
 \caption{El spin para la $\ket{\varphi}$ del ejemplo no tiene componente $x$.}
 \label{fig:spn-vector-S}
@@ -3923,13 +3974,24 @@ comprobar que el spin se alinea con el eje $z$ y resultará
 \pgfmathsetmacro{\rvec}{2.7}
 \pgfmathsetmacro{\thetavec}{36.87}
 \pgfmathsetmacro{\phivec}{90}
+% Fondo
+\pgfmathsetmacro{\HORZ}{0.25}
+\pgfmathsetmacro{\VERT}{0.25}
 %
-
 \tikzfading[name=fade out, inner color=transparent!0,
 outer color=transparent!100]
 
 \begin{tikzpicture}[
   scale=\scl,tdplot_main_coords,
+  background/.style={
+    line width=\bgborderwidth,
+    draw=\bgbordercolor,
+    fill=\bgcolor,
+  },
+  backgroundonly/.style={
+    line width=\bgborderwidth,
+    fill=\bgcolor,
+  },  
   ]
   % SISTEMA ORIGINAL (A LA IZQUIERDA)
   % Para 'tikz-3dplot' son los ejes principales
@@ -3980,11 +4042,11 @@ outer color=transparent!100]
 
   % FLECHA QUE APUNTA AL SISTEMA ROTADO (CENTRO)
   % (dibujo auxiliar fuera del sistema 3D)
-  \begin{scope}[xshift=3.5cm]
+  \begin{scope}[xshift=3.25cm]
     \draw[-{Latex}] (0,0,0) --
     node[above] {\small Giro activo}
     node[below] {\small $\theta$\,\,\si{\radian} (eje $x$)}
-    +(right:2.5cm);
+    +(right:2.0cm);
   \end{scope}
   
   % El sistema rotado tiene la misma orientación que el principal
@@ -4031,6 +4093,13 @@ outer color=transparent!100]
   {(0,0,1.9)}{0.3}{10}{360}{anchor=south west,color=black}{}
   % Reponer parte derecha del eje x
   \draw[ultra thick,->,tdplot_rotated_coords] (0,0,1.9) -- (0,0,\longeje);
+
+  % Fondo amarillo
+  \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
+  \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+  \begin{scope}[on background layer]
+    \draw[background] (SW) rectangle (NE);
+  \end{scope}
   
 \end{tikzpicture}
 \caption{Al girar un ángulo $\theta\approx\ang{+36,87}$ el vector de

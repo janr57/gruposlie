@@ -846,7 +846,22 @@ La función rotada tiene el valor
 
 \begin{figure}[ht]
   \def\scl{1}
-  % 
+  % Color de vector original
+  \newcommand{\colororig}{black!30}
+  % \newcommand{\colororig}{green!70!black}
+  % Color texto vector original
+  \newcommand{\colortxtorig}{black!60}
+  %\newcommand{\colortxtorig}{green!60!black}  
+  % Color punto original
+  %\newcommand{\colorptoorig}{green}
+  \newcommand{\colorptoorig}{gray}
+  % Color de vector rotado
+  \newcommand{\colorrot}{red!90!black}
+  % Color texto vector rotado
+  \newcommand{\colortxtrot}{red!60!black}
+  % Color punto rotado
+  \newcommand{\colorptorot}{red}
+  %
   \tdplotsetmaincoords{60}{110}
   %
   % Longitud de los ejes x e y
@@ -877,14 +892,14 @@ La función rotada tiene el valor
     angulogiro/.style={%
       line width=1.4pt,-{Latex[round,length=7pt,width=4.5pt,bend]},black!30},
     eje/.style={line width=0.5pt, ->},
-    vectorR/.style={-{Latex[width=6pt,length=6pt]},green!70!black,line width=1.2pt},
-    vectorRt/.style={-{Latex[width=6pt,length=6pt]},red!90!black,line width=1.2pt},
+    vectorR/.style={-{Latex[width=6pt,length=6pt]},\colororig,line width=1.2pt},
+    vectorRt/.style={-{Latex[width=6pt,length=6pt]},\colorrot,line width=1.2pt},
     puntoP/.style={fill=black,draw=black,radius=0.8pt},
     puntoPt/.style={fill=black,draw=black,radius=0.8pt},
-    puntoR/.style={fill=green,draw=black,radius=1.4pt},
-    puntoRt/.style={fill=red,draw=black,radius=1.4pt},
-    textoP/.style={green!60!black},
-    textoPt/.style={red!60!black},
+    puntoR/.style={fill=\colorptoorig,draw=black,radius=1.4pt},
+    puntoRt/.style={fill=\colorptorot,draw=black,radius=1.4pt},
+    textoP/.style={color=\colortxtorig},
+    textoPt/.style={color=\colortxtrot},
     textoR/.style={textoP},
     textoRt/.style={textoPt},
     lineaguia/.style={black!50, line width=0.8pt, densely dotted},
@@ -967,7 +982,7 @@ La función rotada tiene el valor
       \draw[background] (SW) rectangle (NE);
     \end{scope}
   \end{tikzpicture}
-  \caption{Rotación de \ang{90} de un punto $\vvv{r}$, en verde, de la función
+  \caption{Rotación de \ang{90} de un punto $\vvv{r}$, en gris, de la función
     original $\Psi(x,y,z) = 2x + 3y$, alrededor del eje $z$, hasta el punto
     $\xtilde{r}$, en rojo, de la función rotada $\tilde{\Psi}=-3x+2y$.}
   \label{fig:cua-rot-ejsenc-funcion}

@@ -17,7 +17,7 @@ FILES =	gruposlie.pkg.sty\
 	texto/momangcuantico.tex\
 	apendices/ap_matrizrotaciongeneral.tex\
 	apendices/ap_algebralie.tex\
-	$(IMGSTATICDIR)/Cc-by-nc-sa_icon.pfg
+	$(IMGSTATICDIR)/Cc-by-nc-sa_icon.pdf
 	#texto/spin.tex\
 	#texto/poincare.tex
 

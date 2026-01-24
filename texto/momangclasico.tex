@@ -497,22 +497,18 @@ figura~\ref{fig:cla-giro-pos-momento}
     scale=\scl,
     every node/.style={black,font=\small},
     eje/.style={->},
-    posicion/.style={%
-      -{Latex}, shorten >=1.2pt, line width=.8pt, draw=green!50!black},
-    textopos/.style={%
-      below right=-2.2pt and 0pt,green!50!black},
-    momento/.style={%
-      -{Latex}, line width=0.5pt, draw=green!50!black},
-    textomomento/.style={color=green!50!black, right=-1.5pt},
-    posicionrotado/.style={posicion, draw=red!75!black},
-    textoposrotado/.style={%
-      above=2pt, red!75!black},
-    momentorotado/.style={%
-      momento, draw=red!75!black},
+    posicion/.style={-{Latex}, shorten >=1.2pt, line width=.8pt, draw=\colorVorig},
+    textopos/.style={below right=-2.2pt and 0pt,\colorTorig},
+    momento/.style={-{Latex}, line width=0.5pt, draw=\colorVorig},
+    textomomento/.style={color=\colorTorig, right=-1.5pt},
+    posicionrotado/.style={posicion,draw=\colorVrot},
+    textoposrotado/.style={above=2pt, \colorTrot},
+    momentorotado/.style={momento, \colorVrot},
     textomomrotado/.style={%
-      below left=-4pt and -1pt, red!75!black},
-    rcirculo/.style={fill=green!90!black, draw=black},
-    rprimacirculo/.style={red, draw=black},
+      below left=-4pt and -1pt, \colorTrot},
+    rcirculo/.style={fill=\colorPorig, draw=black},
+    rprimacirculo/.style={\colorProt, draw=black},
+    angulogirado/.style={fill=\colorAng, draw=\colorGirouno},
     background/.style={
       line width=\bgborderwidth,
       draw=\bgbordercolor,
@@ -546,11 +542,11 @@ figura~\ref{fig:cla-giro-pos-momento}
     % --- DIBUJO
     % ÁNGULO THETA EN VECTORES POSICIÓN
     \path (r) -- (O) -- (r') pic
-    [-{Latex[length=3.6pt]},draw=black!70!,fill=green!20,"\footnotesize $\theta$",angle
-    radius=6mm, angle eccentricity=1.4] {angle = r--O--r'};
+    [-{Latex[length=3.6pt]},angulogirado,"\footnotesize $\theta$",angle radius=6mm,
+    angle eccentricity=1.4] {angle = r--O--r'};
     % ÁNGULO THETA EN VECTORES MOMENTO
     \path (lineagris) -- (r') -- (p') pic
-    [-{Latex[length=3.6pt]},draw=black!70!,fill=green!20,"\footnotesize $\theta$",angle
+    [-{Latex[length=3.6pt]},draw=black!70!,angulogirado,"\footnotesize $\theta$",angle
     radius=5mm, angle eccentricity=1.5] {angle = lineagris--r'--p'};
     % EJES
     \draw[eje] (xini) -- (xfin);
@@ -566,7 +562,7 @@ figura~\ref{fig:cla-giro-pos-momento}
     % PUNTO INICIAL PARTÍCULA
     \fill[rcirculo] (r) circle [radius=1.4pt];
     % Línea vertical en la posición final
-    \draw[black!15] (r') -- (lineagris);
+    \draw[line width=0.5pt, black!5,loosely dotted] (r') -- (lineagris);
     % VECTOR r'
     \draw[posicionrotado] (O) -- (r');
     \node[textoposrotado] at (OR'midway) {$\vvv{r}'$};

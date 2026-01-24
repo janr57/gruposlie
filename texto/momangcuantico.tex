@@ -421,11 +421,15 @@ ver en la figura~\ref{fig:cua-funcrot2}
       baseline,
       every node/.style={black,font=\small},
       eje/.style={->},
-      vector/.style={%
-        -{Latex}, shorten >=1.0pt, line width=1.2pt, draw=green!50!black},
+      vector/.style={-{Latex}, shorten >=1.0pt, line width=1.2pt, draw=\colorVorig},
       vectorrotado/.style={%
-        -{Latex}, shorten >=1.0pt, line width=1.2pt, draw=red!70!black},
+        -{Latex}, shorten >=1.0pt, line width=1.2pt, draw=\colorVrot},
+      ptoorig/.style={fill=\colorPorig, draw=black},
+      ptorot/.style={fill=\colorProt, draw=black},
+      textoorig/.style={\colorTorig},
+      textorot/.style={\colorTrot},
       dimmed/.style={lightgray, line width=.8pt, dotted},
+      angulogirado/.style={fill=\colorAng, draw=\colorGirouno},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -448,13 +452,13 @@ ver en la figura~\ref{fig:cua-funcrot2}
       \node[above, name=letraejey] at (yfin) {$y$};
       % ÁNGULO DE GIRO
       \path (P) -- (O) -- (Pt) pic [%
-      -{Latex[]},draw=black,fill=black!15,"\scriptsize $\ang{\ANG}$",
+      -{Latex[]},angulogirado,"\scriptsize $\ang{\ANG}$",
       angle radius=6.3mm, angle eccentricity=0.6] {angle = P--O--Pt};
       % VECTOR P
       % Vector de posición del punto P
       \draw[vector] (O) -- (P);
-      \filldraw[fill=green, draw=black] (P) circle[radius=1.2pt];
-      \node[above right=0pt and -3pt, green!40!black] at (P)
+      \filldraw[ptoorig] (P) circle[radius=1.2pt];
+      \node[above right=0pt and -3pt, \colorTorig] at (P)
       {\footnotesize $\vvv{P}\,(2,0,0)$};
       % VECTOR Pt
       % Vector de posición del punto P
@@ -473,8 +477,8 @@ ver en la figura~\ref{fig:cua-funcrot2}
         \draw[background] (SW) rectangle (NE);
       \end{scope}
     \end{tikzpicture}
-    \caption{Un vector (o punto) $\vvv{P}$, en verde, y el vector rotado
-      $\xtilde{P}$ rotado, en rojo.}
+    \caption{Un vector $\vvv{P}$, en verde, y el vector rotado $\xtilde{P}$ rotado, en
+      rojo.}
     \label{fig:cua-funcrot1}
   \end{minipage}
   \hspace{1em}
@@ -505,11 +509,15 @@ ver en la figura~\ref{fig:cua-funcrot2}
       baseline,
       every node/.style={black,font=\small},
       eje/.style={->},
-      vector/.style={%
-        -{Latex}, shorten >=1.0pt, line width=1.2pt, draw=green!50!black},
+      vector/.style={-{Latex}, shorten >=1.0pt, line width=1.2pt, draw=\colorVorig},
       vectorrotado/.style={%
-        -{Latex}, shorten >=1.0pt, line width=1.2pt, draw=red!70!black},
+        -{Latex}, shorten >=1.0pt, line width=1.2pt, draw=\colorVrot},
+      ptoorig/.style={fill=\colorPorig, draw=black},
+      ptorot/.style={fill=\colorProt, draw=black},
+      textoorig/.style={\colorTorig},
+      textorot/.style={\colorTrot},
       dimmed/.style={lightgray, line width=.8pt, dotted},
+      angulogirado/.style={fill=\colorAng, draw=\colorGirouno},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -523,7 +531,7 @@ ver en la figura~\ref{fig:cua-funcrot2}
       \coordinate (yini) at (0,-\YMLONG cm);
       \coordinate (yfin) at (0,\YPLONG cm);
       \coordinate (Q) at (\QANG:\QMOD cm);
-      \coordinate (Qt) at (\QtANG:\QtMOD cm);      
+      \coordinate (Qt) at (\QtANG:\QtMOD cm);
       \path (O) -- coordinate (OQmidway) (P);
       \coordinate (Q) at (\QANG:\QMOD cm);
       \path (O) -- coordinate (OQmidway) (P);
@@ -535,21 +543,20 @@ ver en la figura~\ref{fig:cua-funcrot2}
       \node[above, name=letraejey] at (yfin) {$y$};
       % ÁNGULO DE GIRO
       \path (Q) -- (O) -- (Qt) pic [%
-      -{Latex[]},draw=black,fill=black!15,"\scriptsize $\ang{\ANG}$",angle radius=6.3mm,
+      -{Latex[]},angulogirado,"\scriptsize $\ang{\ANG}$",angle radius=6.3mm,
       angle eccentricity=0.60]
       {angle = Q--O--Qt};
       %\node at (0,0.35) {\footnotesize \ang{\ANG}};
       % VECTOR Q
       % Vector de posición del punto Q
       \draw[vector] (O) -- (Q);
-      \filldraw[fill=green, draw=black] (Q) circle[radius=1.2pt];
-      \node[above right=-3pt and -3pt, green!40!black] at (Q)
-      {\scriptsize $\vvv{Q}\,(3,3,0)$};
+      \filldraw[ptoorig] (Q) circle[radius=1.2pt];
+      \node[above right=0pt and -7pt, textoorig] at (Q) {\scriptsize $\vvv{Q}\,(3,3,0)$};
       % VECTOR Qt
       % Vector de posición del punto Qpp
       \draw[vectorrotado] (O) -- (Qt);
-      \filldraw[fill=red, draw=black] (Qt) circle[radius=1.2pt];
-      \node[above right=-3pt and -3pt, red!70!black] at (Qt)
+      \filldraw[ptorot] (Qt) circle[radius=1.2pt];
+      \node[above right=0pt and -7pt, textorot] at (Qt)
       {\scriptsize $\xtilde{Q}\,(-3,3,0)$};
       % Origen
       \filldraw (O) circle [radius=.8pt];
@@ -562,8 +569,7 @@ ver en la figura~\ref{fig:cua-funcrot2}
         \draw[background] (SW) rectangle (NE);
       \end{scope}
     \end{tikzpicture}
-    \caption{Otro vector (o punto) $\vvv{Q}$, en verde, y el vector rotado
-      $\tilde{Q}$, en rojo.}
+    \caption{Otro vector $\vvv{Q}$, en verde, y el vector rotado $\tilde{Q}$, en rojo.}
     \label{fig:cua-funcrot2}
   \end{minipage}
 \end{figure}
@@ -1849,35 +1855,34 @@ variable $x$ de la función rotada.
 \begin{tikzpicture}[
   scale=\scl,
   tdplot_main_coords,
+  vector/.style={-{Latex[round]},\colorVoriguno, line width=1pt},
+  vectorampliado/.style={-{Latex[round]},\colorVoriguno, line width=2pt},
+  texto/.style={\colorToriguno},
   background/.style={
     line width=\bgborderwidth,
     draw=\bgbordercolor,
     fill=\bgcolor,
   },
-  backgroundonly/.style={
-    line width=\bgborderwidth,
-    fill=\bgcolor,
-  },
+%  backgroundonly/.style={%
+%    line width=\bgborderwidth,
+%    fill=\bgcolor,
+%  },
   ]
   \coordinate (dx) at (1.8,0,0);
   \coordinate (dy) at (0,1.8,0);
   \coordinate (dz) at (0,0,1.8);
-  \draw[thick,->] (0,0,0) -- (\longeje,0,0)
-  node[anchor=north east]{$x$} coordinate (x);
-  \draw[thick,->] (0,0,0) -- (0,\longeje,0)
-  node[below right=-5pt and 0pt]{$y$};
-  \draw[thick,->] (0,0,0) -- (0,0,\longeje)
-  node[anchor=south]{$z$};
-  \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dx);
-  \node[above left,red!80!black] at (dx) {$\vvv{x}$};
-  \draw[line width=2pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dy); 
-  \node[above,red!80!black] at (dy) {$\vvv{y}$};
-  \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (dz);
-  \node[left,red!80!black] at (dz) {$\vvv{z}$};
+  \draw[thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north east]{$x$} coordinate (x);
+  \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[below right=-5pt and 0pt]{$y$};
+  \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+  \draw[vector] (0,0,0) -- (dx);
+  \node[above left,texto] at (dx) {\small $\vvv{x}$};
+  \draw[vectorampliado] (0,0,0) -- (dy); 
+  \node[above,texto] at (dy) {\small $\vvv{y}$};
+  \draw[vector]  (0,0,0) -- (dz);
+  \node[left,vector] at (dz) {\small $\vvv{z}$};
 
   \tdplotsetcoord{P}{\RVEC}{\thetavec}{\phivec}
-  \tdplotdrawarc[latex-]{(0,0,0)}{0.8}{0}{\phivec}{anchor=north}
-  {$\ang{-90}$}
+  \tdplotdrawarc[latex-]{(0,0,0)}{0.8}{0}{\phivec}{anchor=north} {$\ang{-90}$}
 
   % REPRESENTACIÓN DEL GIRO ALREDEDOR DEL EJE Z
   % \tdplotsetthetaplanecoords{-90}
@@ -1889,7 +1894,7 @@ variable $x$ de la función rotada.
   {(0,0,2.3)}{0.35}{290}{-25}{anchor=south west,color=black}{}
   % Reponer parte final del eje z para simular perspectiva
   \draw[thick,->] (0,0,2.3) -- (0,0,\longeje);
-
+  
   \begin{scope}[xshift=4cm]
     \draw[-{Latex}] (0,0,0) --
     node[above] {\small Giro activo}
@@ -1897,18 +1902,15 @@ variable $x$ de la función rotada.
     +(right:2.5cm);
   \end{scope}
 
-    \begin{scope}[xshift=10cm]
+  \begin{scope}[xshift=9cm]
     \coordinate (ddx) at (0,-1.8,0);
     \coordinate (ddy) at (1.8,0,0);
     \coordinate (ddz) at (0,0,1.8);
-    \draw[thick,->] (0,0,0) -- (\longeje,0,0)
-    node[anchor=north east]{$x$} coordinate (x);
-    \draw[thick,->] (0,0,0) -- (0,\longeje,0)
-    node[below right=-5pt and 0pt]{$y$};
-    \draw[thick,->] (0,0,0) -- (0,0,\longeje)
-    node[anchor=south]{$z$};
-    \draw[line width=2pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddy);
-    \node[right=4pt,red!80!black] at (ddy) {$\xtilde{y}$};
+    \draw[thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north east]{$x$} coordinate (x);
+    \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[below right=-5pt and 0pt]{$y$};
+    \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
+    \draw[vectorampliado] (0,0,0) -- (ddy);
+    \node[texto] at (ddy) {$\xtilde{y}$};
     \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddx);
     \node[above,red!80!black] at (ddx) {$\xtilde{x}$}; 
     \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddz);

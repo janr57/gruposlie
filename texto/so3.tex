@@ -982,15 +982,15 @@ igualdades que se necesitarán posteriormente:
       cono/.style={%
         draw=black!30, left color=black!10, middle color=black!20,right color=black!40,
         opacity=0.85, line width=0.1pt, shading angle=60},
-      vector/.style={green!50!black,-{Latex},line width=1.2pt},
-      vectorgirado/.style={red!80!black,-{Latex},line width=1.2pt},
-      ejegirooculto/.style={black, line width=0.9pt},
+      vector/.style={\colorVorig,-{Latex},line width=1.2pt},
+      vectorgirado/.style={\colorVrot,-{Latex},line width=1.2pt},
+      ejegirooculto/.style={black,line width=0.9pt},
       ejegiro/.style={ejegirooculto, -{Latex[width'=0pt 0.6pt]}},
       generatrizoculta/.style={green!50!black, line width=0.9pt},
       vectorcomponente/.style={%
         generatrizoculta,-{Latex[width'=0pt 0.6]}},
       vectorcomponentegirado/.style={%
-        red!80!black,-{Latex[width'=0pt 0.6]},line width=0.9pt},  
+        \colorVrot,-{Latex[width'=0pt 0.6]},line width=0.9pt},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,

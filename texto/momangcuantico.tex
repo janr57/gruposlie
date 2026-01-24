@@ -1855,9 +1855,14 @@ variable $x$ de la función rotada.
 \begin{tikzpicture}[
   scale=\scl,
   tdplot_main_coords,
-  vector/.style={-{Latex[round]},\colorVoriguno, line width=1pt},
-  vectorampliado/.style={-{Latex[round]},\colorVoriguno, line width=2pt},
-  texto/.style={\colorToriguno},
+  % Vector original
+  vectororig/.style={-{Latex[round]}, line width=1pt, \colorVorig},
+  vectororigampl/.style={-{Latex[round]}, \colorVorig, line width=2pt},
+  textoorig/.style={\colorTorig},
+  % Vector rotado
+  vectorrot/.style={-{Latex[round]}, line width=1pt, \colorVrot},
+  vectorrotampl/.style={-{Latex[round]}, \colorVrot, line width=2pt},
+  textorot/.style={\colorTrot},
   background/.style={
     line width=\bgborderwidth,
     draw=\bgbordercolor,
@@ -1874,12 +1879,12 @@ variable $x$ de la función rotada.
   \draw[thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north east]{$x$} coordinate (x);
   \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[below right=-5pt and 0pt]{$y$};
   \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
-  \draw[vector] (0,0,0) -- (dx);
-  \node[above left,texto] at (dx) {\small $\vvv{x}$};
-  \draw[vectorampliado] (0,0,0) -- (dy); 
-  \node[above,texto] at (dy) {\small $\vvv{y}$};
-  \draw[vector]  (0,0,0) -- (dz);
-  \node[left,vector] at (dz) {\small $\vvv{z}$};
+  \draw[vectororig] (0,0,0) -- (dx);
+  \node[above left,textoorig] at (dx) {\small $\vvv{x}$};
+  \draw[vectororigampl] (0,0,0) -- (dy); 
+  \node[above,textoorig] at (dy) {\small $\vvv{y}$};
+  \draw[vectororig]  (0,0,0) -- (dz);
+  \node[left,textoorig] at (dz) {\small $\vvv{z}$};
 
   \tdplotsetcoord{P}{\RVEC}{\thetavec}{\phivec}
   \tdplotdrawarc[latex-]{(0,0,0)}{0.8}{0}{\phivec}{anchor=north} {$\ang{-90}$}
@@ -1909,10 +1914,10 @@ variable $x$ de la función rotada.
     \draw[thick,->] (0,0,0) -- (\longeje,0,0) node[anchor=north east]{$x$} coordinate (x);
     \draw[thick,->] (0,0,0) -- (0,\longeje,0) node[below right=-5pt and 0pt]{$y$};
     \draw[thick,->] (0,0,0) -- (0,0,\longeje) node[anchor=south]{$z$};
-    \draw[vectorampliado] (0,0,0) -- (ddy);
-    \node[texto] at (ddy) {$\xtilde{y}$};
+    \draw[vectorrotampl] (0,0,0) -- (ddy);
+    \node[below right=-3pt and 3pt,textorot] at (ddy) {$\xtilde{y}$};
     \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddx);
-    \node[above,red!80!black] at (ddx) {$\xtilde{x}$}; 
+    \node[above,textorot] at (ddx) {$\xtilde{x}$}; 
     \draw[line width=1pt, -{Latex[round]}, red!80!black] (0,0,0) -- (ddz);
     \node[left,red!80!black] at (ddz) {$\xtilde{z}$};
   \end{scope}

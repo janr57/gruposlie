@@ -209,10 +209,13 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       scale=\scl,
       every node/.style={black,font=\small},
       eje/.style={->},
-      vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
-      vectorrotado/.style={vector, draw=\colorVrot},      
+      vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt, \colorVorig},
+      vectorrotado/.style={vector, \colorVrot},      
       pcirculo/.style={fill=\colorPorig, draw=black},
-      pprimacirculo/.style={\colorProt, draw=black},
+      pprimacirculo/.style={fill=\colorProt, draw=black},
+      textoorig/.style={\colorTorig},
+      textorot/.style={\colorTrot},
+      angulogirado/.style={fill=\colorAng, draw=\colorGirouno},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -235,8 +238,9 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \path (O) -- coordinate[pos=1.2] (p'arrow) (P');
       % Ángulo \varepsilon
       \path (P') -- (O) -- (P) pic
-      [draw=black!50!,fill=green!20,"\footnotesize $\varepsilon$",angle
-      radius=6mm, angle eccentricity=1.5] {angle = P'--O--P};
+      [{Latex[width=2.8pt,length=3.5pt]}-,angulogirado,"\footnotesize $\varepsilon$",
+      angle radius=25pt, angle eccentricity=0.78] {angle = P'--O--P};
+      
       % Ejes
       \draw[eje] (xini) -- (xfin);
       \node[right] at (xfin) {$x$};
@@ -244,28 +248,25 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \node[above] at (yfin) {$y$};
       % Punto P
       \draw[vector] (O) -- (P);
-      \node[above=5pt] at (OPmidway) {$\vvv{r}$};
+      \node[above=5pt,textoorig] at (OPmidway) {$\vvv{r}$};
       \fill[pcirculo] (P) circle [radius=1.4pt];
-      \node[above] at (P) {$P$};
+      \node[above,textoorig] at (P) {$P$};
       % Punto P'
       \draw[vectorrotado] (O) -- (P');
-      \node[right=0pt] at (OP'midway) {$\vvv{r}'$};
+      \node[right=0pt,textorot] at (OP'midway) {$\vvv{r}'$};
       \fill[pprimacirculo] (P') circle [radius=1.4pt];
-      \node[right] at (P') {$P'$};
+      \node[right,textorot] at (P') {$P'$};
       % Sentido de giro del vector
-      \draw [-{Latex},green!40!black,shorten <= 3pt]
-      (parrow) to[bend left=30] (p'arrow);
+      \draw[-{Latex},\colorGiro,shorten <= 3pt] (parrow) to[bend left=30] (p'arrow);
       % Incremento x
-      \draw[fill=red,draw=black] (P |- O) circle[radius=1.5pt];
-      \draw[fill=green!80!black,draw=black] (P' |- O)
-      circle[radius=1.5pt];
-      \draw[-{Latex}] (P |- under_origin) --
+      \draw[pcirculo] (P |- O) circle[radius=1.5pt];
+      \draw[pprimacirculo] (P' |- O) circle[radius=1.5pt];
+      \draw[-{Latex[width=3.5pt,length=4.7pt]}] (P |- under_origin) --
       node[below] {\scriptsize $\Delta x > 0$} (P' |- under_origin);
       % Incremento y
-      \draw[fill=red,draw=black] (P -| O) circle[radius=1.5pt];
-      \draw[fill=green!80!black,draw=black] (P' -| O)
-      circle[radius=1.5pt];
-      \draw[-{Latex}] (P -| left_origin) --
+      \draw[pcirculo] (P -| O) circle[radius=1.5pt];
+      \draw[pprimacirculo] (P' -| O) circle[radius=1.5pt];
+      \draw[-{Latex[width=3.5pt,length=4.7pt]}] (P -| left_origin) --
       node[above=-1pt,sloped,rotate=180]
       {\scriptsize $\Delta y < 0$} (P' -| left_origin);
       % Eje z
@@ -274,7 +275,7 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       node[below left] {$z$}; \fill[fill=black] (O) circle[radius=.7pt];
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}
@@ -306,10 +307,13 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       scale=\scl,
       every node/.style={black,font=\small},
       eje/.style={->},
-      vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
-      vectorrotado/.style={vector, draw=\colorVrot},
+      vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt, \colorVorig},
+      vectorrotado/.style={vector, \colorVrot},      
       pcirculo/.style={fill=\colorPorig, draw=black},
-      pprimacirculo/.style={\colorProt, draw=black},      
+      pprimacirculo/.style={fill=\colorProt, draw=black},
+      textoorig/.style={\colorTorig},
+      textorot/.style={\colorTrot},
+      angulogirado/.style={fill=\colorAng, draw=\colorGirouno},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -320,10 +324,10 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \coordinate (O) at (0,0);
       \coordinate (under_origin) at (0,-3mm);
       \coordinate (left_origin) at (-3mm,0);
-      \coordinate (yini) at (-\YMLONG cm,0);
-      \coordinate (yfin) at (\YPLONG cm,0);
-      \coordinate (zini) at (0,-\ZMLONG cm);
-      \coordinate (zfin) at (0,\ZPLONG cm);
+      \coordinate (zini) at (-\ZMLONG cm,0);
+      \coordinate (zfin) at (\ZPLONG cm,0);
+      \coordinate (yini) at (0,-\YMLONG cm);
+      \coordinate (yfin) at (0,\YPLONG cm);
       \coordinate (P) at (\PANG:\PMOD cm);
       \coordinate (P') at  (\PPRIMAANG:\PPRIMAMOD);
       \path (O) -- coordinate (OPmidway) (P);
@@ -332,46 +336,47 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \path (O) -- coordinate[pos=1.2] (p'arrow) (P');
       % Ángulo \varepsilon
       \path (P') -- (O) -- (P) pic
-      [draw=black!50!,fill=green!20,"\footnotesize $\varepsilon$",angle
-      radius=6mm, angle eccentricity=1.5] {angle = P'--O--P};
+      [{Latex[width=2.8pt,length=3.5pt]}-,angulogirado,"\footnotesize $\varepsilon$",
+      angle radius=25pt, angle eccentricity=0.78] {angle = P'--O--P};
+      
       % Ejes
-      \draw[eje] (yini) -- (yfin);
-      \node[right] at (yfin) {$y$};
       \draw[eje] (zini) -- (zfin);
-      \node[above] at (zfin) {$z$};
+      \node[right] at (zfin) {$z$};
+      \draw[eje] (yini) -- (yfin);
+      \node[above] at (yfin) {$y$};
       % Punto P
       \draw[vector] (O) -- (P);
-      \node[above=5pt] at (OPmidway) {$\vvv{r}$};
-      \fill[pcirculo] (P) circle [radius=1.4pt];
-      \node[above] at (P) {$P$};
+      \node[above=5pt,textoorig] at (OPmidway) {$\vvv{r}$};
+      \filldraw[pcirculo] (P) circle [radius=1.4pt];
+      \node[above,textoorig] at (P) {$P$};
       % Punto P'
       \draw[vectorrotado] (O) -- (P');
-      \node[right=0pt] at (OP'midway) {$\vvv{r}'$};
-      \fill[pprimacirculo] (P') circle [radius=1.4pt];
-      \node[right] at (P') {$P'$};
+      \node[right=0pt,textorot] at (OP'midway) {$\vvv{r}'$};
+      \filldraw[pprimacirculo] (P') circle [radius=1.4pt];
+      \node[right,textorot] at (P') {$P'$};
       % Sentido de giro del vector
-      \draw [-{Latex},green!40!black,shorten <= 3pt]
-      (parrow) to[bend left=30] (p'arrow);
-      % Incremento y
-      \draw[fill=red,draw=black] (P |- O) circle[radius=1.5pt];
-      \draw[fill=green!80!black,draw=black] (P' |- O)
-      circle[radius=1.5pt];
-      \draw[-{Latex}] (P |- under_origin) --
-      node[below] {\scriptsize $\Delta y > 0$} (P' |- under_origin);
+      \draw[-{Latex},\colorGiro,shorten <= 3pt] (parrow) to[bend left=30] (p'arrow);
+
       % Incremento z
-      \draw[fill=red,draw=black] (P -| O) circle[radius=1.5pt];
-      \draw[fill=green!80!black,draw=black] (P' -| O)
-      circle[radius=1.5pt];
+      \filldraw[pcirculo] (P |- O) circle[radius=1.5pt];
+      \filldraw[pprimacirculo] (P' |- O) circle[radius=1.5pt];
+      \draw[-{Latex}] (P |- under_origin) --
+      node[below] {\scriptsize $\Delta z > 0$} (P' |- under_origin);
+    
+      % Incremento y
+      \filldraw[pcirculo] (P -| O) circle[radius=1.5pt];
+      \filldraw[pprimacirculo] (P' -| O) circle[radius=1.5pt];
       \draw[-{Latex}] (P -| left_origin) --
       node[above=-1pt,sloped,rotate=180]
-      {\scriptsize $\Delta z < 0$} (P' -| left_origin);
+      {\scriptsize $\Delta y < 0$} (P' -| left_origin);
+      
       % Eje x
       \node[below left=1.8ex and -0.5em] at (O) {\scriptsize $\Delta x = 0$};
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$x$}; \fill[fill=black] (O) circle[radius=.7pt];
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}
@@ -403,10 +408,13 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       scale=\scl,
       every node/.style={black,font=\small},
       eje/.style={->},
-      vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
-      vectorrotado/.style={vector, draw=\colorVrot},
+      vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt, \colorVorig},
+      vectorrotado/.style={vector, \colorVrot},      
       pcirculo/.style={fill=\colorPorig, draw=black},
       pprimacirculo/.style={fill=\colorProt, draw=black},
+      textoorig/.style={\colorTorig},
+      textorot/.style={\colorTrot},
+      angulogirado/.style={fill=\colorAng, draw=\colorGirouno},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -429,8 +437,9 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \path (O) -- coordinate[pos=1.2] (p'arrow) (P');
       % Ángulo \varepsilon
       \path (P') -- (O) -- (P) pic
-      [draw=black!50!,fill=green!20,"\footnotesize $\varepsilon$",angle
-      radius=6mm, angle eccentricity=1.5] {angle = P'--O--P};
+      [{Latex[width=2.8pt,length=3.5pt]}-,angulogirado,"\footnotesize $\varepsilon$",
+      angle radius=25pt, angle eccentricity=0.78] {angle = P'--O--P};
+      
       % Ejes
       \draw[eje] (zini) -- (zfin);
       \node[right] at (zfin) {$z$};
@@ -438,37 +447,37 @@ disminuir, también ligeramente, mientras que la coordenada $z'$ se mantiene con
       \node[above] at (xfin) {$x$};
       % Punto P
       \draw[vector] (O) -- (P);
-      \node[above=5pt] at (OPmidway) {$\vvv{r}$};
-      \fill[pcirculo] (P) circle [radius=1.4pt];
-      \node[above] at (P) {$P$};
+      \node[above=5pt,textoorig] at (OPmidway) {$\vvv{r}$};
+      \filldraw[pcirculo] (P) circle [radius=1.4pt];
+      \node[above,textoorig] at (P) {$P$};
       % Punto P'
       \draw[vectorrotado] (O) -- (P');
-      \node[right=0pt] at (OP'midway) {$\vvv{r}'$};
-      \fill[pprimacirculo] (P') circle [radius=1.4pt];
-      \node[right] at (P') {$P'$};
+      \node[right=0pt,textorot] at (OP'midway) {$\vvv{r}'$};
+      \filldraw[pprimacirculo] (P') circle [radius=1.4pt];
+      \node[right,textorot] at (P') {$P'$};
       % Sentido de giro del vector
-      \draw [-{Latex},green!40!black,shorten <= 3pt]
-      (parrow) to[bend left=30] (p'arrow);
+      \draw[-{Latex},\colorGiro,shorten <= 3pt] (parrow) to[bend left=30] (p'arrow);
+
       % Incremento z
-      \draw[fill=red,draw=black] (P |- O) circle[radius=1.5pt];
-      \draw[fill=green!80!black,draw=black] (P' |- O)
-      circle[radius=1.5pt];
+      \filldraw[pcirculo] (P |- O) circle[radius=1.5pt];
+      \filldraw[pprimacirculo] (P' |- O) circle[radius=1.5pt];
       \draw[-{Latex}] (P |- under_origin) --
       node[below] {\scriptsize $\Delta z > 0$} (P' |- under_origin);
+    
       % Incremento x
-      \draw[fill=red,draw=black] (P -| O) circle[radius=1.5pt];
-      \draw[fill=green!80!black,draw=black] (P' -| O)
-      circle[radius=1.5pt];
+      \filldraw[pcirculo] (P -| O) circle[radius=1.5pt];
+      \filldraw[pprimacirculo] (P' -| O) circle[radius=1.5pt];
       \draw[-{Latex}] (P -| left_origin) --
       node[above=-1pt,sloped,rotate=180]
       {\scriptsize $\Delta x < 0$} (P' -| left_origin);
+      
       % Eje y
       \node[below left=1.8ex and -0.5em] at (O) {\scriptsize $\Delta y = 0$};
       \fill[fill=white,draw=black] (O) circle[radius=2.5pt]
       node[below left] {$y$}; \fill[fill=black] (O) circle[radius=.7pt];
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}      

@@ -846,21 +846,6 @@ La función rotada tiene el valor
 
 \begin{figure}[ht]
   \def\scl{1}
-  % Color de vector original
-  \newcommand{\colororig}{black!30}
-  % \newcommand{\colororig}{green!70!black}
-  % Color texto vector original
-  \newcommand{\colortxtorig}{black!60}
-  %\newcommand{\colortxtorig}{green!60!black}  
-  % Color punto original
-  %\newcommand{\colorptoorig}{green}
-  \newcommand{\colorptoorig}{gray}
-  % Color de vector rotado
-  \newcommand{\colorrot}{red!90!black}
-  % Color texto vector rotado
-  \newcommand{\colortxtrot}{red!60!black}
-  % Color punto rotado
-  \newcommand{\colorptorot}{red}
   %
   \tdplotsetmaincoords{60}{110}
   %
@@ -892,14 +877,14 @@ La función rotada tiene el valor
     angulogiro/.style={%
       line width=1.4pt,-{Latex[round,length=7pt,width=4.5pt,bend]},black!30},
     eje/.style={line width=0.5pt, ->},
-    vectorR/.style={-{Latex[width=6pt,length=6pt]},\colororig,line width=1.2pt},
-    vectorRt/.style={-{Latex[width=6pt,length=6pt]},\colorrot,line width=1.2pt},
+    vectorR/.style={-{Latex[width=6pt,length=6pt]},\colorVorig,line width=1.2pt},
+    vectorRt/.style={-{Latex[width=6pt,length=6pt]},\colorVrot,line width=1.2pt},
     puntoP/.style={fill=black,draw=black,radius=0.8pt},
     puntoPt/.style={fill=black,draw=black,radius=0.8pt},
-    puntoR/.style={fill=\colorptoorig,draw=black,radius=1.4pt},
-    puntoRt/.style={fill=\colorptorot,draw=black,radius=1.4pt},
-    textoP/.style={color=\colortxtorig},
-    textoPt/.style={color=\colortxtrot},
+    puntoR/.style={fill=\colorPorig,draw=black,radius=1.4pt},
+    puntoRt/.style={fill=\colorProt,draw=black,radius=1.4pt},
+    textoP/.style={color=\colorTorig},
+    textoPt/.style={color=\colorTrot},
     textoR/.style={textoP},
     textoRt/.style={textoPt},
     lineaguia/.style={black!50, line width=0.8pt, densely dotted},

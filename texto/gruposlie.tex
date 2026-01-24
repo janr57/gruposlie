@@ -1055,10 +1055,13 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
     scale=\scl,
     every node/.style={black,font=\small},
     eje/.style={->},
-    vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt},
-    vectorrotado/.style={vector, draw=green!50!black},
-    pcirculo/.style={fill=red, draw=black},
-    pprimacirculo/.style={green!90!black, draw=black},
+    vector/.style={-{Latex}, shorten >=1.2pt, line width=.8pt,\colorVorig},
+    vectorrotado/.style={vector, draw=\colorVrot},
+    textooriginal/.style={\colorTorig},
+    textorotado/.style={\colorTrot},
+    pcirculo/.style={fill=\colorPorig, draw=black},
+    pprimacirculo/.style={\colorProt, draw=black},
+    angulogirado/.style={fill=\colorAng, draw=\colorGirouno},
     background/.style={
       line width=\bgborderwidth,
       draw=\bgbordercolor,
@@ -1080,9 +1083,14 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
     \path (O) -- coordinate[pos=1.2] (parrow) (P);
     \path (O) -- coordinate[pos=1.2] (p'arrow) (P');
     % Ángulo \varepsilon
+%    \path (P') -- (O) -- (P) pic
+%    [{Latex[width=2.5pt,length=3.7pt]}-,draw=black!50,fill=\colorAng,
+%    "\footnotesize $\varepsilon$",angle radius=27pt, angle eccentricity=0.75]
+%    {angle = P'--O--P};
     \path (P') -- (O) -- (P) pic
-    [draw=black!50!,fill=green!20,"\footnotesize $\varepsilon$",angle
-    radius=6mm, angle eccentricity=1.5] {angle = P'--O--P};
+    [{Latex[width=2.5pt,length=3.7pt]}-,angulogirado,
+    "\footnotesize $\varepsilon$",angle radius=27pt, angle eccentricity=0.75]
+    {angle = P'--O--P};
     % Ejes
     \draw[eje] (xini) -- (xfin);
     \node[right, name=letraejex] at (xfin) {$x$};
@@ -1090,27 +1098,25 @@ Podemos resumir de forma matricial las ecuaciones~\eqref{eq:gli-giro_incxy} ante
     \node[above, name=letraejey] at (yfin) {$y$};
     % Punto P
     \draw[vector] (O) -- (P);
-    \node[above=5pt] at (OPmidway) {$\vvv{r}$};
-    \fill[pcirculo] (P) circle [radius=1.4pt];
-    \node[above] at (P) {$P$};
+    \node[textooriginal,above=5pt] at (OPmidway) {$\vvv{r}$};
+    \filldraw[pcirculo] (P) circle [radius=1.4pt];
+    \node[textooriginal,above] at (P) {$P$};
     % Punto P'
     \draw[vectorrotado] (O) -- (P');
-    \node[right=0pt] at (OP'midway) {$\vvv{r}'$};
-    \fill[pprimacirculo] (P') circle [radius=1.4pt];
+    \node[textorotado,right=0pt] at (OP'midway) {$\vvv{r}'$};
+    \filldraw[pprimacirculo] (P') circle [radius=1.4pt];
     \node[right] at (P') {$P'$};
     % Sentido de giro del vector
-    \draw [-{Latex},green!40!black,shorten <= 3pt]
+    \draw [-{Latex},\colorGiro,shorten <= 3pt]
     (parrow) to[bend left=30] (p'arrow);
     % Incremento x
-    \draw[fill=red,draw=black] (P |- O) circle[radius=1.5pt];
-    \draw[fill=green!80!black,draw=black] (P' |- O)
-    circle[radius=1.5pt];
+    \draw[pcirculo] (P |- O) circle[radius=1.5pt];
+    \filldraw[pprimacirculo] (P' |- O) circle[radius=1.5pt];
     \draw[-{Latex}] (P |- under_origin) --
     node[below,name=incx] {\scriptsize $\Delta x > 0$} (P' |- under_origin);
     % Incremento y
-    \draw[fill=red,draw=black] (P -| O) circle[radius=1.5pt];
-    \draw[fill=green!80!black,draw=black] (P' -| O)
-    circle[radius=1.5pt];
+    \draw[pcirculo] (P -| O) circle[radius=1.5pt];
+    \filldraw[pprimacirculo] (P' -| O) circle[radius=1.5pt];
     \draw[-{Latex}] (P -| left_origin) --
     node[above=-1pt,sloped,rotate=180,name=incy]
     {\scriptsize $\Delta y < 0$} (P' -| left_origin);

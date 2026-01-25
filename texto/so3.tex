@@ -982,15 +982,17 @@ igualdades que se necesitarán posteriormente:
       cono/.style={%
         draw=black!30, left color=black!10, middle color=black!20,right color=black!40,
         opacity=0.85, line width=0.1pt, shading angle=60},
-      vector/.style={\colorVorig,-{Latex},line width=1.2pt},
-      vectorgirado/.style={\colorVrot,-{Latex},line width=1.2pt},
+      vector/.style={\colorVorigGreen,-{Latex},line width=1.2pt},
+      vectorgirado/.style={\colorVrotRed,-{Latex},line width=1.2pt},
+      textoorig/.style={\colorTorigGreen},
+      textorot/.style={\colorTrotRed},
       ejegirooculto/.style={black,line width=0.9pt},
       ejegiro/.style={ejegirooculto, -{Latex[width'=0pt 0.6pt]}},
-      generatrizoculta/.style={green!50!black, line width=0.9pt},
+      generatrizoculta/.style={\colorVorigGreen, line width=0.9pt},
       vectorcomponente/.style={%
         generatrizoculta,-{Latex[width'=0pt 0.6]}},
       vectorcomponentegirado/.style={%
-        \colorVrot,-{Latex[width'=0pt 0.6]},line width=0.9pt},
+        \colorVrotRed,-{Latex[width'=0pt 0.6]},line width=0.9pt},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -1092,12 +1094,12 @@ igualdades que se necesitarán posteriormente:
 
       % Vector x original
       \draw[vector] [use path=\x];
-      \path (vertice) -- node[pos=0.5,right=4pt,green!50!black]
+      \path (vertice) -- node[pos=0.5,right=4pt,textoorig]
       {\small $\vvv{x}$} (endxperp);
       
       % Vector x girado
       \draw[vectorgirado] [use path=\xprima];
-      \path (vertice) -- node[pos=0.6,above=2pt,red!80!black]
+      \path (vertice) -- node[pos=0.6,above=2pt,textorot]
       {\small $\vvv{x'}$} (endxprimaperp);
 
       % Versor n del eje de giro (está oculto, pero le damos algo más de visibilidad)
@@ -1110,7 +1112,7 @@ igualdades que se necesitarán posteriormente:
 
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}      
@@ -1138,12 +1140,11 @@ igualdades que se necesitarán posteriormente:
       cono/.style={%
         draw=black!30, left color=black!10, middle color=black!20,right color=black!40,
         opacity=0.85, line width=0.1pt, shading angle=60},
-      vector/.style={green!50!black,-{Latex},line width=1.2pt},
-      generatrizoculta/.style={green!50!black, line width=0.9pt},
+      vector/.style={\colorVorigGreen,-{Latex},line width=1.2pt},
+      generatrizoculta/.style={\colorVorigGreen, line width=0.9pt},
       vectorcomponente/.style={%
         generatrizoculta,-{Latex[width'=0pt 0.6]}},
-      vectorcomponentegirado/.style={%
-        red!80!black,-{Latex[width'=0pt 0.6]},line width=0.9pt},  
+      textoorig/.style={\colorTorigGreen},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -1223,17 +1224,17 @@ igualdades que se necesitarán posteriormente:
       
       % Parte de la generatriz visible
       \draw[vectorcomponente] [use path=\generatrizvisible];
-      \path (vertice) -- node[green!50!black,pos=0.70,left]
+      \path (vertice) -- node[textoorig,pos=0.70,left]
       {\small $\vvv{x}_{\scriptstyle\parallel}$} (centrobase);
 
       % Vectores componentes en la base del cono
       % Vector xperp
       \draw[vectorcomponente] [use path=\xperp];
-      \path (centrobase) -- node[green!50!black,pos=0.6,above]
+      \path (centrobase) -- node[textoorig,pos=0.6,above]
       {\small $\vvv{x}_{\scriptstyle\perp}$} (endxperp);
       % Vector producto
       \draw[vectorcomponente] [use path=\xprod];
-      \path (centrobase) -- node[green!50!black,pos=-0.1,left=8pt]
+      \path (centrobase) -- node[textoorig,pos=-0.1,left=8pt]
       {\small$\vvv{x}_{\scriptstyle\prodvec}$} (endxprod);
    
       % Ángulo beta
@@ -1257,7 +1258,7 @@ igualdades que se necesitarán posteriormente:
       \fill (vertice) circle[radius=0.5pt];
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}      
@@ -1299,13 +1300,15 @@ igualdades que se necesitarán posteriormente:
       cono/.style={%
         draw=black!30, left color=black!10, middle color=black!20,right color=black!40,
         opacity=0.85, line width=0.1pt, shading angle=60},
-      vector/.style={green!50!black,-{Latex},line width=1.2pt},
-      vectorgirado/.style={red!80!black,-{Latex},line width=1.2pt},
-      generatrizoculta/.style={green!50!black, line width=0.9pt},
+      vector/.style={\colorVorigGreen,-{Latex},line width=1.2pt},
+      vectorgirado/.style={\colorVrotRed,-{Latex},line width=1.2pt},
+      generatrizoculta/.style={\colorVorigGreen, line width=0.9pt},
       vectorcomponente/.style={%
         generatrizoculta,-{Latex[width'=0pt 0.6]}},
       vectorcomponentegirado/.style={%
-        red!80!black,-{Latex[width'=0pt 0.6]},line width=0.9pt},  
+        \colorVrotRed,-{Latex[width'=0pt 0.6]},line width=0.9pt},
+      textoorig/.style={\colorTorigGreen},
+      textorot/.style={\colorTrotRed},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -1401,22 +1404,22 @@ igualdades que se necesitarán posteriormente:
       
       % Parte de la generatriz visible
       \draw[vectorcomponente] [use path=\generatrizvisible];
-      \path (vertice) -- node[green!50!black,pos=0.70,left]
+      \path (vertice) -- node[textoorig,pos=0.70,left]
       {\scriptsize $\vvv{x}_{\scriptstyle\parallel}$} (centrobase);
 
       % Vectores componentes en la base del cono
       % Vector xperp
       \draw[vectorcomponente] [use path=\xperp];
-      \path (centrobase) -- node[green!50!black,pos=0.6,above]
+      \path (centrobase) -- node[textoorig,pos=0.6,above]
       {\scriptsize $\vvv{x}_{\scriptstyle\perp}$} (endxperp);
       % Vector xprimaperp
       \draw[vectorcomponentegirado] [use path=\xprimaperp];
-      \path (centrobase) -- node[red!90!black,pos=0.6,left]
+      \path (centrobase) -- node[textorot,pos=0.6,left]
       {\scriptsize $\vvv{x}'_{\scriptstyle\perp}$} (endxprimaperp);
 
       % Vector producto
       \draw[vectorcomponente] [use path=\xprod];
-      \path (centrobase) -- node[green!50!black,pos=-0.1,left=8pt]
+      \path (centrobase) -- node[textoorig,pos=-0.1,left=8pt]
       {\scriptsize$\vvv{x}_{\scriptstyle\prodvec}$} (endxprod);
    
       % Versor n del eje de giro (está oculto, pero le damos algo más de visibilidad)
@@ -1426,12 +1429,12 @@ igualdades que se necesitarán posteriormente:
 
       % Vector x original
       \draw[vector] [use path=\x];
-      \path (vertice) -- node[pos=0.5,right=4pt,green!50!black]
+      \path (vertice) -- node[pos=0.5,right=4pt,textoorig]
       {\small $\vvv{x}$} (endxperp);
 
       % Vector x girado
       \draw[vectorgirado] [use path=\xprima];
-      \path (vertice) -- node[pos=0.6,above=2pt,red!80!black]
+      \path (vertice) -- node[pos=0.6,above=2pt,textorot]
       {\small $\vvv{x'}$} (endxprimaperp);
 
       % Centro de la base y vértice
@@ -1439,7 +1442,7 @@ igualdades que se necesitarán posteriormente:
       \fill (vertice) circle[radius=0.5pt];
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}      
@@ -1467,6 +1470,8 @@ igualdades que se necesitarán posteriormente:
       baseline,
       circunferencia/.style={%
         fill=black!1.5,draw=black!25,rotate=-30,line width=0.1pt},
+      textoorig/.style={\colorTorigGreen},
+      textorot/.style={\colorTrotRed},
       background/.style={
         line width=\bgborderwidth,
         draw=\bgbordercolor,
@@ -1492,22 +1497,20 @@ igualdades que se necesitarán posteriormente:
       
       %%% Ejes
       % x perp
-      \draw[green!50!black,-{Latex[width'=0pt 0.6]},line width=0.9pt]
-      (origen) -- (endx) node[right] {\small $\vvv{x}_{\scriptstyle\perp}$};
+      \draw[\colorVorigGreen,-{Latex[width'=0pt 0.6]},line width=0.9pt]
+      (origen) -- (endx) node[right,\colorTorigGreen]
+      {\small $\vvv{x}_{\scriptstyle\perp}$};
       % x prod
-      \draw[green!50!black,-{Latex[width'=0pt 0.6]},line width=0.9pt]
-      (origen) -- (endprod) node[below]
+      \draw[\colorVorigGreen,-{Latex[width'=0pt 0.6]},line width=0.9pt]
+      (origen) -- (endprod) node[below,\colorTorigGreen]
       {\small $\vvv{x}_{\scriptstyle\prodvec}$};
       
       %%% Vector x' perp
-      \draw[red!80!black,-{Latex[width'=0pt 0.5]},line width=1.2pt]
+      \draw[\colorVrotRed,-{Latex[width'=0pt 0.5]},line width=1.2pt]
       (origen) -- (endxp);
       % Texto
-      \node[red!80!black,below right] at (endxp)
+      \node[\colorTrotRed,below right] at (endxp)
       {\small $\vvv{x}'_{\scriptstyle\perp}$};
-      % Componente horizontal
-      % \draw[red!90!black,-{Latex[width'=0pt 0.5]},line width=1.2pt]
-      % (origen) --
       %%% Línea proyección sobre eje horizontal
       \draw[black!20,line width=0.1pt] ($(origen)!(endxp)!(endx)$)
       coordinate (linhoriz) -- (endxp);
@@ -1515,23 +1518,23 @@ igualdades que se necesitarán posteriormente:
       \draw[black!20,line width=0.1pt] ($(origen)!(endxp)!(endprod)$)
       coordinate (linvert) -- (endxp);
       %%% Componente horizontal de x prime
-      \draw[red!80!black,-{Latex[width'=0pt 0.5]},shorten >=-2pt,line
+      \draw[\colorVrotRed,-{Latex[width'=0pt 0.5]},shorten >=-2pt,line
       width=1.2pt] (origen) -- (linhoriz);
       % Texto
-      \path (origen) -- node[red!80!black,above]
+      \path (origen) -- node[\colorTrotRed,above]
       {\small $R\cos\alpha\,\xhat{u}_{\scriptstyle\perp}$} (linhoriz);
 
       %%% Componente verical de x prime
-      \draw[red!80!black,-{Latex[width'=0pt 0.5]},shorten >=-2pt,line
+      \draw[\colorVrotRed,-{Latex[width'=0pt 0.5]},shorten >=-2pt,line
       width=1.2pt] (origen) -- (linvert);
       % Texto
-      \path (origen) -- node[red!80!black,rotate=90,above]
+      \path (origen) -- node[textorot,rotate=90,above]
       {\small $R\sin\alpha\,\xhat{u}_{\scriptstyle\prodvec}$} (linvert);
       %%% Centro
       \fill[fill=black,draw=black] (origen) circle[radius=1pt];
       % Fondo amarillo
       \coordinate (SW) at ($(current bounding box.south west) + (-\HORZ cm,-\VERT cm)$);
-      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);    
+      \coordinate (NE) at ($(current bounding box.north east) + (\HORZ cm,\VERT cm)$);
       \begin{scope}[on background layer]
         \draw[background] (SW) rectangle (NE);
       \end{scope}      

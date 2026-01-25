@@ -1818,18 +1818,18 @@ rotar se comportara exactamente como los vectores.
 Como excusa para poder responder a la pregunta, vamos a rotar una derivada y, de paso,
 para añadir algo de emoción plantearemos el siguiente problema
 \begin{quote}
-  ``Se supone que sabemos como realizar la derivada parcial de una función con respecto
-  de $x$, pero no tenemos ni la más remota idea de calcularla con respecto de $y$.''
+  \emph{Se supone que sabemos como realizar la derivada parcial de una función con
+    respecto de $x$, pero no tenemos ni idea de calcularla con respecto de $y$.}
 \end{quote}
 
 Nos vamos a ayudar de la figura~\ref{fig:cua-gradiente}. En la parte izquierda se
 representa una función de forma abstracta ---de hecho no se muestra explícitamente---;
-en su lugar se colorean en rojo las variables de la función como si fueran vectores
-cuya resultante nos dé un punto de la función abstracta definida en $\symbb{R}^3$.
+en su lugar se presentan en gris las variables de la función como si fueran vectores,
+cuya resultante nos da un punto de la función abstracta definida en $\symbb{R}^3$.
 Estas variables se corresponden, como no podía ser de otra manera, con los ejes de
 coordenadas, en negro, para la función original.
 
-Como no sabemos calcular la derivada parcial con respecto de $y$ ---el vector en rojo que
+Como no sabemos calcular la derivada parcial con respecto de $y$ ---el vector en gris que
 representa a esta variable se traza con mayor grosor---, pero sí calcular $\partial_x$,
 rotamos \ang{-90} la función alrededor del eje $z$, como se observa en la parte derecha
 de la figura, consiguiendo que la variable $y$ se transforme temporalmente en la nueva
@@ -1951,7 +1951,7 @@ $\vvv{L}$
   \mmm{R} = e^{-i\frac{\theta}{\hbar} (\xhat{n}\cdot\vvv{L})}
 \]
 
-Cuando rotamos alrededor del eje $z$
+Rotamos alrededor del eje $z$
 \[
   \xhat{n}\cdot\vvv{L}
   =
@@ -1967,7 +1967,7 @@ Cuando rotamos alrededor del eje $z$
   L_z
 \]
 
-El operador de rotación que aplicaremos a la función será
+Así, el operador de rotación que aplicaremos a la función será
 \[
   \mmm{R}_z = e^{-i\frac{\theta}{\hbar} L_z}
 \]
@@ -2089,15 +2089,19 @@ Ahora podemos calcular los conmutadores de la fórmula de Hadamard
     \right\}
     = \frac{i}{\hbar}\,(-i\hbar)\,p_y
     = p_y\\
-  &\left[[\mmm{B},\mmm{A}],\mmm{A}\right]
-  =
+\end{align*}
+\begin{align*}
+  \left[[\mmm{B},\mmm{A}],\mmm{A}\right]
+  &=
+    [p_y,\mmm{A}]
+    =
     [p_y,\frac{i}{\hbar}L_z]
     = \frac{i}{\hbar}[p_y,xp_y-yp_x]
     = \frac{i}{\hbar}
     \left\{
     [p_y,xp_y] - [p_y,yp_x]
     \right\}\\
-  &\hspace{4.9em}=
+  &=
     \frac{i}{\hbar}
     \left\{
     x\cancelout{[p_y,p_y]} - [p_y,y] p_x

@@ -6,91 +6,80 @@
 % (CC-BY-NC-SA)
 
 \chapter{El spin}
-En este capítulo distinguiremos un observable como el spin $S$, de su
-representación mecanocuántica como operador hermítico $\xhat{S}$, que
-aunque lleva el acento circunflejo, no representa un vector unitario
-sino un operador hermítico.
+En este capítulo distinguiremos un observable como el spin $S$, de su representación
+mecanocuántica como operador hermítico $\xhat{S}$, que aunque lleva el acento
+circunflejo, no representa un vector unitario sino un operador hermítico.
 
 
 \section{Definición}
-El spin $S$ es un observable que \emph{vive} en nuestro mundo
-$\symbb{R}^{3}$ y tiene por tanto tres componentes
+El spin $S$ es un observable que \emph{vive} en nuestro mundo $\symbb{R}^{3}$ y tiene
+por tanto tres componentes
 \[
   \xhat{S} = (\xhat{S}_x,\xhat{S}_y,\xhat{S}_z)
 \]
 
-Como todo observable, el spin se corresponde con un operador hermítico
----matricial en este caso---, que se comporta como un vector bajo rotaciones;
-además es un momento angular porque sus componentes cumplen las relaciones
-de conmutación
+Como todo observable, el spin se corresponde con un operador hermítico ---matricial en
+este caso---, que se comporta como un vector bajo rotaciones; además es un momento
+angular porque sus componentes cumplen las relaciones de conmutación
 \[
   [\xhat{S}_i,\xhat{S}_j] = i\hbar\epsilon_{ijk}\xhat{S}_k
 \]
 
-También se puede definir como la representación del momento angular en
-un espacio de Hilbert $\symbb{C}^N$, donde $N$ es un entero positivo. 
+También se puede definir como la representación del momento angular en un espacio de Hilbert $\symbb{C}^N$, donde $N$ es un entero positivo. 
 Cada componente $\xhat{S}_i$ es una matriz cuadrada $N\times N$.
-
-Suponiendo que trabajamos en un espacio de Hilbert $\symbb{C}^N$,
-nuestra misión es:
+Suponiendo que trabajamos en un espacio de Hilbert $\symbb{C}^N$, nuestra misión es:
 \begin{quote}
-  ``Encontrar tres matrices $\xhat{S}_x$, $\xhat{S}_y$ y $\xhat{S}_z$
-  cuadradas $N\times N$, que se comporten como un vector bajo rotaciones,
-  que cumplan las propiedades del momento angular y con las leyes de la
-  mecánica cuántica (en particular que sean hermíticas).''
+  ``Encontrar tres matrices $\xhat{S}_x$, $\xhat{S}_y$ y $\xhat{S}_z$ cuadradas
+  $N\times N$, que se comporten como un vector bajo rotaciones, que cumplan las
+  propiedades del momento angular y con las leyes de la mecánica cuántica (en particular
+  que sean hermíticas).''
 \end{quote}
 
-Al final veríamos qué relación tiene todo esto con la realidad, sobre todo
-con las partículas y en particular con el electrón.
+Al final veríamos qué relación tiene todo esto con la realidad, sobre todo con las
+partículas y en particular con el electrón.
 
 
-\section{\mathinhead{\xhat{S}^2}{s2} es un escalar bajo
-  rotaciones}
+\section{\mathinhead{\xhat{S}^2}{s2} es un escalar bajo rotaciones}
 Normalmente, entendemos por escalares los números, como reales o complejos.
-Vamos a extender el concepto a \emph{escalar bajo rotaciones}, que es un
-objeto que no cambia cuando se somete a rotaciones.
+Vamos a extender el concepto a \emph{escalar bajo rotaciones}, que es un objeto que no
+cambia cuando se somete a rotaciones.
 
-Calculamos $\xhat{S}^2$, que es la norma o longitud del \emph{vector}
-$\xhat{S}$
+Calculamos $\xhat{S}^2$, que es la norma o longitud del \emph{vector} $\xhat{S}$
 \begin{equation}\label{eq:spn-S2}
   \xhat{S}^2
   =
   \xhat{S}_x^2 + \xhat{S}_y^2 + \xhat{S}_z^2
 \end{equation}
 
-Recordemos que las rotaciones no modifican la longitud de los vectores, por
-lo que esta magnitud es un \emph{escalar bajo rotaciones}.
+Recordemos que las rotaciones no modifican la longitud de los vectores, por lo que esta
+magnitud es un \emph{escalar bajo rotaciones}.
 
 \subsection{Ejemplo}
-Pongamos un ejemplo para explicar el concepto. Imaginemos que tenemos un
-barión, por ejemplo la partícula delta neutra $\Delta^\circ$.
+Pongamos un ejemplo para explicar el concepto. Imaginemos que tenemos un barión, por ejemplo la partícula delta neutra $\Delta^\circ$.
 Su spin es $3/2$, aunque por ahora no sabemos lo que significa.
-Lo demostraremos en su momento pero este spin implica que el espacio
-de Hilbert es de dimensión cuatro, $\symbb{C}^{4}$, de donde deducimos
-que las tres componentes del spin serán matrices $4\times 4$.
+Lo demostraremos en su momento pero este spin implica que el espacio de Hilbert es de
+dimensión cuatro, $\symbb{C}^{4}$, de donde deducimos que las tres componentes del spin
+serán matrices $4\times 4$.
 
 El estado cuántico del barión viene dado por una función de las coordenadas
 $\ket{\phi (x,y,z)}$ y otra $\ket{\psi}$, que nos da el estado del spin.
-Con esta función de onda se podría calcular la probabilidad de encontrar el
-barión en una cierta región del espacio y con un spin determinado
+Con esta función de onda se podría calcular la probabilidad de encontrar el barión en
+una cierta región del espacio y con un spin determinado
 \[
   \ket{\phi (x,y,z)}\, \otimes\,\ket{\psi}  
 \]
 
-La parte izquierda de la figura~\ref{fig:spn-bob-alice} representa
-un barión $\Delta^\circ$ desde el punto de vista del observador Roberto.
-Según éste, la máxima probabilidad de encontrarlo está en la posición
-$(1,0,0)$, mientras que su spin se encuentra alineado en el sentido
-positivo del eje $z$.
+La parte izquierda de la figura~\ref{fig:spn-bob-alice} representa un barión
+$\Delta^\circ$ desde el punto de vista del observador Roberto.
+Según éste, la máxima probabilidad de encontrarlo está en la posición $(1,0,0)$, mientras que su spin se encuentra alineado en el sentido positivo del eje $z$.
 
-A su vez, en la parte derecha de la figura Alicia observa la misma partícula
-desde su sistema de referencia. Según ella, la máxima probabilidad de
-encontrarla está en la posición $(0,-1,0)$ y su spin está en el sentido
-negativo del eje $x$.
+A su vez, en la parte derecha de la figura Alicia observa la misma partícula desde su
+sistema de referencia. Según ella, la máxima probabilidad de encontrarla está en la
+posición $(0,-1,0)$ y su spin está en el sentido negativo del eje $x$.
 
-Nótese que la transformación entre las dos observaciones es pasiva, esto
-es, no se ha interaccionado con la partícula; en cierta medida se ha
-producido una cierta rotación del espacio
+Nótese que la transformación entre las dos observaciones es pasiva, esto es, no se ha
+interaccionado con la partícula; en cierta medida se ha producido una cierta rotación
+del espacio
 \begin{figure}[ht]
 \def\scl{0.8}
 \def\longeje{3}
@@ -204,11 +193,11 @@ color=transparent!100]
 \label{fig:spn-bob-alice}
 \end{figure}
 
-Pero la rotación pasiva es equivalente a su contrapartida activa,
-por ejemplo, manteniendo todo el tiempo el punto de vista de Alicia y
-rotando la partícula ---interaccionando con ella---.
-Las rotaciones que se deben realizar sobre la partícula se representan
-en la figura~\ref{fig:spn-alice}
+Pero la rotación pasiva es equivalente a su contrapartida activa, por ejemplo,
+manteniendo todo el tiempo el punto de vista de Alicia y rotando la partícula
+---interaccionando con ella---.
+Las rotaciones que se deben realizar sobre la partícula se representan en la
+figura~\ref{fig:spn-alice}
 \begin{figure}[ht]
 \def\scl{0.69}
 \def\longeje{3}
@@ -390,27 +379,25 @@ color=transparent!100]
 %  \end{scope}
   
 \end{tikzpicture}
-\caption{A la izquierda de la figura el bosón aparece tal y como lo veía
-  Roberto. Lo rotamos \ang{-90} alrededor del eje $z$, después de lo cual
-  queda como se aprecia en el centro de la figura.
-  Finalmente, lo rotamos otros \ang{-90} en torno al eje $y$ y queda como
-  se observa a la derecha, tal y como lo veía Alicia.
-  Además, obsérvese que la longitud $|\vvv{S}|$ es invariante bajo
-  rotaciones.}
+\caption{A la izquierda de la figura el bosón aparece tal y como lo veía Roberto. Lo
+  rotamos \ang{-90} alrededor del eje $z$, después de lo cual queda como se aprecia en
+  el centro de la figura. Finalmente, lo rotamos otros \ang{-90} en torno al eje $y$ y
+  queda como se observa a la derecha, tal y como lo veía Alicia. Además, obsérvese que
+  la longitud $|\vvv{S}|$ es invariante bajo rotaciones.}
 \label{fig:spn-alice}
 \end{figure}
 
-Desde el punto de vista de Alicia, para pasar el bosón desde lo observado
-por Roberto hasta el suyo, debe realizar primero una rotación de \ang{-90}
-respecto del eje $z$ y luego otra rotación de \ang{-90} alrededor el eje $y$.
+Desde el punto de vista de Alicia, para pasar el bosón desde lo observado por Roberto
+hasta el suyo, debe realizar primero una rotación de \ang{-90} respecto del eje $z$ y
+luego otra rotación de \ang{-90} alrededor el eje $y$.
 
-Rotar implica utilizar el momento angular correspondiente al mundo de que
-se trate. Así, para rotar la función de estado $\phi(x,y,z) \otimes \ket{\psi}$,
-utilizaremos $\xhat{L}$ para la función $\phi$ y $\xhat{S}$ para girar
-el vector de estado de spin $\ket{\psi}$.
+Rotar implica utilizar el momento angular correspondiente al mundo de que se trate. Así,
+para rotar la función de estado $\phi(x,y,z) \otimes \ket{\psi}$, utilizaremos
+$\xhat{L}$ para la función $\phi$ y $\xhat{S}$ para girar el vector de estado de spin
+$\ket{\psi}$.
 
-La rotación activa representada en la figura~\ref{fig:spn-alice} se efectúa
-aplicando los operadores
+La rotación activa representada en la figura~\ref{fig:spn-alice} se efectúa aplicando
+los operadores
 \[
   \left(
     e^{-i\frac{-\pi/2}{\hbar}\,\xhat{L}_y}\,e^{-i\frac{-\pi/2}{\hbar}\,\xhat{L}_z}\,\phi
@@ -429,9 +416,9 @@ Por ejemplo, al rotarlo alrededor del eje $x$
   = \xhat{S}^2
 \end{equation}
 
-Para que esto suceda, $\xhat{S}^2$ debe ser independiente de rotaciones
-alrededor del eje $x$, o lo que es lo mismo, $\xhat{S}^2$ y $\xhat{S}_x$
-deben conmutar. Además, ocurrirá lo mismo con los demás ejes
+Para que esto suceda, $\xhat{S}^2$ debe ser independiente de rotaciones alrededor del
+eje $x$, o lo que es lo mismo, $\xhat{S}^2$ y $\xhat{S}_x$ deben conmutar. Además,
+ocurrirá lo mismo con los demás ejes
 \[
   [\xhat{S}^2,\xhat{S}_x]
   = [\xhat{S}^2,\xhat{S}_y]
@@ -454,18 +441,18 @@ que aplicada a nuestra transformación alrededor del eje $x$ por ejemplo
   + \cdots
 \]
 
-Para que se cumpla~(\ref{eq:spn-S2-invariante}), debe ocurrir
-que $[\xhat{S}^2,\mmm{S}_x] = 0$.
+Para que se cumpla~(\ref{eq:spn-S2-invariante}), debe ocurrir que
+$[\xhat{S}^2,\mmm{S}_x] = 0$.
 
 \section{Representación matricial de un operador}
-Para simplificar la explicación nos centraremos en un espacio de Hilbert
-$\symbb{C}^2$, aunque las conclusiones valdrán para cualquier dimensión.
+Para simplificar la explicación nos centraremos en un espacio de Hilbert $\symbb{C}^2$,
+aunque las conclusiones valdrán para cualquier dimensión.
 
 Sea $\xhat{A}$ un operador mecanocuántico de un espacio de Hilbert, y sea
-$B = \set{\ket{v_1},\ket{v_2}}$ una base ortonormal que no tiene por qué
-ser la base propia de $\xhat{A}$.
-Afirmamos que la siguiente matriz es la representación del operador
-$\xhat{A}$ en la base considerada
+$B = \set{\ket{v_1},\ket{v_2}}$ una base ortonormal que no tiene por qué ser la base
+propia de $\xhat{A}$.
+Afirmamos que la siguiente matriz es la representación del operador $\xhat{A}$ en la
+base considerada
 \begin{equation}\label{eq:spn-representacion-matricial-operador}
   \xhat{A}
   =
@@ -475,15 +462,15 @@ $\xhat{A}$ en la base considerada
   \end{pmatrix}
 \end{equation}
 
-Supongamos que al operar $\xhat{A}$ sobre los vectores de la base, obtenemos
-los siguientes resultados
+Supongamos que al operar $\xhat{A}$ sobre los vectores de la base, obtenemos los
+siguientes resultados
 \begin{align*}
   \xhat{A}\ket{v_1} &= 3\ket{v_1} + 2\ket{v_2}\\
   \xhat{A}\ket{v_2} &= 5\ket{v_1} - \ket{v_2}  
 \end{align*}
 
-Realizamos los cálculos pertinentes, teniendo en cuenta que la base es
-ortonormal, por lo que se cumple $\braket{v_i|v_j} = \delta_{ij}$
+Realizamos los cálculos pertinentes, teniendo en cuenta que la base es ortonormal, por
+lo que se cumple $\braket{v_i|v_j} = \delta_{ij}$
 \begin{align*}
   \braket{v_1|\xhat{A}|v_1}
   &=
@@ -499,8 +486,7 @@ ortonormal, por lo que se cumple $\braket{v_i|v_j} = \delta_{ij}$
     5\braket{v_2|v_1} - \braket{v_2|v_2} = -1\\
 \end{align*}
 
-La representación del operador $\xhat{A}$ en la base
-$B = \set{\ket{v_1}, \ket{v_2}}$ es,
+La representación del operador $\xhat{A}$ en la base $B = \set{\ket{v_1}, \ket{v_2}}$ es,
 según~(\ref{eq:spn-representacion-matricial-operador})
 \[
   \xhat{A}
@@ -511,39 +497,38 @@ según~(\ref{eq:spn-representacion-matricial-operador})
   \end{pmatrix}
 \]
 
-En el resultado anterior se aprecia que la representación matricial de un
-operador está formada por las componentes de $\xhat{A} \ket{v_i}$
-dispuestas en la columna $i$. 
+En el resultado anterior se aprecia que la representación matricial de un operador está
+formada por las componentes de $\xhat{A} \ket{v_i}$ dispuestas en la columna $i$. 
 
 
 \section{Representación de
   \mathinhead{\xhat{S}_z}{matrsz} y
   \mathinhead{\xhat{S}^2}{matrs2} en su base propia}
 Aclaramos que se podría haber elegido cualquiera de los operadores
-$\xhat{S}_x$, $\xhat{S}_y$ o $\xhat{S}_z$, pero escogemos el último
-porque tiene una representación matemática más sencilla.
+$\xhat{S}_x$, $\xhat{S}_y$ o $\xhat{S}_z$, pero escogemos el último porque tiene una
+representación matemática más sencilla.
 
 La ecuación de autovalores y autovectores de $\xhat{S}_z$ es
 \[
   \xhat{S}_z \ket{m} = \hbar m \ket{m}
 \]
-donde $\ket{m}$ es una función propia genérica, el operador tiene $N$ funciones
-propias y $\hbar m$ es su valor propio. La constante $\hbar$ aparece porque
-los valores propios deben tener unidades de momento angular\footnotemark{}.
-\footnotetext{Se podría haber supuesto un valor propio $m$ y en el
-  desarrollo posterior se hubiera deducido que $m$ contiene $\hbar$.}
+donde $\ket{m}$ es una función propia genérica, el operador tiene $N$ funciones propias
+y $\hbar m$ es su valor propio. La constante $\hbar$ aparece porque los valores propios
+deben tener unidades de momento angular\footnotemark{}.
+\footnotetext{Se podría haber supuesto un valor propio $m$ y en el desarrollo posterior
+  se hubiera deducido que $m$ contiene $\hbar$.}
 
-Dado que los operadores $\xhat{S}_z$ y $\xhat{S}^2$ conmutan, hay un
-teorema que dice que existe una base propia común de ambos operadores
+Dado que los operadores $\xhat{S}_z$ y $\xhat{S}^2$ conmutan, hay un teorema que dice
+que existe una base propia común de ambos operadores
 \[
   \xhat{S}^2 \ket{m} = \hbar^2 c \ket{m}
 \]
-donde $c$ es un número no negativo porque $\xhat{S}^2$ es el cuadrado
-de la longitud o norma del operador y $\hbar^2$ lo ponemos porque
-sus unidades son el cuadrado del momento angular.
-Además, como $\xhat{S}^2$ es invariante frente a rotaciones alrededor
-de los ejes de coordenadas, debe ser proporcional a la matriz unidad
----$\xhat{S}^2$ es un invariante Casimir---
+donde $c$ es un número no negativo porque $\xhat{S}^2$ es el cuadrado de la longitud o
+norma del operador y $\hbar^2$ lo ponemos porque sus unidades son el cuadrado del
+momento angular.
+Además, como $\xhat{S}^2$ es invariante frente a rotaciones alrededor de los ejes de
+coordenadas, debe ser proporcional a la matriz unidad ---$\xhat{S}^2$ es un invariante
+Casimir---
 \begin{equation}\label{eq:spn-S2casimir}
   \xhat{S}^2 = \hbar^2 c\,\mmm{I}
 \end{equation}
@@ -594,17 +579,16 @@ Por otra parte $\xhat{S}^2$, según~(\ref{eq:spn-S2casimir})
 \]
 
 \section{Operadores escalera del momento angular de spin}
-Por el momento no conocemos los valores propios ni las funciones propias
-del momento angular. Utilizaremos una técnica llamada de los
-\emph{operadores escalera} para calcularlos.
+Por el momento no conocemos los valores propios ni las funciones propias del momento
+angular. Utilizaremos una técnica llamada de los \emph{operadores escalera} para
+calcularlos.
 
-Contstruiremos unos operadores, $\xhat{S}_{+}$ y $\xhat{S}_{-}$, que aplicados
-sobre una función propia del momento angular, consigan elevar o disminuir
-su valor propio.
-Al aplicar sucesivamente estos operadores escalera a estas funciones propias,
-llegaremos a un límite inferior y a otro superior.
-De esta forma demostraremos que los valores propios están acotados tanto
-superior como inferiormente y esto nos dará la clave para hallarlos.
+Construiremos unos operadores, $\xhat{S}_{+}$ y $\xhat{S}_{-}$, que aplicados sobre una
+función propia del momento angular, consigan elevar o disminuir su valor propio.
+Al aplicar sucesivamente estos operadores escalera a estas funciones propias, llegaremos
+a un límite inferior y a otro superior.
+De esta forma demostraremos que los valores propios están acotados tanto superior como
+inferiormente y esto nos dará la clave para hallarlos.
 
 De la ecuación~(\ref{eq:spn-S2}) obtenemos
 \begin{equation}\label{eq:spn-Sx2Sy2}
@@ -655,11 +639,10 @@ De forma similar obtendríamos
 
 \subsubsection{Norma de \mathinhead{\xhat{S}_{-}\ket{m}}{s-m}
   y \mathinhead{\xhat{S}_{+}\ket{m}}{s+m}}
-Las funciones propias $\ket{m}$ están normalizadas, pero la normalización
-se pierde cuando los operadores escalera se aplican a éstas.
-Necesitamos pues, hallar la norma de $\xhat{S}_{-} \ket{m}$ y de
-$\xhat{S}_{+}\ket{m}$, pues ya no valen la unidad%, siendo $\ket{m}$ una función
-%propia genérica
+Las funciones propias $\ket{m}$ están normalizadas, pero la normalización se pierde
+cuando los operadores escalera se aplican a éstas.
+Necesitamos pues, hallar la norma de $\xhat{S}_{-} \ket{m}$ y de $\xhat{S}_{+}\ket{m}$,
+pues ya no valen la unidad%, siendo $\ket{m}$ una función propia genérica
 \begin{align*}
   \Vert\xhat{S}_{-}\ket{m}\Vert
   &=
@@ -692,8 +675,7 @@ Resumimos los resultados anteriores
 
 \subsubsection{Cálculo de \mathinhead{\xhat{S}_{-}\xhat{S}_z}{s-sz}
   y \mathinhead{\xhat{S}_{+}\xhat{S}_z}{s+sz}}
-Primero hallamos los conmutadores de $\xhat{S}_z$ con los operadores
-escalera
+Primero hallamos los conmutadores de $\xhat{S}_z$ con los operadores escalera
 \begin{align*}
   [\xhat{S}_z,\xhat{S}_{-}]
   &=
@@ -732,8 +714,8 @@ $\xhat{S}_{-}\xhat{S}_z$ y $\xhat{S}_{+}\xhat{S}_z$
 \end{align}
 
 \subsection{Aplicación de los operadores escalera sobre las funciones \mathinhead{\ket{m}}{aplescm}}
-Comenzamos aplicando los operadores escalera a la ecuación de
-autovalores y autovectores de $\xhat{S}_z$
+Comenzamos aplicando los operadores escalera a la ecuación de autovalores y autovectores
+de $\xhat{S}_z$
 \[
   \xhat{S}_z\ket{m} = \hbar m\ket{m}
 \]
@@ -769,30 +751,30 @@ Desarrollamos la expresión anterior
   \hbar (m-1)\xhat{S}_{-}\ket{m}
 \end{equation}
 
-Llegamos a la conclusión de que $\xhat{S}_{-}\ket{m}$ es una función
-propia de $\xhat{S}_z$, bajando el valor propio en $\hbar$ unidades.
-Por esta razón $\xhat{S}_{-}$ se denomina operador \emph{descendente}
+Llegamos a la conclusión de que $\xhat{S}_{-}\ket{m}$ es una función propia de
+$\xhat{S}_z$, bajando el valor propio en $\hbar$ unidades.
+Por esta razón $\xhat{S}_{-}$ se denomina operador \emph{descendente}.
 
 \subsubsection{Aplicación de \mathinhead{\xhat{S}_{+}}{apls+} sobre
   \mathinhead{\ket{m}}{apls+m}}
 Después aplicamos el operador ascendente
 $\xhat{S}_{+}$ a $\xhat{S}_z\ket{m} = \hbar m\ket{m}$.
-Utilizando el resultado de $\xhat{S}_{+}\xhat{S}_z$ en~(\ref{eq:spn-S+z}),
-llegaríamos a obtener
+Utilizando el resultado de $\xhat{S}_{+}\xhat{S}_z$ en~(\ref{eq:spn-S+z}), llegaríamos a
+obtener
 \begin{equation}\label{eq:spn-S+1}
   \xhat{S}_z\xhat{S}_{+}\ket{m}
   =
   \hbar (m+1)\xhat{S}_{+}\ket{m}
 \end{equation}
-de donde concluimos que $\xhat{S}_{+}\ket{m}$ es otra función propia de
-$\xhat{S}_z$, que eleva el valor propio en $\hbar$ unidades;
-de ahí que $\xhat{S}_{+}$ se llame operador \emph{ascendente}.
+de donde concluimos que $\xhat{S}_{+}\ket{m}$ es otra función propia de $\xhat{S}_z$,
+que eleva el valor propio en $\hbar$ unidades; de ahí que $\xhat{S}_{+}$ se llame
+operador \emph{ascendente}.
 
 \subsubsection{¿Qué son realmente
   \mathinhead{\xhat{S}_{-}\ket{z}}{apls-z} y
   \mathinhead{\xhat{S}_{+}\ket{z}}{apls+z}?}
-Ya sabíamos que eran funciones propias de $\xhat{S}_z$ con valores
-propios $\hbar\,(m-1)$ y $\hbar\,(m+1)$, respectivamente.
+Ya sabíamos que eran funciones propias de $\xhat{S}_z$ con valores propios
+$\hbar\,(m-1)$ y $\hbar\,(m+1)$, respectivamente.
 \begin{align}\label{eq:spn-S-1-v2}
   \xhat{S}_z\left(\xhat{S}_{-}\ket{m}\right)
   &=
@@ -804,8 +786,8 @@ propios $\hbar\,(m-1)$ y $\hbar\,(m+1)$, respectivamente.
 \end{align}
 
 Ahora vamos a profundizar en su naturaleza.
-Sabemos que $\ket{m-1}$ y $\ket{m+1}$ son funciones propias de $\xhat{S}_z$
-con los mismos valores propios
+Sabemos que $\ket{m-1}$ y $\ket{m+1}$ son funciones propias de $\xhat{S}_z$ con los
+mismos valores propios
 \begin{align}\label{eq:spn-Szm-1}
   \xhat{S}_z \ket{m-1}
   &=
@@ -821,14 +803,13 @@ Pero no son iguales
   \xhat{S}_{-}\ket{m} &\ne \ket{m-1}\\
   \xhat{S}_{+}\ket{m} &\ne \ket{m+1}
 \end{align*}
-porque al aplicar un operador escalera sobre una
-función propia del momento angular se pierde la normalización. Recordemos
-que la base formada por las $\ket{m}$ es ortononormal, de manera que la norma
-de cada vector de la base vale la unidad. Pues bien, la norma de
-$\xhat{S}_{-}\ket{m}$ o $\xhat{S}_{+}\ket{m}$ no vale uno.
+porque al aplicar un operador escalera sobre una función propia del momento angular se
+pierde la normalización. Recordemos que la base formada por las $\ket{m}$ es
+ortononormal, de manera que la norma de cada vector de la base vale la unidad. Pues
+bien, la norma de $\xhat{S}_{-}\ket{m}$ o $\xhat{S}_{+}\ket{m}$ no vale uno.
 
-Así, las funciones son proporcionales y la constante de proporcionalidad
-es la norma de $\xhat{S}_{-}\ket{m}$ o $\xhat{S}_{+}\ket{m}$
+Así, las funciones son proporcionales y la constante de proporcionalidad es la norma de
+$\xhat{S}_{-}\ket{m}$ o $\xhat{S}_{+}\ket{m}$
 \begin{align}\label{eq:spn-proporcionalidad1}
   \xhat{S}_{-}\ket{m} &= \Vert\xhat{S}_{-}\ket{m}\Vert\, \ket{m-1}\\
   \label{eq:spn-proporcionalidad2}
@@ -861,8 +842,7 @@ y~(\ref{eq:spn-S+m+1})
   &=
     \hbar\sqrt{c-m^2-m}\,\,\ket{m+1}
 \end{align}
-de manera que tenemos dos ecuaciones con dos incógnitas
-$\xhat{S}_x$ y $\xhat{S}_y$.
+de manera que tenemos dos ecuaciones con dos incógnitas $\xhat{S}_x$ y $\xhat{S}_y$.
 
 Sumando y restando las ecuaciones, obtenemos las incógnitas
 \begin{align}\label{eq:spn-Sxm}
@@ -880,10 +860,10 @@ Sumando y restando las ecuaciones, obtenemos las incógnitas
   \right)
 \end{align}
 
-Tenemos el valor de $\xhat{S}_x\ket{m}$ y $\xhat{S}_y\ket{m}$,
-pero no el de los operadores $\xhat{S}_x$, $\xhat{S}_y$.
-Necesitamos obtener su representación matricial y para ello calculamos
-los elementos de las matrices
+Tenemos el valor de $\xhat{S}_x\ket{m}$ y $\xhat{S}_y\ket{m}$, pero no el de los
+operadores $\xhat{S}_x$, $\xhat{S}_y$.
+Necesitamos obtener su representación matricial y para ello calculamos los elementos de
+las matrices
 \begin{align}\label{eq:spn-elem-matriz-Sx}
   \braket{m_i|\xhat{S}_x|m_j}
   &=
@@ -901,11 +881,11 @@ los elementos de las matrices
     - \sqrt{c-m_j^2-m_j}\,\,\braket{m_i|m_{j+1}}
   \right)    
 \end{align}
-donde las $\braket{m_i|m_{j\pm 1}}$ valen cero o uno porque la base de
-vectores $\ket{m}$ es ortonormal.
+donde las $\braket{m_i|m_{j\pm 1}}$ valen cero o uno porque la base de vectores $\ket{m}$
+es ortonormal.
 
-Como la base de funciones propias de $\xhat{S}_z$ es ortonormal,
-dejamos los elementos matriz anteriores en función de $\delta_{ij}$
+Como la base de funciones propias de $\xhat{S}_z$ es ortonormal, dejamos los elementos
+matriz anteriores en función de $\delta_{ij}$
 \begin{align}\label{eq:spn-elem-matriz-Sx-delta}
   \braket{m_i|\xhat{S}_x|m_j}
   &=
@@ -924,23 +904,22 @@ dejamos los elementos matriz anteriores en función de $\delta_{ij}$
   \right)  
 \end{align}
 
-
 \subsection{Cálculo de los valores propios \mathinhead{m}{m}
   y \mathinhead{c}{c}}
-Recordemos que el operador $\xhat{S}_z$ tiene el valor propio $\hbar m$
-y función propia $\ket{m}$, pero al aplicar el operador descendente/ascendente
-sobre la función $\ket{m}$, el resultado es otra función propia con un valor
-propio $\hbar$ unidades inferior/superior.
+Recordemos que el operador $\xhat{S}_z$ tiene el valor propio $\hbar m$ y función propia
+$\ket{m}$, pero al aplicar el operador descendente/ascendente sobre la función
+$\ket{m}$, el resultado es otra función propia con un valor propio $\hbar$ unidades
+inferior/superior.
 
-Si no hubiera más limitaciones, $\xhat{S}_z$ tendría infinitos vectores y
-valores propios, pero resulta que para el spin debe haber exactamente $N$
+Si no hubiera más limitaciones, $\xhat{S}_z$ tendría infinitos vectores y valores
+propios, pero resulta que para el spin debe haber exactamente $N$
 (la dimensión del espacio de Hilbert).
-Por tanto el conjunto de valores y vectores propios del spin debe estar
-acotado, tanto superior como inferiormente.
+Por tanto el conjunto de valores y vectores propios del spin debe estar acotado, tanto
+superior como inferiormente.
 
-Si llamamos $\hbar m_{\text{inf}}$ al menor valor propio y $\hbar m_{\text{sup}}$
-al mayor, y además la dimensión del espacio de Hilbert fuera, por ejemplo $N=4$,
-tendríamos una situación como la representada en la figura~\ref{fig:spn-msteps}
+Si llamamos $\hbar m_{\text{inf}}$ al menor valor propio y $\hbar m_{\text{sup}}$ al
+mayor, y además la dimensión del espacio de Hilbert fuera, por ejemplo $N=4$, tendríamos
+una situación como la representada en la figura~\ref{fig:spn-msteps}
 \begin{figure}[ht]
   \def\scl{2}
   % Fondo
@@ -993,25 +972,25 @@ tendríamos una situación como la representada en la figura~\ref{fig:spn-msteps
   \label{fig:spn-msteps}
 \end{figure}
 
-En la figura observamos que $\xhat{S}_z$ contiene $N=4$ vectores y valores
-propios y que no se pueden dar más de $N-1=3$ \emph{saltos} para pasar de
-un valor propio extremo al otro.
+En la figura observamos que $\xhat{S}_z$ contiene $N=4$ vectores y valores propios y que
+no se pueden dar más de $N-1=3$ \emph{saltos} para pasar de un valor propio extremo al
+otro.
 La relación entre $m_{\text{sup}}$, $m_{\text{inf}}$ y $N$ es
 \begin{equation}\label{eq:relacion-mMN}
   m_{\text{sup}} - m_{\text{inf}} = N - 1
 \end{equation}
 
-La función propia $\ket{m_{\text{inf}}}$ de $\xhat{S}_z$ tiene el valor propio
-más bajo posible $\hbar m_{\text{inf}}$.
-Si aplicamos el operador descendente a esta función $\ket{m_{\text{inf}}}$,
-se obtendría según~(\ref{eq:spn-S-m-1})
+La función propia $\ket{m_{\text{inf}}}$ de $\xhat{S}_z$ tiene el valor propio más bajo
+posible $\hbar m_{\text{inf}}$.
+Si aplicamos el operador descendente a esta función $\ket{m_{\text{inf}}}$, se obtendría
+según~(\ref{eq:spn-S-m-1})
 \[
   \xhat{S}_{-} \ket{m_{\text{inf}}}
   = \hbar \sqrt{c-m_{\text{inf}}^2+m_{\text{inf}}}\,\,\ket{m_{\text{inf}}-1}
 \]
 
-Pero este vector debe tener norma cero porque al aplicarle $\xhat{S}_z$
-no puede producir un valor propio menor que $m_{\text{inf}}$
+Pero este vector debe tener norma cero porque al aplicarle $\xhat{S}_z$ no puede
+producir un valor propio menor que $m_{\text{inf}}$
 \[
   c-m_{\text{inf}}^2+m_{\text{inf}} = 0
 \]
@@ -1019,9 +998,9 @@ no puede producir un valor propio menor que $m_{\text{inf}}$
   c = m_{\text{inf}}^2-m_{\text{inf}}
 \end{equation}
 
-En cambio, si tenemos la función propia $\ket{m_{\text{sup}}}$ de
-$\xhat{S}_z$ que produce el máximo valor propio $\hbar m_{\text{inf}}$
-y le aplicamos el operador ascendente, nos pasaríamos del valor máximo.
+En cambio, si tenemos la función propia $\ket{m_{\text{sup}}}$ de $\xhat{S}_z$ que
+produce el máximo valor propio $\hbar m_{\text{inf}}$ y le aplicamos el operador
+ascendente, nos pasaríamos del valor máximo.
 Según~(\ref{eq:spn-S+m+1})
 \[
   \xhat{S}_{+} \ket{m_{\text{sup}}}
@@ -1076,8 +1055,8 @@ El valor de $c$ lo calculamos con la ecuación~(\ref{eq:spn-cM})
   c = s\,(s+1)
 \end{equation}
 
-Así, llamando $s$ al spin, las ecuaciones de autovalores y autovectores de
-$\xhat{S}_z$ y $\xhat{S}^2$ son
+Así, llamando $s$ al spin, las ecuaciones de autovalores y autovectores de $\xhat{S}_z$
+y $\xhat{S}^2$ son
 \begin{align}\label{eq:spn-ecuaciones-Sz-S2}
   &\xhat{S}_z \ket{m} = \hbar m \ket{m}
   ;\hspace{1em} (m=-s,-s+1,\cdots,s-1,s)\\
@@ -1106,8 +1085,7 @@ Podemos relacionar $m_{\text{sup}} = s$ con $N$
 
 Analizaremos algunos casos particulares aplicando la ecuación anterior:
 \begin{itemize}
-\item Si $N=1$, el spin vale cero, $s=0$. Una partícula sin spin es el bosón
-  de Higgs.
+\item Si $N=1$, el spin vale cero, $s=0$. Una partícula sin spin es el bosón de Higgs.
 \item Cuando $N=2$, el spin es $s=1/2$. El electrón es una partícula típica con
   este spin.
 \item Si $N=3$, el spin vale uno, $s=1$. Una partícula con este spin es el fotón.

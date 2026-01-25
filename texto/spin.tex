@@ -8,55 +8,53 @@
 \chapter{El spin}
 En este capítulo distinguiremos un observable como el spin $S$, de su representación
 mecanocuántica como operador hermítico $\xhat{S}$, que aunque lleva el acento
-circunflejo, no representa un vector unitario sino un operador hermítico.
+circunflejo, no representa un vector unitario, sino un operador hermítico.
 
 
 \section{Definición}
 El spin $S$ es un observable que \emph{vive} en nuestro mundo $\symbb{R}^{3}$ y tiene
 por tanto tres componentes
 \[
-  \xhat{S} = (\xhat{S}_x,\xhat{S}_y,\xhat{S}_z)
+  \vvv{S} = (S_x, S_y, S_z)
 \]
 
-Como todo observable, el spin se corresponde con un operador hermítico ---matricial en
-este caso---, que se comporta como un vector bajo rotaciones; además es un momento
-angular porque sus componentes cumplen las relaciones de conmutación
+Como todo observable, el spin se corresponde con un operador hermítico $\xhat{S}$, ---matricial en este caso---, que se comporta como un vector bajo rotaciones; además es
+un momento angular porque sus componentes cumplen las relaciones de conmutación
 \[
-  [\xhat{S}_i,\xhat{S}_j] = i\hbar\epsilon_{ijk}\xhat{S}_k
+  [\mmm{\hat{S}}_i, \mmm{\xhat{S}}_j] = i\hbar\epsilon_{ijk} \mmm{\xhat{S}}_k
 \]
 
-También se puede definir como la representación del momento angular en un espacio de Hilbert $\symbb{C}^N$, donde $N$ es un entero positivo. 
-Cada componente $\xhat{S}_i$ es una matriz cuadrada $N\times N$.
-Suponiendo que trabajamos en un espacio de Hilbert $\symbb{C}^N$, nuestra misión es:
+Este operador también se puede definir como la representación del momento angular en un
+espacio de Hilbert $\symbb{C}^N$, donde $N$ es un entero positivo.
+Cada componente $\mmm{\hat{S}}_i$ es una matriz cuadrada $N\times N$.
+Nuestra misión es:
 \begin{quote}
-  ``Encontrar tres matrices $\xhat{S}_x$, $\xhat{S}_y$ y $\xhat{S}_z$ cuadradas
-  $N\times N$, que se comporten como un vector bajo rotaciones, que cumplan las
+  ``Encontrar tres matrices $\mmm{\hat{S}}_x$, $\mmm{\hat{S}}_y$ y $\mmm{\hat{S}}_z$
+  cuadradas $N\times N$, que se comporten como un vector bajo rotaciones, que cumplan las
   propiedades del momento angular y con las leyes de la mecánica cuántica (en particular
   que sean hermíticas).''
 \end{quote}
 
 Al final veríamos qué relación tiene todo esto con la realidad, sobre todo con las
-partículas y en particular con el electrón.
+partículas y en concreto con el electrón.
 
 
-\section{\mathinhead{\xhat{S}^2}{s2} es un escalar bajo rotaciones}
-Normalmente, entendemos por escalares los números, como reales o complejos.
+\section{\mathinhead{S^2}{s2ujns} es un escalar bajo rotaciones}
+Normalmente, entendemos por escalares los números, tanto reales como complejos.
 Vamos a extender el concepto a \emph{escalar bajo rotaciones}, que es un objeto que no
 cambia cuando se somete a rotaciones.
 
-Calculamos $\xhat{S}^2$, que es la norma o longitud del \emph{vector} $\xhat{S}$
+Calculamos $S^2$, que es la norma o longitud del \emph{vector} $\vvv{S}$
 \begin{equation}\label{eq:spn-S2}
-  \xhat{S}^2
-  =
-  \xhat{S}_x^2 + \xhat{S}_y^2 + \xhat{S}_z^2
+  S^2 = S_x^2 + S_y^2 + S_z^2
 \end{equation}
 
 Recordemos que las rotaciones no modifican la longitud de los vectores, por lo que esta
 magnitud es un \emph{escalar bajo rotaciones}.
 
 \subsection{Ejemplo}
-Pongamos un ejemplo para explicar el concepto. Imaginemos que tenemos un barión, por ejemplo la partícula delta neutra $\Delta^\circ$.
-Su spin es $3/2$, aunque por ahora no sabemos lo que significa.
+Pongamos un ejemplo para explicar el concepto. Imaginemos que tenemos un barión, por ejemplo la partícula delta neutra $\Delta^{\mathlarge\circ}$.
+Su spin es $3/2$ aunque, por ahora, no sabemos lo que significa.
 Lo demostraremos en su momento pero este spin implica que el espacio de Hilbert es de
 dimensión cuatro, $\symbb{C}^{4}$, de donde deducimos que las tres componentes del spin
 serán matrices $4\times 4$.
@@ -73,7 +71,7 @@ La parte izquierda de la figura~\ref{fig:spn-bob-alice} representa un barión
 $\Delta^\circ$ desde el punto de vista del observador Roberto.
 Según éste, la máxima probabilidad de encontrarlo está en la posición $(1,0,0)$, mientras que su spin se encuentra alineado en el sentido positivo del eje $z$.
 
-A su vez, en la parte derecha de la figura Alicia observa la misma partícula desde su
+A su vez, en la parte derecha de la figura, Alicia observa la misma partícula desde su
 sistema de referencia. Según ella, la máxima probabilidad de encontrarla está en la
 posición $(0,-1,0)$ y su spin está en el sentido negativo del eje $x$.
 
@@ -389,7 +387,7 @@ color=transparent!100]
 
 Desde el punto de vista de Alicia, para pasar el bosón desde lo observado por Roberto
 hasta el suyo, debe realizar primero una rotación de \ang{-90} respecto del eje $z$ y
-luego otra rotación de \ang{-90} alrededor el eje $y$.
+luego, otra rotación de \ang{-90} alrededor el eje $y$.
 
 Rotar implica utilizar el momento angular correspondiente al mundo de que se trate. Así,
 para rotar la función de estado $\phi(x,y,z) \otimes \ket{\psi}$, utilizaremos
@@ -409,16 +407,18 @@ los operadores
 \]
 
 De la ecuación anterior sólo nos interesa aquí la parte del spin.
-Observamos que $\xhat{S}^2$ es un escalar porque es invariante bajo rotaciones.
+Observamos que $S^2$ es un escalar porque es invariante bajo rotaciones.
 Por ejemplo, al rotarlo alrededor del eje $x$
 \begin{equation}\label{eq:spn-S2-invariante}
-  e^{-i\frac{\theta}{\hbar}\,\xhat{S}_x}\,\xhat{S}^2\,e^{i\frac{\theta}{\hbar}\,\xhat{S}_x}
-  = \xhat{S}^2
+  e^{-i\frac{\theta}{\hbar}\,\xhat{S}_x}\,S^2\,e^{i\frac{\theta}{\hbar}\,\xhat{S}_x}
+  = S^2\,e^{-i\frac{\theta}{\hbar}\,\xhat{S}_x}\,e^{i\frac{\theta}{\hbar}\,\xhat{S}_x}
+  = S^2\, e^0
+  = S^2
 \end{equation}
 
-Para que esto suceda, $\xhat{S}^2$ debe ser independiente de rotaciones alrededor del
-eje $x$, o lo que es lo mismo, $\xhat{S}^2$ y $\xhat{S}_x$ deben conmutar. Además,
-ocurrirá lo mismo con los demás ejes
+Para que esto suceda, $S^2$ debe ser independiente de rotaciones alrededor del eje $x$,
+o lo que es lo mismo, $\xhat{S}^2$ y $\xhat{S}_x$ deben conmutar. Además, ocurrirá lo
+mismo con los demás ejes
 \[
   [\xhat{S}^2,\xhat{S}_x]
   = [\xhat{S}^2,\xhat{S}_y]

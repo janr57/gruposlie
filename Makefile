@@ -1,5 +1,9 @@
 # Makefile for gruposlie.tex
 #
+# Copyright (C) 2022--2026 José A. Navarro Ramón <janr.devel@gmail.com>
+# Licencia del código GPLv2
+# Licencia Creative Commons Recognition Non-Commercial Share-alike.
+# (CC-BY-NC-SA)
 
 IMGSTATICDIR=img/static
 

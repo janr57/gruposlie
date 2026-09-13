@@ -7,16 +7,11 @@
 
 \chapter{Grupos de Lie}
 \label{ch:gruposlie}
-A bocajarro, definimos brevemente un grupo de Lie como un grupo que es una variedad
-diferenciable, donde las operaciones del grupo son suaves o analíticas. Su estructura
-es continua y \emph{suavemente deformable}. Más adelante se definirá de forma más
-precisa.
-
 Los grupos de Lie tienen mucha importancia en matemáticas y en física.
 Aquí estamos interesados, principalmente, en su aplicación a la mecánica cuántica; en
 particular, para comprender el concepto de spin en física de partículas, que en algunos
 textos elementales se identifica incorrectamente con el giro de las partículas alrededor
-de su eje.
+de su eje. Más adelante se dará una definición sencilla.
 
 \section{Rotaciones en el plano}
 Para asimilar mejor el concepto de \emph{grupo de Lie}, empezamos analizando las rotaciones en $\symbb{R}^2$, olvidándonos por un momento de los grupos.
@@ -726,7 +721,8 @@ descartar este valor, quedando
 \section{El grupo de rotaciones}
 Vamos puntualizar algunos detalles acerca de la matriz de rotación:
 \begin{itemize}
-\item La matriz de rotación depende de la dimensión del espacio; cuando vale 2, es
+\item La matriz de rotación\footnotemark{} depende de la dimensión del espacio; cuando
+  vale 2, es\footnotetext{Matriz de rotación pasiva.}
   \begin{equation}\label{eq:gli-rotacion2x2}
     \mmm{R}(\alpha)
     =
@@ -737,18 +733,18 @@ Vamos puntualizar algunos detalles acerca de la matriz de rotación:
   \end{equation}
   
   Aunque esta matriz la dedujimos anteriormente a partir de consideraciones
-  trigonométricas, la volveremos a obtener a partir del concepto
+  trigonométricas, la volveremos a obtener a partir del concepto de
   \emph{generador de una rotación}, que se introducirá en la sección siguiente
   \ref{sec:defgrupolie}.
   
-\item Las matrices de rotación dependen de un parámetro (el ángulo), que es una variable
-  continua, $\mmm{R} (\alpha)$.
+\item Las matrices de rotación $\mmm{R} (\alpha)$ dependen de un parámetro, el ángulo,
+  que es una variable continua.
 
 \item Las matrices que cumplen que su inversa es igual a la
-  traspuesta~\eqref{eq:gli-R_ortogonal}, como ocurre con este tipo de matrices, se dice
-  que son \emph{ortogonales}. Además, para que se trate de rotaciones, tienen que tener
-  un determinante igual a $+1$, ver la ecuación~\eqref{eq:gli-detRuno}. Estas matrices
-  suelen presentarse en las transformaciones entre bases de espacios vectoriales.
+  traspuesta, como en \eqref{eq:gli-R_ortogonal}, se dice que son \emph{ortogonales}.
+  Además, para que se trate de rotaciones, tienen que tener un determinante igual a $+1$,
+  ver la ecuación~\eqref{eq:gli-detRuno}. Estas matrices suelen presentarse en las
+  transformaciones entre bases de espacios vectoriales.
 
 \item El conjunto de las matrices de rotación, junto con el producto ordinario de
   matrices, forma un grupo, $G$, infinito y continuo
@@ -1390,6 +1386,7 @@ obteniéndose el resultado esperado \eqref{eq:gli-rotacion2x2}.
 
 
 %%% Local Variables:
+%%% coding: utf-8
 %%% mode: latex
 %%% TeX-engine: luatex
 %%% TeX-master: "../gruposlie.tex"
